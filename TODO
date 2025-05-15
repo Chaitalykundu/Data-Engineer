@@ -2,8 +2,8 @@
     - What is IaC (Infrastructure as Code)?
     - Why Terraform? Use cases and benefits.
     - Terraform vs other IaC tools (e.g., CloudFormation, Pulumi)
-    - Install Terraform on your machine
-    - Initialize a simple Terraform project
+    ✔ Install Terraform on your machine @done(25-05-16 00:11)
+    ✔ Initialize a simple Terraform project @done(25-05-16 00:11)
 
 15-05-2025:
     - Providers	
@@ -13,14 +13,14 @@
     - Use a provider (aws) and create an S3 bucket
    
    
-   sdfg:
+copilot suggestion:
     - Write your first Terraform configuration
     - Understand Terraform providers and resources
     - Use variables and outputs in Terraform
     - Plan and apply Terraform changes
     - Destroy Terraform-managed infrastructure
 
-16-05-2025:
+copilot suggestion:
     - Learn about Terraform state files
     - Remote state and state locking
     - Workspaces in Terraform

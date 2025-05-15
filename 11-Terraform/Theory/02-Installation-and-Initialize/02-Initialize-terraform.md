@@ -1,6 +1,6 @@
 # Steps
 
-1. Write code in `main.tf `
+1. Write code in `main.tf`
 
    ```hcl
    # main.tf
@@ -36,7 +36,7 @@ message = "Hello, Terraform!"
 
 &nbsp;
 
-## Code Explanation:
+## Code Explanation
 
 ```hcl
    # main.tf
@@ -66,7 +66,7 @@ message = "Hello, Terraform!"
 
 &nbsp;
 
-# What It Does:
+# What It Does
 
 When you run:
 
