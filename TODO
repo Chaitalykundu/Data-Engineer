@@ -1,0 +1,28 @@
+14-05-2025:
+    - What is IaC (Infrastructure as Code)?
+    - Why Terraform? Use cases and benefits.
+    - Terraform vs other IaC tools (e.g., CloudFormation, Pulumi)
+    - Install Terraform on your machine
+    - Initialize a simple Terraform project
+
+15-05-2025:
+    - Providers	
+    - Resources	
+    - Data sources	
+    - Input variables and output values
+    - Use a provider (aws) and create an S3 bucket
+   
+   
+   sdfg:
+    - Write your first Terraform configuration
+    - Understand Terraform providers and resources
+    - Use variables and outputs in Terraform
+    - Plan and apply Terraform changes
+    - Destroy Terraform-managed infrastructure
+
+16-05-2025:
+    - Learn about Terraform state files
+    - Remote state and state locking
+    - Workspaces in Terraform
+    - Modules: create and use reusable modules
+    - Best practices for Terraform projects

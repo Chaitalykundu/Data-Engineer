@@ -4,8 +4,7 @@
 | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | Day 1: Introduction to Terraform            | What is IaC (Infrastructure as Code)?                                                                                              | Install Terraform and write a basic main.tf that outputs "Hello, Terraform!" |
 |                                             | Why Terraform? Use cases and benefits.                                                                                             |
-|                                             | Terraform vs other IaC tools (e.g.,                                                                                                |
-|                                             | CloudFormation, Pulumi)                                                                                                            |
+|                                             | Terraform vs other IaC tools (e.g., CloudFormation, Pulumi)                                                                        |
 |                                             | Install Terraform on your machine                                                                                                  |
 |                                             | Initialize a simple project                                                                                                        |
 | Day 2: Terraform Core Concepts              | Providers                                                                                                                          | Use a provider (aws) and create an S3 bucket                                 |
