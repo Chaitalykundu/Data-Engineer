@@ -6,13 +6,14 @@
     ✔ Initialize a simple Terraform project @done(25-05-16 00:11)
 
 15-05-2025:
-    - Providers	
-    - Resources	
-    - Data sources	
+    - Providers
+    - Resources
+    - Data sources
     - Input variables and output values
     - Use a provider (aws) and create an S3 bucket
-   
-   
+    - Use a data source to fetch existing resources
+    - Use input variables to parameterize your configuration
+
 copilot suggestion:
     - Write your first Terraform configuration
     - Understand Terraform providers and resources

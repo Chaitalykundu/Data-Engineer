@@ -1,3 +1,3 @@
 output "message" {
-    value = "Hello Terraform!"
+  value = "Hello Terraform!"
 }

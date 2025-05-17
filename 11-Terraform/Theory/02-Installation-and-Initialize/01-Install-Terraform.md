@@ -1,3 +1,17 @@
+# Overview
+
+- [Overview](#overview)
+- [Install Terraform on Windows](#install-terraform-on-windows)
+  - [Option 1: Manual Installation (Recommended for beginners)](#option-1-manual-installation-recommended-for-beginners)
+- [Option 2: Install via Chocolatey (Command-line method)](#option-2-install-via-chocolatey-command-line-method)
+- [Notes](#notes)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 # Install Terraform on Windows
 
 We can install terraform in wo ways
@@ -56,15 +70,15 @@ We can install terraform in wo ways
 
 2. Run the following command in CMD as Administrator:
 
-    ```sh
-    choco install terraform -y
-    ```
+   ```sh
+   choco install terraform -y
+   ```
 
 3. Verify:
 
-    ```sh
-    terraform -version
-    ```
+   ```sh
+   terraform -version
+   ```
 
 &nbsp;
 

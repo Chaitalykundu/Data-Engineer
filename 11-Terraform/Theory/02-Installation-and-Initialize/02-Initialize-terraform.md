@@ -1,3 +1,18 @@
+# Overview
+
+- [Overview](#overview)
+- [Steps](#steps)
+  - [Output](#output)
+  - [Code Explanation](#code-explanation)
+- [What It Does](#what-it-does)
+- [Why Use Outputs?](#why-use-outputs)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 # Steps
 
 1. Write code in `main.tf`
