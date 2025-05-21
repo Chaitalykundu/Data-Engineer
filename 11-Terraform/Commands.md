@@ -42,3 +42,26 @@
 &nbsp;
 
 &nbsp;
+
+| Flag                     | Description                                  |
+| ------------------------ | -------------------------------------------- |
+| `-var="key=value"`       | Set a variable inline                        |
+| `-var-file="dev.tfvars"` | Load variables from a file                   |
+| `-auto-approve`          | Skip the "yes" prompt                        |
+| `-lock=false`            | Disable state file locking (not recommended) |
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
