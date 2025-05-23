@@ -4,8 +4,9 @@
 - [IaC (Infrastructure as Code)](#iac-infrastructure-as-code)
 - [Example](#example)
 - [Why IaC is Important](#why-iac-is-important)
-- [Tools for IaC](#tools-for-iac)
+- [Types of IaC tools](#types-of-iac-tools)
 - [Key IaC Concepts](#key-iac-concepts)
+- [Types of IaC](#types-of-iac)
 
 &nbsp;
 
@@ -16,6 +17,9 @@
 # IaC (Infrastructure as Code)
 
 Infrastructure as Code (IaC) is the practice of managing and provisioning infrastructure using machine-readable definition files, rather than manually configuring hardware or using interactive configuration tools.
+
+In Simple Terms:
+Instead of setting up servers, networks, databases, etc., manually through a UI or CLI, you write code (using tools like Terraform, AWS CloudFormation, or Ansible) to define your infrastructure — and that code is then executed to provision and manage the environment.
 
 &nbsp;
 
@@ -50,14 +54,19 @@ This snippet tells Terraform to create a `t2.micro` EC2 instance using a specifi
 
 &nbsp;
 
-# Tools for IaC
+# Types of IaC tools
 
-| Tool               | Description                         |
-| ------------------ | ----------------------------------- |
-| **Terraform**      | Cloud-agnostic IaC tool             |
-| **CloudFormation** | AWS-specific IaC solution           |
-| **Pulumi**         | IaC using general-purpose languages |
-| **Ansible**        | Configuration management & IaC      |
+| Tool               | Description                         | Category                 |
+| ------------------ | ----------------------------------- | ------------------------ |
+| **Terraform**      | Cloud-agnostic IaC tool             | Provisioning tool        |
+| **CloudFormation** | AWS-specific IaC solution           | Provisioning tool        |
+| **Pulumi**         | IaC using general-purpose languages |                          |
+| **Ansible**        | Configuration management & IaC      | Configuration management |
+| docker             |                                     | Server templating        |
+| Vagrant            |                                     | Server templating        |
+| Packer             |                                     | Server templating        |
+| Saltstack          |                                     | Configuration management |
+| puppet             |                                     | Configuration management |
 
 &nbsp;
 
@@ -72,6 +81,8 @@ This snippet tells Terraform to create a `t2.micro` EC2 instance using a specifi
 &nbsp;
 
 &nbsp;
+
+# Types of IaC
 
 &nbsp;
 

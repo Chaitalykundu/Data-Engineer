@@ -33,11 +33,11 @@ Snowflake account > Database > Schema > Table / view
 
 Snowflake’s unique architecture consists of **three** key layers:
 
-1. Database Storage layer or Data layer
+1. **Database Storage layer or Data layer**
 
-2. Compute layer or Query Processing layer or Virtual Warehouse layer
+2. **Compute layer or Query Processing layer or Virtual Warehouse layer**
 
-3. Services layer or Cloud Services layer (Brain of snowflake)
+3. **Services layer or Cloud Services layer** (Brain of snowflake)
 
 Each layer can scale independently.
 
