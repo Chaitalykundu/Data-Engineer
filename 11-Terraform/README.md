@@ -1,3 +1,15 @@
+# Study material
+
+[Terraform](https://developer.hashicorp.com/terraform/language)
+
+[HCL](https://developer.hashicorp.com/tutorials)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 # Terraform Day-wise Roadmap (15 Days)
 
 | Day                                         | Topics                                                                                                                             | Practice                                                                     |

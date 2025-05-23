@@ -5,6 +5,13 @@
 - [Key Characteristics of HCL](#key-characteristics-of-hcl)
 - [Where HCL Is Used](#where-hcl-is-used)
 - [Basic Syntax](#basic-syntax)
+  - [Note](#note)
+- [Example](#example)
+- [Steps to Run the Terraform Script](#steps-to-run-the-terraform-script)
+  - [Step 1: Write code in main](#step-1-write-code-in-main)
+  - [Step 2: Initialize Terraform (downloads the provider plugin)](#step-2-initialize-terraform-downloads-the-provider-plugin)
+  - [Step 3: See what will be done](#step-3-see-what-will-be-done)
+  - [Step 4: Apply the changes](#step-4-apply-the-changes)
 
 &nbsp;
 
@@ -49,7 +56,7 @@ It's most commonly used in tools like **Terraform**, **Consul**, and **Vault**.
 # Basic Syntax
 
 ```hcl
-<block> <parameters>{
+<block_name> <resource_type> <resource_name>{
     key1 = value1
     key2 = value2
 }
@@ -57,60 +64,52 @@ It's most commonly used in tools like **Terraform**, **Consul**, and **Vault**.
 ```
 
 &nbsp;
-Components:
-Blocks: Like provider, resource
 
-Arguments: Key-value pairs inside blocks
+### Note
 
-Expressions: Refer to other resources (aws_instance.example.id)
+`resource_type` has 2 block. Before `_` it's called provider, After `_` it's called resource.
 
 &nbsp;
 
 &nbsp;
 
-&nbsp;
+# Example
+
+```hcl
+resource "local_file" "tea"{
+    filename = "./tea_file.txt"
+    content = "We love tea!"
+}
+
+
+
+resource "local_file" "pet"{
+    filename = "./pet_file.txt"
+    content = "I don't like per at all"
+}
+
+
+```
 
 &nbsp;
 
 &nbsp;
 
-&nbsp;
+# Steps to Run the Terraform Script
 
-&nbsp;
+### Step 1: Write code in main
 
-&nbsp;
+### Step 2: Initialize Terraform (downloads the provider plugin)
 
-&nbsp;
+> run `terraform init`
 
-&nbsp;
+### Step 3: See what will be done
 
-&nbsp;
+> run `terraform plan`
 
-&nbsp;
+### Step 4: Apply the changes
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
+> run `terraform apply`
 
 &nbsp;
 
