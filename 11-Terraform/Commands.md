@@ -10,6 +10,7 @@
 | `terraform validate` | Checks for syntax errors          |
 | `terraform output`   | Shows the values of outputs       |
 | `terraform state`    | Interact with the state file      |
+| `terraform show`     |                                   |
 
 &nbsp;
 

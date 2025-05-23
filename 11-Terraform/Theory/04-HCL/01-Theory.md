@@ -116,9 +116,3 @@ resource "local_file" "pet"{
 &nbsp;
 
 &nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;

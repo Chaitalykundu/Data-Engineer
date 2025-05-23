@@ -1,8 +1,22 @@
 # Study material
 
-[Terraform](https://developer.hashicorp.com/terraform/language)
+[Udemy source](https://persistent.udemy.com/course/terraform-for-the-absolute-beginners/learn/lecture/28359870#overview)
 
-[HCL](https://developer.hashicorp.com/tutorials)
+[Terraform official doc](https://developer.hashicorp.com/terraform/language)
+
+[HCL official doc](https://developer.hashicorp.com/tutorials)
+
+[Provider list](https://registry.terraform.io/providers/hashicorp)
+
+[Local Provider](https://registry.terraform.io/providers/hashicorp/local/latest/docs)
+
+&nbsp;
+
+&nbsp;
+
+# Practice
+
+[Lab Practice](https://learn.kodekloud.com/user/courses/udemy-labs-terraform-for-beginners/module/15ad6d59-4e42-40a6-bc23-1d518cebd065/lesson/ef74c64b-1c49-455d-935c-be899526db1e)
 
 &nbsp;
 
