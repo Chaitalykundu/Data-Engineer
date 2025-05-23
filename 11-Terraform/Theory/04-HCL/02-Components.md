@@ -6,10 +6,10 @@
   - [Example](#example)
 - [Arguments](#arguments)
 - [Expressions](#expressions)
-  - [Expressions Can include:](#expressions-can-include)
+  - [Expressions Can include](#expressions-can-include)
 - [Functions](#functions)
 - [Variables](#variables)
-  - [Types:](#types)
+  - [Types](#types)
 - [Outputs](#outputs)
 - [Providers](#providers)
 - [Modules](#modules)
@@ -99,7 +99,7 @@ content = "Hello, ${var.name}!"
 content = "Instance ID is ${aws_instance.web.id}"
 ```
 
-### Expressions Can include:
+### Expressions Can include
 
 - Strings
 - String interpolation ("${...}")
@@ -146,7 +146,7 @@ output "show_region" {
 
 &nbsp;
 
-### Types:
+### Types
 
 - string
 - number
@@ -248,14 +248,15 @@ Used for documentation.
 - **Boolean**: true, false
 - **List**: ["a", "b", "c"]
 - **Map/Object**:
-  ```hcl
-  {
-    name = "John"
-    age  = 30
-  }
-  ```
 
 &nbsp;
+
+```hcl
+{
+  name = "John"
+  age  = 30
+}
+```
 
 &nbsp;
 

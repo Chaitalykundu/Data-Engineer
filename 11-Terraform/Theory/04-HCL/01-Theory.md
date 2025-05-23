@@ -8,7 +8,7 @@
   - [Note](#note)
 - [Example](#example)
 - [Steps to Run the Terraform Script](#steps-to-run-the-terraform-script)
-  - [Step 1: Write code in main](#step-1-write-code-in-main)
+  - [Step 1: Write terraform configuration file](#step-1-write-terraform-configuration-file)
   - [Step 2: Initialize Terraform (downloads the provider plugin)](#step-2-initialize-terraform-downloads-the-provider-plugin)
   - [Step 3: See what will be done](#step-3-see-what-will-be-done)
   - [Step 4: Apply the changes](#step-4-apply-the-changes)
@@ -97,7 +97,9 @@ resource "local_file" "pet"{
 
 # Steps to Run the Terraform Script
 
-### Step 1: Write code in main
+### Step 1: Write terraform configuration file
+
+> write code in `main.tf` or any other file
 
 ### Step 2: Initialize Terraform (downloads the provider plugin)
 

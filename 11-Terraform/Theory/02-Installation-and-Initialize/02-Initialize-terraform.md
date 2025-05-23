@@ -5,6 +5,9 @@
   - [Output](#output)
   - [Code Explanation](#code-explanation)
 - [What It Does](#what-it-does)
+  - [When you run: `terraform init`](#when-you-run-terraform-init)
+  - [When you run: `terraform plan`](#when-you-run-terraform-plan)
+  - [When you run: `terraform plan`](#when-you-run-terraform-plan-1)
 - [Why Use Outputs?](#why-use-outputs)
 
 &nbsp;
@@ -83,16 +86,20 @@ message = "Hello, Terraform!"
 
 # What It Does
 
-When you run:
+### When you run: `terraform init`
 
-    ```bash
-    terraform apply
-    ```
+- Terraform will downloads the provider plugin and Initialize the terraform file
 
-Terraform will:
+&nbsp;
 
-- Initialize (if needed)
-- Plan the changes (though there are no resources here)
+### When you run: `terraform plan`
+
+- Terraform will Plan the changes (though there are no resources here) and show whatb things are to be changed
+
+&nbsp;
+
+### When you run: `terraform plan`
+
 - Apply the configuration
 - Then display the output
 

@@ -5,7 +5,7 @@
 - [Description](#description)
 - [What It Does](#what-it-does)
 - [Example](#example)
-  - [You might see:](#you-might-see)
+  - [You might see](#you-might-see)
   - [Output Breakdown](#output-breakdown)
 - [Typical Use Cases](#typical-use-cases)
 - [Flags You Can Use](#flags-you-can-use)
