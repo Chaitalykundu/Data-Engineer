@@ -6,10 +6,10 @@
   - [Example](#example)
 - [Arguments](#arguments)
 - [Expressions](#expressions)
-  - [Expressions Can include](#expressions-can-include)
+    - [Expressions Can include](#expressions-can-include)
 - [Functions](#functions)
 - [Variables](#variables)
-  - [Types](#types)
+    - [Types](#types)
 - [Outputs](#outputs)
 - [Providers](#providers)
 - [Modules](#modules)
@@ -56,6 +56,8 @@ Blocks are **containers** for configuration. The most common blocks include:
 - **output**: Declares output values
 - **module**: Calls reusable Terraform modules
 - **locals**: Defines local variables for reuse within the configuration
+- **data**
+- **settings**
 
 &nbsp;
 

@@ -117,6 +117,10 @@ When we run `terraform init` terraform will download and install all the plugins
 
 &nbsp;
 
+hashicrop = organizational namespace
+
+local = type
+
 &nbsp;
 
 &nbsp;

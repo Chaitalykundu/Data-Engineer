@@ -6,7 +6,7 @@
     ✔ Initialize a simple Terraform project @done(25-05-16 00:11)
 
 15-05-2025:
-    - Providers
+    - Providers @started(25-05-25 14:50)
     - Resources
     - Data sources
     - Input variables and output values
