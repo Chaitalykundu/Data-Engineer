@@ -1,3 +1,11 @@
+# Important
+
+I wil be using PostGreSQL for practice
+
+&nbsp;
+
+&nbsp;
+
 # SQL Roadmap
 
 | Day                                    | Topics                                            | Practice                                                    | Status |

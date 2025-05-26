@@ -81,11 +81,11 @@ SQL can
 
 # Features of SQL
 
-1.  Easy to learn
-2.  Very powerful
-3.  Manage data held in a relational database
-4.  Manage access to data using GRANT, REVOKE, and user roles.
-5.  Easily integrates with programming languages like Python, Java, PHP, etc.
+1. Easy to learn
+2. Very powerful
+3. Manage data held in a relational database
+4. Manage access to data using GRANT, REVOKE, and user roles.
+5. Easily integrates with programming languages like Python, Java, PHP, etc.
 
 &nbsp;
 

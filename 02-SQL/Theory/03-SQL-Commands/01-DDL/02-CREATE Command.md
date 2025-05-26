@@ -2,7 +2,7 @@
 
 - [Overview](#overview)
 - [`CREATE` command](#create-command)
-  - [Notes:](#notes)
+  - [Notes](#notes)
 - [Create a Database](#create-a-database)
     - [Syntax](#syntax)
     - [Example](#example)
@@ -12,9 +12,12 @@
   - [Create a Table](#create-a-table)
     - [Syntax](#syntax-2)
     - [Example](#example-2)
-  - [Create a view](#create-a-view)
+  - [Create Table Using Another Table](#create-table-using-another-table)
     - [Syntax](#syntax-3)
     - [Example](#example-3)
+  - [Create a view](#create-a-view)
+    - [Syntax](#syntax-4)
+    - [Example](#example-4)
   - [Create an Index](#create-an-index)
   - [Create a User (depends on DBMS)](#create-a-user-depends-on-dbms)
 - [Database objects](#database-objects)
@@ -31,7 +34,7 @@
 
 &nbsp;
 
-## Notes:
+## Notes
 
 - `CREATE` is an **auto-commit** operation – changes are permanent and cannot be rolled back.
 
@@ -101,14 +104,17 @@ Defines a new table and its columns
 
 ```sql
 CREATE TABLE table_name (
-    column_1,
-    column_2,
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
     .
     .
-    .
-    column_n
 );
 ```
+
+- The **column** parameters specify the names of the columns of the table.
+
+- The **datatype** parameter specifies the type of data the column can hold (e.g. varchar, integer, date, etc.).
 
 &nbsp;
 
@@ -125,6 +131,37 @@ CREATE TABLE Students (
 ```
 
 - This creates a `Students` table with 4 columns.
+
+&nbsp;
+
+&nbsp;
+
+## Create Table Using Another Table
+
+- A copy of an existing table can also be created using `CREATE TABLE`.
+
+- The new table gets the same column definitions. All columns or specific columns can be selected.
+
+- If you create a new table using an existing table, the new table will be filled with the existing values from the old table.
+
+### Syntax
+
+```sql
+CREATE TABLE new_table_name AS
+SELECT column1, column2,...
+FROM existing_table_name
+WHERE condition;
+```
+
+&nbsp;
+
+### Example
+
+```sql
+CREATE TABLE TestTable AS
+SELECT customername, contactname
+FROM customers;
+```
 
 &nbsp;
 
