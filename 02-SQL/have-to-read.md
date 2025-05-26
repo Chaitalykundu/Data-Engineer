@@ -1,0 +1,6 @@
+- Tables
+- Views
+- Indexes
+- Schemas
+- Users
+- Stored procedures (in some DBMSs)

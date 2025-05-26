@@ -5,13 +5,13 @@
 - [Key Characteristics of HCL](#key-characteristics-of-hcl)
 - [Where HCL Is Used](#where-hcl-is-used)
 - [Basic Syntax](#basic-syntax)
-    - [Note](#note)
+  - [Note](#note)
 - [Example](#example)
 - [Steps to Run the Terraform Script](#steps-to-run-the-terraform-script)
-    - [Step 1: Write terraform configuration file](#step-1-write-terraform-configuration-file)
-    - [Step 2: Initialize Terraform (downloads the provider plugin)](#step-2-initialize-terraform-downloads-the-provider-plugin)
-    - [Step 3: See what will be done](#step-3-see-what-will-be-done)
-    - [Step 4: Apply the changes](#step-4-apply-the-changes)
+  - [Step 1: Write terraform configuration file](#step-1-write-terraform-configuration-file)
+  - [Step 2: Initialize Terraform (downloads the provider plugin)](#step-2-initialize-terraform-downloads-the-provider-plugin)
+  - [Step 3: See what will be done](#step-3-see-what-will-be-done)
+  - [Step 4: Apply the changes](#step-4-apply-the-changes)
 
 &nbsp;
 

@@ -15,6 +15,6 @@ Error: Extraneous label for output
 Only 1 labels (name) are expected for output blocks.
 ```
 
-## Solution :
+## Solution
 
 CHeck the configuration `blocks`

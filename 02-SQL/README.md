@@ -3,9 +3,9 @@
 | Day                                    | Topics                                            | Practice                                                    | Status |
 | -------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------- | ------ |
 | Day 1: Introduction to SQL & RDBMS     | What is SQL?                                      | Install MySQL/PostgreSQL or use online tools like DB Fiddle |        |
-|                                        | Types of SQL (DDL, DML, DCL, TCL)                 |
-|                                        | RDBMS vs DBMS                                     |
-|                                        | Popular SQL Databases                             |
+|                                        | Types of SQL (DDL, DML, DCL, TCL)                 |                                                             |        |
+|                                        | RDBMS vs DBMS                                     |                                                             |        |
+|                                        | Popular SQL Databases                             |                                                             |        |
 | Day 2: Database & Table Creation (DDL) | CREATE DATABASE, USE, DROP                        | Create databases and tables with constraints                |        |
 |                                        | CREATE TABLE, ALTER, DROP                         |
 |                                        | Data Types and Constraints (PK, UNIQUE, NOT NULL) |
