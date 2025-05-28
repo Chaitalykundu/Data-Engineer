@@ -4,7 +4,9 @@
 - [Table](#table)
 - [Create a table](#create-a-table)
   - [Syntax](#syntax)
-  - [Example](#example)
+  - [Example 1](#example-1)
+  - [Example 2](#example-2)
+  - [Explanation](#explanation)
 - [Display all tables](#display-all-tables)
 - [Details of particular table](#details-of-particular-table)
 
@@ -40,7 +42,7 @@ CREATE TABLE table_name(
 
 &nbsp;
 
-## Example
+## Example 1
 
 ```sql
 CREATE TABLE dept(
@@ -51,11 +53,42 @@ CREATE TABLE dept(
 
 &nbsp;
 
-<img src="./assets/Table/create-table.png">
+<img src="../assets/Table/create-table.png">
 
 &nbsp;
 
-<img src="./assets/Table/create-table-in-shell.jpg">
+<img src="../assets/Table/create-table-in-shell.jpg">
+
+&nbsp;
+
+&nbsp;
+
+## Example 2
+
+```sql
+CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    department VARCHAR(50),
+    salary DECIMAL(10, 2),
+    hire_date DATE
+);
+```
+
+<img src="../assets/Table/create-table-example2.png">
+
+&nbsp;
+
+## Explanation
+
+| Column       | Data Type     | Description                         |
+| ------------ | ------------- | ----------------------------------- |
+| `id`         | INT           | Unique identifier for each employee |
+| `name`       | VARCHAR(100)  | String with max length 100          |
+| `department` | VARCHAR(50)   | Employee's department               |
+| `salary`     | DECIMAL(10,2) | Salary (precision 10, scale 2)      |
+| `hire_date`  | DATE          | Date the employee was hired         |
+|              |               |                                     |
 
 &nbsp;
 
@@ -63,11 +96,11 @@ CREATE TABLE dept(
 
 # Display all tables
 
-To display all tables in the database we use `\\d` or `\\dt`
+To display all tables in the database we use `\d` or `\dt`
 
 &nbsp;
 
-<img src="./assets/Table/list-of-tables.jpg">
+<img src="../assets/Table/list-of-tables.jpg">
 
 &nbsp;
 
@@ -75,11 +108,11 @@ To display all tables in the database we use `\\d` or `\\dt`
 
 # Details of particular table
 
-To see the details of particular table in the database we use `\\d table_name`
+To see the details of particular table in the database we use `\d table_name`
 
 &nbsp;
 
-<img src="./assets/Table/details-of-particular-table.jpg">
+<img src="../assets/Table/details-of-particular-table.jpg">
 
 &nbsp;
 
