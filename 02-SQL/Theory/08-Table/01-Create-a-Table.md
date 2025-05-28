@@ -1,10 +1,22 @@
 # Overview
 
-- How to Create a table (Syntax & Example)
-- Display all tables
-- Details of particular table
+- [Overview](#overview)
+- [Table](#table)
+- [Create a table](#create-a-table)
+  - [Syntax](#syntax)
+  - [Example](#example)
+- [Display all tables](#display-all-tables)
+- [Details of particular table](#details-of-particular-table)
 
 &nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Table
+
+A table is a database object that stores data in rows and columns.
 
 &nbsp;
 
