@@ -6,7 +6,9 @@
   - [Syntax](#syntax)
   - [Example](#example)
 - [Database list](#database-list)
-  - [Syntax](#syntax-1)
+  - [SQL shell](#sql-shell)
+    - [Syntax](#syntax-1)
+  - [pgadmin](#pgadmin)
 - [Check current database](#check-current-database)
   - [Syntax](#syntax-2)
 - [Go to particular database](#go-to-particular-database)
@@ -50,17 +52,31 @@ CREATE DATABASE Company;
 
 # Database list
 
+## SQL shell
+
 In SQL shell we can simply type `\l` to see the existent Database
+
+This doesn't work in pgadmin.
 
 &nbsp;
 
-## Syntax
+### Syntax
 
 ```sql
 \l
 ```
 
 <img src="../assets/Database/list-of-database.jpg">
+
+&nbsp;
+
+## pgadmin
+
+```sql
+SELECT datname FROM pg_database;
+```
+
+<img src="../assets/Database/database-list-pgadmin.png">
 
 &nbsp;
 
@@ -78,18 +94,23 @@ to see the current database, we use `SELECT current_database();`
 SELECT current_database();
 ```
 
+<img src="../assets/Database/current-database.png">
+
 &nbsp;
 
 &nbsp;
 
 # Go to particular database
 
-To go to the database in SQL shell, we use `\c database_name`
+To go to the database in SQL shell, we use `\c database_name` or `\connect database_name`. c = connect
 
 ## Example
 
 ```sql
 \c company
+
+-- or
+\connect database_name
 ```
 
 <img src="../assets/Database/go-to-particular-database.jpg">
