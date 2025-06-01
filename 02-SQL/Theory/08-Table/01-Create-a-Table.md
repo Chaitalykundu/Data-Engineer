@@ -116,4 +116,11 @@ To see the details of particular table in the database we use `\d table_name`
 
 &nbsp;
 
+This shows:
+
+- Columns with data types
+- Indexes
+- Constraints (primary key, foreign key)
+- Triggers, if any
+
 &nbsp;

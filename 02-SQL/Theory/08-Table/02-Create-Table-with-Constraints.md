@@ -1,8 +1,9 @@
 # Overview
 
-- How to Create a Table with Constraints (Syntax & Example)
-- Display all tables
-- Details of particular table
+- [Overview](#overview)
+- [Table with Constraints](#table-with-constraints)
+  - [Syntax](#syntax)
+  - [Example](#example)
 
 &nbsp;
 
@@ -39,7 +40,7 @@ CREATE TABLE Details(
 
 &nbsp;
 
-<img src="./assets/Table/create-table-with-constraints.jpg">
+<img src="../assets/Table/create-table-with-constraints.jpg">
 
 &nbsp;
 
