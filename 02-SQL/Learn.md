@@ -214,7 +214,7 @@
 
 - Composite Indexes
 - Covering Indexes
-  
+
 &nbsp;
 
 &nbsp;

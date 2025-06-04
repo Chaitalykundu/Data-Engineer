@@ -6,9 +6,10 @@
   - [Syntax](#syntax)
   - [Example 1](#example-1)
   - [Example 2](#example-2)
-  - [Explanation](#explanation)
+    - [Explanation](#explanation)
 - [Display all tables](#display-all-tables)
-- [Details of particular table](#details-of-particular-table)
+  - [Syntax](#syntax-1)
+  - [Syntax](#syntax-2)
 
 &nbsp;
 
@@ -79,7 +80,7 @@ CREATE TABLE employees (
 
 &nbsp;
 
-## Explanation
+### Explanation
 
 | Column       | Data Type     | Description                         |
 | ------------ | ------------- | ----------------------------------- |
@@ -100,17 +101,29 @@ To display all tables in the database we use `\d` or `\dt`
 
 &nbsp;
 
+## Syntax
+
+```sql
+\d
+-- or
+\dt
+```
+
 <img src="../assets/Table/list-of-tables.jpg">
 
 &nbsp;
 
 &nbsp;
 
-# Details of particular table
-
 To see the details of particular table in the database we use `\d table_name`
 
 &nbsp;
+
+## Syntax
+
+```sql
+\d table_name
+```
 
 <img src="../assets/Table/details-of-particular-table.jpg">
 
