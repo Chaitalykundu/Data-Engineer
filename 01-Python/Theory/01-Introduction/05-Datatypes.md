@@ -53,6 +53,7 @@
    ```
 
 3. **complex**: Complex numbers
+
    ```py
     z = 2 + 3j
    ```
@@ -76,6 +77,7 @@
 # Boolean Type
 
 - **bool**: True or False
+
   ```PY
   is_valid = True
   ```
@@ -99,6 +101,7 @@
    ```
 
 3. **range**: Sequence of numbers
+
    ```py
    r = range(5)
    ```
@@ -128,6 +131,7 @@
 # Mapping Type
 
 - **dict**: Key-value pairs
+
   ```py
   student = {"name": "Alice", "age": 21}
   ```
