@@ -61,7 +61,7 @@ Operators are symbols or keywords used to perform operations on variables and va
 
 &nbsp;
 
-## Quick Rule:
+## Quick Rule
 
 Parentheses > Exponents > Unary > Multiplicative > Additive > ... > Assignment
 
