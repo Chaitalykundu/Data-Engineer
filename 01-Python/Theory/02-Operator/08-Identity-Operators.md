@@ -16,6 +16,10 @@ Identity operators are used to compare the memory locations of two objects — i
 
 &nbsp;
 
+Identity operators are `is`, `is not`
+
+&nbsp;
+
 | Operator | Description                                                      | Example      | Result       |
 | -------- | ---------------------------------------------------------------- | ------------ | ------------ |
 | `is`     | Returns `True` if both variables **point to the same object**    | `a is b`     | `True/False` |

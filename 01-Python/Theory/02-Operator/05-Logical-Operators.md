@@ -16,6 +16,10 @@ Logical operators are used to combine multiple conditions (Boolean expressions) 
 
 &nbsp;
 
+Logical operators are `and` , `or` , `not`
+
+&nbsp;
+
 | Operator | Description                                | Example         | Result |
 | -------- | ------------------------------------------ | --------------- | ------ |
 | `and`    | Returns `True` if **both** are True        | `True and True` | `True` |

@@ -16,6 +16,10 @@ Membership operators are used to check if a value exists in a sequence like a **
 
 &nbsp;
 
+Membership operators are `in`, `not in`
+
+&nbsp;
+
 | Operator | Description                                    | Example              | Result |
 | -------- | ---------------------------------------------- | -------------------- | ------ |
 | `in`     | Returns `True` if the value is **present**     | `"a" in "apple"`     | `True` |

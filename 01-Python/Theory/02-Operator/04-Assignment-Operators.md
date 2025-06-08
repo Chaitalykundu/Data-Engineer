@@ -15,6 +15,10 @@ Assignment operators are used to assign values to variables and also to update t
 
 &nbsp;
 
+Assignment operators are `=`, `+=`, `-=`, `*=`, `/=`, `//=`, `%=`, `**=`
+
+&nbsp;
+
 | Operator | Name                    | Description                                  | Example   | Equivalent To |
 | -------- | ----------------------- | -------------------------------------------- | --------- | ------------- |
 | `=`      | Assignment              | Assigns value on right to variable on left   | `x = 10`  | —             |

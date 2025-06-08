@@ -17,6 +17,10 @@ The result is always a Boolean: `True` or `False`.
 
 &nbsp;
 
+Comparison operators are `==`, `!=`, `>`, `<`, `>=`, `<=`
+
+&nbsp;
+
 | Operator | Name                     | Description                            | Example  | Result |
 | -------- | ------------------------ | -------------------------------------- | -------- | ------ |
 | `==`     | Equal to                 | Returns `True` if values are equal     | `5 == 5` | `True` |

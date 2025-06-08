@@ -15,6 +15,10 @@ Arithmetic operators are used to perform mathematical calculations.
 
 &nbsp;
 
+Arithmetic operators are `+`, `-`, `*`, `/`, `//`. `%`, `**`
+
+&nbsp;
+
 | Operator | Name           | Description                               | Example  | Output |
 | -------- | -------------- | ----------------------------------------- | -------- | ------ |
 | `+`      | Addition       | Adds two values                           | `5 + 3`  | `8`    |
