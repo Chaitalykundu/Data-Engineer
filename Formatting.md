@@ -41,9 +41,9 @@ Create a .markdownlint.json file in your project root to configure rules:
 # Prettier formatting
 
 ```
-npx prettier --write "**/*.md"
+npx prettier --check "**/*.md"
 ```
 
 ```
-npx prettier --check "**/*.md"
+npx prettier --write "**/*.md"
 ```
