@@ -45,6 +45,7 @@ Instead of writing the same code again and again, you use a loop to run it autom
 ### Note
 
 There is no `do-while` loop in python.
+
 &nbsp;
 
 &nbsp;
