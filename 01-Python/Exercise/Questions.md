@@ -22,6 +22,12 @@
 
 &nbsp;
 
+7. Reverse a string
+8. FizzBuzz
+   - This code takes a number as input and prints "Fizz" for multiples of 3,
+   - "Buzz" for multiples of 5, and "FizzBuzz" for multiples of both 3 and 5.
+   - If the number is not a multiple of 3 or 5, it prints the number itself.
+
 &nbsp;
 
 &nbsp;
