@@ -17,7 +17,7 @@
 
 # `title()` Method
 
-The `.title()` method capitalizes the first letter of every word in a string and other letters to lowercase.
+The `.title()` method capitalizes the first letter of every word in a string and converts the rest to lowercase.
 
 &nbsp;
 
