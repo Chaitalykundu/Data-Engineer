@@ -1,0 +1,6 @@
+# Ignore the pnotes directory
+.pnotes/
+
+build/
+coverage/
+checks.json

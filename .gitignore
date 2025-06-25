@@ -4,5 +4,5 @@ dist/
 /node_modules/
 /.vscode/
 build/
-/.env 
+/.env
 .pnotes/
