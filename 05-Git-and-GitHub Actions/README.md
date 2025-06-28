@@ -1,36 +1,73 @@
 # Learning material
 
-git roadmap: <https://roadmap.sh/git-github>
+# PHASE 1: Git Basics — Foundation
+
+| Step | Topic                       | Commands / Concepts                         | Goal                           | Status |
+| ---- | --------------------------- | ------------------------------------------- | ------------------------------ | ------ |
+| 1️⃣   | What is Git & VCS           | Version Control, Snapshots, Local vs Remote | Understand why Git is used     | Done   |
+| 2️⃣   | Install Git + VS Code setup | `git --version`                             | Setup Git and link with editor | Done   |
+| 3️⃣   | Initialize repo             | `git init`                                  | Start tracking your project    | Done   |
+| 4️⃣   | Git workflow                | Working Directory → Staging → Repository    | Understand Git's 3-stage model | Done   |
+| 5️⃣   | Add files                   | `git add .` / `git add <file>`              | Move changes to staging area   | Done   |
+| 6️⃣   | Commit changes              | `git commit -m "message"`                   | Save a snapshot                | Done   |
+| 7️⃣   | Status check                | `git status` / `git status -s`              | See current state              | Done   |
+| 8️⃣   | View history                | `git log`, `git log --oneline`              | Track previous commits         | Done   |
 
 &nbsp;
 
 &nbsp;
 
+# PHASE 2: Intermediate Git — Working Smart
+
+| Step | Topic           | Commands / Concepts                           | Goal                               | Status |
+| ---- | --------------- | --------------------------------------------- | ---------------------------------- | ------ |
+| 9️⃣   | Ignore files    | `.gitignore`                                  | Prevent tracking unwanted files    | Done   |
+| 🔟   | Branching       | `git branch`, `git switch`, `git checkout`    | Work on features separately        |
+| 1️⃣1️⃣ | Merging         | `git merge`                                   | Combine feature branches into main |
+| 1️⃣2️⃣ | Merge conflicts | Manual resolve + `git status`                 | Handle file conflicts              |
+| 1️⃣3️⃣ | Staging options | `git add -p`, `git diff`, `git diff --staged` | Selectively stage parts            |
+| 1️⃣4️⃣ | Atomic commits  | One purpose per commit                        | Improve commit quality             | Done   |
+
 &nbsp;
 
-# Git
+# PHASE 3: Remote Git & GitHub — Collaboration
 
-| Topic               | Status |
-| ------------------- | ------ |
-| VCS                 | Done   |
-| Git and Github      | Done   |
-| clone               |        |
-| commit              |        |
-| log                 |        |
-| pull and fetch      |        |
-| push                |        |
-| reset               |        |
-| restore             |        |
-| switch and checkout |        |
-| branching - merge   |        |
-| rebase              |        |
-| workflow            |        |
-| cherry pick         |        |
-| Stash               |        |
-| Squash              |        |
-| Revert              |        |
-| Tags                |        |
-|                     |        |
+| Step | Topic                 | Commands / Concepts             | Goal                         | Status |
+| ---- | --------------------- | ------------------------------- | ---------------------------- | ------ |
+| 1️⃣5️⃣ | Connect to GitHub     | `git remote add origin`         | Link local to remote         |
+| 1️⃣6️⃣ | Push changes          | `git push -u origin main`       | Upload commits to GitHub     |
+| 1️⃣7️⃣ | Clone a repo          | `git clone <URL>`               | Get repo copy from GitHub    | Done   |
+| 1️⃣8️⃣ | Pull changes          | `git pull`                      | Sync with latest version     |
+| 1️⃣9️⃣ | Forking and PR        | GitHub interface                | Contribute to other projects |
+| 2️⃣0️⃣ | GitHub CLI (Optional) | `gh repo clone`, `gh pr create` | Advanced GitHub usage        |
+
+&nbsp;
+
+# PHASE 4: Rewriting History — Advanced Control
+
+| Step | Topic        | Commands / Concepts                      | Goal                            |
+| ---- | ------------ | ---------------------------------------- | ------------------------------- |
+| 2️⃣1️⃣ | Undo changes | `git restore`, `git reset`, `git revert` | Fix mistakes at any stage       |
+| 2️⃣2️⃣ | Rebase       | `git rebase`, `git rebase -i`            | Clean up messy commit history   |
+| 2️⃣3️⃣ | Cherry-pick  | `git cherry-pick <commit>`               | Copy a commit to another branch |
+| 2️⃣4️⃣ | Stash        | `git stash`, `git stash pop`             | Temporarily save dirty work     |
+
+&nbsp;
+
+# PHASE 5: Bonus Concepts — Clean & Professional Workflow
+
+| Step | Topic            | Purpose                                              |
+| ---- | ---------------- | ---------------------------------------------------- |
+| 2️⃣5️⃣ | Semantic commits | Use prefixes like `feat:`, `fix:`, `refactor:`       |
+| 2️⃣6️⃣ | Tags & Releases  | `git tag`, GitHub releases                           |
+| 2️⃣7️⃣ | Commit signing   | `git config commit.gpgsign true`                     |
+| 2️⃣8️⃣ | Hooks (Optional) | Pre-commit checks using Husky, linting               |
+| 2️⃣9️⃣ | Git aliases      | Shortcuts like `git st` for `git status`             |
+| 3️⃣0️⃣ | Git in teams     | Branch naming conventions, Git Flow, trunk-based dev |
+
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 
@@ -46,38 +83,36 @@ git roadmap: <https://roadmap.sh/git-github>
 
 # Day-wise GitHub Actions Roadmap (15 Days)
 
-| **Day** | **Topic**                      | **What You'll Learn**                                                  | **Hands-on Task**                                               |
-| ------- | ------------------------------ | ---------------------------------------------------------------------- | --------------------------------------------------------------- |
-| 1       | Introduction to GitHub Actions | What is CI/CD?                                                         | Create a basic workflow file (`hello.yml`)                      |
+| **Day** | **Topic**                      | **What You'll Learn**                                                  | **Hands-on Task**                                                                               |
+| ------- | ------------------------------ | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| 1       | Introduction to GitHub Actions | What is CI/CD?                                                         | Create a basic workflow file (`hello.yml`)                                                      |
 |         |                                | What is GitHub Actions?                                                |
 |         |                                | Core concepts: Workflow, Jobs, Steps, Actions, Runners                 |
-| 2       | Events & Triggers              | Understand `on: push`, `pull_request`, `schedule`, `workflow_dispatch` | Trigger workflows manually and on push                          |
-| 3       | Workflow Syntax                | Learn `run`, `uses`, `env`, `secrets`                                  | Create a workflow with multiple steps and environment variables |
+|         |                                | Explore `.github/workflows` folder                                     |
+| 2       | Events & Triggers              | Understand on: `push`, `pull_request`, `schedule`, `workflow_dispatch` | Trigger workflows manually and on push                                                          |
+| 3       | Workflow Syntax                | Learn `run`, `uses`, `env`, `secrets`                                  | Create a workflow with multiple steps and environment variables (e.g., install deps, run tests) |
 |         |                                | Job dependencies with `needs:`                                         |
-| 4       | GitHub Marketplace Actions     | Search and understand actions in the GitHub Marketplace                | Setup a Node.js CI with GitHub Actions                          |
+| 4       | GitHub Marketplace Actions     | Search and understand actions in the GitHub Marketplace                | Setup a Node.js or Python CI with marketplace Actions                                           |
 |         |                                | Popular actions: actions/checkout, setup-node, setup-python            |
-| 5       | Caching & Artifacts            | Use `actions/cache` to cache dependencies                              | Cache dependencies and upload test results                      |
+|         |                                | Pass inputs to actions                                                 |
+| 5       | Caching & Artifacts            | Use `actions/cache` to cache dependencies                              | Cache dependencies and upload test results                                                      |
 |         |                                | Upload/download build/test artifacts                                   |
-| 6       | Matrix Builds                  | Run jobs in parallel on multiple OS/language versions                  | Build a matrix to test on Ubuntu, macOS, and Windows            |
-| 7       | Review + Mini Project          | Revise Days 1–6                                                        | Build a full CI pipeline for a project                          |
-| 8       | Secrets & Security             | Managing secrets in GitHub (Store/use secrets)                         | Use API keys or tokens securely in a workflow                   |
-|         |                                | Masking values and safe logging                                        |                                                                 |
-| 9       | Custom JavaScript Actions      | Write your own GitHub Action in JavaScript                             | Create a greet-user action using input parameters               |
-|         |                                | Understand action.yml, inputs/outputs                                  |                                                                 |
-| 10      | What are composite actions     | Create reusable logic with composite actions                           | Build a composite action with 2–3 steps                         |
-
-What are composite actions?
-
-Organize repeated logic into reusable composite workflows
-
-| 11 | Docker-based Actions | Learn Docker-based custom actions | Build an action using a Docker container |
-| | | Building your first Docker container-based GitHub Action |
-
-| 12 | Scheduled Workflows | Use cron expressions in `schedule:` | Setup a job to run daily (e.g., cleanup or ping) |
-| | | Automate tasks (e.g., weekly cleanups, reports) | |
-| 13 | Reusable Workflows | DRY principles using called workflows across repos | Create and reuse a test workflow in multiple projects |
-| 14 | Deployment Integration | Deploy to: GitHub Pages, Netlify, Vercel, or AWS | Auto-deploy a site or app post build |
-| 15 | Best Practices + Final Project | Security, efficiency, modular workflows | Build a real-world CI/CD pipeline with lint, test, matrix build, and deploy |
+| 6       | Matrix Builds                  | Run jobs in parallel on multiple OS/language versions                  | Build a matrix to test on Ubuntu, macOS, and Windows                                            |
+| 7       | Review + Mini Project          | Revise Days 1–6                                                        | Build a full CI pipeline for a project                                                          |
+| 8       | Secrets & Security             | Managing secrets in GitHub (Store/use secrets)                         | Use API keys or tokens securely in a workflow                                                   |
+|         |                                | Masking values and safe logging                                        |                                                                                                 |
+| 9       | Custom JavaScript Actions      | Write your own GitHub Action in JavaScript                             | Create a greet-user action using input parameters                                               |
+|         |                                | Understand action.yml, inputs/outputs                                  |                                                                                                 |
+| 10      | What are composite actions     | Create reusable logic with composite actions                           | Build a composite action with 2–3 steps                                                         |
+|         |                                | What are composite actions?                                            |
+|         |                                | Organize repeated logic into reusable composite workflows              |
+| 11      | Docker-based Actions           | Learn Docker-based custom actions                                      | Build an action using a Docker container                                                        |
+|         |                                | Building your first Docker container-based GitHub Action               |
+| 12      | Scheduled Workflows            | Use cron expressions in `schedule:`                                    | Setup a job to run daily (e.g., cleanup or ping)                                                |
+|         |                                | Automate tasks (e.g., weekly cleanups, reports)                        |                                                                                                 |
+| 13      | Reusable Workflows             | DRY principles using called workflows across repos                     | Create and reuse a test workflow in multiple projects                                           |
+| 14      | Deployment Integration         | Deploy to: GitHub Pages, Netlify, Vercel, or AWS                       | Auto-deploy a site or app post build                                                            |
+| 15      | Best Practices + Final Project | Security, efficiency, modular workflows                                | Build a real-world CI/CD pipeline with lint, test, matrix build, and deploy                     |
 
 &nbsp;
 
@@ -86,45 +121,6 @@ Organize repeated logic into reusable composite workflows
 &nbsp;
 
 &nbsp;
-
-✅ Day 1: Introduction & Setup
-What is CI/CD?
-
-What is GitHub Actions?
-
-Understand:
-
-Workflows
-
-Jobs
-
-Steps
-
-Actions
-
-Runners
-
-Explore .github/workflows folder
-
-🛠️ Hands-on: Create a hello-world.yml workflow triggered on push
-
-✅ Day 2: Workflow Syntax Deep Dive
-Explore on: triggers: push, pull_request, workflow_dispatch, schedule
-
-Use env, secrets, and with
-
-Understand run: and uses:
-
-🛠️ Hands-on: Add multiple steps (e.g., install deps, run tests)
-
-✅ Day 3: Actions & Marketplace
-Learn how to:
-
-Use third-party actions (e.g., actions/checkout, setup-node)
-
-Pass inputs to actions
-
-🛠️ Hands-on: Setup a Node.js or Python CI using marketplace actions
 
 ✅ Day 4: Create Your Own Action
 Understand types:
@@ -192,32 +188,6 @@ Integration with Terraform, AWS, etc
 &nbsp;
 
 GitHub Actions Roadmap
-🔰 1. Basics & Fundamentals
-✅ What is GitHub Actions?
-
-✅ Key concepts:
-
-Workflow
-
-Jobs
-
-Steps
-
-Actions
-
-Runners
-
-✅ Basic .github/workflows/main.yml structure
-
-✅ Trigger types:
-
-push
-
-pull_request
-
-schedule
-
-workflow_dispatch
 
 🧱 2. Creating Your First Workflow
 🚀 Hello World workflow on push
