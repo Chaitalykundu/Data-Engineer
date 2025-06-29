@@ -8,6 +8,7 @@
 - [Key Concept](#key-concept)
 - [Example Use Cases](#example-use-cases)
 - [Why Use Terraform?](#why-use-terraform)
+- [Terraform Workflow](#terraform-workflow)
 - [Declarative Configuration Language](#declarative-configuration-language)
 
 &nbsp;
@@ -113,10 +114,22 @@ It helps automate the setup, modification, and destruction of your infrastructur
 
 &nbsp;
 
+# Terraform Workflow
+
+1. Write → Define infrastructure in `.tf` files using HCL
+2. Init → Initialize project with `terraform init`
+3. Plan → Preview changes with `terraform plan`
+4. Apply → Create/update resources with `terraform apply`
+5. Destroy → Tear down resources with `terraform destroy`
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 # Declarative Configuration Language
 
 A Declarative Configuration Language is a type of language used to define what the desired state of a system should be, rather than how to achieve that state.
-
-&nbsp;
-
-&nbsp;

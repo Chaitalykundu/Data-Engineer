@@ -85,6 +85,6 @@
 
 - Terraform with CI/CD (GitHub Actions, GitLab)
 - Terraform + Ansible
-- Terragrunt for large-scale environments
+- Terraform for large-scale environments
 - Sentinel Policies (for Terraform Cloud)
 - Using Terraform with Azure/GCP

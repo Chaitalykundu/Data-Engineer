@@ -18,25 +18,32 @@
 
 # Steps
 
-1. Write code in `main.tf`
+1.  Create Your First Project
 
-   ```hcl
-   # main.tf
+    ```bash
+    mkdir terraform-demo
+    cd terraform-demo
+    ```
 
-    output "message" {
-      value = "Hello, Terraform!"
-    }
-   ```
+2.  Create a file named `main.tf` and Write code in it
 
-2. Open your terminal in the same directory and run:
+    ```hcl
+    # main.tf
 
-   ```bash
-   terraform init
-   terraform plan
-   terraform apply
-   ```
+     output "message" {
+       value = "Hello, Terraform!"
+     }
+    ```
 
-3. When prompted, type `yes`.
+3.  Open your terminal in the same directory and run:
+
+    ```bash
+    terraform init
+    terraform plan
+    terraform apply
+    ```
+
+4.  When prompted, type `yes`.
 
 &nbsp;
 
@@ -88,13 +95,13 @@ message = "Hello, Terraform!"
 
 ### When you run: `terraform init`
 
-- Terraform will downloads the provider plugin and Initialize the terraform file
+- Terraform will downloads the **provider plugin** and Initialize the terraform file
 
 &nbsp;
 
 ### When you run: `terraform plan`
 
-- Terraform will Plan the changes (though there are no resources here) and show whatb things are to be changed
+- Terraform will Plan the changes (though there are no resources here) and show things are to be changed
 
 &nbsp;
 

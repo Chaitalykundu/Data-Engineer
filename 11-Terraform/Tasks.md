@@ -100,3 +100,9 @@ terraform destroy
 &nbsp;
 
 &nbsp;
+
+# a real project example, such as:
+
+1. Deploying a static website on S3?
+2. Setting up a VPC + EC2 instance?
+3. Using Terraform modules?

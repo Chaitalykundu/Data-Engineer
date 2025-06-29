@@ -6,7 +6,7 @@
 - [Why IaC is Important](#why-iac-is-important)
 - [Types of IaC tools](#types-of-iac-tools)
 - [Key IaC Concepts](#key-iac-concepts)
-- [Types of IaC](#types-of-iac)
+- [Use Cases](#use-cases)
 
 &nbsp;
 
@@ -18,7 +18,10 @@
 
 Infrastructure as Code (IaC) is the practice of managing and provisioning infrastructure using machine-readable definition files, rather than manually configuring hardware or using interactive configuration tools.
 
+&nbsp;
+
 In Simple Terms:
+
 Instead of setting up servers, networks, databases, etc., manually through a UI or CLI, you write code (using tools like Terraform, AWS CloudFormation, or Ansible) to define your infrastructure — and that code is then executed to provision and manage the environment.
 
 &nbsp;
@@ -28,7 +31,7 @@ Instead of setting up servers, networks, databases, etc., manually through a UI 
 # Example
 
 ```hcl
-<!-- # Terraform example: Create an AWS EC2 instance -->
+# Terraform example: Create an AWS EC2 instance
 
 resource "aws_instance" "web" {
   ami           = "ami-0c55b159cbfafe1f0"
@@ -44,11 +47,11 @@ This snippet tells Terraform to create a `t2.micro` EC2 instance using a specifi
 
 # Why IaC is Important
 
-- Consistency: Every environment (dev/staging/prod) is identical.
-- Version Control: Track changes just like application code using Git.
-- Automation: Infrastructure can be deployed with a single command.
-- Speed: Faster provisioning of resources.
-- Reduced Human Error: Eliminate manual misconfigurations.
+- **Consistency**: Every environment (dev/staging/prod) is identical.
+- **Version Control**: Track changes just like application code using Git.
+- **Automation**: Infrastructure can be deployed with a single command.
+- **Speed**: Faster provisioning of resources.
+- **Reduced Human Error**: Eliminate manual misconfigurations.
 
 &nbsp;
 
@@ -82,7 +85,13 @@ This snippet tells Terraform to create a `t2.micro` EC2 instance using a specifi
 
 &nbsp;
 
-# Types of IaC
+# Use Cases
+
+- Spinning up cloud environments
+- Configuring networks and firewalls
+- Automating CI/CD pipelines
+- Creating and destroying test environments dynamically
+- Scaling applications automatically
 
 &nbsp;
 
