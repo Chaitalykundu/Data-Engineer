@@ -25,7 +25,7 @@ The `.strip()` method is used to remove leading and trailing whitespace (or spec
 
 &nbsp;
 
-# Syntax:
+# Syntax
 
 ```python
 string.strip()             # Removes spaces, tabs, and newlines
@@ -36,7 +36,7 @@ string.strip(chars)        # Removes specified characters
 
 &nbsp;
 
-# Example:
+# Example
 
 ## Example 1: Remove spaces
 
@@ -76,7 +76,7 @@ hello
 
 &nbsp;
 
-# Key Points:
+# Key Points
 
 - Removes from both ends (not the middle).
 

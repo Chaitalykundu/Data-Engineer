@@ -25,7 +25,7 @@ The `.split()` method is used to break a string into a list based on a separator
 
 &nbsp;
 
-# Syntax:
+# Syntax
 
 ```python
 string.split(separator, maxsplit)
@@ -42,7 +42,7 @@ string.split(separator, maxsplit)
 
 &nbsp;
 
-# Example:
+# Example
 
 ## Example 1: Default split (space)
 
@@ -82,7 +82,7 @@ print(text.split(" ", 1))
 
 &nbsp;
 
-# Key Points:
+# Key Points
 
 - Converts string → list
 - Doesn’t change the original string

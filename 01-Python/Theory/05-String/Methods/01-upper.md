@@ -21,7 +21,7 @@ The `.upper()` method is used to convert all characters in a string to uppercase
 
 &nbsp;
 
-# Syntax:
+# Syntax
 
 ```python
 string.upper()
@@ -31,7 +31,7 @@ string.upper()
 
 &nbsp;
 
-# Example:
+# Example
 
 ```python
 name = "python"
@@ -42,7 +42,7 @@ print(name.upper())
 
 &nbsp;
 
-# Key Points:
+# Key Points
 
 - It does not change the original string (strings are immutable).
 
@@ -54,7 +54,7 @@ print(name.upper())
 
 &nbsp;
 
-# Real-Life Use Case:
+# Real-Life Use Case
 
 Use it when you want to:
 

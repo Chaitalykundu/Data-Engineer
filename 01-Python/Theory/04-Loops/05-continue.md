@@ -23,7 +23,7 @@ The `continue` statement is used to skip the current loop iteration and move to 
 
 &nbsp;
 
-# Works with:
+# Works with
 
 - `for` loops
 - `while` loops

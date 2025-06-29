@@ -18,14 +18,14 @@
 
 # Steps
 
-1.  Create Your First Project
+1. Create Your First Project
 
     ```bash
     mkdir terraform-demo
     cd terraform-demo
     ```
 
-2.  Create a file named `main.tf` and Write code in it
+2. Create a file named `main.tf` and Write code in it
 
     ```hcl
     # main.tf
@@ -35,7 +35,7 @@
      }
     ```
 
-3.  Open your terminal in the same directory and run:
+3. Open your terminal in the same directory and run:
 
     ```bash
     terraform init
@@ -43,7 +43,7 @@
     terraform apply
     ```
 
-4.  When prompted, type `yes`.
+4. When prompted, type `yes`.
 
 &nbsp;
 

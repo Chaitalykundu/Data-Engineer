@@ -21,7 +21,7 @@ The `.lower()` method is used to convert all characters of a string to lowercase
 
 &nbsp;
 
-# Syntax:
+# Syntax
 
 ```python
 string.lower()
@@ -31,7 +31,7 @@ string.lower()
 
 &nbsp;
 
-# Example:
+# Example
 
 ```python
 name = "PytHon"
@@ -42,7 +42,7 @@ print(name.lower())
 
 &nbsp;
 
-# Key Points:
+# Key Points
 
 - It does not change the original string (strings are immutable).
 
@@ -54,7 +54,7 @@ print(name.lower())
 
 &nbsp;
 
-# Real-Life Use Case:
+# Real-Life Use Case
 
 Use it when you want to:
 

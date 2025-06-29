@@ -25,7 +25,7 @@ The `.replace()` method is used to replace parts of a string with something else
 
 &nbsp;
 
-# Syntax:
+# Syntax
 
 ```python
 string.replace(old, new, count)
@@ -43,7 +43,7 @@ string.replace(old, new, count)
 
 &nbsp;
 
-# Example:
+# Example
 
 ## Example 1: Replace all
 
@@ -83,7 +83,7 @@ banana, apple, apple
 
 &nbsp;
 
-# Key Points:
+# Key Points
 
 - Case-sensitive
 - Doesn’t change the original string

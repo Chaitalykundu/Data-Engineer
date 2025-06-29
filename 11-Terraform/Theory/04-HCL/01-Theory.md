@@ -7,6 +7,7 @@
 - [Basic Syntax](#basic-syntax)
   - [Note](#note)
 - [Example](#example)
+  - [Explanation](#explanation)
 - [Steps to Run the Terraform Script](#steps-to-run-the-terraform-script)
   - [Step 1: Write terraform configuration file](#step-1-write-terraform-configuration-file)
   - [Step 2: Initialize Terraform (downloads the provider plugin)](#step-2-initialize-terraform-downloads-the-provider-plugin)
@@ -33,7 +34,7 @@ It's most commonly used in tools like **Terraform**, **Consul**, and **Vault**.
 
 - **Declarative Syntax**: You describe the desired state, not the steps to get there.
 - **Human-Readable**: HCL is designed to be both machine- and human-friendly.
-- **Extensible**:Can be embedded in JSON, but HCL is more readable.
+- **Extensible**:C n be embedded in JSON, but HCL is more readable.
 
 &nbsp;
 
@@ -41,13 +42,13 @@ It's most commonly used in tools like **Terraform**, **Consul**, and **Vault**.
 
 # Where HCL Is Used
 
-| Tool      | Purpose                           |
-| --------- | --------------------------------- |
-| Terraform | Infrastructure as code (IaC)      |
-| Packer    | Creating machine images           |
-| Vault     | Secrets management                |
-| Consul    | Service discovery & configuration |
-| Nomad     | Workload orchestration            |
+| Tool          | Purpose                        | How HCL is Used                                           |
+| ------------- | ------------------------------ | --------------------------------------------------------- |
+| **Terraform** | Infrastructure as Code (IaC)   | Define cloud resources (VMs, networks, DBs, etc.)         |
+| **Vault**     | Secrets Management             | Define secrets engines, policies, auth methods            |
+| **Consul**    | Service Discovery & Networking | Configure services, ACLs, intentions                      |
+| **Packer**    | VM/Image Builder               | Define image build workflows (AWS AMI, Azure Image, etc.) |
+| **Nomad**     | Workload orchestration         |
 
 &nbsp;
 
@@ -85,11 +86,29 @@ resource "local_file" "tea"{
 
 resource "local_file" "pet"{
     filename = "./pet_file.txt"
-    content = "I don't like per at all"
+    content = "I don't like pets at all"
 }
-
-
 ```
+
+&nbsp;
+
+### Explanation
+
+Here,
+
+- block_type = **resource**
+- resource_type = **local_file**
+  - provider = **local**
+  - resource = **file**
+- resource_name = **pet** & **tea**
+
+&nbsp;
+
+| Part | Description |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `resource "local_file" "pet"` | Declares a resource named `pet` of type `local_file`. |
+| `filename = "./pet_file.txt"` | Specifies the path and name of the file to be created. In this case, it's `pet_file.txt` in the current directory. |
+| `content = "I don't like per at all"` | This is the **text content** that will be written into the file. |
 
 &nbsp;
 
@@ -101,13 +120,19 @@ resource "local_file" "pet"{
 
 > write code in `main.tf` or any other file
 
+&nbsp;
+
 ### Step 2: Initialize Terraform (downloads the provider plugin)
 
 > run `terraform init`
 
+&nbsp;
+
 ### Step 3: See what will be done
 
 > run `terraform plan`
+
+&nbsp;
 
 ### Step 4: Apply the changes
 

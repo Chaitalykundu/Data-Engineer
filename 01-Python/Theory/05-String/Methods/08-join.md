@@ -3,7 +3,7 @@
 - [Overview](#overview)
 - [`join()` Method](#join-method)
 - [Syntax:](#syntax)
-    - [Parameters](#parameters)
+  - [Parameters](#parameters)
 - [Example:](#example)
   - [Example 1: Join with space](#example-1-join-with-space)
     - [Output](#output)
@@ -27,7 +27,7 @@ The `.join()` method is used to combine a list of strings into a single string, 
 
 &nbsp;
 
-# Syntax:
+# Syntax
 
 ```python
 separator.join(iterable)
@@ -44,7 +44,7 @@ separator.join(iterable)
 
 &nbsp;
 
-# Example:
+# Example
 
 ## Example 1: Join with space
 
@@ -107,7 +107,7 @@ Line3
 
 &nbsp;
 
-# Key Points:
+# Key Points
 
 - Opposite of `.split()`
 - Works only with iterables of strings

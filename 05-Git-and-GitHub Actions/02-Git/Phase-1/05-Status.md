@@ -59,11 +59,11 @@ $ git status
 On branch main
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
-	modified:   index.html
+ modified:   index.html
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-	newfile.txt
+ newfile.txt
 ```
 
 &nbsp;
@@ -114,7 +114,7 @@ $ git status -s
 | `R`         | Renamed file           |
 | `C`         | Copied file            |
 | `U`         | Unmerged (conflict)    |
-| ` ` (space) | No change in that area |
+| `` (space) | No change in that area |
 
 &nbsp;
 

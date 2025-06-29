@@ -22,7 +22,7 @@ The `.capitalize()` method makes the first character uppercase and converts the 
 
 &nbsp;
 
-# Syntax:
+# Syntax
 
 ```python
 string.capitalize()
@@ -32,7 +32,7 @@ string.capitalize()
 
 &nbsp;
 
-# Example:
+# Example
 
 ```python
 text = "welcome to python prograMming"
@@ -51,7 +51,7 @@ Welcome to python programming
 
 &nbsp;
 
-# Key Points:
+# Key Points
 
 - Only the first character of the entire string becomes uppercase.
 

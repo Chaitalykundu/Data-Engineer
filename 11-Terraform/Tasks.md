@@ -101,8 +101,35 @@ terraform destroy
 
 &nbsp;
 
-# a real project example, such as:
+# a real project example, such as
 
 1. Deploying a static website on S3?
 2. Setting up a VPC + EC2 instance?
 3. Using Terraform modules?
+
+&nbsp;
+
+&nbsp;
+
+# HCL `Argument` Practice Sheet (10 Tasks)
+
+| #   | Challenge               | Task Description                                                                                                                                 |
+| --- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | **Basic Argument**      | Use `local_file` to create `hello.txt` with content `"Hello from HCL!"`                                                                          |
+| 2   | **String Variable**     | Define a variable called `user_name` and use it in `local_file` to write `"Hello, <user_name>"`                                                  |
+| 3   | **Number Argument**     | Create a variable called `file_count = 3` and use `count` to create 3 files named `file-0.txt`, `file-1.txt`, etc.                               |
+| 4   | **Boolean Conditional** | Create a variable `create_file = true`. Use it with a ternary: if true, create a file; if false, skip it using `count = var.create_file ? 1 : 0` |
+| 5   | **Map Argument**        | Define a map variable with keys `env = "dev"` and `region = "us-east-1"`. Output each value using `output` blocks                                |
+| 6   | **List Argument**       | Create a variable `names = ["Alice", "Bob", "Charlie"]`. Output a comma-separated list using `join(", ", var.names)`                             |
+| 7   | **Interpolation**       | Use interpolation to name a file `hello-<user>.txt` using a `var.user` variable                                                                  |
+| 8   | **Nested Map (Tags)**   | Create a resource with a `tags` argument as a nested map like: `{ Environment = "Dev", Owner = "Admin" }`                                        |
+| 9   | **Function Argument**   | Use `upper(var.env)` to output the environment name in uppercase                                                                                 |
+| 10  | **Dynamic Expression**  | Use a `count` expression that creates a file only if `var.env == "dev"` (`count = var.env == "dev" ? 1 : 0`)                                     |
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;

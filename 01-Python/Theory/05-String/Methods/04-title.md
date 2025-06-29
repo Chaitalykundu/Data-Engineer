@@ -2,7 +2,7 @@
 
 - [Overview](#overview)
 - [`title()` Method](#title-method)
-    - [Note](#note)
+  - [Note](#note)
 - [Syntax:](#syntax)
 - [Example:](#example)
   - [Output](#output)
@@ -29,7 +29,7 @@ It capitalizes after any non-letter, Foe example `it's` becomes `It'S`.
 
 &nbsp;
 
-# Syntax:
+# Syntax
 
 ```python
 string.title()
@@ -39,7 +39,7 @@ string.title()
 
 &nbsp;
 
-# Example:
+# Example
 
 ```python
 text = "welcome to python prograMming"
@@ -58,7 +58,7 @@ Welcome To Python Programming
 
 &nbsp;
 
-# Key Points:
+# Key Points
 
 - Each word starts with a capital letter
 
@@ -70,7 +70,7 @@ Welcome To Python Programming
 
 &nbsp;
 
-# Real-Life Use Case:
+# Real-Life Use Case
 
 Useful for:
 

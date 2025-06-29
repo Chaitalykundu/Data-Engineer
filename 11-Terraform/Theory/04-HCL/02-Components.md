@@ -4,7 +4,7 @@
 - [Components](#components)
 - [1. Blocks](#1-blocks)
   - [Example](#example)
-- [Arguments](#arguments)
+- [2. Arguments](#2-arguments)
 - [Expressions](#expressions)
   - [Expressions Can include](#expressions-can-include)
 - [Functions](#functions)
@@ -21,26 +21,32 @@
 
 &nbsp;
 
+&nbsp;
+
 # Components
 
-In HCL (HashiCorp Configuration Language), the configuration is structured using several key components. These components help define infrastructure, variables, resources, outputs, and more in a human-readable and declarative way.
+In HCL (HashiCorp Configuration Language), the configuration is structured using several key components. These components help to define infrastructure, variables, resources, outputs, and more in a human-readable and declarative way.
 
 &nbsp;
 
 &nbsp;
 
-| Component         | Description                                                                     | Purpose                         | Example                          |
-| ----------------- | ------------------------------------------------------------------------------- | ------------------------------- | -------------------------------- |
-| **Block**         | The basic unit of configuration (e.g., `resource`, `provider`, `variable`)      | Main structural unit            | `resource`, `provider`, `module` |
-| **Argument**      | Key-value pairs inside a block                                                  | Key-value config inside a block | `region = "us-west-1"`           |
-| **Expression**    | Values computed from other values or variables                                  | Compute dynamic values          | `"${var.name}-instance"`         |
-| **Function**      | Built-in helpers used within expressions                                        | Process data                    | `join(",", var.list)`            |
-| **Variable**      |                                                                                 | Input values                    | `variable "region"`              |
-| **Output**        |                                                                                 | Export results                  | `output "ip"`                    |
-| **Provider**      |                                                                                 | Define external services        | `provider "aws"`                 |
-| **Module**        |                                                                                 | Reusable configuration          | `module "vpc"`                   |
-| **Meta-Argument** |                                                                                 | Special logic controls          | `count`, `depends_on`, etc.      |
+| Component         | Description                                                                     | Purpose                         | Example                                                                           |
+| ----------------- | ------------------------------------------------------------------------------- | ------------------------------- | --------------------------------------------------------------------------------- |
+| **Block**         | The basic unit of configuration (e.g., `resource`, `provider`, `variable`)      | Main structural unit            | `resource`, `provider`, `module`                                                  |
+| **Argument**      | Key-value pairs inside a block                                                  | Key-value config inside a block | `region = "us-west-1"`                                                            |
+| **Expression**    | Values computed from other values or variables                                  | Compute dynamic values          | `"${var.name}-instance"`                                                          |
+| **Function**      | Built-in helpers used within expressions                                        | Process data                    | `join(",", var.list)`                                                             |
+| **Variable**      | Inputs defined by the user to make config dynamic                               | Input values                    | `variable "region" { default = "us-east-1" }`                                     |
+| **Output**        | Values returned after `terraform apply`; used for reference or visibility       | Export results                  | `output "instance_id" { value = aws_instance.example.id }`                        |
+| **Provider**      |                                                                                 | Define external services        | `provider "aws"`                                                                  |
+| **Module**        |                                                                                 | Reusable configuration          | `module "vpc"`                                                                    |
+| **Meta-Argument** |                                                                                 | Special logic controls          | `count`, `depends_on`, etc.                                                       |
 | **Comments**      | Notes for readability (`#` or `//` for single-line, `/* ... */` for multi-line) |
+| **Attribute**     | Synonym for argument; refers to the properties inside a block                   |                                 | `ami = "ami-0abc123"`                                                             |
+| **Data Source**   | Reads info from providers (read-only)                                           |                                 | `data "aws_ami" "ubuntu" { ... }`                                                 |
+| **Provisioner**   | Executes scripts or commands during resource creation                           |                                 | `provisioner "local-exec" { command = "echo hello" }`                             |
+| **Label**         | Optional identifiers used in blocks for naming and scoping                      |                                 | In resource "aws_instance" "example" → "aws_instance" is type, "example" is label |
 
 &nbsp;
 
@@ -76,7 +82,7 @@ block = `resource`
 
 &nbsp;
 
-# Arguments
+# 2. Arguments
 
 Arguments are **key-value pairs** defined within blocks.
 

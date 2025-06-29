@@ -1,3 +1,16 @@
+# Overview
+
+- [Overview](#overview)
+- [Study material](#study-material)
+- [Practice](#practice)
+- [Terraform Day-wise Roadmap (15 Days)](#terraform-day-wise-roadmap-15-days)
+- [Bonus Topics (After Day 15)](#bonus-topics-after-day-15)
+- [HCL Learning Roadmap (Daywise)](#hcl-learning-roadmap-daywise)
+
+&nbsp;
+
+&nbsp;
+
 # Study material
 
 [Udemy source](https://persistent.udemy.com/course/terraform-for-the-absolute-beginners/learn/lecture/28359870#overview)
@@ -74,7 +87,6 @@
 |                                             | Push code to GitHub                                                                                                                |                                                                              |
 |                                             | Document the repo with README                                                                                                      |                                                                              |
 
-|
 &nbsp;
 
 &nbsp;
@@ -88,3 +100,42 @@
 - Terraform for large-scale environments
 - Sentinel Policies (for Terraform Cloud)
 - Using Terraform with Azure/GCP
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# HCL Learning Roadmap (Daywise)
+
+| Day                                             | Topics                                               | Practice                                                                | Status |
+| ----------------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------- | ------ |
+| **Day 1: HCL Basics**                           | What is HCL? Where is it used?                       | Write a basic `main.tf` using `local_file` to create a file             |        |
+|                                                 | HCL syntax: blocks, arguments, attributes            | Use `terraform plan` to check syntax                                    |        |
+|                                                 | Literal values: string, number, boolean              | Define variables with different data types                              |        |
+| **Day 2: Data Types in HCL**                    | Lists, maps, and tuples                              | Create a variable with list/map and print using `output`                |        |
+|                                                 | Object and nested object types                       | Define a variable with `type = object({ name = string, age = number })` |        |
+| **Day 3: Expressions & Interpolation**          | `${}` syntax and variable substitution               | Interpolate variable in filename/content                                |        |
+|                                                 | Arithmetic and logical expressions                   | Use expressions in `count` or `output` blocks                           |        |
+| **Day 4: Functions in HCL**                     | Built-in functions: `join()`, `lookup()`, `length()` | Use `join()` to concatenate a list into a string                        |        |
+|                                                 | Conditional expressions                              | Use ternary (`? :`) to toggle between values                            |        |
+| **Day 5: Locals and Outputs**                   | Define and use `locals` block                        | Reuse local values in resource definitions                              |        |
+|                                                 | Use `output` block effectively                       | Output interpolated/local/variable values                               |        |
+| **Day 6: Meta-Arguments in HCL**                | `count`, `for_each`, `depends_on`, `lifecycle`       | Use `count` to create multiple resources                                |        |
+|                                                 | `lifecycle` block properties                         | Add `prevent_destroy = true` to a resource                              |        |
+| **Day 7: Advanced Structures & Best Practices** | Dynamic blocks                                       | Use `dynamic` to loop through tag map                                   |        |
+|                                                 | Nesting blocks and complex expressions               | Create a complex `resource` using variables and locals                  |        |
+|                                                 | HCL formatting and validation                        | Use `terraform fmt` and `validate`                                      |        |
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;

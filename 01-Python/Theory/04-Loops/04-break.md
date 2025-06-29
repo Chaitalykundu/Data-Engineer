@@ -23,7 +23,7 @@ The `break` statement is used to exit a loop immediately, even if the loop condi
 
 &nbsp;
 
-# Works with:
+# Works with
 
 - `for` loops
 - `while` loops

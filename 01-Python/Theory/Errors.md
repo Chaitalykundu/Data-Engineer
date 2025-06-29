@@ -2,7 +2,7 @@
 
 - [Overview](#overview)
 - [IndexError](#indexerror)
-    - [Output:](#output)
+  - [Output:](#output)
 
 &nbsp;
 
@@ -23,7 +23,7 @@ print(text[5])  # ❌ IndexError
 
 &nbsp;
 
-### Output:
+### Output
 
 ```md
 IndexError: string index out of range
