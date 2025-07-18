@@ -1,7 +1,7 @@
 # 15-Day Snowflake Learning Roadmap (with Projects & Practice)
 
-| Day    | Topic                                   | What to Learn                                                        | Practice / Project                                                                           |
-| ------ | --------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Day    | Topic                                   | What to Learn                                                        | Practice / Project                                                                           | Theory Status | Practice Status |
+| ------ | --------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------- | --------------- |
 | **1**  | Snowflake Overview & Setup              | What is Snowflake, Cloud data warehouse, Architecture, Setup account | ✅ Create a Snowflake free trial account<br>✅ Explore UI: Warehouses, Databases, Worksheets |
 | **2**  | SQL Basics Refresher                    | SELECT, WHERE, ORDER BY, GROUP BY, JOINS                             | 🧪 Write queries on a sample dataset (e.g., employee data) with filters, joins, groups       |
 | **3**  | Working with Databases, Schemas, Tables | CREATE, DROP, INSERT INTO, Views                                     | 🧪 Create a database, schema, table. Insert sample rows manually via SQL                     |

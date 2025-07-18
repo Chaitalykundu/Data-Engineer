@@ -1,6 +1,11 @@
 # Overview
 
 - [Overview](#overview)
+- [ALTER command](#alter-command)
+- [ALTER Table](#alter-table)
+  - [Add a New Column](#add-a-new-column)
+  - [Modify an Existing Column](#modify-an-existing-column)
+  - [Delete a Column](#delete-a-column)
 
 &nbsp;
 
@@ -10,13 +15,25 @@
 
 # ALTER command
 
-ALTER command is used to **modify an existing table structure** (add, modify, or delete columns).
+`ALTER` command is used to **modify an existing database objects** (add, modify, or delete columns).
+
+&nbsp;
+
+The `ALTER` command is used to modify database objects like:
+
+- Tables
+- Columns
+- Constraints
+- Schemas
+- Indexes
+- Views
+- Databases themselves
 
 &nbsp;
 
 &nbsp;
 
-# Syntax
+# ALTER Table
 
 ## Add a New Column
 

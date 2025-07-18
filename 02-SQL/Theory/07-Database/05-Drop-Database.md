@@ -2,8 +2,11 @@
 
 - [Overview](#overview)
 - [DROP](#drop)
+- [Syntax](#syntax)
   - [Important Notes](#important-notes)
 - [Drop current database](#drop-current-database)
+
+&nbsp;
 
 &nbsp;
 
@@ -12,6 +15,12 @@
 # DROP
 
 This will permanently delete the database and all its data.
+
+&nbsp;
+
+&nbsp;
+
+# Syntax
 
 ```sql
 DROP DATABASE database_name;

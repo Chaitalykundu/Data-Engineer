@@ -1,0 +1,46 @@
+Week 1: Foundations:
+ ✔ Understand what dbt is and its role in the modern data stack (ELT vs ETL) @done(25-04-19 01:05)
+ ✔ Install dbt-core or create a dbt Cloud account @done(25-04-11 13:55)
+ ✔ Connect dbt to your data warehouse (Snowflake, BigQuery, etc.) @done(25-04-12 11:47)
+ ✔ Initialize a dbt project (dbt init) @done(25-04-12 12:02)
+ ✔ Create a basic model (e.g., SELECT * FROM my_table) @done(25-04-12 14:24)
+ ✔ Run your first dbt run @done(25-04-12 16:57)
+
+Week 2: Core Concepts:
+ - Learn about ref() and model dependencies
+ - Learn about source() and external table referencing
+ - Explore model types: view, table, incremental
+ - Use Jinja templating in your SQL (e.g., loops, variables)
+ - Write and use a custom macro
+ - Understand the DAG and run dbt run --select model_name+
+
+
+Week 3: Testing, Docs, Best Practices:
+ - Add schema tests (e.g., not_null, unique, accepted_values)
+ - Write a custom data test
+ - Write schema.yml files with model and column descriptions
+ - Generate docs using dbt docs generate && dbt docs serve
+ - Adopt best practices (e.g., staging → intermediate → marts)
+ - Use dbt debug, dbt clean, dbt deps
+
+Week 4: Advanced Features:
+ - Create and use snapshots (SCD Type 2)
+ - Explore pre-hook and post-hook operations
+ - Set up exposures and metrics if using dbt Cloud
+ - Create separate environments for dev and prod
+ - Set up version control using Git and GitHub
+
+Project Week: Real-World Project:
+ - Pick a real-world dataset (e.g., NYC Taxi Data)
+ - Stage, clean, and transform the data using dbt
+ - Use snapshots for slowly changing dimensions
+ - Add schema tests and documentation
+ - Visualize final tables using Metabase/Looker
+ - Set up CI/CD with GitHub Actions (optional)
+ - Present your project in a README or Notion doc
+
+Bonus / Optional:
+ - Learn about dbt Python models
+ - Use dbt with Airflow or Prefect
+ - Integrate dbt with data observability tools (e.g., Elementary)
+ - Explore dbt Semantic Layer (for metrics)

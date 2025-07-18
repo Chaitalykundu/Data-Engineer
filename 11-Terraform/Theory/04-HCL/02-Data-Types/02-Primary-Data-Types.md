@@ -36,7 +36,7 @@ variable "app_name" {
 
 &nbsp;
 
-## Tips:
+## Tips
 
 - Use `string` for any textual input/output.
 - You can interpolate using `"Hello, ${var.name}!"`.
@@ -62,7 +62,7 @@ variable "retry_count" {
 
 &nbsp;
 
-## Tips:
+## Tips
 
 - Use `number` in logic (`count`, `timeouts`, `replicas`, etc.).
 
@@ -89,7 +89,7 @@ variable "enabled" {
 
 &nbsp;
 
-## Tips:
+## Tips
 
 - Ideal for conditionals and toggles (e.g., enable/disable resource).
 - Use in expressions: `var.enabled ? "yes" : "no"`

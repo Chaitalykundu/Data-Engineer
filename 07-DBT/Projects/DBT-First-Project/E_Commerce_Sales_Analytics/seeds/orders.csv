@@ -1,0 +1,7 @@
+order_id,customer_id,product_id,order_date,amount,order_status
+1001,C001,P001,2023-12-01,250.00,completed
+1002,C002,P002,2023-12-01,100.00,completed
+1003,C003,P001,2023-12-02,250.00,cancelled
+1004,C001,P003,2023-12-02,150.00,completed
+1005,C002,P003,2023-12-03,150.00,completed
+1006,C003,P002,2023-12-04,100.00,cancelled

@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: raw_customers
+    description: "Raw customer data from seed"
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique

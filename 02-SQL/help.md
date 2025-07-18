@@ -15,7 +15,7 @@
 
 # Help section
 
-[Connecttions](https://www.postgresqltutorial.com/postgresql-getting-started/connect-to-postgresql-database/)
+[Connections](https://www.postgresqltutorial.com/postgresql-getting-started/connect-to-postgresql-database/)
 
 [Mockaroo](https://www.mockaroo.com/)
 
@@ -65,11 +65,11 @@
 
 # User and Role Management
 
-| **Action**          | **SQL Query**                                       |
-| ------------------- | --------------------------------------------------- |
-| ➕ Create user      | `CREATE USER john WITH PASSWORD 'secret';`          |
+| **Action**         | **SQL Query**                                       |
+| ------------------ | --------------------------------------------------- |
+| ➕ Create user     | `CREATE USER john WITH PASSWORD 'secret';`          |
 | 🛡 Grant privileges | `GRANT ALL PRIVILEGES ON DATABASE company TO john;` |
-| 🧾 List users       | `\du` (in `psql`) or `SELECT * FROM pg_user;`       |
+| 🧾 List users      | `\du` (in `psql`) or `SELECT * FROM pg_user;`       |
 
 &nbsp;
 
