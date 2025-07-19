@@ -1,4 +1,4 @@
-Python :
+# Python :
 
 1. https://persistent.udemy.com/course/100-days-of-code/learn/lecture/23154980#overview
 
@@ -6,13 +6,13 @@ Python :
 
 &nbsp;
 
-SQL
+# SQL
 
 &nbsp;
 
 &nbsp;
 
-DBT
+# DBT
 
 1. https://persistent.udemy.com/course/snowflake-dbt-a-hands-on-guide/learn/lecture/48594983#overview
 
@@ -22,6 +22,14 @@ DBT
 
 &nbsp;
 
-Snowflake
+# Snowflake
 
 1. https://persistent.udemy.com/course/snowflake-complete-course-for-clearing-interviews/learn/lecture/35490380#overview
+
+&nbsp;
+
+&nbsp;
+
+# Datadog
+
+1. https://persistent.udemy.com/course/datadog-course/learn/lecture/34857008#overview
