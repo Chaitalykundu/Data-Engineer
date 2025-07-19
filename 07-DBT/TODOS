@@ -44,3 +44,23 @@ Bonus / Optional:
  - Use dbt with Airflow or Prefect
  - Integrate dbt with data observability tools (e.g., Elementary)
  - Explore dbt Semantic Layer (for metrics)
+
+
+Road map from https://persistent.udemy.com/course/snowflake-dbt-a-hands-on-guide/learn/lecture/48594983#learning-tools:
+
+    Snowflake Setup:
+     - ✅ Snowflake account creation
+     - ✅ Introduction to Snowflake objects and warehouses
+     - ✅ Creating external stages in Snowflake (S3 or other sources)
+     - ✅ Loading JSON data into Snowflake
+     - ✅ Using COPY INTO command for bulk data loading
+     - ✅ Introduction to SnowSQL CLI tool
+     - ✅ Creating internal stages and copying local data into Snowflake
+
+
+    dbt Cloud Setup & Usage:
+     - ✅ dbt Cloud account creation
+     - ✅ Configuration setup: Git and Snowflake integration
+     - ✅ Using dbt lineage functions: ref() and source()
+     - ✅ Implementing SQL functions like timestamp and window functions
+     - ✅ Creating and scheduling dbt jobs
