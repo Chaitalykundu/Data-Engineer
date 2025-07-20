@@ -8,7 +8,8 @@
 
 # SQL
 
-1. 100days of sql : <https://www.100daysofcode.io/learn/sql>
+1. 100 days of sql: <https://www.100daysofcode.io/learn/sql>
+
 2. <https://persistent.udemy.com/course/15-days-of-sql/learn/lecture/43057524#overview>
 
 &nbsp;
@@ -31,6 +32,8 @@
 
 1. <https://persistent.udemy.com/course/snowflake-complete-course-for-clearing-interviews/learn/lecture/35490380#overview>
 
+2. 100 days of snowflake: https://www.100daysofcode.io/learn/snowflake
+
 &nbsp;
 
 &nbsp;
@@ -38,10 +41,19 @@
 # Terraform
 
 1. <https://persistent.udemy.com/course/terraform-beginner-to-advanced/learn/lecture/41561916#overview>
-   &nbsp;
+
+&nbsp;
 
 &nbsp;
 
 # Datadog
 
 1. <https://persistent.udemy.com/course/datadog-course/learn/lecture/34857008#overview>
+
+&nbsp;
+
+&nbsp;
+
+# Power-BI
+
+1. 15 days of Power-BI: https://persistent.udemy.com/course/15-days-of-power-bi/
