@@ -78,7 +78,7 @@ seeds:
 
 &nbsp;
 
-# Enable quoting of schema/table names:
+# Enable quoting of schema/table names
 
 ```yaml
 quoting:

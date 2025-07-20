@@ -3,7 +3,7 @@
 - [Overview](#overview)
 - [Adding Tests to a Model](#adding-tests-to-a-model)
 - [Documenting a Model](#documenting-a-model)
-    - [Run](#run)
+  - [Run](#run)
 
 &nbsp;
 

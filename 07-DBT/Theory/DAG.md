@@ -39,7 +39,7 @@ It’s a way to visualize tasks and their dependencies — like a flowchart wher
 
 &nbsp;
 
-# Example:
+# Example
 
 Let’s say you have 3 models in dbt:
 
@@ -70,6 +70,7 @@ This is a DAG — dbt will use it to figure out:
 - Helps you understand your data flow
 - Makes it easy to debug and optimize
 - Enables selective runs like:
+
   ```bash
   dbt run --select final_sales_report
   ```
@@ -78,7 +79,7 @@ This is a DAG — dbt will use it to figure out:
 
 &nbsp;
 
-# DAG Visual in dbt:
+# DAG Visual in dbt
 
 If you run:
 
@@ -101,7 +102,7 @@ Each box is a model. Arrows show the dependencies.
 
 &nbsp;
 
-# Analogy:
+# Analogy
 
 Think of baking a cake:
 

@@ -3,7 +3,7 @@
 - [Overview](#overview)
 - [Adding Tests to a Seed Table (Optional)](#adding-tests-to-a-seed-table-optional)
 - [Documenting seed](#documenting-seed)
-    - [Run](#run)
+  - [Run](#run)
 - [Cleaning Seeds (if needed)](#cleaning-seeds-if-needed)
 
 &nbsp;

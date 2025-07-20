@@ -4,7 +4,7 @@
 - [Summary](#summary)
 - [DBT Model](#dbt-model)
 - [Basic Example](#basic-example)
-    - [Explanation](#explanation)
+  - [Explanation](#explanation)
 - [Run dbt model](#run-dbt-model)
   - [Explanation](#explanation-1)
 - [dbt handles](#dbt-handles)

@@ -48,7 +48,7 @@ my_dbt_project/
 
 &nbsp;
 
-# Key Files Explained:
+# Key Files Explained
 
 | File/Folder     | Purpose                                                  |
 | --------------- | -------------------------------------------------------- |

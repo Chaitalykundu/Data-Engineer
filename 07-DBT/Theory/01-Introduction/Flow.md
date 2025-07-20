@@ -36,7 +36,7 @@ This diagram shows a modern data pipeline workflow using Amazon S3 → Snowflake
 
 &nbsp;
 
-# In One Line:
+# In One Line
 
 Raw data from S3 → loaded into Snowflake → transformed using dbt → visualized in Power BI.
 

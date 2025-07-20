@@ -149,7 +149,7 @@ You can create custom reusable tests using macros.
 
 &nbsp;
 
-### Example:
+### Example
 
 📁 `macros/custom_tests/positive_values.sql`
 

@@ -60,7 +60,7 @@ Using `source()` helps track and document where raw data comes from, and it’s 
 
 # How to Define a Source
 
-## 1. Create a sources block in your schema.yml (or .yml file in models/ folder):
+## 1. Create a sources block in your schema.yml (or .yml file in models/ folder)
 
 ```yml
 version: 2

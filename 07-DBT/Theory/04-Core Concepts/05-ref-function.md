@@ -117,7 +117,7 @@ When you use `{{ ref('stg_orders') }}`, dbt:
 
 &nbsp;
 
-# Where You Can Use ref():
+# Where You Can Use ref()
 
 - Inside model `.sql` files
 - Inside macros

@@ -2,12 +2,12 @@
 
 - [Overview](#overview)
 - [Steps to create a basic model](#steps-to-create-a-basic-model)
-    - [1. Navigate to your dbt project folder](#1-navigate-to-your-dbt-project-folder)
-    - [2. Go to the seeds directory](#2-go-to-the-seeds-directory)
-    - [3. Add a source or seed](#3-add-a-source-or-seed)
-    - [3. Add this seed to `dbt_project.yml`](#3-add-this-seed-to-dbt_projectyml)
-    - [4. run the seed file](#4-run-the-seed-file)
-    - [8. Check the output](#8-check-the-output)
+  - [1. Navigate to your dbt project folder](#1-navigate-to-your-dbt-project-folder)
+  - [2. Go to the seeds directory](#2-go-to-the-seeds-directory)
+  - [3. Add a source or seed](#3-add-a-source-or-seed)
+  - [3. Add this seed to `dbt_project.yml`](#3-add-this-seed-to-dbt_projectyml)
+  - [4. run the seed file](#4-run-the-seed-file)
+  - [8. Check the output](#8-check-the-output)
 
 &nbsp;
 

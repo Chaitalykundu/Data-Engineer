@@ -1,6 +1,6 @@
 Steps
 
-1. Navigate to https://signup.snowflake.com/
+1. Navigate to <https://signup.snowflake.com/>
 2. Fill the details and click on **Continue**
 3. Fill **Company name** = `abc`, **job title** = `Engineer`, **Edition** = `Enterprise`, **Choose your cloud provider** = `AZURE` , **Region** = `Central India (Pune)`
 4. Click on **Get Started**

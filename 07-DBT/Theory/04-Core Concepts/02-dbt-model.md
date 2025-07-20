@@ -6,15 +6,15 @@
 - [Run dbt model](#run-dbt-model)
 - [dbt handles](#dbt-handles)
 - [Where are Models Stored](#where-are-models-stored)
-    - [Example structure:](#example-structure)
+  - [Example structure:](#example-structure)
 - [Basic Example: `models/customers.sql`](#basic-example-modelscustomerssql)
-    - [Explanation](#explanation)
+  - [Explanation](#explanation)
 - [Model Materializations](#model-materializations)
-    - [Example:](#example)
+  - [Example:](#example)
 - [Model Dependencies](#model-dependencies)
 - [Adding Tests to a Model](#adding-tests-to-a-model)
 - [Documenting a Model](#documenting-a-model)
-    - [Run](#run)
+  - [Run](#run)
 
 &nbsp;
 
@@ -77,7 +77,7 @@ When you run `dbt run`, dbt:
 
 Inside the `models/` folder of dbt project.
 
-### Example structure:
+### Example structure
 
 ```pgsql
 dbt_project/
@@ -133,7 +133,7 @@ You can configure how a model gets built:
 
 &nbsp;
 
-### Example:
+### Example
 
 ```sql
 -- Set materialization to table

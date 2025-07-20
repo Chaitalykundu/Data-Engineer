@@ -25,7 +25,7 @@ Build a clean reporting layer for orders, customers, and products to power dashb
 
 &nbsp;
 
-- Final/Reporting Models (fct* or dim*):
+- Final/Reporting Models (fct*or dim*):
   - fct_orders.sql: aggregate daily order metrics
   - dim_customers.sql: customer profiles with lifetime value
 
@@ -113,7 +113,7 @@ Track user activity, retention, and content popularity.
 
 # 4. Finance: Banking Transaction Monitoring
 
-## 🎯 Goal:
+## 🎯 Goal
 
 Detect fraudulent activity and summarize customer balances.
 
@@ -121,7 +121,7 @@ Detect fraudulent activity and summarize customer balances.
 
 &nbsp;
 
-## ✅ Key dbt Models:
+## ✅ Key dbt Models
 
 - Sources: bank.transactions, bank.customers, bank.branches
 
@@ -145,7 +145,7 @@ Detect fraudulent activity and summarize customer balances.
 
 # 5. Logistics/Delivery App
 
-## 🎯 Goal:
+## 🎯 Goal
 
 Track delivery KPIs, driver behavior, and route optimization.
 
@@ -153,7 +153,7 @@ Track delivery KPIs, driver behavior, and route optimization.
 
 &nbsp;
 
-## ✅ Key dbt Models:
+## ✅ Key dbt Models
 
 - Sources: orders, drivers, routes, deliveries
 

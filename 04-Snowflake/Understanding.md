@@ -8,7 +8,7 @@ Uske baad dbt (Data Build Tool) usi ingested data ko transform karta hai — jai
 
 3. Grant a privilege to a role and then grant the role to a user. Example:
 
-   - GRANT USAGE ON DATABASE DEMO TO ROLE ANALYST (https://docs.snowflake.com/en/sql-reference/sql/grant-privilege)
+   - GRANT USAGE ON DATABASE DEMO TO ROLE ANALYST (<https://docs.snowflake.com/en/sql-reference/sql/grant-privilege>)
    - GRANT ROLE ANALYST TO USER daniel
 
 a role must have usage rights on both the schema and the database to access the objects effectively.
