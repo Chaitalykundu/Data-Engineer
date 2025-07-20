@@ -3,6 +3,7 @@
 - [Overview](#overview)
 - [Datatypes](#datatypes)
 - [Numeric Types](#numeric-types)
+  - [Note](#note)
 - [String Type](#string-type)
 - [Boolean Type](#boolean-type)
 - [Sequence Types](#sequence-types)
@@ -17,6 +18,20 @@
 &nbsp;
 
 # Datatypes
+
+Data types are types of data stored in a variable.
+
+&nbsp;
+
+There are two types of datatypes -------
+
+**Primitive Data Types**: int, float, bool, str
+
+**Primitive Data Types**: list, tuple, dict, set
+
+&nbsp;
+
+&nbsp;
 
 | **Category** | **Data Type** | **Example**                 | **Description**               |
 | ------------ | ------------- | --------------------------- | ----------------------------- |
@@ -57,6 +72,18 @@
    ```py
     z = 2 + 3j
    ```
+
+&nbsp;
+
+### Note
+
+If we write a number computer will ignores that underscore and return us the number itself. The underscore is used for code readability.
+
+```py
+print(123_456_789)
+```
+
+**Output:** 123456789
 
 &nbsp;
 

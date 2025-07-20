@@ -28,8 +28,8 @@
 
 ## ✅ Milestone Checkpoint
 
-- ✅ You can explain what dbt is, when to use it, and how to create a model.
-- ✅ You have a running dbt project with at least one model and a source.
+- You can explain what dbt is, when to use it, and how to create a model.
+- You have a running dbt project with at least one model and a source.
 
 &nbsp;
 
