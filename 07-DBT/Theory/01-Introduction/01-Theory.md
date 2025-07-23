@@ -19,7 +19,7 @@
 
 # Summary
 
-- dbt = T in ELT ✅
+- dbt = T in ELT
 - Write SQL, structure projects like codebases
 - Supports modular pipelines, testing, and documentation
 - Works well with cloud data warehouses

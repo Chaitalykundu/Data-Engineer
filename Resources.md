@@ -32,7 +32,7 @@
 
 1. <https://persistent.udemy.com/course/snowflake-complete-course-for-clearing-interviews/learn/lecture/35490380#overview>
 
-2. 100 days of snowflake: https://www.100daysofcode.io/learn/snowflake
+2. 100 days of snowflake: <https://www.100daysofcode.io/learn/snowflake>
 
 &nbsp;
 
@@ -56,4 +56,4 @@
 
 # Power-BI
 
-1. 15 days of Power-BI: https://persistent.udemy.com/course/15-days-of-power-bi/
+1. 15 days of Power-BI: <https://persistent.udemy.com/course/15-days-of-power-bi/>
