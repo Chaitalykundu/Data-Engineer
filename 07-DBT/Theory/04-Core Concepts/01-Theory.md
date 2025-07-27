@@ -72,7 +72,6 @@ SELECT * FROM {{ ref('stg_customers') }}
 # ref() Function
 
 - `ref('model_name')` tells dbt:
-
   - The model depends on another model.
   - dbt manages dependencies and execution order.
 
@@ -129,7 +128,6 @@ sources:
 # Tests
 
 - You can write data quality tests like:
-
   - not_null
   - unique
   - relationships

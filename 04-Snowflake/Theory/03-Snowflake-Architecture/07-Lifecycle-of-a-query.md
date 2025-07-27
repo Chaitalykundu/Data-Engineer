@@ -23,7 +23,6 @@
 - _First_, The service layer creates a session and check if the user credential (authentication) is valid to use the snowflake account including MFA as well as IP address
 
 - Once the authentication is done, the following activities happen :
-
   - The query is **parsed** ( logical path)
 
   - All the objects & operations in the query including warehouse (compute object) is validated if the respective user has the necessary privileges to access the objects or not. (Authentication part)

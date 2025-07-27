@@ -7,7 +7,6 @@ Uske baad dbt (Data Build Tool) usi ingested data ko transform karta hai — jai
 2. To grant a SELECT privilege on a table, we also need to grant USAGE on the schema and database in which that table is located. Else The user won't be able to see the database
 
 3. Grant a privilege to a role and then grant the role to a user. Example:
-
    - GRANT USAGE ON DATABASE DEMO TO ROLE ANALYST (<https://docs.snowflake.com/en/sql-reference/sql/grant-privilege>)
    - GRANT ROLE ANALYST TO USER daniel
 

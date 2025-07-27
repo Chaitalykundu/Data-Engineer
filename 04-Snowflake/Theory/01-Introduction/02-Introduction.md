@@ -45,7 +45,6 @@ Snowflake is **_Software as a Service (SaaS) == Data platform as a Cloud Service
 # About Snowflake
 
 - **_Build for the cloud_**
-
   - Build from scratch (cloud-native), optimize for cloud(AWS, GCP, Azure), storage and compute is decoupled
 
   - All kinds of use cases are supported ( Data Warehouse, Data Lake, Data Engineering, Streaming, Data Application, Data Science, Data Exchange)
@@ -53,14 +52,12 @@ Snowflake is **_Software as a Service (SaaS) == Data platform as a Cloud Service
   - Share data to internal as well as external customers securely.
 
 - **_Software as a Service (SaaS)_**
-
   - No software, infrastructure, or upgrades to manage.
 
   - All update, maintenance and releases are done by snowflake and it is available for all the customers automatically
   - Available in all 3 major cloud providers
 
 - **_Pay only for used compute and storage_**
-
   - Storage and Compute charged independently and only for usage
   - If you store TB's of data and no processing, you only need to pay for storage, not for computing.
 

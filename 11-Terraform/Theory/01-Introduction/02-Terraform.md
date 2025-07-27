@@ -64,7 +64,6 @@ It helps automate the setup, modification, and destruction of your infrastructur
    ```
 
 2. Terraform CLI Commands:
-
    - `terraform init` → initialize project
    - `terraform plan` → preview what will happen
    - `terraform apply` → apply changes

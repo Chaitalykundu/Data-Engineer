@@ -35,7 +35,6 @@ This diagram shows a modern data pipeline workflow using Amazon S3 → Snowflake
 1. Amazon S3:
 
    Raw data is stored in S3 buckets.
-
    - Example paths:
      - s3://snowflake-workshop-lab/weather-nyc
      - s3://snowflake-workshop-lab/citibike-trips
@@ -88,7 +87,7 @@ Data Ingestion is the first step in a modern data pipeline. It refers to the pro
 
 &nbsp;
 
-## Two Main Types of Data Ingestion:
+## Two Main Types of Data Ingestion
 
 | Type                    | Description                                                 | Examples                            |
 | ----------------------- | ----------------------------------------------------------- | ----------------------------------- |
@@ -99,7 +98,7 @@ Data Ingestion is the first step in a modern data pipeline. It refers to the pro
 
 &nbsp;
 
-## Tools Used for Data Ingestion:
+## Tools Used for Data Ingestion
 
 | Tool               | Type                | Purpose                                   |
 | ------------------ | ------------------- | ----------------------------------------- |
@@ -115,7 +114,7 @@ Data Ingestion is the first step in a modern data pipeline. It refers to the pro
 
 &nbsp;
 
-## Common Data Sources:
+## Common Data Sources
 
 - SQL / NoSQL Databases (e.g., PostgreSQL, MongoDB)
 - REST APIs

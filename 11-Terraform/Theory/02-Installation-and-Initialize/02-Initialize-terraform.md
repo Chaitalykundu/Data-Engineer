@@ -20,28 +20,28 @@
 
 1. Create Your First Project
 
-    ```bash
-    mkdir terraform-demo
-    cd terraform-demo
-    ```
+   ```bash
+   mkdir terraform-demo
+   cd terraform-demo
+   ```
 
 2. Create a file named `main.tf` and Write code in it
 
-    ```hcl
-    # main.tf
+   ```hcl
+   # main.tf
 
-     output "message" {
-       value = "Hello, Terraform!"
-     }
-    ```
+    output "message" {
+      value = "Hello, Terraform!"
+    }
+   ```
 
 3. Open your terminal in the same directory and run:
 
-    ```bash
-    terraform init
-    terraform plan
-    terraform apply
-    ```
+   ```bash
+   terraform init
+   terraform plan
+   terraform apply
+   ```
 
 4. When prompted, type `yes`.
 
@@ -72,7 +72,6 @@ message = "Hello, Terraform!"
 ```
 
 1. `output "message" { ... }`
-
    - This block defines an **output variable** named `message`.
 
    - In Terraform, output blocks are used to display useful information after terraform apply finishes.
@@ -80,7 +79,6 @@ message = "Hello, Terraform!"
    - You can define **multiple outputs** and use them to show IP addresses, resource names, or anything else you've provisioned.
 
 2. `value = "Hello, Terraform!"`
-
    - This line sets the **value of the output** named message.
 
    - In this case, it’s just a static string: `"Hello, Terraform!"`

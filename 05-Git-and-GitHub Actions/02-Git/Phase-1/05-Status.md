@@ -105,15 +105,15 @@ $ git status -s
 
 # Status Codes
 
-| Symbol      | Meaning                |
-| ----------- | ---------------------- |
-| `??`        | Untracked file         |
-| `M`         | Modified file          |
-| `A`         | Added file (staged)    |
-| `D`         | Deleted file           |
-| `R`         | Renamed file           |
-| `C`         | Copied file            |
-| `U`         | Unmerged (conflict)    |
+| Symbol     | Meaning                |
+| ---------- | ---------------------- |
+| `??`       | Untracked file         |
+| `M`        | Modified file          |
+| `A`        | Added file (staged)    |
+| `D`        | Deleted file           |
+| `R`        | Renamed file           |
+| `C`        | Copied file            |
+| `U`        | Unmerged (conflict)    |
 | `` (space) | No change in that area |
 
 &nbsp;

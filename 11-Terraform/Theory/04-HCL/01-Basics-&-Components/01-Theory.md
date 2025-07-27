@@ -104,11 +104,11 @@ Here,
 
 &nbsp;
 
-| Part | Description |
+| Part                                  | Description                                                                                                        |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `resource "local_file" "pet"` | Declares a resource named `pet` of type `local_file`. |
-| `filename = "./pet_file.txt"` | Specifies the path and name of the file to be created. In this case, it's `pet_file.txt` in the current directory. |
-| `content = "I don't like per at all"` | This is the **text content** that will be written into the file. |
+| `resource "local_file" "pet"`         | Declares a resource named `pet` of type `local_file`.                                                              |
+| `filename = "./pet_file.txt"`         | Specifies the path and name of the file to be created. In this case, it's `pet_file.txt` in the current directory. |
+| `content = "I don't like per at all"` | This is the **text content** that will be written into the file.                                                   |
 
 &nbsp;
 

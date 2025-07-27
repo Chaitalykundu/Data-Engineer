@@ -52,14 +52,14 @@ Here , Transformation happens outside the data warehouse, typically using ETL to
 
 &nbsp;
 
-### Used When:
+### Used When
 
 - The warehouse is not powerful enough to handle heavy transformations.
 - You want full control of data before storage.
 
 &nbsp;
 
-### 🛠️ Common ETL Tools:
+### 🛠️ Common ETL Tools
 
 Informatica, Talend, Apache Nifi, SSIS
 
@@ -90,7 +90,7 @@ Modern approach, optimized for cloud-based platforms like Snowflake, BigQuery, R
 
 &nbsp;
 
-### 🛠️ Common ELT Tools:
+### 🛠️ Common ELT Tools
 
 Fivetran (E+L), dbt (T), Airbyte, Stitch
 
@@ -133,7 +133,7 @@ Fivetran (E+L), dbt (T), Airbyte, Stitch
 
 # Why Use ETL? (Extract → Transform → Load)
 
-## ✅ Use ETL when:
+## ✅ Use ETL when
 
 | Scenario                                             | Why ETL is Better                                 |
 | ---------------------------------------------------- | ------------------------------------------------- |
@@ -146,7 +146,7 @@ Fivetran (E+L), dbt (T), Airbyte, Stitch
 
 &nbsp;
 
-## 💡 Example Use Cases:
+## 💡 Example Use Cases
 
 - Healthcare data with privacy rules (e.g., HIPAA)
 
@@ -158,7 +158,7 @@ Fivetran (E+L), dbt (T), Airbyte, Stitch
 
 # Why Use ELT? (Extract → Load → Transform)
 
-## ✅ Use ELT when:
+## ✅ Use ELT when
 
 | Scenario                                               | Why ELT is Better                               |
 | ------------------------------------------------------ | ----------------------------------------------- |
@@ -171,7 +171,7 @@ Fivetran (E+L), dbt (T), Airbyte, Stitch
 
 &nbsp;
 
-## b💡 Example Use Cases:
+## b💡 Example Use Cases
 
 - Real-time marketing data pipelines (using Fivetran + dbt)
 

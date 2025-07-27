@@ -65,7 +65,6 @@ When data is loaded into Snowflake, Snowflake reorganizes that data into its int
 6. Snowflake uses highly secure cloud storage to maintain your structured and semi-structured data
 
 7. As data is loaded into the table, following activities happen
-
    - Snowflake converts them into optimized columnar compressed format (proprietary to snowflake)
 
    - This optimized columnar compressed format brings a lot of data access efficiently (faster workload, low compute and storage cost)

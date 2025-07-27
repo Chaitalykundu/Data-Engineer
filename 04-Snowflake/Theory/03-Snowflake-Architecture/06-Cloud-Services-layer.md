@@ -35,7 +35,6 @@ It manages all serverless tasks like snowpipe, tasks, materialized view maintena
 - This layer is completely independent from the storage layer and compute layer and snowflake ensures that it is highly available (**redundancy and fault tolerance**)
 
 - This layer takes care of the following
-
   - Authentication & Authorization ( via WebUI, or Connector or vSnowSQL or Native connector, or MFA etc)
   - User & session management
   - Query Planning, Compilation, Optimization and Data Caching
@@ -43,7 +42,6 @@ It manages all serverless tasks like snowpipe, tasks, materialized view maintena
   - Co-ordinate data storage / updates
   - Transaction management
   - Metadata management (one of the core activity). This feature supports :
-
     - Zero copy cloning
     - Time Travel
     - Data sharing
