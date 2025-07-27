@@ -2,8 +2,15 @@
 
 - [Overview](#overview)
 - [Questions](#questions)
+  - [Introduction](#introduction)
+    - [Theory](#theory)
+    - [Data Flow](#data-flow)
   - [DBT Models](#dbt-models)
 - [Answers](#answers)
+  - [Introduction](#introduction-1)
+    - [Theory](#theory-1)
+      - [1. What is DBT](#1-what-is-dbt)
+      - [2. What is Data Ingestion](#2-what-is-data-ingestion)
   - [DBT Models](#dbt-models-1)
     - [2. What happen when you run dbt model](#2-what-happen-when-you-run-dbt-model)
     - [3. Which Objects Can dbt Models Create](#3-which-objects-can-dbt-models-create)
@@ -15,6 +22,29 @@
 &nbsp;
 
 # Questions
+
+## Introduction
+
+### Theory
+
+1. What is DBT
+2. Why do we use **DBT** / What are the features of dbt
+3. Explain the Data Flow of Modern Data Stack
+4. Where does dbt fits in the Modern Data Stack
+5. What does dbt do / What are the use of dbt
+6. How does dbt work
+
+&nbsp;
+
+&nbsp;
+
+### Data Flow
+
+1. What is Data Ingestion
+
+&nbsp;
+
+&nbsp;
 
 ## DBT Models
 
@@ -31,6 +61,26 @@
 &nbsp;
 
 # Answers
+
+## Introduction
+
+### Theory
+
+#### 1. What is DBT
+
+&nbsp;
+
+&nbsp;
+
+#### 2. What is Data Ingestion
+
+Data Ingestion is the first step in a modern data pipeline. It refers to the process of collecting and importing data from various sources into a storage or processing system—typically a data warehouse, data lake, or data lakehouse.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 ## DBT Models
 

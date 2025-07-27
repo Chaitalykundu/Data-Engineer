@@ -4,10 +4,10 @@
 - [Summary](#summary)
 - [Abbreviation](#abbreviation)
 - [DBT](#dbt)
-- [Why DBT](#why-dbt)
-- [Role of dbt in the Modern Data Stack](#role-of-dbt-in-the-modern-data-stack)
+- [Features](#features)
+- [Data Flow of Modern Data Stack](#data-flow-of-modern-data-stack)
 - [Where dbt fits in the Modern Data Stack](#where-dbt-fits-in-the-modern-data-stack)
-- [What does dbt do?](#what-does-dbt-do)
+- [What does dbt do / Use of dbt](#what-does-dbt-do--use-of-dbt)
 - [How does dbt work?](#how-does-dbt-work)
 - [Example Workflow](#example-workflow)
 
@@ -42,9 +42,11 @@
 
 DBT is the tool for **_transforming data_** within data warehouse.
 
-dbt (data build tool) is an **open-source** tool that helps data teams **transform raw data** inside a data warehouse into clean, analytics-ready datasets using SQL.
+DBT (data build tool) is an **open-source** tool that helps data teams **transform raw data** into clean, analytics-ready datasets using SQL inside a data warehouse .
 
-It's a command line tool and transformation framework used by data engineers and analysts to transform data in a data warehouse using SQL and some basic Python (for dbt Python models or scripting).
+&nbsp;
+
+It's a command line tool and transformation framework, used by data engineers and analysts to transform data in a data warehouse using SQL and some basic Python (for dbt Python models or scripting).
 
 &nbsp;
 
@@ -58,7 +60,7 @@ The **extraction** of data from source and **loading** raw data into data wareho
 
 &nbsp;
 
-# Why DBT
+# Features
 
 1. <u>**_Affordable:_**</u> DBT is more Affordable
 
@@ -80,7 +82,7 @@ The **extraction** of data from source and **loading** raw data into data wareho
 
 &nbsp;
 
-# Role of dbt in the Modern Data Stack
+# Data Flow of Modern Data Stack
 
 In a modern data stack, data generally flows like this:
 
@@ -91,6 +93,10 @@ In a modern data stack, data generally flows like this:
 - **Data Transformation** — This is where **dbt** comes in. It transforms raw data into clean, tested, documented datasets.
 
 - **BI / Analytics Layer** — Tools like **Looker**, **Tableau**, or **Power BI** use transformed data to generate dashboards and insights.
+
+&nbsp;
+
+<img src="../../assets/flow-of-data.png" alt="flow-of-data" height="300px" />
 
 &nbsp;
 
@@ -137,7 +143,7 @@ In a modern data stack, data generally flows like this:
 
 &nbsp;
 
-# What does dbt do?
+# What does dbt do / Use of dbt
 
 dbt lets you:
 
@@ -145,7 +151,8 @@ dbt lets you:
 - Organize SQL transformations like code (modular, reusable).
 - **Test and document** your data pipelines.
 - Version control your transformations (using Git).
-- Automatically manage dependencies between data models.
+- Automatically create **data lineage graph** that shows dependencies between data models.
+- Schedule & Automate Jobs, monitor job status
 
 &nbsp;
 

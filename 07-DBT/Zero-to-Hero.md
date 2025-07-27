@@ -7,6 +7,13 @@
 - Basic architecture: Models, Sources, Seeds, Snapshots, Tests
 - Jinja templating
 
+| **Topic**                                                     | **Status** |
+| ------------------------------------------------------------- | ---------- |
+| What is dbt? Why use it?                                      | Done       |
+| dbt Core vs dbt Cloud                                         |            |
+| Basic architecture : Models, Sources, Seeds, Snapshots, Tests |            |
+| Jinja templating                                              |            |
+
 &nbsp;
 
 ## 📚 Free Resources
