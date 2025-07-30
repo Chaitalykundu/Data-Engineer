@@ -1,3 +1,10 @@
+| **Topic**                                                     | **Status** |
+| ------------------------------------------------------------- | ---------- | ---- |
+| What is dbt? Why use it?                                      | Done       |
+| dbt Core vs dbt Cloud                                         |            | Done |
+| Basic architecture : Models, Sources, Seeds, Snapshots, Tests |            |
+| Jinja templating                                              |            |
+
 # Phase 1: Beginner – Understand the Fundamentals (Week 1)
 
 ## 🎯 Learning Objectives
@@ -6,13 +13,6 @@
 - dbt core vs dbt cloud
 - Basic architecture: Models, Sources, Seeds, Snapshots, Tests
 - Jinja templating
-
-| **Topic**                                                     | **Status** |
-| ------------------------------------------------------------- | ---------- |
-| What is dbt? Why use it?                                      | Done       |
-| dbt Core vs dbt Cloud                                         |            |
-| Basic architecture : Models, Sources, Seeds, Snapshots, Tests |            |
-| Jinja templating                                              |            |
 
 &nbsp;
 
@@ -165,3 +165,6 @@
 &nbsp;
 
 &nbsp;
+|🎯 Learning Objectives | 📚 Free Resources | 🛠️ Practice Tasks | ✅ Milestone Checkpoint |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+|- What is dbt? Why use it?<br>- dbt Core vs dbt Cloud<br>- Basic architecture (Models, Sources, Seeds, Snapshots, Tests)<br>- Jinja templating | - [dbt Learn - Getting Started](https://docs.getdbt.com/docs/introduction)<br>- [dbt Cloud Free Tier](https://www.getdbt.com/signup/)<br>- YouTube: “dbt for Beginners” (Coalesce) | - Set up dbt Cloud account<br>- Connect to sample warehouse (e.g., Snowflake)<br>- Create first dbt project<br>- Build a simple model | - Explain dbt basics<br>- One model and source in your project |

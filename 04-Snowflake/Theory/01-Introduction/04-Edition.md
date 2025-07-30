@@ -2,7 +2,9 @@
 
 - [Overview](#overview)
 - [Snowflake Editions](#snowflake-editions)
+- [Snowflake Editions Comparison](#snowflake-editions-comparison)
 - [Key Points](#key-points)
+- [When to Choose Which Edition?](#when-to-choose-which-edition)
 - [Regions](#regions)
 - [Cloud Providers](#cloud-providers)
 
@@ -38,6 +40,27 @@ Snowflake provides two types of storage.
 
 &nbsp;
 
+# Snowflake Editions Comparison
+
+| Feature                             | **Standard**           | **Enterprise**                | **Business Critical**             |
+| ----------------------------------- | ---------------------- | ----------------------------- | --------------------------------- |
+| ✅ Basic Features                   | Yes                    | Yes                           | Yes                               |
+| 🏗️ Virtual Warehouses               | All sizes supported    | All sizes supported           | All sizes supported               |
+| 🔐 Time Travel                      | 1 day                  | Up to 90 days                 | Up to 90 days                     |
+| 🔁 Fail-Safe                        | 7 days                 | 7 days                        | 7 days                            |
+| 📂 Multi-cluster Warehouses         | ❌ No                  | ✅ Yes                        | ✅ Yes                            |
+| 🔒 Encryption (at-rest, in-transit) | ✅ Standard encryption | ✅ Stronger security features | ✅ HIPAA, PCI, FedRAMP compliance |
+| 🔄 Materialized View Refresh        | ✅                     | ✅                            | ✅                                |
+| 🧪 Data Masking                     | ❌ No                  | ✅ Yes                        | ✅ Yes                            |
+| 🔍 Search Optimization Service      | ❌ No                  | ✅ Optional                   | ✅ Optional                       |
+| 🛡️ Compliance & Security            | SOC 2 Type II, GDPR    | SOC 2, HIPAA-readiness        | HIPAA, PCI DSS, FedRAMP, ITAR     |
+| 🔐 PrivateLink / VPC Peering        | ❌                     | ✅ Enterprise Only            | ✅ Enterprise Only                |
+| 🔒 Customer-Managed Keys (CMK)      | ❌                     | ❌                            | ✅ (Tri-Secret Secure)            |
+
+&nbsp;
+
+&nbsp;
+
 # Key Points
 
 - Snowflake comes with a **30 days free trial** edition and allows you to choose a cloud provider (AWS, Azure, GCP)
@@ -49,6 +72,7 @@ Snowflake provides two types of storage.
 - Snowflake credit **cost depends on** the Snowflake **edition**, not on cloud provider or region
 
 - Some features are **not available in standard edition**, available only in Enterprise edition
+
   - Extended (90 days) time travel
   - Multi-cluster virtual warehouse
   - Security compliance
@@ -70,6 +94,21 @@ Snowflake provides two types of storage.
 - Besides compute and storage, snowflake also charges for Cloud Services and Data Transfer cost if applicable (Data loading from external datalake from other cloud provider)
 
 - MFA (Multi-factor Authentication) is enabled even for trial edition user and it has to be activated for individual user.
+
+&nbsp;
+
+&nbsp;
+&nbsp;
+
+&nbsp;
+
+# When to Choose Which Edition?
+
+| Scenario                         | Recommended Edition   |
+| -------------------------------- | --------------------- |
+| Small team, no heavy compliance  | **Standard**          |
+| Medium/large teams, masking, SSO | **Enterprise**        |
+| Compliance-driven (HIPAA, PCI)   | **Business Critical** |
 
 &nbsp;
 

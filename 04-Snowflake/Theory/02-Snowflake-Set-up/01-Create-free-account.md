@@ -1,4 +1,4 @@
-Steps
+# Steps
 
 1. Navigate to <https://signup.snowflake.com/>
 2. Fill the details and click on **Continue**
