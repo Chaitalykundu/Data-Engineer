@@ -22,6 +22,8 @@
 9. open pgAdmin4 > go to protgreSQL 15 select properties. check if all the things are ok or not
 10. file explore > C drive > Users > chaitaly_kundu > .dbt > open profiles.yml in vs code. change the following things
 
+Make sure database is already created.
+
 ```
 postgres:
  target: dev

@@ -131,8 +131,10 @@ dbt --version
 # Step 5: create a project (name it dbt_project) and initialize it
 
 ```bash
-dbt init dbt_project
+dbt init dbt_project_name
 ```
+
+It may ask some inputs to set up profiles.yml file
 
 &nbsp;
 
@@ -161,6 +163,9 @@ pwd
 # Step 8: change `profiles.yml`
 
 Follow specific file to change `profiles.yml`
+
+- [DBT-Protgres-Connection.md](./DBT-Protgres-Connection.md)
+- [DBT-Snowflake-Connection.md](./DBT-Snowflake-Connection.md)
 
 &nbsp;
 

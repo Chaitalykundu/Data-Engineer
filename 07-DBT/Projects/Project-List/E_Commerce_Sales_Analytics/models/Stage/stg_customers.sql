@@ -4,4 +4,4 @@ SELECT
     last_name,
     email,
     signup_date
-FROM {{ ref('customers')}}
+FROM {{ ref('raw_customers')}}

@@ -1,0 +1,4 @@
+# ignore env folder
+dbt-env/
+logs/
+# ignore dbt artifacts

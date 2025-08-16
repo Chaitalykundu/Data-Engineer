@@ -5,4 +5,5 @@ SELECT
     order_date,
     amount,
     order_status
-from {{ref('orders')}}
+from
+    source {{ ('sales_analytics', 'raw_orders') }}

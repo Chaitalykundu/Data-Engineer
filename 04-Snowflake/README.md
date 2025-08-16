@@ -26,29 +26,29 @@
 
 # Phase wise Roadmap
 
-| Phase           | Topic / Skill                               | Details & Notes                                                                                    |
-| --------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| **🔰 Beginner** | **Introduction to Snowflake**               | What is Snowflake? Cloud data warehouse architecture, key features (separation of storage/compute) |
-|                 | **Snowflake Setup**                         | Create a free trial account, understand UI components: Worksheets, Databases, Warehouses           |
-|                 | **Snowflake Architecture**                  | Storage, Compute, Services layers — key to understanding scaling and pricing                       |
-|                 | **Basic SQL on Snowflake**                  | DDL, DML, SELECTs, filtering, sorting, aggregations                                                |
-|                 | **Working with Databases, Schemas, Tables** | Creating databases, schemas, tables, views — practice with Snowflake UI or SQL                     |
-|                 | **File Loading (SnowSQL/Worksheet)**        | Load CSV/JSON files from local or stage using `COPY INTO`, external stages                         |
-|                 | **Virtual Warehouses**                      | How compute works in Snowflake; scaling and suspending                                             |
-| ⚙️ Intermediate | Query Performance & Optimization            | Understand partitions, clustering keys, caching, and how to use QUERY_PROFILE                      |
-|                 | Semi-Structured Data (JSON, Avro, XML)      | Use VARIANT data type; flatten nested structures                                                   |
-|                 | Stages & File Formats                       | Internal, external stages (S3, Azure Blob); file formats (CSV, JSON, Parquet)                      |
-|                 | Data Sharing                                | Snowflake Secure Data Sharing (no data copy required)                                              |
-|                 | Role-Based Access Control (RBAC)            | Users, roles, privileges, grants – key for governance and compliance                               |
-|                 | Time Travel & Fail-safe                     | Data recovery features: restore dropped objects, rollback changes                                  |
-|                 | Zero-Copy Cloning                           | Instantly create test/dev environments without duplicating data                                    |
-| 🚀 Advanced     | Streams & Tasks                             | Set up incremental processing pipelines (CDC-like behavior)                                        |
-|                 | Snowpipe                                    | Automate real-time or near-real-time ingestion                                                     |
-|                 | Materialized Views                          | Create optimized, precomputed views for faster access                                              |
-|                 | Query Acceleration & Result Caching         | Understand caching layers: metadata, result set, data cache                                        |
-|                 | External Tables & Data Lake Integration     | Query external data directly (e.g., from S3)                                                       |
-|                 | Stored Procedures & JavaScript UDFs         | Use JavaScript for custom logic, error handling, loops                                             |
-|                 | Snowpark (Optional)                         | For advanced users – write transformation logic in Python/Scala/Java using Snowpark APIs           |
+| Phase               | Topic / Skill                               | Details & Notes                                                                                    |
+| ------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| **🔰 Beginner**     | **Introduction to Snowflake**               | What is Snowflake? Cloud data warehouse architecture, key features (separation of storage/compute) |
+|                     | **Snowflake Setup**                         | Create a free trial account, understand UI components: Worksheets, Databases, Warehouses           |
+|                     | **Snowflake Architecture**                  | Storage, Compute, Services layers — key to understanding scaling and pricing                       |
+|                     | **Basic SQL on Snowflake**                  | DDL, DML, SELECTs, filtering, sorting, aggregations                                                |
+|                     | **Working with Databases, Schemas, Tables** | Creating databases, schemas, tables, views — practice with Snowflake UI or SQL                     |
+|                     | **File Loading (SnowSQL/Worksheet)**        | Load CSV/JSON files from local or stage using `COPY INTO`, external stages                         |
+|                     | **Virtual Warehouses**                      | How compute works in Snowflake; scaling and suspending                                             |
+| **⚙️ Intermediate** | Query Performance & Optimization            | Understand partitions, clustering keys, caching, and how to use QUERY_PROFILE                      |
+|                     | Semi-Structured Data (JSON, Avro, XML)      | Use VARIANT data type; flatten nested structures                                                   |
+|                     | Stages & File Formats                       | Internal, external stages (S3, Azure Blob); file formats (CSV, JSON, Parquet)                      |
+|                     | Data Sharing                                | Snowflake Secure Data Sharing (no data copy required)                                              |
+|                     | Role-Based Access Control (RBAC)            | Users, roles, privileges, grants – key for governance and compliance                               |
+|                     | Time Travel & Fail-safe                     | Data recovery features: restore dropped objects, rollback changes                                  |
+|                     | Zero-Copy Cloning                           | Instantly create test/dev environments without duplicating data                                    |
+| **🚀 Advanced**     | Streams & Tasks                             | Set up incremental processing pipelines (CDC-like behavior)                                        |
+|                     | Snowpipe                                    | Automate real-time or near-real-time ingestion                                                     |
+|                     | Materialized Views                          | Create optimized, precomputed views for faster access                                              |
+|                     | Query Acceleration & Result Caching         | Understand caching layers: metadata, result set, data cache                                        |
+|                     | External Tables & Data Lake Integration     | Query external data directly (e.g., from S3)                                                       |
+|                     | Stored Procedures & JavaScript UDFs         | Use JavaScript for custom logic, error handling, loops                                             |
+|                     | Snowpark (Optional)                         | For advanced users – write transformation logic in Python/Scala/Java using Snowpark APIs           |
 
 &nbsp;
 

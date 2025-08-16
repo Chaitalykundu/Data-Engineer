@@ -18,6 +18,8 @@
 
 8. file explore > C drive > Users > chaitaly_kundu > .dbt > open profiles.yml in vs code. change the following things
 
+Make sure database is already created.
+
 ```
 dbt_project_name:
   outputs:

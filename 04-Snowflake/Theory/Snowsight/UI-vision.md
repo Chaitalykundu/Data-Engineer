@@ -22,6 +22,7 @@
   - [Features:](#features-1)
   - [Use Case:](#use-case-2)
   - [Example:](#example-2)
+- Admin
 - [Quick UI Navigation Summary](#quick-ui-navigation-summary)
 
 &nbsp;

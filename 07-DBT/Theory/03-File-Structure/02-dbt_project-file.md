@@ -1,11 +1,18 @@
 # Overview
 
 - [Overview](#overview)
+- [`dbt_project.yml` file](#dbt_projectyml-file)
 - [Sample dbt_project.yml File](#sample-dbt_projectyml-file)
 - [Key Fields Explained](#key-fields-explained)
-- [Enable quoting of schema/table names:](#enable-quoting-of-schematable-names)
+- [Enable quoting of schema/table names](#enable-quoting-of-schematable-names)
 
 &nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# `dbt_project.yml` file
 
 &nbsp;
 

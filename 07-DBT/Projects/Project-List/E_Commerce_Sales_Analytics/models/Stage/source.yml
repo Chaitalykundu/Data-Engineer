@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: Sales_Analytics # database schema name (name = schema)
+    database: DB_E_Commerce_Sales_Analytics_RAW
+    description: "Raw data sources from the e-commerce system"
+    schema: Sales_Analytics # the schema where raw tables live
+    tables:
+      - name: orders
+      - name: customers
+
+  - name: stripe
+    tables:
+      - name: payments
