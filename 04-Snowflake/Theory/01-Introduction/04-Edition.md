@@ -72,7 +72,6 @@ Snowflake provides two types of storage.
 - Snowflake credit **cost depends on** the Snowflake **edition**, not on cloud provider or region
 
 - Some features are **not available in standard edition**, available only in Enterprise edition
-
   - Extended (90 days) time travel
   - Multi-cluster virtual warehouse
   - Security compliance

@@ -69,7 +69,7 @@ A retail company collects sales data from all its stores daily. It loads this in
 
 &nbsp;
 
-# Basic Data Flow in Data Warehousing:
+# Basic Data Flow in Data Warehousing
 
 ```pgsql
 Operational DBs / External Sources

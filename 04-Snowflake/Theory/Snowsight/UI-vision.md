@@ -1,28 +1,34 @@
 # Overview
 
 - [Overview](#overview)
-- [worksheet](#worksheet)
-  - [UI Vision](#ui-vision)
-  - [Purpose](#purpose)
-  - [Features:](#features)
-  - [Use Case:](#use-case)
-  - [Example:](#example)
+- [Projects](#projects)
+  - [Worksheet](#worksheet)
+    - [UI Vision](#ui-vision)
+    - [Purpose](#purpose)
+    - [Features](#features)
+    - [Use Case](#use-case)
+    - [Example](#example)
+- [Data](#data)
 - [Databases](#databases)
-  - [Purpose:](#purpose-1)
-  - [Structure:](#structure)
-  - [UI Functionality:](#ui-functionality)
-  - [Example:](#example-1)
-- [Warehouses](#warehouses)
-  - [UI Features:](#ui-features)
-  - [Size Options:](#size-options)
-  - [Use Case:](#use-case-1)
-  - [Tip:](#tip)
-- [Roles](#roles)
-  - [Purpose:](#purpose-2)
-  - [Features:](#features-1)
-  - [Use Case:](#use-case-2)
-  - [Example:](#example-2)
-- Admin
+  - [Purpose](#purpose-1)
+  - [Structure](#structure)
+  - [UI Functionality](#ui-functionality)
+  - [Example](#example-1)
+- [Data Products](#data-products)
+- [AI \& ML](#ai--ml)
+- [Monitoring](#monitoring)
+- [Admin](#admin)
+  - [Sub-section of Admin](#sub-section-of-admin)
+  - [Warehouses](#warehouses)
+    - [UI Features](#ui-features)
+    - [Size Options](#size-options)
+    - [Use Case](#use-case-1)
+    - [Tip](#tip)
+  - [Roles](#roles)
+    - [Purpose](#purpose-2)
+    - [Features](#features-1)
+    - [Use Case](#use-case-2)
+    - [Example](#example-2)
 - [Quick UI Navigation Summary](#quick-ui-navigation-summary)
 
 &nbsp;
@@ -31,7 +37,24 @@
 
 &nbsp;
 
-# worksheet
+# Projects
+
+Project section contains
+
+- Worksheets
+- Notebooks
+- Streamlit
+- Dashboards
+- App Packages
+- Templates
+- Services and Jobs
+- Workspaces
+
+&nbsp;
+
+&nbsp;
+
+## Worksheet
 
 ### UI Vision
 
@@ -51,19 +74,17 @@ Run SQL queries interactively.
 
 &nbsp;
 
-### Features:
+### Features
 
 - SQL editor with syntax highlighting
-
-- Run queries, view history and results
-
+- un queries, view history and results
 - Bind worksheet to a role, warehouse, and database/schema
 
 &nbsp;
 
 &nbsp;
 
-### Use Case:
+### Use Case
 
 Writing queries, testing logic, running transformations or DDLs.
 
@@ -71,7 +92,7 @@ Writing queries, testing logic, running transformations or DDLs.
 
 &nbsp;
 
-### Example:
+### Example
 
 ```sql
 SELECT * FROM MY_DB.PUBLIC.EMPLOYEES LIMIT 10;
@@ -83,9 +104,22 @@ SELECT * FROM MY_DB.PUBLIC.EMPLOYEES LIMIT 10;
 
 &nbsp;
 
+# Data
+
+Data section contains
+
+- Databases
+- Add Data
+- Integrations
+- Migrations
+
+&nbsp;
+
+&nbsp;
+
 # Databases
 
-### Purpose:
+### Purpose
 
 Logical containers for data objects (schemas, tables, views).
 
@@ -93,7 +127,7 @@ Logical containers for data objects (schemas, tables, views).
 
 &nbsp;
 
-### Structure:
+### Structure
 
 ```md
 Database
@@ -105,7 +139,7 @@ Database
 
 &nbsp;
 
-### UI Functionality:
+### UI Functionality
 
 - Browse databases and objects
 - Create/edit/drop schemas and tables
@@ -115,7 +149,7 @@ Database
 
 &nbsp;
 
-### Example:
+### Example
 
 Navigate to `MY_DB > PUBLIC > EMPLOYEES` to view a table.
 
@@ -125,7 +159,86 @@ Navigate to `MY_DB > PUBLIC > EMPLOYEES` to view a table.
 
 &nbsp;
 
-# Warehouses
+# Data Products
+
+Marketplace
+Apps
+Private Sharing
+Provider Studio
+Partner Connect
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# AI & ML
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Monitoring
+
+- Query History
+- Copy History
+- Task History
+- dbt projects
+- Dynamic Tables
+- Traces & Logs
+- Trust Center
+- Governance
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Admin
+
+When you log into Snowsight (Snowflake’s web UI), you’ll see an **Admin** tab on the left side.
+
+This is the admin section
+
+<img src='../assets/Snowsight/admin.png'>
+
+&nbsp;
+
+From there, you can manage:
+
+- **Users** → Create, edit, suspend users, assign roles.
+- **Roles** → Manage role hierarchy, grant privileges.
+- **Warehouses** → Create/modify warehouses, assign to roles.
+- **Databases & Schemas** → Manage storage objects and permissions.
+- **Resource Monitors** → Monitor credit usage.
+- **Integrations** → Manage external stages, notification services, API integrations.
+- **Accounts** (for ACCOUNTADMIN) → View account usage, billing, security policies.
+
+&nbsp;
+
+## Sub-section of Admin
+
+Admin section consist of
+
+1. Cost Management
+2. Warehouses
+3. Users & Roles
+4. Accounts
+5. Security
+6. Contacts
+7. Billing
+8. Terms
+9. &nbsp;
+
+&nbsp;
+
+&nbsp;
+
+## Warehouses
 
 Purpose: Compute engines that process SQL queries.
 
@@ -133,7 +246,7 @@ Purpose: Compute engines that process SQL queries.
 
 &nbsp;
 
-### UI Features:
+### UI Features
 
 - Start/stop warehouses manually
 - Set auto-suspend & auto-resume
@@ -143,7 +256,7 @@ Purpose: Compute engines that process SQL queries.
 
 &nbsp;
 
-### Size Options:
+### Size Options
 
 XS, S, M, L, XL, etc.
 
@@ -151,7 +264,7 @@ XS, S, M, L, XL, etc.
 
 &nbsp;
 
-### Use Case:
+### Use Case
 
 Choose the right warehouse based on query complexity and concurrency.
 
@@ -159,7 +272,7 @@ Choose the right warehouse based on query complexity and concurrency.
 
 &nbsp;
 
-### Tip:
+### Tip
 
 Use `auto-suspend = 60 sec` to save cost.
 
@@ -169,9 +282,9 @@ Use `auto-suspend = 60 sec` to save cost.
 
 &nbsp;
 
-# Roles
+## Roles
 
-### Purpose:
+### Purpose
 
 Manage RBAC (Role-Based Access Control).
 
@@ -179,7 +292,7 @@ Manage RBAC (Role-Based Access Control).
 
 &nbsp;
 
-### Features:
+### Features
 
 - Switch between roles from top-right dropdown
 - Each role has privileges (e.g., read/write on databases, create warehouse)
@@ -189,7 +302,7 @@ Manage RBAC (Role-Based Access Control).
 
 &nbsp;
 
-### Use Case:
+### Use Case
 
 Control access to data and operations.
 
@@ -197,9 +310,17 @@ Control access to data and operations.
 
 &nbsp;
 
-### Example:
+### Example
 
 A role like `ANALYST` may only have SELECT access on views.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 

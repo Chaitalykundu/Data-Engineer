@@ -1,4 +1,4 @@
-# Real-World Tip:
+# Real-World Tip
 
 💡Think in layers:
 

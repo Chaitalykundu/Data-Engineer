@@ -22,7 +22,6 @@
 
 - Local development using terminal and text editor
 - Ideal for:
-
   - Developers comfortable with CLI & Git
   - Fully customizable deployments
   - Using external schedulers (Airflow, Jenkins)
@@ -37,7 +36,6 @@
 
 - Web-based platform hosted by dbt Labs
 - Includes:
-
   - Built-in scheduler
   - Hosted documentation
   - Interactive DAG & test results
