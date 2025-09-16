@@ -34,7 +34,7 @@ It's most commonly used in tools like **Terraform**, **Consul**, and **Vault**.
 
 - **Declarative Syntax**: You describe the desired state, not the steps to get there.
 - **Human-Readable**: HCL is designed to be both machine- and human-friendly.
-- **Extensible**:C n be embedded in JSON, but HCL is more readable.
+- **Extensible**: Can be embedded in JSON, but HCL is more readable.
 
 &nbsp;
 
