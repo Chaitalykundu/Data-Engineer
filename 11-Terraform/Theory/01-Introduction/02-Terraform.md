@@ -2,7 +2,6 @@
 
 - [Overview](#overview)
 - [Terraform](#terraform)
-- [Definition (Simple)](#definition-simple)
 - [Why Terraform](#why-terraform)
 - [How Terraform Works (Overview)](#how-terraform-works-overview)
 - [Key Concept](#key-concept)
@@ -27,7 +26,7 @@ Terraform architectures are plugin based architecture.
 
 &nbsp;
 
-# Definition (Simple)
+<!-- # Definition (Simple) -->
 
 Terraform allows you to write code to automate the creation of infrastructure like:
 
@@ -37,6 +36,8 @@ Terraform allows you to write code to automate the creation of infrastructure li
 - Cloud services (AWS, Azure, GCP, etc.)
 
 Instead of manually clicking through a cloud provider's UI, you define infrastructure in `.tf` files and Terraform builds it for you.
+
+We can create infrastructure in multiple providers (aws, azure, gcp) using terraform.
 
 &nbsp;
 
@@ -64,6 +65,7 @@ It helps automate the setup, modification, and destruction of your infrastructur
    ```
 
 2. Terraform CLI Commands:
+
    - `terraform init` → initialize project
    - `terraform plan` → preview what will happen
    - `terraform apply` → apply changes

@@ -18,7 +18,11 @@
 
 A `block` is a container for configuration in HCL.
 
+Each block serves a specific purpose, like defining a provider, resource, or module.
+
 It defines a piece of infrastructure or logic and contains **arguments**, **attributes**, or **nested blocks**.
+
+Blocks are enclosed in curly braces { } and can contain nested blocks
 
 &nbsp;
 
@@ -27,7 +31,7 @@ It defines a piece of infrastructure or logic and contains **arguments**, **attr
 # Basic Syntax
 
 ```hcl
-<block_type> "<label1>" "<label2>" {
+<block_type> "<resource_type>" "<resource_name>" {
   argument1 = "value"
   argument2 = "value"
 

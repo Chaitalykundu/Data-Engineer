@@ -34,7 +34,7 @@ It's most commonly used in tools like **Terraform**, **Consul**, and **Vault**.
 
 - **Declarative Syntax**: You describe the desired state, not the steps to get there.
 - **Human-Readable**: HCL is designed to be both machine- and human-friendly.
-- **Extensible**:C n be embedded in JSON, but HCL is more readable.
+- **Extensible**: Can be embedded in JSON, but HCL is more readable.
 
 &nbsp;
 
@@ -48,7 +48,8 @@ It's most commonly used in tools like **Terraform**, **Consul**, and **Vault**.
 | **Vault**     | Secrets Management             | Define secrets engines, policies, auth methods            |
 | **Consul**    | Service Discovery & Networking | Configure services, ACLs, intentions                      |
 | **Packer**    | VM/Image Builder               | Define image build workflows (AWS AMI, Azure Image, etc.) |
-| **Nomad**     | Workload orchestration         |
+| **Nomad**     | Workload orchestration         |                                                           |
+|               |                                |                                                           |
 
 &nbsp;
 
@@ -61,7 +62,6 @@ It's most commonly used in tools like **Terraform**, **Consul**, and **Vault**.
     key1 = value1
     key2 = value2
 }
-
 ```
 
 &nbsp;
