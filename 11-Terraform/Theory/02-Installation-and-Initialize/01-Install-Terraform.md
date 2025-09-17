@@ -55,7 +55,7 @@ We can install terraform in wo ways
     - Type:
 
       ```sh
-      terraform --cversion
+      terraform --version
       ```
 
     - You should see the installed version printed.

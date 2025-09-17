@@ -48,7 +48,8 @@ It's most commonly used in tools like **Terraform**, **Consul**, and **Vault**.
 | **Vault**     | Secrets Management             | Define secrets engines, policies, auth methods            |
 | **Consul**    | Service Discovery & Networking | Configure services, ACLs, intentions                      |
 | **Packer**    | VM/Image Builder               | Define image build workflows (AWS AMI, Azure Image, etc.) |
-| **Nomad**     | Workload orchestration         |
+| **Nomad**     | Workload orchestration         |                                                           |
+|               |                                |                                                           |
 
 &nbsp;
 
@@ -61,7 +62,6 @@ It's most commonly used in tools like **Terraform**, **Consul**, and **Vault**.
     key1 = value1
     key2 = value2
 }
-
 ```
 
 &nbsp;
