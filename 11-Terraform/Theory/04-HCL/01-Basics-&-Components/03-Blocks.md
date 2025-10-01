@@ -5,8 +5,14 @@
 - [Basic Syntax](#basic-syntax)
   - [Explanation](#explanation)
 - [Common HCL Block Types](#common-hcl-block-types)
-- [Example: resource Block](#example-resource-block)
+- [Resource Block](#resource-block)
   - [Breakdown](#breakdown)
+- [Provider Block](#provider-block)
+- [Variable Block](#variable-block)
+- [Output Block](#output-block)
+- [Module Block](#module-block)
+- [Data Block](#data-block)
+- [Nested Blocks](#nested-blocks)
 
 &nbsp;
 
@@ -16,13 +22,13 @@
 
 # Block
 
-A `block` is a container for configuration in HCL.
+A `block` is a container and the basic unit of configuration in HCL.
 
-Each block serves a specific purpose, like defining a provider, resource, or module.
+Each block serves a specific purpose, like defining a **provider**, **resource**, or **module**.
 
 It defines a piece of infrastructure or logic and contains **arguments**, **attributes**, or **nested blocks**.
 
-Blocks are enclosed in curly braces { } and can contain nested blocks
+Blocks are enclosed in curly braces `{ }` and can contain nested blocks.
 
 &nbsp;
 
@@ -31,7 +37,7 @@ Blocks are enclosed in curly braces { } and can contain nested blocks
 # Basic Syntax
 
 ```hcl
-<block_type> "<resource_type>" "<resource_name>" {
+<block_type> "<label1>" "<label2>" {
   argument1 = "value"
   argument2 = "value"
 
@@ -46,8 +52,8 @@ Blocks are enclosed in curly braces { } and can contain nested blocks
 ### Explanation
 
 - **Block Type**: Type of entity (e.g., resource, provider, variable)
-- **Label(s)**: Identifiers to name or scope the block
-- **Body**: Contains arguments and possibly nested blocks
+- **Label(s)**: Identifiers to name or scope the block (label1 = `resource_type`, label2 = `resource_name` / `identifier`)
+- **Body**: Inside `{}`, contains arguments and nested blocks.
 
 &nbsp;
 
@@ -70,7 +76,9 @@ Blocks are enclosed in curly braces { } and can contain nested blocks
 
 &nbsp;
 
-# Example: resource Block
+# Resource Block
+
+Defines infrastructure (cloud resources) to create .
 
 ```hcl
 resource "aws_instance" "web" {
@@ -98,6 +106,122 @@ resource "aws_instance" "web" {
 | `"web"`          | Label: the name for referencing in Terraform              |
 | `{ ... }`        | Block body with attributes and nested block (`lifecycle`) |
 | `lifecycle`      | Nested block that controls destroy behavior               |
+
+&nbsp;
+
+&nbsp;
+
+# Provider Block
+
+Defines which cloud provider Terraform should use.
+
+```hcl
+provider "aws" {
+  region = "us-east-1"
+}
+```
+
+&nbsp;
+
+&nbsp;
+
+# Variable Block
+
+Declares input variables.
+
+```hcl
+variable "username" {
+  description = "Enter your name"
+  type        = string
+  default     = ""
+}
+```
+
+&nbsp;
+
+&nbsp;
+
+# Output Block
+
+Exports values after deployment.
+
+```hcl
+output "message" {
+  value = "Hello World!"
+}
+```
+
+&nbsp;
+
+&nbsp;
+
+# Module Block
+
+Reuses configurations from another folder or registry.
+
+```hcl
+module "network" {
+  source = "./network"
+  vpc_id = "vpc-12345"
+}
+```
+
+&nbsp;
+
+&nbsp;
+
+# Data Block
+
+Fetches existing resources (read-only).
+
+```hcl
+data "aws_ami" "latest" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*"]
+  }
+}
+```
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Nested Blocks
+
+Blocks can contain other blocks. Example inside a resource:
+
+```hcl
+resource "aws_security_group" "web" {
+  name        = "web-sg"
+  description = "Allow HTTP and SSH"
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+```
+
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 

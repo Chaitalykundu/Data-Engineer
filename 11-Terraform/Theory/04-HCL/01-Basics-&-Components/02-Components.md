@@ -5,7 +5,7 @@
 - [1. Blocks](#1-blocks)
   - [Example](#example)
 - [2. Arguments](#2-arguments)
-- [Expressions](#expressions)
+- [3. Expressions](#3-expressions)
   - [Expressions Can include](#expressions-can-include)
 - [Functions](#functions)
 - [Variables](#variables)
@@ -76,7 +76,7 @@ resource "local_file" "example" {
 }
 ```
 
-block = `resource`
+here, block = `resource`
 
 &nbsp;
 
@@ -97,7 +97,7 @@ Each argument sets a specific property of the resource.
 
 &nbsp;
 
-# Expressions
+# 3. Expressions
 
 Expressions are used to **assign values dynamically**.
 

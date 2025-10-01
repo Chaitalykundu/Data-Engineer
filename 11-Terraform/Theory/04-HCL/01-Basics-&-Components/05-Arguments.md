@@ -8,6 +8,7 @@
   - [Breakdown](#breakdown)
 - [Where Are Arguments Used?](#where-are-arguments-used)
 - [Types of Values for Arguments](#types-of-values-for-arguments)
+- [Difference: Arguments vs Blocks](#difference-arguments-vs-blocks)
 - [Best Practices for Arguments](#best-practices-for-arguments)
 
 &nbsp;
@@ -64,6 +65,7 @@ resource "aws_instance" "web" {
 | `ami`           | `"ami-0abc123"` | Specifies the AMI ID for the EC2 instance |
 | `instance_type` | `"t2.micro"`    | Sets the instance type                    |
 | `tags`          | Map             | Key-value pair to tag the instance        |
+|                 |                 |                                           |
 
 &nbsp;
 
@@ -84,15 +86,29 @@ resource "aws_instance" "web" {
 
 # Types of Values for Arguments
 
-| Type                    | Example                          |
-| ----------------------- | -------------------------------- |
-| **String**              | `"hello"`                        |
-| **Number**              | `42`, `3.14`                     |
-| **Boolean**             | `true`, `false`                  |
-| **List**                | `["dev", "test", "prod"]`        |
-| **Map**                 | `{ Name = "test", Env = "dev" }` |
-| **Variable**            | `var.region`                     |
-| **Function/Expression** | `join(", ", var.list)`           |
+|                          | Type                    | Example                                             |
+| ------------------------ | ----------------------- | --------------------------------------------------- |
+| Primitive values         | **String**              | `"hello"`                                           |
+|                          | **Number**              | `42`, `3.14`                                        |
+|                          | **Boolean**             | `true`, `false`                                     |
+| Complex                  | **List**                | `availability_zones = ["us-east-1a", "us-east-1b"]` |
+|                          | **Map**                 | `tags = { Name = "test", Env = "dev" }`             |
+| Reference ( Expressions) | **Variable**            | `var.region`                                        |
+|                          | **Function/Expression** | `join(", ", var.list)`                              |
+|                          | **Data**                | `ami           = data.aws_ami.latest.id`            |
+|                          |                         |                                                     |
+
+&nbsp;
+
+&nbsp;
+
+# Difference: Arguments vs Blocks
+
+| Feature | **Arguments** (key-value)     | **Blocks** (structural unit)                 |
+| ------- | ----------------------------- | -------------------------------------------- |
+| Syntax  | `key = value`                 | `block_type "label" { ... }`                 |
+| Purpose | Configure properties/settings | Define resources, variables, providers, etc. |
+| Example | `instance_type = "t2.micro"`  | `resource "aws_instance" "my_ec2" { ... }`   |
 
 &nbsp;
 
