@@ -39,6 +39,8 @@ Instead of manually clicking through a cloud provider's UI, you define infrastru
 
 We can create infrastructure in multiple providers (aws, azure, gcp) using terraform.
 
+Terraform can manage low-level components like compute, storage, and networking resources, as well as high-level components like DNS entries and SaaS features.
+
 &nbsp;
 
 &nbsp;

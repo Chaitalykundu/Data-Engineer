@@ -35,7 +35,7 @@ variable "variable_name" {
 
 &nbsp;
 
-# You access a variable with:
+# You access a variable with
 
 ```hcl
 ${var.variable_name}

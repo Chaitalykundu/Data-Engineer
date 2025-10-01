@@ -24,6 +24,8 @@ In Simple Terms:
 
 Instead of setting up servers, networks, databases, etc., manually through a UI or CLI, you write code (using tools like Terraform, AWS CloudFormation, or Ansible) to define your infrastructure — and that code is then executed to provision and manage the environment.
 
+This approach allows for version control, automation, and consistency in infrastructure deployment, making it easier to manage, scale, and replicate environments while reducing the risk of human error.
+
 &nbsp;
 
 &nbsp;
@@ -70,6 +72,7 @@ This snippet tells Terraform to create a `t2.micro` EC2 instance using a specifi
 | Packer             |                                     | Server templating        |
 | Saltstack          |                                     | Configuration management |
 | puppet             |                                     | Configuration management |
+|                    |                                     |                          |
 
 &nbsp;
 

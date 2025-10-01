@@ -62,7 +62,7 @@ enable_monitoring = false
 ## Option 3: Command Line
 
 ```bash
-terraform apply -var="region=us-west-2"
+terraform apply -var="name=ck" -var="age=23"
 ```
 
 &nbsp;

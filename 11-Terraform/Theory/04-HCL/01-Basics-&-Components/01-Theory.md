@@ -26,6 +26,10 @@ HCL (HashiCorp Configuration Language) is a **domain-specific language** created
 
 It's most commonly used in tools like **Terraform**, **Consul**, and **Vault**.
 
+HCL is designed to strike a balance between a generic configuration language like JSON or YAML and a high-level scripting language.
+
+HCL is the primary language used for writing Terraform configuration files, thus making it a fundamental part of defining and providing data center infrastructure in a descriptive manner.
+
 &nbsp;
 
 &nbsp;
