@@ -4,6 +4,8 @@ A schema in SQL is a logical container that holds and organizes database objects
 
 - Tables
 - Views
+- Tasks
+- Dynamic Tables
 - Indexes
 - Stored procedures
 - Triggers

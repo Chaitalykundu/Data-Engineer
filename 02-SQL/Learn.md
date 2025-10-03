@@ -30,7 +30,7 @@
 
 &nbsp;
 
-# Sub languages
+# Sub languages / Commands
 
 - DML
 - DDL

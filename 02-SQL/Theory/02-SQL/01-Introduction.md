@@ -8,7 +8,6 @@
 - [Using SQL in Your Web Site](#using-sql-in-your-web-site)
 - [Job role in data field where SQL is Used](#job-role-in-data-field-where-sql-is-used)
   - [How data is stored](#how-data-is-stored)
-- [Types of SQL Statements](#types-of-sql-statements)
 
 &nbsp;
 
@@ -30,6 +29,7 @@
 
 It is used for:
 
+- Interacting with databases
 - Querying data (`SELECT`)
 - Modifying data (`INSERT`, `UPDATE`, `DELETE`)
 - Defining data structure (`CREATE`, `ALTER`, `DROP`)
