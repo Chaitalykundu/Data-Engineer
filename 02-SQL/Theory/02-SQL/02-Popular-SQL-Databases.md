@@ -1,3 +1,15 @@
+# Overview
+
+- [Overview](#overview)
+- [Popular SQL Databases](#popular-sql-databases)
+- [Key Considerations](#key-considerations)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 # Popular SQL Databases
 
 | Database                                     | Type         | Description                                                                   | Use Case Example                   |

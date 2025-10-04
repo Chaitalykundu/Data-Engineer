@@ -1,6 +1,11 @@
 # Overview
 
 - [Overview](#overview)
+- [DROP command](#drop-command)
+- [Syntax](#syntax)
+  - [Drop a Database](#drop-a-database)
+  - [Drop a Table](#drop-a-table)
+  - [Drop an Index](#drop-an-index)
 
 &nbsp;
 

@@ -1,0 +1,24 @@
+-- Exercise 1
+SELECT
+    *
+FROM
+    CUSTOMER;
+
+-- Exercise 2
+SELECT
+    first_name,
+    last_name,
+    email
+FROM
+    CUSTOMER
+ORDER BY
+    last_name desc,
+    first_name desc;
+
+-- Exercise 3
+SELECT distinct
+    amount
+from
+    payment
+ORDER BY
+    amount Desc;

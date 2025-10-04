@@ -1,3 +1,43 @@
+# Overview
+
+- [Overview](#overview)
+- [Intro to SQL](#intro-to-sql)
+- [Basic SQL Syntax](#basic-sql-syntax)
+- [Data Types](#data-types)
+- [Sub languages / Commands](#sub-languages--commands)
+- [Data Manipulation](#data-manipulation)
+- [Data Definition](#data-definition)
+- [Query Filtering and Sorting](#query-filtering-and-sorting)
+- [Data Aggregation](#data-aggregation)
+- [Joins and Relationships](#joins-and-relationships)
+- [Subqueries](#subqueries)
+- [Views](#views)
+- [Transactions](#transactions)
+- [Stored Procedures](#stored-procedures)
+- [Triggers](#triggers)
+- [Security and Permissions](#security-and-permissions)
+- [Optimizations](#optimizations)
+- [Normalization](#normalization)
+- [Backup and Recovery](#backup-and-recovery)
+- [NoSQL Databases](#nosql-databases)
+- [Data Integrity](#data-integrity)
+- [Advanced SQL Queries](#advanced-sql-queries)
+- [Full-Text Search](#full-text-search)
+- [Data Import and Export](#data-import-and-export)
+- [Database Design](#database-design)
+- [Advanced Indexing](#advanced-indexing)
+- [QUERYING DATA](#querying-data)
+- [FILTERING DATA](#filtering-data)
+- [JOIN TABLES](#join-tables)
+- [GROUP DATA](#group-data)
+- [SET OPERATIONS](#set-operations)
+- [COMMON TABLE EXPRESSION (CTE)](#common-table-expression-cte)
+- [MODIFYING DATA](#modifying-data)
+
+&nbsp;
+
+&nbsp;
+
 # Intro to SQL
 
 - Definition

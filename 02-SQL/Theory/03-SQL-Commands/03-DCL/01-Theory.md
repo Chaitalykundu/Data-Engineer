@@ -1,3 +1,13 @@
+# Overview
+
+- [Overview](#overview)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 | Statement | Description               | Example                                  |
 | --------- | ------------------------- | ---------------------------------------- |
 | `GRANT`   | Gives privileges to users | `GRANT SELECT ON employees TO user1;`    |

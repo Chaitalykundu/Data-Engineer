@@ -1,3 +1,14 @@
+# Overview
+
+- [Overview](#overview)
+- [Advanced PostgreSQL Data Types](#advanced-postgresql-data-types)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 # Advanced PostgreSQL Data Types
 
 | **Category**            | **Data Type**     | **Description**                                 | **Example**                                            |
@@ -16,7 +27,7 @@
 |                         | `PATH`, `POLYGON` | Open/closed paths and polygons                  | `'((1,1),(2,2),(3,1))'`                                |
 | 🗄️ **Full-Text Search** | `tsvector`        | Text search vector (parsed + normalized text)   | `'fat':2 'rat':4`                                      |
 |                         | `tsquery`         | Search query format                             | `'fat & rat'`                                          |
-| 🗃 **Composite Types**  | `(custom)`        | A row-like structure of multiple values         | `(1, 'Alice')`                                         |
+| 🗃 **Composite Types**   | `(custom)`        | A row-like structure of multiple values         | `(1, 'Alice')`                                         |
 |                         | `ROW(...)`        | Anonymous composite values                      | `ROW(1, 'Test')`                                       |
 | 🧩 **Custom Types**     | `ENUM`            | Enumeration of custom fixed values              | `'low'`, `'medium'`, `'high'`                          |
 |                         | `DOMAIN`          | User-defined type with constraints on base type | `CREATE DOMAIN positive_int AS INT CHECK (VALUE > 0);` |

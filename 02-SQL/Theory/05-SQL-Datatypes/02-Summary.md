@@ -1,3 +1,14 @@
+# Overview
+
+- [Overview](#overview)
+- [PostgreSQL Data Types Summary](#postgresql-data-types-summary)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 # PostgreSQL Data Types Summary
 
 | **Category**     | **Data Type**              | **Description**                   | **Example**                   |

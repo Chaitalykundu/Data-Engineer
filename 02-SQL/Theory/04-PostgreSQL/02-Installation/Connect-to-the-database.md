@@ -1,8 +1,13 @@
 # Overview
 
-- Connect to the Database
-- Connect to the Database using SQL Shell
-- Connect to the Database using pgAdmin
+- [Overview](#overview)
+- [Connect to the Database](#connect-to-the-database)
+- [Connect to the Database using SQL shell](#connect-to-the-database-using-sql-shell)
+  - [Steps](#steps)
+  - [Note](#note)
+- [Check the version](#check-the-version)
+- [Connect to the Database using pgadmin](#connect-to-the-database-using-pgadmin)
+  - [Steps](#steps-1)
 
 &nbsp;
 
