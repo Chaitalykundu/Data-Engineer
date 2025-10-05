@@ -2,10 +2,12 @@
 
 - [Overview](#overview)
 - [Summary](#summary)
+- [Source](#source)
 - [Exercises](#exercises)
-  - [Exercise 1](#exercise-1)
-  - [Exercise 2](#exercise-2)
-  - [Exercise 3](#exercise-3)
+  - [Exercise 1 : Video 15](#exercise-1--video-15)
+  - [Exercise 2 : Video 18](#exercise-2--video-18)
+  - [Exercise 3 : Video 21](#exercise-3--video-21)
+  - [Exercise 4 : Video 25](#exercise-4--video-25)
 
 &nbsp;
 
@@ -23,11 +25,19 @@ During the project, you will work with a complex database, writing various SQL q
 
 &nbsp;
 
+# Source
+
+Udemy: 15 Days of SQL: The Complete SQL Masterclass 2025 by Nikolai Schuler.
+
+&nbsp;
+
+&nbsp;
+
 &nbsp;
 
 # Exercises
 
-## Exercise 1
+## Exercise 1 : Video 15
 
 Your first day as a Data Analyst has started!
 
@@ -41,7 +51,7 @@ Write a SQL query to get that list!
 
 &nbsp;
 
-## Exercise 2
+## Exercise 2 : Video 18
 
 The marketing manager asks you to order the the customer list by the last name.
 
@@ -55,7 +65,7 @@ Write a SQL query to get that list!
 
 &nbsp;
 
-## Exercise 3
+## Exercise 3 : Video 21
 
 A marketing team member asks you about the different prices that have been paid.
 
@@ -66,6 +76,16 @@ Write a SQL query to get different prices!
 &nbsp;
 
 &nbsp;
+
+## Exercise 4 : Video 25
+
+Create a list of all the distinct districts customers are from
+
+What is the latest rental date
+
+How many films does the company have?
+
+How many distinct last names of the customers are there?
 
 &nbsp;
 

@@ -116,7 +116,7 @@ FROM employees;
 
 &nbsp;
 
-# In short:
+# In short
 
 - `SELECT *` → everything
 - `SELECT col1, col2` → specific columns

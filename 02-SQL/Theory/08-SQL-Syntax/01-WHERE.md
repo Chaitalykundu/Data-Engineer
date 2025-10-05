@@ -13,6 +13,7 @@
   - [7. Negation](#7-negation)
   - [8. With dates](#8-with-dates)
 - [Key Points to Remember](#key-points-to-remember)
+- [operators - used in the WHERE clause](#operators---used-in-the-where-clause)
 
 &nbsp;
 
@@ -25,6 +26,8 @@
 The `WHERE` clause is used to **filter rows** before they are returned by the query.
 
 It comes after `FROM` (and JOINs) but before `GROUP BY`, `HAVING`, and `SELECT` output in SQL’s logical execution order.
+
+The `WHERE` clause is not only used in `SELECT` statement, but it is also used in `UPDATE`, `DELETE` statement, etc., which we will learn in subsequent chapters
 
 &nbsp;
 
@@ -182,3 +185,19 @@ WHERE hire_date >= '2023-01-01';
 &nbsp;
 
 &nbsp;
+
+# operators - used in the WHERE clause
+
+The following operators can be used in the WHERE clause:
+
+| Operator | Description                                                                   |
+| -------- | ----------------------------------------------------------------------------- |
+| =        | Equal                                                                         |
+| >        | Greater than                                                                  |
+| <        | Less than                                                                     |
+| >=       | Greater than or equal                                                         |
+| <=       | Less than or equal                                                            |
+| <>       | Not equal. Note: In some versions of SQL this operator may be written as `!=` |
+| BETWEEN  | Between a certain range                                                       |
+| LIKE     | Search for a pattern                                                          |
+| IN       | To specify multiple possible values for a column                              |

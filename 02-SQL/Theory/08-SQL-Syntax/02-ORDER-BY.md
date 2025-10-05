@@ -1,6 +1,7 @@
 # Overview
 
 - [Overview](#overview)
+- [Important Notes](#important-notes)
 - [Definition](#definition)
 - [Syntax](#syntax)
 - [Examples](#examples)
@@ -12,6 +13,19 @@
   - [6. Sorting with NULL values](#6-sorting-with-null-values)
   - [7. Sort with expressions](#7-sort-with-expressions)
 - [Key Points](#key-points)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Important Notes
+
+- `ORDER BY department ASC, salary DESC;` here First sorts by **department** name alphabetically,
+  then by **salary** (highest first) within each department.
+
+- In `ASC`, NULL values come first and In `DESC`, NULL values come last.
 
 &nbsp;
 

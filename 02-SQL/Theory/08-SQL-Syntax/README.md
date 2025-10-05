@@ -7,3 +7,13 @@
 - GROUP BY
 
 &nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Clause
+
+- Where
+- ORDER BY
+- LIMIT
