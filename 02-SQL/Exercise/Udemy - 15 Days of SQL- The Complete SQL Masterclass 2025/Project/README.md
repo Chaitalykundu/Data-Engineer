@@ -8,6 +8,8 @@
   - [Exercise 2 : Video 18](#exercise-2--video-18)
   - [Exercise 3 : Video 21](#exercise-3--video-21)
   - [Exercise 4 : Video 25](#exercise-4--video-25)
+  - [Exercise 5 : Video 28](#exercise-5--video-28)
+  - [Exercise 6 : Video 31](#exercise-6--video-31)
 
 &nbsp;
 
@@ -91,9 +93,23 @@ How many distinct last names of the customers are there?
 
 &nbsp;
 
+## Exercise 5 : Video 28
+
+How many payment were made by the customer with customer_id = 100?
+
+What is the last name of our customer with first name 'ERICA'
+
 &nbsp;
 
 &nbsp;
+
+## Exercise 6 : Video 31
+
+The inventory manager asks you how rentals have not been returned yet(return_date is null)
+
+The sales manager asks you how for a list of all the payment_ids with an amount less than or equal to $2. Include payment_id and the amount.
+
+Write a SQL query to get the answer.
 
 &nbsp;
 

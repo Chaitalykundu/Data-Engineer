@@ -14,6 +14,7 @@
   - [8. With dates](#8-with-dates)
 - [Key Points to Remember](#key-points-to-remember)
 - [operators - used in the WHERE clause](#operators---used-in-the-where-clause)
+- [Execution Order Note](#execution-order-note)
 
 &nbsp;
 
@@ -190,14 +191,29 @@ WHERE hire_date >= '2023-01-01';
 
 The following operators can be used in the WHERE clause:
 
-| Operator | Description                                                                   |
-| -------- | ----------------------------------------------------------------------------- |
-| =        | Equal                                                                         |
-| >        | Greater than                                                                  |
-| <        | Less than                                                                     |
-| >=       | Greater than or equal                                                         |
-| <=       | Less than or equal                                                            |
-| <>       | Not equal. Note: In some versions of SQL this operator may be written as `!=` |
-| BETWEEN  | Between a certain range                                                       |
-| LIKE     | Search for a pattern                                                          |
-| IN       | To specify multiple possible values for a column                              |
+| Operator     | Description                                      |
+| ------------ | ------------------------------------------------ |
+| =            | Equal                                            |
+| `!=` or `<>` | Not Equal                                        |
+| >            | Greater than                                     |
+| <            | Less than                                        |
+| >=           | Greater than or equal                            |
+| <=           | Less than or equal                               |
+| BETWEEN      | Between a certain range                          |
+| LIKE         | Search for a pattern                             |
+| IN           | To specify multiple possible values for a column |
+| `AND`        | All conditions must be true                      |
+| `OR`         | At least one condition must be true              |
+| `NOT`        | Negates a condition                              |
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Execution Order Note
+
+In SQL’s internal execution order:
+
+FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT
