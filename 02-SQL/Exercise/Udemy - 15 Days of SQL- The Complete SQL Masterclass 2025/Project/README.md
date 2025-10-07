@@ -8,8 +8,9 @@
   - [Exercise 2 : Video 18](#exercise-2--video-18)
   - [Exercise 3 : Video 21](#exercise-3--video-21)
   - [Exercise 4 : Video 25](#exercise-4--video-25)
-  - [Exercise 5 : Video 28](#exercise-5--video-28)
-  - [Exercise 6 : Video 31](#exercise-6--video-31)
+  - [Exercise 5 : Video 28 (Where)](#exercise-5--video-28-where)
+  - [Exercise 6 : Video 31 (WHERE operators)](#exercise-6--video-31-where-operators)
+  - [Exercise 7 : Video 34 WHERE with AND/OR](#exercise-7--video-34-where-with-andor)
 
 &nbsp;
 
@@ -93,7 +94,7 @@ How many distinct last names of the customers are there?
 
 &nbsp;
 
-## Exercise 5 : Video 28
+## Exercise 5 : Video 28 (Where)
 
 How many payment were made by the customer with customer_id = 100?
 
@@ -103,7 +104,7 @@ What is the last name of our customer with first name 'ERICA'
 
 &nbsp;
 
-## Exercise 6 : Video 31
+## Exercise 6 : Video 31 (WHERE operators)
 
 The inventory manager asks you how rentals have not been returned yet(return_date is null)
 
@@ -114,6 +115,12 @@ Write a SQL query to get the answer.
 &nbsp;
 
 &nbsp;
+
+## Exercise 7 : Video 34 WHERE with AND/OR
+
+The support manager asks you about a list of all the payment of the customer 322, 346 and 354 where the amount is either less than $2 or greater than $10.
+
+It should be ordered by the customer list first (ascending) and then as second condition order by amount in a descending order.
 
 &nbsp;
 

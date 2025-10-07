@@ -59,3 +59,17 @@ where
     price > 200
 order by
     price;
+
+-- 7. Write a SQL query to find all products in the '**Electronics**' category that have a price of more than 200. You need to use only the `SELECT`, `WHERE`, and `ORDER BY` clauses to achieve this. Sort the results by price in ascending order. Select only product `name` and and `price`.
+--    - Table: `products`
+--    - Columns: `product_id`, `name`, `category`, `price`
+SELECT
+    name,
+    price
+from
+    products
+where
+    price > 200
+    AND category = 'Electronics'
+ORDER BY
+    price;

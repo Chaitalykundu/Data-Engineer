@@ -15,6 +15,7 @@
 - [Key Points to Remember](#key-points-to-remember)
 - [operators - used in the WHERE clause](#operators---used-in-the-where-clause)
 - [Execution Order Note](#execution-order-note)
+- [`OR` and `AND` Operator Precedence](#or-and-and-operator-precedence)
 
 &nbsp;
 
@@ -217,3 +218,18 @@ The following operators can be used in the WHERE clause:
 In SQL’s internal execution order:
 
 FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# `OR` and `AND` Operator Precedence
+
+SQL executes conditions in this order by default:
+
+- `AND` first
+- `OR` next
+
+So always use **parentheses** `()` when combining them for clarity.
