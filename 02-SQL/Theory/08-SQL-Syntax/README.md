@@ -17,3 +17,30 @@
 - Where
 - ORDER BY
 - LIMIT
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Operator
+
+- Between
+- IN
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Function
+
+- Count
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;

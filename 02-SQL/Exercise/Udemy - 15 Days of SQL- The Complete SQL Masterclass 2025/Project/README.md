@@ -11,6 +11,7 @@
   - [Exercise 5 : Video 28 (Where)](#exercise-5--video-28-where)
   - [Exercise 6 : Video 31 (WHERE operators)](#exercise-6--video-31-where-operators)
   - [Exercise 7 : Video 34 WHERE with AND/OR](#exercise-7--video-34-where-with-andor)
+  - [Exercise 8 : Video 38 BETWEEN](#exercise-8--video-38-between)
 
 &nbsp;
 
@@ -125,6 +126,12 @@ It should be ordered by the customer list first (ascending) and then as second c
 &nbsp;
 
 &nbsp;
+
+## Exercise 8 : Video 38 BETWEEN
+
+There have been some faulty payments and you ned to help to found out how many payments have been affected.
+
+How many payments have been made on January 26th and 27th 2020 with an amount between 1.99 and 3.99?
 
 &nbsp;
 

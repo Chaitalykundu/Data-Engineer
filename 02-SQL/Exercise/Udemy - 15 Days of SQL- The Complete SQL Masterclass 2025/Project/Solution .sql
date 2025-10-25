@@ -110,3 +110,16 @@ where
 order by
     customer_id asc,
     amount desc;
+
+-- ## Exercise 8 : Video 38 BETWEEN
+-- There have been some faulty payments and you ned to help to found out how many payments have been affected.
+-- How many payments have been made on January 26th and 27th 2020 with an amount between 1.99 and 3.99?
+SELECT
+    COUNT(*)
+FROM
+    PAYMENT
+WHERE
+    (
+        PAYMENT_DATE BETWEEN '2020-01-26' AND '2020-01-28'
+    )
+    AND (AMOUNT BETWEEN 1.99 AND 3.99);

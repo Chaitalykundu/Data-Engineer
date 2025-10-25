@@ -8,6 +8,7 @@
 - [Where](#where)
 - [WHERE operators](#where-operators)
 - [WHERE with AND/OR](#where-with-andor)
+- [BETWEEN](#between)
 
 &nbsp;
 
@@ -86,6 +87,10 @@
 &nbsp;
 
 &nbsp;
+
+# BETWEEN
+
+8.  Write a single SQL query to find all transactions from the the table `sales` that occurred between `'2024-01-10'` and `'2024-02-10'`, inclusive. Display the transaction ID, date, and amount. Order the results by the date of the transaction. Make sure you return: `id`, `date`, `amount`. Order by the transaction date.
 
 &nbsp;
 
