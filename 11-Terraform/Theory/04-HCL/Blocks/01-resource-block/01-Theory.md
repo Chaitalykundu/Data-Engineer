@@ -22,7 +22,7 @@ The `resource` block defines a piece of infrastructure and specifies the setting
 
 The resource block supports the following arguments:
 
-- `resource "<TYPE>" "<LABEL>"` block
+- `resource "<resource_type>" "<resource_name>"` block
   - `PROVIDER ARGUMENTS` block | refer to your provider documentation
   - `count` number | mutually exclusive with for_each
   - `depends_on` list of references

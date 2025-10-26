@@ -2,6 +2,7 @@
 
 - [Overview](#overview)
 - [Variables](#variables)
+- [Types of Variables](#types-of-variables)
 
 &nbsp;
 
@@ -16,6 +17,8 @@ Variables in Terraform are the input parameters you can define and reuse across 
 &nbsp;
 
 &nbsp;
+
+# Types of Variables
 
 | **Type**    | **Syntax**       | **Example Variable Definition**                                                                                                                                                                                                                         | **Usage in Code**                               |
 | ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |

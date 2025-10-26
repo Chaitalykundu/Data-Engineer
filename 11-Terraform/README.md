@@ -11,6 +11,8 @@
 
 &nbsp;
 
+&nbsp;
+
 # Study material
 
 [Udemy source](https://persistent.udemy.com/course/terraform-for-the-absolute-beginners/learn/lecture/28359870#overview)

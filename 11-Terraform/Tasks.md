@@ -1,3 +1,23 @@
+# Overview
+
+- [Overview](#overview)
+- [Lab : Basics](#lab--basics)
+  - [Task 1: Verify Terraform installation and version](#task-1-verify-terraform-installation-and-version)
+  - [Task 2: Initialize Terraform Working Directory](#task-2-initialize-terraform-working-directory)
+  - [Task 3: Validating a Configuration: terraform validate](#task-3-validating-a-configuration-terraform-validate)
+  - [Task 4: Generating a Terraform Plan](#task-4-generating-a-terraform-plan)
+  - [Task 5: Applying a Terraform Plan](#task-5-applying-a-terraform-plan)
+  - [Task 6: Terraform Destroy](#task-6-terraform-destroy)
+- [Lab: HashiCorp Configuration Language (HCL)](#lab-hashicorp-configuration-language-hcl)
+- [a real project example, such as](#a-real-project-example-such-as)
+- [HCL `Argument` Practice Sheet (10 Tasks)](#hcl-argument-practice-sheet-10-tasks)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 # Lab : Basics
 
 - **Task 1**: Verify Terraform installation and version
