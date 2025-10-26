@@ -62,9 +62,8 @@ HCL is the primary language used for writing Terraform configuration files, thus
 # Basic Syntax
 
 ```hcl
-<block_type> <resource_type> <resource_name>{
-    key1 = value1
-    key2 = value2
+<block> <identifier> {
+    parameters / arguments.....
 }
 ```
 
@@ -72,7 +71,9 @@ HCL is the primary language used for writing Terraform configuration files, thus
 
 ### Note
 
-`resource_type` has 2 block. Before `_` it's called **provider**, After `_` it's called **resource**.
+- **Block** can be different type.
+- No of **Identifier** depends on block type.
+- **Argument** can be one or more.
 
 &nbsp;
 
@@ -86,11 +87,13 @@ resource "local_file" "tea"{
     content = "We love tea!"
 }
 
-
-
 resource "local_file" "pet"{
     filename = "./pet_file.txt"
     content = "I don't like pets at all"
+}
+
+output "LocalFileTea"{
+    value = "Local File tea is created"
 }
 ```
 
@@ -100,11 +103,24 @@ resource "local_file" "pet"{
 
 Here,
 
-- block_type = **resource**
-- resource_type = **local_file**
-  - provider = **local**
-  - resource = **file**
-- resource_name = **pet** & **tea**
+- block_type = **resource** & **output**
+- For **resource** block
+  - resource_type = **local_file**
+    - provider = **local**
+    - resource = **file**
+  - resource_name = **pet** & **tea**
+- For **output** block
+  - Parameter = **LocalFileTea**
+
+&nbsp;
+
+| Element           | Example              | Description                                 |
+| ----------------- | -------------------- | ------------------------------------------- |
+| **block_type**    | `resource`, `output` | Main structure in Terraform                 |
+| **resource_type** | `local_file`         | Comes from the provider (`local`)           |
+| **resource_name** | `tea`, `pet`         | Unique identifier for each resource         |
+| **provider**      | `local`              | Manages local system resources (files here) |
+| **output name**   | `LocalFileTea`       | Label for Terraform output                  |
 
 &nbsp;
 
@@ -113,6 +129,7 @@ Here,
 | `resource "local_file" "pet"`         | Declares a resource named `pet` of type `local_file`.                                                              |
 | `filename = "./pet_file.txt"`         | Specifies the path and name of the file to be created. In this case, it's `pet_file.txt` in the current directory. |
 | `content = "I don't like per at all"` | This is the **text content** that will be written into the file.                                                   |
+| `output "LocalFileTea"`               | Output Prints a message after apply. Shows: **Local File tea is created**                                          |
 
 &nbsp;
 

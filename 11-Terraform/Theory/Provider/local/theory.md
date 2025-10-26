@@ -1,3 +1,9 @@
+# Local Provider
+
+The Local provider is used to manage local resources, such as files.
+
+Use the navigation to the left to read about the available resources.
+
 we have made use of the `local_sensitive_file` resource type to mask the contents of the file from the execution plan.
 
 &nbsp;

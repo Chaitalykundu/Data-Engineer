@@ -53,6 +53,16 @@ It helps automate the setup, modification, and destruction of your infrastructur
 
 &nbsp;
 
+-
+- Improve deployment speed
+- Cost effectiveness
+- Reduce human error
+- Supports more automation
+- Stop waste of resources
+- Consistency in infrastructure
+
+&nbsp;
+
 &nbsp;
 
 # How Terraform Works (Overview)

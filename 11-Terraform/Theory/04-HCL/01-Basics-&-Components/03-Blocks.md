@@ -80,6 +80,10 @@ Blocks are enclosed in curly braces `{ }` and can contain nested blocks.
 
 Defines infrastructure (cloud resources) to create .
 
+`resource_type` has 2 block. Before `_` it's called **provider**, After `_` it's called **resource**.
+
+&nbsp;
+
 ```hcl
 resource "aws_instance" "web" {
   ami           = "ami-123456"
