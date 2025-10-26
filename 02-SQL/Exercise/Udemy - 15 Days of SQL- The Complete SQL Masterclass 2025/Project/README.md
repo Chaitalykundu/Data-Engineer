@@ -12,6 +12,7 @@
   - [Exercise 6 : Video 31 (WHERE operators)](#exercise-6--video-31-where-operators)
   - [Exercise 7 : Video 34 WHERE with AND/OR](#exercise-7--video-34-where-with-andor)
   - [Exercise 8 : Video 38 BETWEEN](#exercise-8--video-38-between)
+  - [Exercise 9 : Video 41 IN](#exercise-9--video-41-in)
 
 &nbsp;
 
@@ -136,6 +137,15 @@ How many payments have been made on January 26th and 27th 2020 with an amount be
 &nbsp;
 
 &nbsp;
+
+## Exercise 9 : Video 41 IN
+
+There have been 6 complaints of customers about their payments
+Customer_id : 12, 25, 67, 93, 124, 234
+
+The concerned payments are all the payments of these customers with amount 4.99, 7.99 and 9.99 in January 2020.
+
+Write a SQL query to get the list of the concerned payments
 
 &nbsp;
 

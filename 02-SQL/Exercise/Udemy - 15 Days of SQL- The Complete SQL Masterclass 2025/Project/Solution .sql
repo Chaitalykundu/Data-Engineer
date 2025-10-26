@@ -123,3 +123,15 @@ WHERE
         PAYMENT_DATE BETWEEN '2020-01-26' AND '2020-01-28'
     )
     AND (AMOUNT BETWEEN 1.99 AND 3.99);
+
+-- ## Exercise 9 : Video 41 IN
+
+-- There have been 6 complaints of customers about their payments
+-- Customer_id : 12, 25, 67, 93, 124, 234
+-- The concerned payments are all the payments of these customers with amount 4.99, 7.99 and 9.99 in January 2020.
+-- Write a SQL query to get the list of the concerned payments
+SELECT * FROM PAYMENT
+WHERE customer_id in (12, 25, 67, 93, 124, 234) and amount in (4.99, 7.99, 9.99) and payment_date between '2020-01-01' and '2020-02-01';
+
+
+SELECT * FROM customer where first_name like 'A%';

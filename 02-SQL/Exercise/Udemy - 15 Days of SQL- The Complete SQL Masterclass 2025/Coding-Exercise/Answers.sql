@@ -85,3 +85,15 @@ where
     date between '2024-01-10' and '2024-02-10'
 order by
     date;
+
+-- 9. Write a single SQL query to select all distinct customer IDs who ordered either a 'Laptop', 'Tablet', or 'Smartphone'. Order the result by customer ID in ascending order.
+--    - Table Name: `orders`
+--    - Important Columns: `customer_id`, `product_name`
+SELECT distinct
+    customer_id
+from
+    orders
+where
+    product_name IN ('Laptop', 'Tablet', 'Smartphone')
+order by
+    customer_id;

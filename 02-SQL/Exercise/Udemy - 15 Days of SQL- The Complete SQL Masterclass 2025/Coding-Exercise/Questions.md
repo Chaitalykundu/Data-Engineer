@@ -9,6 +9,7 @@
 - [WHERE operators](#where-operators)
 - [WHERE with AND/OR](#where-with-andor)
 - [BETWEEN](#between)
+- [IN operator](#in-operator)
 
 &nbsp;
 
@@ -90,11 +91,18 @@
 
 # BETWEEN
 
-8.  Write a single SQL query to find all transactions from the the table `sales` that occurred between `'2024-01-10'` and `'2024-02-10'`, inclusive. Display the transaction ID, date, and amount. Order the results by the date of the transaction. Make sure you return: `id`, `date`, `amount`. Order by the transaction date.
+8. Write a single SQL query to find all transactions from the the table `sales` that occurred between `'2024-01-10'` and `'2024-02-10'`, inclusive. Display the transaction ID, date, and amount. Order the results by the date of the transaction. Make sure you return: `id`, `date`, `amount`. Order by the transaction date.
 
 &nbsp;
 
 &nbsp;
+
+# IN operator
+
+9. Write a single SQL query to select all distinct customer IDs who ordered either a 'Laptop', 'Tablet', or 'Smartphone'. Order the result by customer ID in ascending order.
+
+   - Table Name: `orders`
+   - Important Columns: `customer_id`, `product_name`
 
 &nbsp;
 

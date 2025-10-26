@@ -4,3 +4,4 @@
 - Schemas
 - Users
 - Stored procedures (in some DBMSs)
+- IN : Using `IN` with a Subquery

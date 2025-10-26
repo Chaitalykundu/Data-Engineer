@@ -28,6 +28,7 @@
 
 - Between
 - IN
+- LIKE
 
 &nbsp;
 

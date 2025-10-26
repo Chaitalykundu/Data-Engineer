@@ -4,12 +4,13 @@
 - [Definition](#definition)
 - [Syntax](#syntax)
 - [Example](#example)
-  - [Example — Numeric Range](#example--numeric-range)
-  - [Example — Date Range](#example--date-range)
-  - [Example — Text Range](#example--text-range)
-  - [Using NOT BETWEEN](#using-not-between)
-  - [Combine BETWEEN with AND/OR](#combine-between-with-andor)
+  - [1. Example — Numeric Range](#1-example--numeric-range)
+  - [2. Example — Date Range](#2-example--date-range)
+  - [3. Example — Text Range](#3-example--text-range)
+  - [4. Using NOT BETWEEN](#4-using-not-between)
+  - [5. Combine BETWEEN with AND/OR](#5-combine-between-with-andor)
 - [Key Points](#key-points)
+- [NOTE](#note)
 
 &nbsp;
 
@@ -41,7 +42,7 @@ WHERE column_name BETWEEN value1 AND value2;
 
 # Example
 
-## Example — Numeric Range
+## 1. Example — Numeric Range
 
 ```sql
 SELECT *
@@ -55,7 +56,7 @@ WHERE salary BETWEEN 40000 AND 80000;
 
 &nbsp;
 
-## Example — Date Range
+## 2. Example — Date Range
 
 ```sql
 SELECT *
@@ -69,7 +70,7 @@ WHERE order_date BETWEEN '2025-01-01' AND '2025-01-31';
 
 &nbsp;
 
-## Example — Text Range
+## 3. Example — Text Range
 
 ```sql
 SELECT *
@@ -83,7 +84,7 @@ WHERE customer_name BETWEEN 'A' AND 'M';
 
 &nbsp;
 
-## Using NOT BETWEEN
+## 4. Using NOT BETWEEN
 
 To get values outside a range:
 
@@ -99,7 +100,7 @@ WHERE salary NOT BETWEEN 40000 AND 80000;
 
 &nbsp;
 
-## Combine BETWEEN with AND/OR
+## 5. Combine BETWEEN with AND/OR
 
 ```sql
 SELECT *
@@ -124,6 +125,9 @@ WHERE (salary BETWEEN 50000 AND 80000)
 
 &nbsp;
 
+# NOTE
+
+`between '2020-01-01' and '2020-02-01'` means from start of january to before 1st day of february
 &nbsp;
 
 &nbsp;
