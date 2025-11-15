@@ -1,6 +1,7 @@
 5. Day Name to Activity
 
    Write a program that takes a day name (e.g., "Monday") and prints:
+
    - "Workday" for Monday to Friday
    - "Weekend" for Saturday and Sunday
    - "Invalid day" for anything else
@@ -12,6 +13,7 @@
 6. Simple Calculator
 
    Ask the user for:
+
    - Two numbers
    - An operation (+, -, \*, /)
    - Use match-case to perform the selected operation.
@@ -27,6 +29,8 @@
    - If the number is not a multiple of 3 or 5, it prints the number itself.
 
 &nbsp;
+
+9. Program to fins the factorial of n number
 
 &nbsp;
 

@@ -18,7 +18,7 @@
 
 # Provider
 
-Providers are the bridge between Terraform and the external infrastructure.
+Providers are the **bridge between Terraform and the external infrastructure**.
 
 A provider is a plugin that allows Terraform to manage and interact with external APIs or services (like AWS, Azure, GitHub, Kubernetes, etc.).
 
@@ -61,6 +61,7 @@ They expose resources and data sources (like aws_instance, azurerm_resource_grou
 | `local`      | Manage local files and directories                  |
 | `random`     | Generate random strings, numbers, etc.              |
 | `null`       | Used for testing or when no real resource is needed |
+| `Snowflake`  |
 
 &nbsp;
 

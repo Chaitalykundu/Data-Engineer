@@ -3,6 +3,7 @@
 - [Overview](#overview)
 - [`print("You are", age, "years old.")` vs `print("I am " + age + " years old.")`](#printyou-are-age-years-old-vs-printi-am---age---years-old)
   - [Summary](#summary)
+- [List vs Set vs Tuple](#list-vs-set-vs-tuple)
 
 &nbsp;
 
@@ -30,6 +31,14 @@
 &nbsp;
 
 &nbsp;
+
+# List vs Set vs Tuple
+
+| Feature           | List                                        | Set | Tuple |
+| ----------------- | ------------------------------------------- | --- | ----- |
+| Mutable           | Yes                                         |     | No    |
+| Allows duplicates | Yes                                         | No  |       |
+| Datatypes         | Allow different types of datatypes together |     |       |
 
 &nbsp;
 
