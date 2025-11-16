@@ -4,6 +4,7 @@
 - [Provider](#provider)
 - [Tiers of providers](#tiers-of-providers)
 - [Functionality](#functionality)
+- [Provider Responsibilities](#provider-responsibilities)
 - [Common Providers](#common-providers)
 - [Provider Block Syntax](#provider-block-syntax)
 - [List All Providers in Use](#list-all-providers-in-use)
@@ -48,6 +49,20 @@ They expose resources and data sources (like aws_instance, azurerm_resource_grou
 
 &nbsp;
 
+# Provider Responsibilities
+
+A provider is responsible for:
+
+- Authentication
+- API calls to the service
+- Creating resources
+- Updating resources
+- Destroying resources
+
+&nbsp;
+
+&nbsp;
+
 # Common Providers
 
 | Provider     | Use Case                                            |
@@ -61,7 +76,8 @@ They expose resources and data sources (like aws_instance, azurerm_resource_grou
 | `local`      | Manage local files and directories                  |
 | `random`     | Generate random strings, numbers, etc.              |
 | `null`       | Used for testing or when no real resource is needed |
-| `Snowflake`  |
+| `Snowflake`  |                                                     |
+|              |                                                     |
 
 &nbsp;
 
@@ -121,10 +137,6 @@ When we run `terraform init` terraform will download and install all the plugins
 hashicrop = organizational namespace
 
 local = type
-
-&nbsp;
-
-&nbsp;
 
 &nbsp;
 

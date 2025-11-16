@@ -1,3 +1,25 @@
+# Overview
+
+- [Overview](#overview)
+- [2. Variables and Outputs](#2-variables-and-outputs)
+- [3. Resources and Providers](#3-resources-and-providers)
+  - [Example with AWS S3](#example-with-aws-s3)
+- [4. Data Sources](#4-data-sources)
+- [5. State Management](#5-state-management)
+- [6. Modules](#6-modules)
+- [7. Provisioners and Connection Blocks](#7-provisioners-and-connection-blocks)
+- [8. Workspaces](#8-workspaces)
+- [9. Best Practices \& Git Integration](#9-best-practices--git-integration)
+- [10. Bonus: Terraform Cloud / Backend](#10-bonus-terraform-cloud--backend)
+- [🚀 Final Tips](#-final-tips)
+- [Search in chatGPT](#search-in-chatgpt)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 # 2. Variables and Outputs
 
 | Concept     | What You’ll Learn                            |
@@ -38,7 +60,7 @@ resource "aws_s3_bucket" "my_bucket" {
 
 &nbsp;
 
-# ✅ 4. Data Sources
+# 4. Data Sources
 
 Use data sources to fetch info from existing infrastructure:
 
@@ -53,7 +75,7 @@ data "aws_ami" "ubuntu" {
 }
 ```
 
-# ✅ 5. State Management
+# 5. State Management
 
 | Concept                 | Description                 |
 | ----------------------- | --------------------------- |
@@ -68,7 +90,7 @@ data "aws_ami" "ubuntu" {
 
 &nbsp;
 
-# ✅ 6. Modules
+# 6. Modules
 
 - Break large projects into reusable pieces:
 - Create your own modules
@@ -92,7 +114,7 @@ module "vpc" {
 
 &nbsp;
 
-# ✅ 7. Provisioners and Connection Blocks
+# 7. Provisioners and Connection Blocks
 
 Use provisioners for tasks like installing software on a VM:
 
@@ -111,7 +133,7 @@ provisioner "remote-exec" {
 
 &nbsp;
 
-# ✅ 8. Workspaces
+# 8. Workspaces
 
 - Isolate environments (dev/stage/prod)
 - Manage multiple states from the same configuration
@@ -127,7 +149,7 @@ terraform workspace select dev
 
 &nbsp;
 
-# ✅ 9. Best Practices & Git Integration
+# 9. Best Practices & Git Integration
 
 | Practice                  | Why It Matters                       |
 | ------------------------- | ------------------------------------ |
@@ -143,7 +165,7 @@ terraform workspace select dev
 
 &nbsp;
 
-# ✅ 10. Bonus: Terraform Cloud / Backend
+# 10. Bonus: Terraform Cloud / Backend
 
 - Store state files in the cloud
 - Collaborate with team members
@@ -161,3 +183,73 @@ terraform workspace select dev
 - Practice creating and destroying resources
 - Read documentation: <https://registry.terraform.io>
 - Watch for costs when using real cloud resources
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Search in chatGPT
+
+If you want, I can also explain:
+
+- 🔥 Terraform INTERNAL ARCHITECTURE
+- 🔥 Terraform dependency graph
+- 🔥 TAINT & REPLACE lifecycle actions
+- 🔥 FULL Terraform beginner → expert roadmap
+- 🔥 Snowflake + Terraform lifecycle example
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;

@@ -9,6 +9,7 @@
   - [Task 5: Applying a Terraform Plan](#task-5-applying-a-terraform-plan)
   - [Task 6: Terraform Destroy](#task-6-terraform-destroy)
 - [Lab: HashiCorp Configuration Language (HCL)](#lab-hashicorp-configuration-language-hcl)
+- [Hands-On Practice Tasks (Using Local Provider)](#hands-on-practice-tasks-using-local-provider)
 - [a real project example, such as](#a-real-project-example-such-as)
 - [HCL `Argument` Practice Sheet (10 Tasks)](#hcl-argument-practice-sheet-10-tasks)
 
@@ -112,6 +113,24 @@ terraform destroy
 - Task 3: Use the Terraform CLI to Get Help
 - Task 4: Apply your Configuration
 - Task 5: Verify EC2 Server in AWS Management Console
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Hands-On Practice Tasks (Using Local Provider)
+
+| Task No. | Task                           | Description                                    |
+| -------- | ------------------------------ | ---------------------------------------------- |
+| 1        | Create a simple file           | Write “Hello Terraform” into hello.txt         |
+| 2        | Create multiple files          | Use variable + for_each to create 3 files      |
+| 3        | Create template file           | Use `templatefile()` to generate a config file |
+| 4        | Create sensitive file          | Use `local_sensitive_file` to write a password |
+| 5        | Dynamically generate filenames | Use timestamp to auto-generate file name       |
 
 &nbsp;
 
