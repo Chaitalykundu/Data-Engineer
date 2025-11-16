@@ -26,14 +26,12 @@ We can install terraform in wo ways
 ## Option 1: Manual Installation (Recommended for beginners)
 
 1. Download Terraform
-
     - Go to the official Terraform download page:
       👉 [https://developer.hashicorp.com/terraform/downloads](https://developer.hashicorp.com/terraform/downloads)
 
     - Choose your OS as Windows (64-bit) and download the .zip file.
 
 2. Extract the ZIP File
-
     - Extract the downloaded ZIP file to a folder of your choice, e.g.:
       `C:\Terraform`
 
@@ -49,7 +47,6 @@ We can install terraform in wo ways
     `C:\Terraform`
 
 4. Verify the Installation
-
     - Open Command Prompt (CMD) or PowerShell.
 
     - Type:

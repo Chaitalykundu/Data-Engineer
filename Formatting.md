@@ -1,7 +1,7 @@
 # Markdown formatting
 
-```npm install -g markdownlint-cli
-
+```npm
+install -g markdownlint-cli
 ```
 
 ```

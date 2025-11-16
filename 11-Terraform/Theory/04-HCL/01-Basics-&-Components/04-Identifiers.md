@@ -36,18 +36,15 @@ Identifiers can contain letters, digits, underscores (\_), and hyphens (-). The 
 # Rules for Identifiers
 
 1. Allowed characters → **letters** (`a-z`, `A-Z`), **digits** (`0-9`), and **underscores** (`_`).
-
    - Example: my_instance, db1_config, variable_x
 
 2. Must not start with a digit.
-
    - ✅ server1 is valid
    - ❌ 1server is invalid
 
 3. **Case-sensitive** → myVariable and myvariable are different.
 
 4. No spaces or special characters like `-`, `.`, `*`, `#`.
-
    - ❌ my-variable → Not valid as identifier (but valid as a label string)
 
 &nbsp;

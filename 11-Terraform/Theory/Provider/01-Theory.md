@@ -3,13 +3,13 @@
 - [Overview](#overview)
 - [Provider](#provider)
 - [Tiers of providers](#tiers-of-providers)
+- [What Does a Provider Do](#what-does-a-provider-do)
 - [Functionality](#functionality)
-- [Provider Responsibilities](#provider-responsibilities)
 - [Common Providers](#common-providers)
 - [Provider Block Syntax](#provider-block-syntax)
+- [How Terraform Installs Providers](#how-terraform-installs-providers)
 - [List All Providers in Use](#list-all-providers-in-use)
   - [This will show](#this-will-show)
-- [Plugin versions](#plugin-versions)
 
 &nbsp;
 
@@ -23,7 +23,7 @@ Providers are the **bridge between Terraform and the external infrastructure**.
 
 A provider is a plugin that allows Terraform to manage and interact with external APIs or services (like AWS, Azure, GitHub, Kubernetes, etc.).
 
-When we run `terraform init` terraform will download and install all the plugins for the providers to use with any configuration.
+Without a provider, Terraform cannot create or manage any resources.
 
 &nbsp;
 
@@ -37,27 +37,28 @@ There are three tiers of providers.
 2. Partner : digitalocean, heroku, bigip
 3. Community : Hashicups, activedirectory, ucloud
 
-AWS, Azure, Google Cloud, Docker, GitHub, MySQL, etc.
+&nbsp;
+
+&nbsp;
+
+# What Does a Provider Do
+
+A provider is responsible for:
+
+| Responsibility        | Meaning                                                     |
+| --------------------- | ----------------------------------------------------------- |
+| **Authentication**    | Connect to service (AWS keys, Azure login, Snowflake creds) |
+| **API Communication** | Send requests to cloud/SaaS API                             |
+| **Resource Schema**   | Define what fields exist in a resource                      |
+| **CRUD operations**   | Create, Read, Update, Delete resources                      |
+
+&nbsp;
 
 &nbsp;
 
 # Functionality
 
 They expose resources and data sources (like aws_instance, azurerm_resource_group, etc.)
-
-&nbsp;
-
-&nbsp;
-
-# Provider Responsibilities
-
-A provider is responsible for:
-
-- Authentication
-- API calls to the service
-- Creating resources
-- Updating resources
-- Destroying resources
 
 &nbsp;
 
@@ -76,7 +77,7 @@ A provider is responsible for:
 | `local`      | Manage local files and directories                  |
 | `random`     | Generate random strings, numbers, etc.              |
 | `null`       | Used for testing or when no real resource is needed |
-| `Snowflake`  |                                                     |
+| `Snowflake`  | Manages Snowflake                                   |
 |              |                                                     |
 
 &nbsp;
@@ -90,7 +91,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 5.0"  # specifying version
     }
   }
 }
@@ -99,6 +100,41 @@ provider "aws" {
   region = "us-west-2"
 }
 ```
+
+&nbsp;
+
+This tells Terraform:
+
+- Install the AWS provider
+- Authenticate using credentials
+- Create/modify AWS resources in that region
+
+&nbsp;
+
+&nbsp;
+
+# How Terraform Installs Providers
+
+When we run `terraform init` terraform will download and install all the plugins for the providers to use with any configuration.
+
+```bash
+terraform init
+```
+
+&nbsp;
+
+Terraform will:
+
+- Download provider plugin
+- Install it in `.terraform/providers/`
+- Initialize backend configs
+
+&nbsp;
+
+<img src="../assets/plugin-version.png">
+
+- hashicrop = organizational namespace
+- local = type
 
 &nbsp;
 
@@ -114,7 +150,7 @@ terraform providers
 
 &nbsp;
 
-## This will show
+### This will show
 
 - Providers required
 - Providers used in modules
@@ -124,19 +160,9 @@ terraform providers
 
 &nbsp;
 
-# Plugin versions
-
-When we run `terraform init` terraform will download and install all the plugins for the providers to use with any configuration.
-
 &nbsp;
 
-<img src="../assets/plugin-version.png">
-
 &nbsp;
-
-hashicrop = organizational namespace
-
-local = type
 
 &nbsp;
 

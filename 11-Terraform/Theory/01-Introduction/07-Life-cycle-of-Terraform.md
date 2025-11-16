@@ -3,19 +3,19 @@
 - [Overview](#overview)
 - [Lifecycle](#lifecycle)
 - [1. Write (Configuration Stage)](#1-write-configuration-stage)
-    - [Example](#example)
+  - [Example](#example)
 - [2. Initialize (terraform init)](#2-initialize-terraform-init)
-    - [Command:](#command)
+  - [Command:](#command)
 - [3. Plan (terraform plan)](#3-plan-terraform-plan)
-    - [Command](#command-1)
+  - [Command](#command-1)
 - [4. Apply (terraform apply)](#4-apply-terraform-apply)
-    - [Command](#command-2)
+  - [Command](#command-2)
 - [5. State (terraform state)](#5-state-terraform-state)
-    - [State operations include](#state-operations-include)
+  - [State operations include](#state-operations-include)
 - [6. Change (Update Cycle)](#6-change-update-cycle)
 - [7. Destroy (terraform destroy)](#7-destroy-terraform-destroy)
-    - [Command](#command-3)
-    - [Useful for](#useful-for)
+  - [Command](#command-3)
+  - [Useful for](#useful-for)
 - [Terraform Lifecycle (One Diagram)](#terraform-lifecycle-one-diagram)
 
 &nbsp;
@@ -89,7 +89,7 @@ What Terraform does here:
 
 &nbsp;
 
-### Command:
+### Command
 
 ```bash
 terraform init

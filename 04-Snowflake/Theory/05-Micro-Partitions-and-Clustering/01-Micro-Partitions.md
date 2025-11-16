@@ -50,7 +50,6 @@ Micro-partitioning is automatically performed on all snowflake tables.
 2. **Automatic** → Users don’t create or manage them directly; Snowflake handles it behind the scenes.
 
 3. **Metadata Stored Separately** → For each micro-partition, Snowflake stores:
-
    - Column min/max values
    - Number of distinct values
    - Null count

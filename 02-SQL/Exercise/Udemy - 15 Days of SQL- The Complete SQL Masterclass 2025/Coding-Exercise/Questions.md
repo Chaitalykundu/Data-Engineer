@@ -38,7 +38,6 @@
 # SELECT DISTINCT & LIMIT
 
 3. Write a single SQL query to retrieve the first 5 unique genres in ascending alphabetical order.
-
    - Column: `genre` in the `books` table.
 
 &nbsp;
@@ -48,7 +47,6 @@
 # COUNT()
 
 4. Given the table `employees`, write a single SQL query to count the total number of employees in the company.
-
    - Table Name: `employees`
    - Relevant Columns: `id` (you can count rows using any column, but id is usually preferred for its uniqueness)
 
@@ -59,7 +57,6 @@
 # Where
 
 5. Write a SQL query to find all products in the 'Electronics' category. Select only the name of the product and the price. You need to use only the `SELECT`, `WHERE`, and `ORDER BY` clauses to achieve this. Sort the results by price in ascending order.
-
    - Table: `products`
    - Columns: `product_id`, `name`, `category`, `price`
 
@@ -70,7 +67,6 @@
 # WHERE operators
 
 6. Write a SQL query to find all products (only select name and price) that have a price of more than 200. You need to use only the `SELECT`, `WHERE`, and `ORDER BY` clauses to achieve this. Sort the results by **price** in ascending order.
-
    - Table: `products`
    - Columns: `product_id`, `name`, `category`, `price`
 
@@ -81,7 +77,6 @@
 # WHERE with AND/OR
 
 7. Write a SQL query to find all products in the '**Electronics**' category that have a price of more than 200. You need to use only the `SELECT`, `WHERE`, and `ORDER BY` clauses to achieve this. Sort the results by price in ascending order. Select only product `name` and and `price`.
-
    - Table: `products`
    - Columns: `product_id`, `name`, `category`, `price`
 
@@ -100,7 +95,6 @@
 # IN operator
 
 9. Write a single SQL query to select all distinct customer IDs who ordered either a 'Laptop', 'Tablet', or 'Smartphone'. Order the result by customer ID in ascending order.
-
    - Table Name: `orders`
    - Important Columns: `customer_id`, `product_name`
 

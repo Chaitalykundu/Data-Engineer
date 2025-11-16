@@ -12,7 +12,8 @@
 - [9. Best Practices \& Git Integration](#9-best-practices--git-integration)
 - [10. Bonus: Terraform Cloud / Backend](#10-bonus-terraform-cloud--backend)
 - [🚀 Final Tips](#-final-tips)
-- [Search in chatGPT](#search-in-chatgpt)
+- [Search in chatGPT (prompt)](#search-in-chatgpt-prompt)
+  - [Provider (snowflake)](#provider-snowflake)
 
 &nbsp;
 
@@ -218,7 +219,7 @@ terraform workspace select dev
 
 &nbsp;
 
-# Search in chatGPT
+# Search in chatGPT (prompt)
 
 If you want, I can also explain:
 
@@ -230,9 +231,23 @@ If you want, I can also explain:
 
 &nbsp;
 
+If you want next topic:
+
+- "Resource in Terraform"
+  or
+- "Difference between provider, module, resource, data source"
+
 &nbsp;
 
 &nbsp;
+
+## Provider (snowflake)
+
+If you want, I can explain:
+
+- How terraform init installs this provider
+- How authentication works in Snowflake provider
+- How to create Snowflake objects via Terraform
 
 &nbsp;
 
