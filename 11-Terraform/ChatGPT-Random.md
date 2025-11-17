@@ -14,6 +14,9 @@
 - [🚀 Final Tips](#-final-tips)
 - [Search in chatGPT (prompt)](#search-in-chatgpt-prompt)
   - [Provider (snowflake)](#provider-snowflake)
+    - [Ready-to-use Snowflake Terraform repo structure](#ready-to-use-snowflake-terraform-repo-structure)
+  - [Project](#project)
+  - [Want to go more advanced?](#want-to-go-more-advanced)
 
 &nbsp;
 
@@ -253,13 +256,51 @@ If you want, I can explain:
 
 &nbsp;
 
-&nbsp;
+### Ready-to-use Snowflake Terraform repo structure
+
+- Complete provider.tf + variables.tf + example database + warehouse creation
+- CI/CD secure setup (GitHub Actions + Terraform Cloud)
+
+Just say:
+
+- “Give me full Terraform repo for Snowflake key-pair auth”
 
 &nbsp;
 
 &nbsp;
 
+## Project
+
+I can give you:
+
+🚀 Mini Project: Create 10 files using variables, loops & locals
+
+OR
+
+🚀 Mini Project: Generate a folder structure dynamically
+
+OR
+
+🚀 Mini Project: Use templatefile() to generate configs
+
+Just say:
+👉 “Give me next local provider project”
+
 &nbsp;
+
+&nbsp;
+
+## Want to go more advanced?
+
+Choose one:
+
+Generate nested folders (multi-level tree)
+
+Create folders + files from a map (with metadata)
+
+Create a full project scaffold (folders + README + configs)
+
+Use templatefile() to produce dynamic configs per folder
 
 &nbsp;
 

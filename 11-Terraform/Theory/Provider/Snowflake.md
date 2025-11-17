@@ -10,7 +10,7 @@
   - [`provider "snowflake" { }` Block](#provider-snowflake---block)
     - [Code](#code-1)
     - [Explanation](#explanation-1)
-    - [Example (just for understanding)](#example-just-for-understanding)
+    - [Example](#example)
     - [Purpose](#purpose-1)
 - [How Both Blocks Work Together](#how-both-blocks-work-together)
   - [Step 1 → Required provider](#step-1--required-provider)
@@ -52,7 +52,11 @@ This code has two main blocks:
 
 ```tf
 terraform { required_providers { ... } }
+```
 
+and
+
+```tf
 provider "snowflake" { ... }
 ```
 
@@ -107,6 +111,8 @@ This ensures consistent and stable deployments.
 
 This block tells Terraform how to connect to Snowflake.
 
+&nbsp;
+
 ### Code
 
 ```tf
@@ -129,7 +135,7 @@ This is where you normally add:
 
 &nbsp;
 
-### Example (just for understanding)
+### Example
 
 ```tf
 provider "snowflake" {
@@ -217,30 +223,6 @@ resource "snowflake_database" "demo_db" {
   name = "DEMO_DB"
 }
 ```
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
 
 &nbsp;
 
