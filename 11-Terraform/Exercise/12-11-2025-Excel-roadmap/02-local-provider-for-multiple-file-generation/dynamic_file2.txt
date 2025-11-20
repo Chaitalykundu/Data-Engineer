@@ -1,0 +1,1 @@
+This is dynamic_file2.txt, created using the local provider and variable.
