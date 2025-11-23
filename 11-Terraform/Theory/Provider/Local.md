@@ -1,7 +1,6 @@
 # Overview
 
 - [Overview](#overview)
-- [Official page](#official-page)
 - [Full Syntax](#full-syntax)
 - [Main blocks](#main-blocks)
   - [`terraform { required_providers { ... } }` Block](#terraform--required_providers-----block)
@@ -21,14 +20,6 @@
 - [Example of a Complete Setup](#example-of-a-complete-setup)
 
 &nbsp;
-
-&nbsp;
-
-&nbsp;
-
-# Official page
-
-[Official page of Snowflake provider](https://registry.terraform.io/providers/snowflakedb/snowflake/latest) : <https://registry.terraform.io/providers/snowflakedb/snowflake/latest>
 
 &nbsp;
 

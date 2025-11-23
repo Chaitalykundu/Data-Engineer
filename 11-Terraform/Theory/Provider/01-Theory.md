@@ -51,6 +51,7 @@ A provider is responsible for:
 | **API Communication** | Send requests to cloud/SaaS API                             |
 | **Resource Schema**   | Define what fields exist in a resource                      |
 | **CRUD operations**   | Create, Read, Update, Delete resources                      |
+|                       |                                                             |
 
 &nbsp;
 

@@ -4,15 +4,16 @@
 - [Install dbt-core or create a dbt Cloud account](#install-dbt-core-or-create-a-dbt-cloud-account)
 - [Step 1 : Install Python (if not already installed)](#step-1--install-python-if-not-already-installed)
 - [Step 2 : Install virtual environment](#step-2--install-virtual-environment)
-  - [create virtual environment using the following command](#create-virtual-environment-using-the-following-command)
-  - [to activate virtual environment](#to-activate-virtual-environment)
+  - [Create virtual environment using the following command](#create-virtual-environment-using-the-following-command)
+  - [To activate virtual environment](#to-activate-virtual-environment)
 - [Step 3: Install dbt-core with an adapter](#step-3-install-dbt-core-with-an-adapter)
 - [Step 4: Verify installation](#step-4-verify-installation)
-- [Step 5: create a project (name it dbt_project) and initialize it](#step-5-create-a-project-name-it-dbt_project-and-initialize-it)
-- [Step 6: go to the project](#step-6-go-to-the-project)
-- [Step 7: check the path](#step-7-check-the-path)
-- [Step 8: change `profiles.yml`](#step-8-change-profilesyml)
-- [Step 9: check all versions and configurations](#step-9-check-all-versions-and-configurations)
+- [(Optional but important) Step 5: Install Snowflake Python connector](#optional-but-important-step-5-install-snowflake-python-connector)
+- [Step 5: Create a project (name it dbt_project) and initialize it](#step-5-create-a-project-name-it-dbt_project-and-initialize-it)
+- [Step 6: Go to the project](#step-6-go-to-the-project)
+- [Step 7: Check the path](#step-7-check-the-path)
+- [Step 8: Change `profiles.yml`](#step-8-change-profilesyml)
+- [Step 9: Check all versions and configurations](#step-9-check-all-versions-and-configurations)
 - [Step 10: Run DBT project](#step-10-run-dbt-project)
 - [Step 11: Add a source or seed](#step-11-add-a-source-or-seed)
 - [Step 12: Add this seed to `dbt_project.yml`](#step-12-add-this-seed-to-dbt_projectyml)
@@ -47,6 +48,12 @@ To get started with dbt, you have two main options depending on your preference
 Make sure `Python 3.8–3.11` is installed. You can check by running:
 
 ```bash
+python --version
+```
+
+or
+
+```bash
 python3 --version
 ```
 
@@ -56,7 +63,7 @@ python3 --version
 
 # Step 2 : Install virtual environment
 
-### create virtual environment using the following command
+### Create virtual environment using the following command
 
 ```bash
 python -m venv dbt-env
@@ -70,7 +77,7 @@ python3 -m venv dbt-env
 
 &nbsp;
 
-### to activate virtual environment
+### To activate virtual environment
 
 ```bash
 dbt-env/scripts/activate
@@ -116,6 +123,16 @@ pip install dbt-databricks
 
 &nbsp;
 
+This automatically installs:
+
+- dbt-core
+- dbt-common
+- dbt-snowflake or other adapter
+
+So we do NOT need to install `dbt-core` separately.
+
+&nbsp;
+
 &nbsp;
 
 # Step 4: Verify installation
@@ -126,21 +143,52 @@ dbt --version
 
 &nbsp;
 
+You should see:
+
+```yml
+Core:
+  - installed: 1.x.x
+Plugins:
+  - snowflake: 1.x.x
+```
+
 &nbsp;
 
-# Step 5: create a project (name it dbt_project) and initialize it
+&nbsp;
+
+# (Optional but important) Step 5: Install Snowflake Python connector
+
+`dbt-snowflake` installs it automatically, but if missing:
+
+```bash
+pip install snowflake-connector-python
+```
+
+&nbsp;
+
+&nbsp;
+
+# Step 5: Create a project (name it dbt_project) and initialize it
 
 ```bash
 dbt init dbt_project_name
 ```
 
-It may ask some inputs to set up profiles.yml file
+It may ask the following inputs to set up profiles.yml file
+
+- Snowflake account (e.g. xy12345.ap-south-1)
+- Username
+- Password or Key Pair
+- Role (e.g. SYSADMIN)
+- Warehouse
+- Database
+- Schema
 
 &nbsp;
 
 &nbsp;
 
-# Step 6: go to the project
+# Step 6: Go to the project
 
 ```bash
 cd dbt_project
@@ -150,7 +198,7 @@ cd dbt_project
 
 &nbsp;
 
-# Step 7: check the path
+# Step 7: Check the path
 
 ```bash
 pwd
@@ -160,18 +208,18 @@ pwd
 
 &nbsp;
 
-# Step 8: change `profiles.yml`
+# Step 8: Change `profiles.yml`
 
 Follow specific file to change `profiles.yml`
 
-- [DBT-Protgres-Connection.md](./DBT-Protgres-Connection.md)
+- [DBT-Postgres-Connection.md](./DBT-Postgres-Connection.md)
 - [DBT-Snowflake-Connection.md](./DBT-Snowflake-Connection.md)
 
 &nbsp;
 
 &nbsp;
 
-# Step 9: check all versions and configurations
+# Step 9: Check all versions and configurations
 
 ```bash
 dbt debug

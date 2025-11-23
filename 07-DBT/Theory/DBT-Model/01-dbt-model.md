@@ -86,6 +86,28 @@ To run only one model
 dbt run --select file_name
 ```
 
+or
+
+```bash
+dbt run --select file_name,file_name2
+```
+
+&nbsp;
+
+Run two or more models
+
+```bash
+dbt run --select file_name1 file_name2
+```
+
+&nbsp;
+
+Run with folder paths
+
+```bash
+dbt run --select models/staging models/marts
+```
+
 &nbsp;
 
 ## Explanation
