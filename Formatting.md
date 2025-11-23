@@ -4,7 +4,7 @@
 install -g markdownlint-cli
 ```
 
-```
+```bash
 markdownlint "**/*.md"
 ```
 
@@ -12,7 +12,7 @@ markdownlint "**/*.md"
 
 ## Auto fix
 
-```
+```bash
 markdownlint --fix "**/*.md"
 ```
 
@@ -40,10 +40,10 @@ Create a .markdownlint.json file in your project root to configure rules:
 
 # Prettier formatting
 
-```
+```bash
 npx prettier --check "**/*.md"
 ```
 
-```
+```bash
 npx prettier --write "**/*.md"
 ```
