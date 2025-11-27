@@ -1,9 +1,13 @@
 | **Topic**                                                     | **Status** |
-| ------------------------------------------------------------- | ---------- | ---- |
+| ------------------------------------------------------------- | ---------- |
 | What is dbt? Why use it?                                      | Done       |
-| dbt Core vs dbt Cloud                                         |            | Done |
+| dbt Core vs dbt Cloud                                         | Done       |
 | Basic architecture : Models, Sources, Seeds, Snapshots, Tests |            |
 | Jinja templating                                              |            |
+
+&nbsp;
+
+&nbsp;
 
 # Phase 1: Beginner – Understand the Fundamentals (Week 1)
 

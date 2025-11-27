@@ -4,11 +4,11 @@
 - [Summary](#summary)
 - [Seed](#seed)
 - [`dbt seed` is great for](#dbt-seed-is-great-for)
+- [Where to place seed files](#where-to-place-seed-files)
 - [Seed file example](#seed-file-example)
 - [Run dbt seed](#run-dbt-seed)
   - [Command](#command)
   - [Explanation](#explanation)
-- [Where to place seed files](#where-to-place-seed-files)
 - [Optional flags for dbt seed](#optional-flags-for-dbt-seed)
   - [Example](#example)
 - [Use Cases](#use-cases)
@@ -19,6 +19,8 @@
 &nbsp;
 
 &nbsp;
+
+<https://chatgpt.com/c/6922098b-c830-8321-8a48-8b2c9503e7d2>
 
 # Summary
 
@@ -41,6 +43,15 @@ A seed in dbt is a **CSV** file stored in your project that dbt can load into yo
 
 &nbsp;
 
+Use seeds for:
+
+- Lookup tables
+- Mapping tables
+- Country/state codes
+- Static reference data
+
+&nbsp;
+
 &nbsp;
 
 # `dbt seed` is great for
@@ -48,6 +59,22 @@ A seed in dbt is a **CSV** file stored in your project that dbt can load into yo
 - Static lookup tables (e.g., country codes, currency types)
 - Reference data used in joins or filters
 - Lightweight test data-sets
+
+&nbsp;
+
+&nbsp;
+
+# Where to place seed files
+
+Place your CSV file in the `seeds/` directory
+
+`raw_customers.csv`
+
+```text
+dbt_project/
+├── seeds/
+│   └── raw_customer.csv
+```
 
 &nbsp;
 
@@ -91,22 +118,6 @@ When you run `dbt seed`, This will:
 - Read all `.csv` files in the /seeds folder
 - Upload the CSV to your data warehouse
 - Create a table with the same name as the file (e.g., `raw_customers`)
-
-&nbsp;
-
-&nbsp;
-
-# Where to place seed files
-
-Place your CSV file in the `seeds/` directory
-
-`raw_customers.csv`
-
-```text
-dbt_project/
-├── seeds/
-│   └── raw_customer.csv
-```
 
 &nbsp;
 

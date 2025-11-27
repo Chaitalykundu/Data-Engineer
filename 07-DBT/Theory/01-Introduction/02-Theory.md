@@ -4,6 +4,7 @@
 - [Summary](#summary)
 - [Abbreviation](#abbreviation)
 - [DBT](#dbt)
+  - [Notes](#notes)
 - [Features](#features)
 - [Data Flow of Modern Data Stack](#data-flow-of-modern-data-stack)
 - [Where dbt fits in the Modern Data Stack](#where-dbt-fits-in-the-modern-data-stack)
@@ -49,6 +50,10 @@ DBT (data build tool) is an **open-source** tool that helps data teams **transfo
 It's a command line tool and transformation framework, used by data engineers and analysts to transform data in a data warehouse using SQL and some basic Python (for dbt Python models or scripting).
 
 &nbsp;
+
+&nbsp;
+
+## Notes
 
 Data warehouse = any of the modern data platforms like **Snowflake**, **Redshift**, **BigQuery**, **DataBricks**.
 

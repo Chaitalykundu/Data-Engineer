@@ -5,7 +5,7 @@
 - [Source](#source)
 - [Why Use source()?](#why-use-source)
 - [How to Define a Source](#how-to-define-a-source)
-  - [1. Create a sources block in your schema.yml (or .yml file in models/ folder):](#1-create-a-sources-block-in-your-schemayml-or-yml-file-in-models-folder)
+  - [1. Create a sources block in your schema.yml (or .yml file in models/ folder)](#1-create-a-sources-block-in-your-schemayml-or-yml-file-in-models-folder)
   - [2. Reference the source in your model using source()](#2-reference-the-source-in-your-model-using-source)
 - [Source Freshness Checks](#source-freshness-checks)
   - [Add `loaded_at_field`](#add-loaded_at_field)
@@ -39,9 +39,19 @@
 
 # Source
 
+A source is a **raw table** that comes from your data warehouse (Snowflake, BigQuery, Redshift, etc).
+
 In dbt, a source refers to a **raw table or dataset** in your data warehouse that is not created by dbt, but is used as input for your dbt models.
 
 Using `source()` helps track and document where raw data comes from, and it’s especially useful for lineage, testing, and data freshness checks.
+
+You define a source so dbt can:
+
+- document raw data
+- test raw data
+- reference raw tables safely
+- trace lineage
+- perform freshness checks
 
 &nbsp;
 

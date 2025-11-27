@@ -20,7 +20,7 @@
 
 Make sure database is already created.
 
-```
+```yml
 dbt_project_name:
   outputs:
     dev:

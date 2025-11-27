@@ -2,6 +2,7 @@
 
 - [Overview](#overview)
 - [Summary](#summary)
+- [Seed](#seed)
 - [dbt seed](#dbt-seed)
 - [`dbt seed` is great for](#dbt-seed-is-great-for)
 - [How to Use dbt seed](#how-to-use-dbt-seed)
@@ -34,6 +35,23 @@
 |                             |                                           |
 
 &nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Seed
+
+A seed is a **CSV** file stored inside your dbt project, and dbt will load it into your warehouse as a table.
+
+&nbsp;
+
+Use seeds for:
+
+- Lookup tables
+- Mapping tables
+- Country/state codes
+- Static reference data
 
 &nbsp;
 
