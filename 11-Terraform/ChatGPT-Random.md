@@ -17,6 +17,7 @@
     - [Ready-to-use Snowflake Terraform repo structure](#ready-to-use-snowflake-terraform-repo-structure)
   - [Project](#project)
   - [Want to go more advanced?](#want-to-go-more-advanced)
+  - [Variable](#variable)
 
 &nbsp;
 
@@ -300,11 +301,18 @@ Create folders + files from a map (with metadata)
 
 Create a full project scaffold (folders + README + configs)
 
-Use templatefile() to produce dynamic configs per folder
+Use `templatefile()` to produce dynamic configs per folder
 
 &nbsp;
 
 &nbsp;
+
+## Variable
+
+- Output variables
+- Local values
+- Variable files for multi-env (dev/qa/prod)
+- Create database + schema + warehouse using variable-driven Terraform
 
 &nbsp;
 

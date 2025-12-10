@@ -17,7 +17,7 @@
 
 # Parsing variables
 
-Variables can be parsed in 2 ways
+Variables can be parsed in 4 ways
 
 1. Default in `.tf` file
 2. `.tfvars` file
