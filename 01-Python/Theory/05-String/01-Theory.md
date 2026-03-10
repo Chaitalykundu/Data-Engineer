@@ -120,4 +120,14 @@ print("Hi! " * 3)  # Hi! Hi! Hi!
 
 &nbsp;
 
+# Length of a string
+
+We use `len(str)` to find out the length of a string
+
+```py
+str = "python"
+
+print(len(str)) #6
+```
+
 &nbsp;
