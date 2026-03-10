@@ -14,9 +14,9 @@
     - [Example](#example)
     - [Purpose](#purpose-1)
 - [How Both Blocks Work Together](#how-both-blocks-work-together)
-    - [Step 1 → Required provider](#step-1--required-provider)
-    - [Step 2 → Provider config](#step-2--provider-config)
-    - [Step 3 → Your resources](#step-3--your-resources)
+  - [Step 1 → Required provider](#step-1--required-provider)
+  - [Step 2 → Provider config](#step-2--provider-config)
+  - [Step 3 → Your resources](#step-3--your-resources)
 - [In Simple Words](#in-simple-words)
 - [Example of a Complete Setup](#example-of-a-complete-setup)
 

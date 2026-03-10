@@ -38,7 +38,7 @@ A Data Warehouse is a centralized system where data from multiple systems (datab
 
 &nbsp;
 
-### Example:
+### Example
 
 A company may have data from:
 
@@ -76,7 +76,7 @@ A data warehouse has **four** main characteristics.
 
 Data is organized based on business subjects.
 
-### Examples:
+### Examples
 
 - Sales
 - Customers

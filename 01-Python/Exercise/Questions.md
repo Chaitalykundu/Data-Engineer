@@ -33,3 +33,39 @@
 &nbsp;
 
 &nbsp;
+
+&nbsp;
+
+# String
+
+### Easy
+
+- Reverse a string
+- Check palindrome
+- Count vowels
+- Count Characters in a String
+- Remove Spaces from String
+
+### Medium
+
+- Remove duplicates
+- First non-repeating character
+- Count Words in a Sentence
+- Check Anagram
+- Find Duplicate Characters
+
+### Advanced Interview Programs
+
+- Check if Two Strings are Rotations
+- Find Longest Word in Sentence
+- Convert String to Title Case
+- Count Uppercase and Lowercase Letters
+- Find All Substrings of a String
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;

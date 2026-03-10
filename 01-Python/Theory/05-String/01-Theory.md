@@ -23,6 +23,8 @@
 
 A string is a sequence of characters enclosed in quotes.
 
+Strings are **immutable**, which means once a string is created, it cannot be changed. If you try to modify it, Python actually creates a new string instead of changing the original one.
+
 &nbsp;
 
 &nbsp;
@@ -34,7 +36,9 @@ A string is a sequence of characters enclosed in quotes.
 ### Syntax
 
 ```py
-variable_name = string_value
+variable_name = "string_value"
+# or
+variable_name = 'string_value'
 ```
 
 &nbsp;
@@ -44,8 +48,6 @@ variable_name = string_value
 ```py
 name = "Alice"
 greeting = 'Hello'
-paragraph = """This is
-a multi-line string."""
 ```
 
 &nbsp;
@@ -55,7 +57,8 @@ a multi-line string."""
 ### Syntax
 
 ```py
-variable_name = string_value
+variable_name = '''string_value'''
+variable_name = """string_value"""
 ```
 
 &nbsp;
@@ -64,6 +67,10 @@ variable_name = string_value
 
 ```py
 paragraph = """This is
+a multi-line string."""
+# or
+paragraph1 = """This is also
+
 a multi-line string."""
 ```
 
