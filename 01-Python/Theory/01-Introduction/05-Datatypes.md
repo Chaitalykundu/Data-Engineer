@@ -27,7 +27,7 @@ There are two types of datatypes -------
 
 **Primitive Data Types**: int, float, bool, str
 
-**Primitive Data Types**: list, tuple, dict, set
+**Non-Primitive Data Types**: list, tuple, dict, set
 
 &nbsp;
 
@@ -40,6 +40,7 @@ There are two types of datatypes -------
 |              | `complex`     | `z = 2 + 3j`                | Complex numbers               |
 | Text         | `str`         | `name = "Alice"`            | Sequence of characters (text) |
 | Boolean      | `bool`        | `is_valid = True`           | True or False values          |
+| none         | none          | `a = none`                  | In variable nothing is there  |
 | Sequence     | `list`        | `nums = [1, 2, 3]`          | Ordered, mutable collection   |
 |              | `tuple`       | `point = (10, 20)`          | Ordered, immutable collection |
 |              | `range`       | `r = range(5)`              | Sequence of numbers           |

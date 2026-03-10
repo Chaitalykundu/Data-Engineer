@@ -51,6 +51,7 @@ They are used to explain code, improve readability, or disable parts of code dur
 # 2. Multi-line Comment (2 common methods)
 
 a. Using `#` on multiple lines
+
 b. Using triple quotes `'''` or `"""` (not a real comment, but works)
 
 &nbsp;

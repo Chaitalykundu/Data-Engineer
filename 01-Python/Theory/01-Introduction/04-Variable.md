@@ -63,7 +63,7 @@ name1 = "John"
 
 # Dynamic Typing
 
-You don’t need to declare the type — Python figures it out.
+You don’t need to declare the type — Python figures it out automatically.
 
 ```python
 value = 42       # integer

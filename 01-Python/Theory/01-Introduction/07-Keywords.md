@@ -59,7 +59,7 @@ def greet():
 
 ### Explanation
 
-Here True, for, in, def are keywords
+Here `True`, `for`, `in`, `def` are keywords
 
 `range` is a **built-in** function, not a keyword.
 
@@ -118,6 +118,7 @@ def = 5  # ❌ Invalid!
 | while    | To create a while loop                                                                                |
 | with     | Used to simplify exception handling                                                                   |
 | yield    | To return a list of values from a generator                                                           |
+|          |                                                                                                       |
 
 &nbsp;
 

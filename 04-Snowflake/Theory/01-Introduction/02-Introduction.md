@@ -18,7 +18,7 @@
 
 # Snowflake
 
-Snowflake is a **cloud data platform** for data storage and analytics purpose, that offers data warehousing, data lakes, data engineering, data science, and more.
+Snowflake is a **fully managed**, **cloud-native data warehouse** that separates compute and storage, enabling scalable, high-performance analytics with minimal administration.
 
 &nbsp;
 
@@ -70,6 +70,10 @@ Snowflake is **_Software as a Service (SaaS) == Data platform as a Cloud Service
 &nbsp;
 
 # Snowflake's features include
+
+- <u>**Cloud-Native & Fully Managed**</u>:
+  - Runs on AWS, Azure, and GCP
+  - No servers, indexing, or manual tuning required
 
 - <u>**Decoupled architecture**</u>: Snowflake's architecture has three decoupled layers: storage, compute, and cloud services.
 

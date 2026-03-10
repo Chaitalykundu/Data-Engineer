@@ -2,6 +2,7 @@
 
 - [Overview](#overview)
 - [Why Snowflake](#why-snowflake)
+- [What Snowflake Is Used For](#what-snowflake-is-used-for)
 - [On-premise Meaning](#on-premise-meaning)
 - [Workload isolation](#workload-isolation)
 - [Access control](#access-control)
@@ -41,6 +42,21 @@
   - Out of box security (RBAC / DAC) / Encryption / Column level masking / Row level security
   - All popular connector (JDBC / ODBC / Spark and many more)
   - Pay per second billing model (not upfront investment and only pay for actual usage)
+
+&nbsp;
+
+&nbsp;
+
+# What Snowflake Is Used For
+
+Snowflake helps organizations to:
+
+- Store structured and semi-structured data (JSON, Avro, Parquet)
+- Perform fast analytical queries (OLAP)
+- Build data pipelines with tools like dbt
+- Support BI tools (Power BI, Tableau, Looker)
+- Share data securely across teams or companies
+- Enable AI/ML and advanced analytics
 
 &nbsp;
 

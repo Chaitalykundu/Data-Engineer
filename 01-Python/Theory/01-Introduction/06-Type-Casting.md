@@ -7,7 +7,7 @@
   - [Example](#example)
 - [Explicit Type Casting](#explicit-type-casting)
   - [Example](#example-1)
-- [Note:](#note)
+- [Note](#note)
 
 &nbsp;
 
@@ -43,9 +43,9 @@ Python automatically converts data types when needed.
 ## Example
 
 ```py
-x = 10
-y = 3.5
-z = x + y
+x = 10 # number
+y = 3.5 # float
+z = x + y # z is float
 
 print(type(z))
 ```

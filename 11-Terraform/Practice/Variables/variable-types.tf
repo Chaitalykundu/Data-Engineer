@@ -24,7 +24,7 @@ variable "list_type" {
 variable "map_type" {
   type        = map(string)
   description = "This is map type variable"
-  default     = 
+  # default     = 
 }
 variable "object_type" {
   type        = bool
