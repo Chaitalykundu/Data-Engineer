@@ -11,6 +11,7 @@
     - [3. Find the output](#3-find-the-output)
     - [4. Suppose a string "python" is given and you are told to change the 1st letter to "J". How will you do this](#4-suppose-a-string-python-is-given-and-you-are-told-to-change-the-1st-letter-to-j-how-will-you-do-this)
     - [5. Suppose a string "python" is given and you are told to change the letter "th" to "ht". How will you do this](#5-suppose-a-string-python-is-given-and-you-are-told-to-change-the-letter-th-to-ht-how-will-you-do-this)
+    - [6. What is the difference between `+` and `,`?](#6-what-is-the-difference-between--and-)
 - [Udemy](#udemy)
   - [1. What is the role of indentation in Python?](#1-what-is-the-role-of-indentation-in-python)
 
@@ -37,7 +38,7 @@
 
 5. Suppose a string "python" is given and you are told to change the letter "th" to "ht". How will you do this
 
-6.
+6. What is the difference between `+` and `,`?
 
 ### Top 10 Python String Interview Questions
 
@@ -124,6 +125,17 @@ print(str1)
 &nbsp;
 
 &nbsp;
+
+### 6. What is the difference between `+` and `,`?
+
+| Feature                   | `+` Operator        | `,` (Comma)              |
+| ------------------------- | ------------------- | ------------------------ |
+| Purpose                   | Concatenate strings | Separate multiple values |
+| Result                    | Creates one string  | Prints multiple objects  |
+| Type requirement          | Both must be string | Can mix types            |
+| Space added automatically | ❌ No               | ✅ Yes                   |
+| Works outside `print()`   | ✅ Yes              | ❌ No                    |
+|                           |                     |                          |
 
 &nbsp;
 

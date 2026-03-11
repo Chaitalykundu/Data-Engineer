@@ -62,6 +62,14 @@
 - Count Uppercase and Lowercase Letters
 - Find All Substrings of a String
 
+#### FAANG companies usually test these 5 patterns in string problems
+
+- Sliding Window
+- HashMap / Dictionary
+- Two Pointers
+- Palindrome Expansion
+- Sorting / Hashing
+
 &nbsp;
 
 &nbsp;
