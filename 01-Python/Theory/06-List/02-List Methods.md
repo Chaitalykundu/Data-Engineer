@@ -21,3 +21,6 @@
 | `clear()`   | Remove all elements                   |
 | `sort()`    | Sort list                             |
 | `reverse()` | Reverse order                         |
+| `index()`   | Find index of element                 |
+| `count()`   | Count occurrences                     |
+| `copy()`    | Copy list                             |
