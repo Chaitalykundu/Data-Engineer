@@ -26,3 +26,37 @@
 
 1. What is task in snowflake
 2.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Column level security
+
+1. How does Snowflake implement column-level security?
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Answer
+
+## 1. How does Snowflake implement column-level security?
+
+Snowflake implements column-level security primarily using dynamic data masking policies, along with RBAC and secure views.
