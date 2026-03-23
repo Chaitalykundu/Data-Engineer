@@ -1,6 +1,6 @@
 variable "snowflake_account" {
   type    = string
-  default = "LTJTHOR-GU72308"
+  default = "ydsodxg-gj33192"
 }
 
 variable "snowflake_user" {
