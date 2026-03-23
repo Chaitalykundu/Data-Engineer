@@ -36,10 +36,12 @@
 # Column level security
 
 1. How does Snowflake implement column-level security?
+2. Name schema-level objects in Snowflake
 
 &nbsp;
 
 &nbsp;
+
 
 &nbsp;
 
@@ -59,4 +61,49 @@
 
 ## 1. How does Snowflake implement column-level security?
 
-Snowflake implements column-level security primarily using dynamic data masking policies, along with RBAC and secure views.
+Snowflake implements column-level security primarily using dynamic data masking policies, along with RBAC and
+secure views.
+
+&nbsp;
+
+&nbsp;
+
+## 2. Name schema-level objects in Snowflake
+
+Tables, Views, Materialized Views, Streams, Tasks, Functions, Procedures, Sequences, Stages, File Formats, Pipes, and Policies.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;

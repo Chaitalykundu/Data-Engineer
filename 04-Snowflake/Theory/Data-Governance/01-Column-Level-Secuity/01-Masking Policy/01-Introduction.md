@@ -4,7 +4,8 @@
 - [Masking Policy](#masking-policy)
 - [Simple Example](#simple-example)
 - [How it Works](#how-it-works)
-- [Syntax Example](#syntax-example)
+- [Syntax](#syntax)
+- [Example](#example)
 - [Key Concepts](#key-concepts)
 - [🎯 Real Use Cases](#-real-use-cases)
 - [Masking Policy vs Row Access Policy](#masking-policy-vs-row-access-policy)
@@ -18,6 +19,16 @@
 # Masking Policy
 
 A Masking Policy in Snowflake is a data security feature used to **hide or baffle sensitive data** (like emails, phone numbers, salaries, etc.) from unauthorized users—while still allowing access to the table.
+
+&nbsp;
+
+Masking policy are **schema level** object
+
+Masking Policy can include conditions and functions to transform the data when those conditions are met.
+
+Same masking policy can be applied on multiple column.
+
+&nbsp;
 
 &nbsp;
 
@@ -36,9 +47,9 @@ A Masking Policy dynamically transforms column data based on who is querying it.
 
 # Simple Example
 
-| NAME | EMAIL                                   |
-| ---- | --------------------------------------- |
-| John | [john@gmail.com](mailto:john@gmail.com) |
+| NAME | EMAIL            |
+| ---- | ---------------- |
+| John | `john@gmail.com` |
 
 &nbsp;
 
@@ -63,7 +74,18 @@ Masking policies use:
 
 &nbsp;
 
-# Syntax Example
+# Syntax
+
+```sql
+CREATE MASKING POLICY policy_name AS replaced_name RETURNS return_value CASE condition
+END;
+```
+
+&nbsp;
+
+&nbsp;
+
+# Example
 
 ```sql
 CREATE MASKING POLICY email_mask AS (val STRING)
@@ -88,16 +110,22 @@ SET MASKING POLICY email_mask;
 
 &nbsp;
 
+<img src="../assets/masking_policy.png">
+
+&nbsp;
+
+&nbsp;
+
 # Key Concepts
 
-1. **_Dynamic Data Masking_** : Data is masked at query time
+1. <u>**_Dynamic Data Masking_**</u>: Data is masked at query time
    Original data remains unchanged
 
-2. **_Role-Based Access_**: Uses `CURRENT_ROLE()` to decide visibility
+2. <u>**_Role-Based Access_**</u>: Uses `CURRENT_ROLE()` to decide visibility
 
-3. **_Column-Level Security_**: Applied to specific columns only
+3. <u>**_Column-Level Security_**</u>: Applied to specific columns only
 
-4. **_Reusability_**: One policy can be reused across multiple tables
+4. <u>**_Reusability_**</u>: One policy can be reused across multiple tables
 
 &nbsp;
 
@@ -123,6 +151,7 @@ SET MASKING POLICY email_mask;
 | Level   | Column         | Row                           |
 | Purpose | Hide data      | Filter rows                   |
 | Example | Mask email     | Show only own department data |
+|         |                |                               |
 
 &nbsp;
 

@@ -89,7 +89,7 @@ External Tokenization makes use of masking policies with external functions crea
 | Controls | Columns        | Rows                     |
 | Tool     | Masking Policy | Row Access Policy        |
 | Example  | Hide salary    | Show only own department |
-
+|          |                |                          |
 
 &nbsp;
 
