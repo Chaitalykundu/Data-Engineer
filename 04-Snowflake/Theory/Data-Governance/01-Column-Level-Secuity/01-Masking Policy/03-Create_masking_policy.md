@@ -2,31 +2,43 @@
 
 - [Overview](#overview)
 - [Create policy](#create-policy)
-- [Create Policy](#create-policy-1)
+- [Syntax to Create Policy](#syntax-to-create-policy)
+  - [Example](#example)
+  - [Explanation](#explanation)
+    - [1️⃣ `CREATE MASKING POLICY email_mask`](#1️⃣-create-masking-policy-email_mask)
+    - [2️⃣ `AS (val STRING)`](#2️⃣-as-val-string)
+      - [📌 Think](#-think)
+    - [3️⃣ `RETURNS STRING`](#3️⃣-returns-string)
+      - [📌 Here](#-here)
+    - [4️⃣ `->`](#4️⃣--)
+    - [5️⃣ CASE ... END](#5️⃣-case--end)
+    - [🔍 Condition](#-condition)
+      - [📌 Output](#-output)
+      - [📌 Output](#-output-1)
 - [Masking policy creation category](#masking-policy-creation-category)
 - [1️⃣ Full Masking (Static Masking)](#1️⃣-full-masking-static-masking)
-  - [Example](#example)
-  - [📌 Output](#-output)
+  - [Example](#example-1)
+  - [📌 Output](#-output-2)
   - [✅ Use Case](#-use-case)
 - [2️⃣ Partial Masking](#2️⃣-partial-masking)
-  - [Example](#example-1)
-  - [📌 Output](#-output-1)
+  - [Example](#example-2)
+  - [📌 Output](#-output-3)
   - [✅ Use Case](#-use-case-1)
 - [3️⃣ Conditional Masking (Role-Based Masking)](#3️⃣-conditional-masking-role-based-masking)
-  - [Example](#example-2)
-  - [📌 Output](#-output-2)
+  - [Example](#example-3)
+  - [📌 Output](#-output-4)
   - [✅ Use Case](#-use-case-2)
 - [4️⃣ Hash-Based Masking](#4️⃣-hash-based-masking)
-  - [Example](#example-3)
-  - [📌 Output](#-output-3)
+  - [Example](#example-4)
+  - [📌 Output](#-output-5)
   - [✅ Use Case](#-use-case-3)
 - [5️⃣ Randomized / Tokenized Masking](#5️⃣-randomized--tokenized-masking)
-  - [Example](#example-4)
-  - [📌 Output](#-output-4)
+  - [Example](#example-5)
+  - [📌 Output](#-output-6)
   - [✅ Use Case](#-use-case-4)
 - [6️⃣ NULL Masking](#6️⃣-null-masking)
-  - [Example](#example-5)
-  - [📌 Output](#-output-5)
+  - [Example](#example-6)
+  - [📌 Output](#-output-7)
   - [✅ Use Case](#-use-case-5)
 
 &nbsp;
@@ -43,10 +55,115 @@ Masking policy can be created using **CREATE MASKING POLICY** command
 
 &nbsp;
 
-# Create Policy
+# Syntax to Create Policy
 
 ```sql
-create masking policy policy_name as (val string) returns string -> case condition
+create masking policy policy_name as (val datatype_of_column_value) returns datatype_of_output -> case condition
+```
+
+&nbsp;
+
+&nbsp;
+
+## Example
+
+```sql
+CREATE MASKING POLICY email_mask AS (val STRING)
+RETURNS STRING ->
+CASE
+    WHEN CURRENT_ROLE() = 'ADMIN' THEN val
+    ELSE '****@masked.com'
+END;
+```
+
+&nbsp;
+
+<img src="../assets/create-and-apply-masking-policy.png">
+
+&nbsp;
+
+&nbsp;
+
+## Explanation
+
+### 1️⃣ `CREATE MASKING POLICY email_mask`
+
+👉 You are creating a masking policy named `email_mask`
+
+- This is just the policy name
+- You will attach it later to a column
+
+&nbsp;
+
+### 2️⃣ `AS (val STRING)`
+
+👉 This defines the input parameter
+
+- `val` → represents the column value
+- `STRING` → data type of the column (e.g., email)
+
+#### 📌 Think
+
+- `val` = actual column data (like `john@gmail.com`)
+
+&nbsp;
+
+### 3️⃣ `RETURNS STRING`
+
+👉 This defines the output type
+
+- The policy must return the same data type as the column
+
+#### 📌 Here
+
+- Input = STRING
+- Output = STRING ✔
+
+&nbsp;
+
+### 4️⃣ `->`
+
+👉 This separates:
+
+- Definition (above)
+- Logic (below)
+
+&nbsp;
+
+### 5️⃣ CASE ... END
+
+👉 This is the core masking logic
+
+&nbsp;
+
+### 🔍 Condition
+
+`WHEN CURRENT_ROLE() = 'ADMIN' THEN val`
+
+👉 If the user’s role is ADMIN:
+
+- Show actual value
+- No masking
+
+#### 📌 Output
+
+```md
+john@gmail.com
+```
+
+&nbsp;
+
+🔍 Else Condition:
+`ELSE '****@masked.com'`
+
+👉 For all other roles:
+
+- Show masked value
+
+#### 📌 Output
+
+```sql
+****@masked.com
 ```
 
 &nbsp;

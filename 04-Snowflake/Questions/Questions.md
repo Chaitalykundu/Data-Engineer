@@ -42,6 +42,9 @@
 
 &nbsp;
 
+# Access control
+
+1. database is account level or database level object
 
 &nbsp;
 
@@ -59,7 +62,9 @@
 
 # Answer
 
-## 1. How does Snowflake implement column-level security?
+## Column level security
+
+### 1. How does Snowflake implement column-level security?
 
 Snowflake implements column-level security primarily using dynamic data masking policies, along with RBAC and
 secure views.
@@ -68,7 +73,7 @@ secure views.
 
 &nbsp;
 
-## 2. Name schema-level objects in Snowflake
+### 2. Name schema-level objects in Snowflake
 
 Tables, Views, Materialized Views, Streams, Tasks, Functions, Procedures, Sequences, Stages, File Formats, Pipes, and Policies.
 
@@ -81,6 +86,20 @@ Tables, Views, Materialized Views, Streams, Tasks, Functions, Procedures, Sequen
 &nbsp;
 
 &nbsp;
+
+## Access control
+
+### 1. database is account level or database level object
+
+A database exists inside an account, but it is part of the data hierarchy, not the account infrastructure.
+It contains:
+
+- Schemas
+- Tables
+- Views
+- Streams, Tasks, etc.
+
+👉 So it belongs to the database layer
 
 &nbsp;
 
