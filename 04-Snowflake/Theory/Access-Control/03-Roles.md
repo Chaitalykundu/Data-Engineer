@@ -7,6 +7,7 @@
 - [Types of roles](#types-of-roles)
   - [System defined roles](#system-defined-roles)
   - [🧑‍💻 2. Custom Roles](#-2-custom-roles)
+- [Snowflake Roles \& Their Uses](#snowflake-roles--their-uses)
 
 &nbsp;
 
@@ -64,6 +65,7 @@ GRANT ROLE analyst_role TO USER user1;
 
 There are two types of roles.
 
+- System defined roles
 - Custom roles
 
 &nbsp;
@@ -73,6 +75,17 @@ There are two types of roles.
 ## System defined roles
 
 These come built-in.
+
+The System-defined roles are
+
+- ORGADMIN
+- ACCOUNTADMIN
+- SECURITYADMIN
+- SYSADMIN
+
+&nbsp;
+
+&nbsp;
 
 🔹 ACCOUNTADMIN
 
@@ -120,6 +133,18 @@ Default role assigned to all users
 &nbsp;
 
 &nbsp;
+
+# Snowflake Roles & Their Uses
+
+| Role              | Level        | Main Use            | Key Responsibilities                                        | When to Use                          |
+| ----------------- | ------------ | ------------------- | ----------------------------------------------------------- | ------------------------------------ |
+| **ORGADMIN**      | Organization | Manage entire org   | Create/manage accounts, billing, usage monitoring           | Multi-account setup, billing control |
+| **ACCOUNTADMIN**  | Account      | Full control        | Manage everything (users, roles, DBs, warehouses, policies) | Initial setup, critical admin tasks  |
+| **SYSADMIN**      | Account      | Object management   | Create/manage databases, schemas, tables, warehouses        | Daily data engineering work          |
+| **SECURITYADMIN** | Account      | Security management | Manage users, roles, grants, RBAC                           | Access control & governance          |
+| **USERADMIN**     | Account      | User management     | Create/modify users only                                    | User onboarding/offboarding          |
+| **PUBLIC**        | Account      | Default access      | Basic minimal privileges for all users                      | Shared/common access (limited use)   |
+|                   |              |                     |                                                             |                                      |
 
 &nbsp;
 
