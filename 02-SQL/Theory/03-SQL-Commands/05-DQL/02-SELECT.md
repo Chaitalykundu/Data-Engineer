@@ -2,16 +2,19 @@
 
 - [Overview](#overview)
 - [Select Statement](#select-statement)
+- [What is SELECT](#what-is-select)
 - [Syntax](#syntax)
   - [Retrieve all data](#retrieve-all-data)
   - [Select specific columns](#select-specific-columns)
+  - [Remove duplicates with DISTINCT](#remove-duplicates-with-distinct)
+  - [Key Clauses with SELECT](#key-clauses-with-select)
 - [Example](#example)
   - [Select all columns](#select-all-columns)
   - [Select specific columns](#select-specific-columns-1)
-  - [Remove duplicates with DISTINCT](#remove-duplicates-with-distinct)
+  - [Remove duplicates with DISTINCT](#remove-duplicates-with-distinct-1)
   - [Use expressions in SELECT](#use-expressions-in-select)
   - [Combine text with CONCAT](#combine-text-with-concat)
-- [In short:](#in-short)
+- [In short](#in-short)
 
 &nbsp;
 
@@ -21,9 +24,19 @@
 
 # Select Statement
 
-`SELECT` is the most important SQL statement.
+`SELECT` command is used to retrieve data from a database table. It belongs to DQL (Data Query Language).
 
-It’s used to retrieve data from a database table.
+&nbsp;
+
+&nbsp;
+
+# What is SELECT
+
+`SELECT` is used to:
+
+- Fetch data from one or more tables
+- Filter, sort, and group results
+- Perform calculations on data
 
 &nbsp;
 
@@ -48,6 +61,32 @@ FROM table_name;
 
 &nbsp;
 
+## Remove duplicates with DISTINCT
+
+```sql
+SELECT DISTINCT column_name
+FROM table_name;
+```
+
+👉 Returns only unique values.
+
+&nbsp;
+
+## Key Clauses with SELECT
+
+A complete `SELECT` query can include:
+
+```sql
+SELECT column_list
+FROM table_name
+WHERE condition
+GROUP BY column
+HAVING condition
+ORDER BY column;
+```
+
+&nbsp;
+
 &nbsp;
 
 # Example
@@ -58,18 +97,29 @@ FROM table_name;
 SELECT * FROM employees;
 ```
 
-👉 Returns all rows and columns from the employees table.
+<img src="../../assets/Select/select-all.png">
+
+&nbsp;
+
+👉 Returns all rows and columns from the **employees** table.
+
+&nbsp;
+&nbsp;
 
 &nbsp;
 
 ## Select specific columns
 
 ```sql
-SELECT first_name, last_name, salary
+SELECT name, department
 FROM employees;
 ```
 
-👉 Only shows first name, last name, and salary.
+<img src="../../assets/Select/select-multiple-columns.png">
+
+&nbsp;
+
+👉 Only shows name and department.
 
 &nbsp;
 

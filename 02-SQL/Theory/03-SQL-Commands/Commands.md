@@ -45,7 +45,7 @@
 
 # Some of The Most Important SQL Commands
 
-- SELECT - extracts data from a database
+- SELECT - extracts / retrieves data from a database
 - UPDATE - updates data in a database
 - DELETE - deletes data from a database
 - INSERT INTO - inserts new data into a database
@@ -75,5 +75,11 @@
 &nbsp;
 
 &nbsp;
+
+&nbsp;
+
+| Statement | Description                 | Example                       |
+| --------- | --------------------------- | ----------------------------- |
+| `SELECT`  | Retrieves data from a table | `SELECT name FROM employees;` |
 
 &nbsp;
