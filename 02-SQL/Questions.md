@@ -6,6 +6,8 @@
   - [Data](#data)
   - [Database](#database)
   - [SQL](#sql)
+  - [Insert](#insert)
+  - [Joins](#joins)
 - [Interview Question](#interview-question)
 - [Interview Question Answer](#interview-question-answer)
   - [1. What is RDBMS](#1-what-is-rdbms)
@@ -68,6 +70,23 @@
 &nbsp;
 
 &nbsp;
+
+## Insert
+
+1. INSERT vs UPDATE
+2. INSERT vs MERGE
+3. INSERT vs COPY
+4. How to avoid duplicates?
+5. How to insert only new records?
+6. How to handle large data loads?
+
+&nbsp;
+
+&nbsp;
+
+## Joins
+
+1. What is JOIN
 
 &nbsp;
 

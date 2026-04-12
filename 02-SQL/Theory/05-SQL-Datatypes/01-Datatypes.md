@@ -44,11 +44,12 @@ Datatypes are the types of data.
 
 # Character Types
 
-| Data Type                              | Description                      | Example       |
-| -------------------------------------- | -------------------------------- | ------------- |
-| `CHAR(n)` or `CHARACTER(n)`            | Fixed-length string              | `'A    '`     |
-| `VARCHAR(n)` or `CHARACTER VARYING(n)` | Variable-length string, max `n`  | `'Hello'`     |
-| `TEXT`                                 | Variable unlimited-length string | `'Free text'` |
+| Data Type                              | Description                               | Example       |
+| -------------------------------------- | ----------------------------------------- | ------------- |
+| `CHAR(n)` or `CHARACTER(n)`            | Fixed-length string                       | `'A    '`     |
+| `VARCHAR(n)` or `CHARACTER VARYING(n)` | variable-length string (max n characters) | `'Hello'`     |
+| `TEXT`                                 | Variable unlimited-length string          | `'Free text'` |
+|                                        |                                           |               |
 
 &nbsp;
 
