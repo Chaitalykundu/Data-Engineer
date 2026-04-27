@@ -5,9 +5,18 @@
 - [What is SELECT](#what-is-select)
 - [Syntax](#syntax)
   - [Retrieve all data](#retrieve-all-data)
+    - [Interview Tip:](#interview-tip)
   - [Select specific columns](#select-specific-columns)
   - [Remove duplicates with DISTINCT](#remove-duplicates-with-distinct)
+  - [Column Aliasing](#column-aliasing)
+    - [💡 Shortcut:](#-shortcut)
+  - [SELECT with Expressions](#select-with-expressions)
+  - [SELECT with Strings](#select-with-strings)
   - [Key Clauses with SELECT](#key-clauses-with-select)
+  - [SELECT with CASE (Conditional Logic)](#select-with-case-conditional-logic)
+  - [SELECT with NULL Handling](#select-with-null-handling)
+  - [SELECT with Multiple Conditions](#select-with-multiple-conditions)
+- [SELECT with Subquery (Intro Level)](#select-with-subquery-intro-level)
 - [Example](#example)
   - [Select all columns](#select-all-columns)
   - [Select specific columns](#select-specific-columns-1)
@@ -50,6 +59,17 @@
 SELECT * FROM table_name;
 ```
 
+👉 \* means all columns
+
+&nbsp;
+
+#### Interview Tip:
+
+- Avoid SELECT \* in production (performance issue)
+- Always specify columns
+
+&nbsp;
+
 &nbsp;
 
 ## Select specific columns
@@ -58,6 +78,10 @@ SELECT * FROM table_name;
 SELECT column1, column2, ...
 FROM table_name;
 ```
+
+👉 Returns only selected columns
+
+&nbsp;
 
 &nbsp;
 
@@ -69,6 +93,64 @@ FROM table_name;
 ```
 
 👉 Returns only unique values.
+
+&nbsp;
+
+&nbsp;
+
+## Column Aliasing
+
+```sql
+SELECT first_name AS fname, salary AS emp_salary
+FROM employees;
+```
+
+👉 Rename columns using `AS`
+
+👉 Output will show:
+
+- fname
+- emp_salary
+
+&nbsp;
+
+#### 💡 Shortcut:
+
+```sql
+SELECT first_name fname FROM employees;
+```
+
+&nbsp;
+
+&nbsp;
+
+## SELECT with Expressions
+
+```sql
+SELECT salary, salary * 12 AS annual_salary
+FROM employees;
+```
+
+👉 You can perform calculations
+
+&nbsp;
+
+&nbsp;
+
+## SELECT with Strings
+
+```sql
+SELECT first_name || ' ' || last_name AS full_name
+FROM customers;
+```
+
+👉 Combines columns
+
+⚠️ In some DBs:
+
+- Use CONCAT(first_name, last_name)
+
+&nbsp;
 
 &nbsp;
 
@@ -84,6 +166,75 @@ GROUP BY column
 HAVING condition
 ORDER BY column;
 ```
+
+👉 Actual execution order:
+
+- FROM
+- WHERE
+- SELECT
+- ORDER BY
+- LIMIT
+
+&nbsp;
+
+&nbsp;
+
+## SELECT with CASE (Conditional Logic)
+
+```sql
+SELECT name,
+       salary,
+       CASE
+           WHEN salary > 50000 THEN 'High'
+           WHEN salary > 30000 THEN 'Medium'
+           ELSE 'Low'
+       END AS salary_category
+FROM employees;
+```
+
+👉 Used a LOT in real projects
+
+&nbsp;
+
+&nbsp;
+
+## SELECT with NULL Handling
+
+```sql
+SELECT name, COALESCE(phone, 'Not Available') AS phone
+FROM customers;
+```
+
+👉 Replaces NULL values
+
+&nbsp;
+
+&nbsp;
+
+## SELECT with Multiple Conditions
+
+```sql
+SELECT *
+FROM employees
+WHERE department = 'IT'
+AND salary > 40000;
+```
+
+&nbsp;
+
+&nbsp;
+
+# SELECT with Subquery (Intro Level)
+
+```sql
+SELECT name
+FROM employees
+WHERE salary > (
+    SELECT AVG(salary) FROM employees
+);
+```
+
+👉 Employees earning above average
 
 &nbsp;
 
@@ -103,7 +254,6 @@ SELECT * FROM employees;
 
 👉 Returns all rows and columns from the **employees** table.
 
-&nbsp;
 &nbsp;
 
 &nbsp;
@@ -171,7 +321,7 @@ FROM employees;
 - `SELECT *` → everything
 - `SELECT col1, col2` → specific columns
 - `SELECT DISTINCT col` → unique values
-- `SELECT col AS alias` → rename a column
+- `SELECT col AS alias` → rename (aliasing) a column
 - `SELECT expressions` → do calculations
 
 &nbsp;

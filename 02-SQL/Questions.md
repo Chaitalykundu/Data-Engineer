@@ -6,7 +6,11 @@
   - [Data](#data)
   - [Database](#database)
   - [SQL](#sql)
-  - [Insert](#insert)
+  - [DML](#dml)
+    - [Insert](#insert)
+  - [DQL](#dql)
+    - [Theory](#theory)
+    - [SELECT](#select)
   - [Joins](#joins)
 - [Interview Question](#interview-question)
 - [Interview Question Answer](#interview-question-answer)
@@ -71,7 +75,9 @@
 
 &nbsp;
 
-## Insert
+## DML
+
+### Insert
 
 1. INSERT vs UPDATE
 2. INSERT vs MERGE
@@ -79,6 +85,25 @@
 4. How to avoid duplicates?
 5. How to insert only new records?
 6. How to handle large data loads?
+
+&nbsp;
+
+&nbsp;
+
+## DQL
+
+### Theory
+
+1. What is the purpose of DQL
+2. Which command(s) is/are called as DQL command
+
+&nbsp;
+
+&nbsp;
+
+### SELECT
+
+1. What is SELECT command
 
 &nbsp;
 

@@ -5,3 +5,5 @@
 - Users
 - Stored procedures (in some DBMSs)
 - IN : Using `IN` with a Subquery
+- SELECT with NULL Handling
+- SELECT with Subquery (Intro Level)
