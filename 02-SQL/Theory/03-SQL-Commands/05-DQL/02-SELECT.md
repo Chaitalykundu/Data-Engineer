@@ -100,6 +100,8 @@ FROM table_name;
 
 ## Column Aliasing
 
+SQL aliases are used to give a column or a table a temporary name.
+
 ```sql
 SELECT first_name AS fname, salary AS emp_salary
 FROM employees;

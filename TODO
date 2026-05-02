@@ -27,3 +27,15 @@ copilot suggestion:
     - Workspaces in Terraform
     - Modules: create and use reusable modules
     - Best practices for Terraform projects
+
+02-05-2026:
+    - SQL Basic : SELECT, FROM, DISTINCT, LIMIT
+    - SQL Practice 
+        - 1. Select all records from employees 
+        - 2. Fetch only name & salary
+        - 3. Get distinct department_ids
+        - 4. Fetch top 10 rows
+    - LLM Basic : What is LLM, Use cases, Benefits tokens, context
+    - LLM Practice : 
+        - Use OpenAI API to generate text based on a prompt
+        - First prompt response

@@ -1,7 +1,7 @@
 # Overview
 
 - [Overview](#overview)
-- [Types of SQL Statements](#types-of-sql-statements)
+- [Types of SQL Statements / Commands](#types-of-sql-statements--commands)
 
 &nbsp;
 
@@ -9,7 +9,7 @@
 
 &nbsp;
 
-# Types of SQL Statements
+# Types of SQL Statements / Commands
 
 | Category | Full Form                    | Purpose                                                     | Common Commands                                 |
 | -------- | ---------------------------- | ----------------------------------------------------------- | ----------------------------------------------- |
@@ -18,6 +18,7 @@
 | **DQL**  | Data Query Language          | Retrieve data from one or more tables                       | `SELECT`                                        |
 | **DCL**  | Data Control Language        | Control **user permissions** and access to data             | `GRANT`, `REVOKE`                               |
 | **TCL**  | Transaction Control Language | Manage **transactions** to ensure consistency and integrity | `COMMIT`, `ROLLBACK`, `SAVEPOINT`, `BEGIN`      |
+|          |                              |                                                             |                                                 |
 
 &nbsp;
 

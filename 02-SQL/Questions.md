@@ -6,12 +6,18 @@
   - [Data](#data)
   - [Database](#database)
   - [SQL](#sql)
+    - [Single vs double quote](#single-vs-double-quote)
   - [DML](#dml)
     - [Insert](#insert)
   - [DQL](#dql)
     - [Theory](#theory)
     - [SELECT](#select)
   - [Joins](#joins)
+- [Answer](#answer)
+  - [SQL](#sql-1)
+    - [Single vs double quote](#single-vs-double-quote-1)
+      - [1. Why avoid double quotes in Snowflake](#1-why-avoid-double-quotes-in-snowflake)
+      - [2. Why can’t we use alias in WHERE?](#2-why-cant-we-use-alias-in-where)
 - [Interview Question](#interview-question)
 - [Interview Question Answer](#interview-question-answer)
   - [1. What is RDBMS](#1-what-is-rdbms)
@@ -75,6 +81,19 @@
 
 &nbsp;
 
+### Single vs double quote
+
+1. Why avoid double quotes in Snowflake
+2. Why can’t we use alias in WHERE?”
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 ## DML
 
 ### Insert
@@ -123,9 +142,25 @@
 
 &nbsp;
 
+# Answer
+
+## SQL
+
+### Single vs double quote
+
+#### 1. Why avoid double quotes in Snowflake
+
+- Makes identifiers case-sensitive
+- Leads to unexpected errors
+- Harder to maintain queries
+
 &nbsp;
 
 &nbsp;
+
+#### 2. Why can’t we use alias in WHERE?
+
+Because SQL execution order processes WHERE before SELECT, so aliases defined in SELECT are not yet available.
 
 &nbsp;
 
