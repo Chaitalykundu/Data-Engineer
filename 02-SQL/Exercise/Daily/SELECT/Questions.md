@@ -73,7 +73,6 @@
 - CASE
 - COALESCE
 - order by
-- 
 
 &nbsp;
 
