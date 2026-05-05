@@ -2,6 +2,7 @@
 
 - [Overview](#overview)
 - [Definition](#definition)
+- [Characteristics of SQL Keywords](#characteristics-of-sql-keywords)
 - [SQL Keywords](#sql-keywords)
   - [1. Data Query Language (DQL) — Read data](#1-data-query-language-dql--read-data)
   - [2. Data Definition Language (DDL) — Define structure](#2-data-definition-language-ddl--define-structure)
@@ -11,6 +12,8 @@
   - [6. Operators \& Logical Keywords](#6-operators--logical-keywords)
   - [7. Joins and Relationships](#7-joins-and-relationships)
   - [8. Other Useful Keywords](#8-other-useful-keywords)
+- [Interview trap](#interview-trap)
+  - [Example:](#example)
 
 &nbsp;
 
@@ -20,9 +23,21 @@
 
 # Definition
 
-SQL keywords are reserved words that have special meanings within the SQL language.
+SQL keywords are **reserved words** that have special meanings within the SQL language and are used to perform specific operations on databases..
 
-We can't use them as identifiers (like table or column names) because the database uses them to understand and execute your SQL commands. They are the building blocks of SQL syntax, defining the structure and operations you want to perform on your database.
+We can't use them as identifiers (like table or column names) because the database uses them to understand and execute your SQL commands.
+
+They are the building blocks of SQL syntax, defining the structure and operations you want to perform on your database.
+
+&nbsp;
+
+&nbsp;
+
+# Characteristics of SQL Keywords
+
+- <u>**Reserved Words**</u>: keywords are reserved and cannot be used as identifiers unless quoted.
+
+- <u>**Case Insensitive**</u>: SQL keywords usually work in uppercase or lowercase.
 
 &nbsp;
 
@@ -110,6 +125,8 @@ We can't use them as identifiers (like table or column names) because the databa
 | **IS NULL / IS NOT NULL**     | Check for NULL values               | `WHERE manager_id IS NULL`                          |
 | **AS**                        | Create an alias for column or table | `SELECT name AS employee_name FROM employees;`      |
 | **CASE / WHEN / THEN / ELSE** | Conditional logic                   | `CASE WHEN salary>50000 THEN 'High' ELSE 'Low' END` |
+| **EXISTS**                    |                                     |                                                     |
+|                               |                                     |                                                     | 
 
 &nbsp;
 
@@ -147,3 +164,47 @@ We can't use them as identifiers (like table or column names) because the databa
 &nbsp;
 
 &nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Interview trap
+
+Functions like `COUNT()` or `AVG()` are not keywords—they are functions.
+
+&nbsp;
+
+## Example:
+
+```sql
+SELECT COUNT(*)
+FROM Employee;
+```
+
+- `SELECT` and `FROM` → keywords
+- `COUNT()` → function
