@@ -1,5 +1,25 @@
 # Data Engineer
 
+- [Data Engineer](#data-engineer)
+- [Resources](#resources)
+- [Roadmap](#roadmap)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Resources
+
+https://github.com/anshlambagit/Data_Engineer_Roadmap
+
+&nbsp;
+
+&nbsp;
+
+# Roadmap
+
 | Phase                                                                 | Week                                            | Day   | Topic                                               | Project                                                                |
 | --------------------------------------------------------------------- | ----------------------------------------------- | ----- | --------------------------------------------------- | ---------------------------------------------------------------------- |
 | Phase 1: Foundation (Day 1–21)                                        | Week 1 – Python Basics                          | 1     | Python setup, syntax, variables, data types         | N/A                                                                    |

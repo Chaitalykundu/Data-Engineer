@@ -12,12 +12,17 @@
   - [DQL](#dql)
     - [Theory](#theory)
     - [SELECT](#select)
+- [SQL Synax](#sql-synax)
+  - [From](#from)
   - [Joins](#joins)
 - [Answer](#answer)
   - [SQL](#sql-1)
     - [Single vs double quote](#single-vs-double-quote-1)
       - [1. Why avoid double quotes in Snowflake](#1-why-avoid-double-quotes-in-snowflake)
       - [2. Why can’t we use alias in WHERE?](#2-why-cant-we-use-alias-in-where)
+  - [SQL Synax](#sql-synax-1)
+    - [From](#from-1)
+      - [1. Is FROM mandatory?](#1-is-from-mandatory)
 - [Interview Question](#interview-question)
 - [Interview Question Answer](#interview-question-answer)
   - [1. What is RDBMS](#1-what-is-rdbms)
@@ -128,6 +133,16 @@
 
 &nbsp;
 
+# SQL Synax
+
+## From
+
+1. Is FROM mandatory?
+
+&nbsp;
+
+&nbsp;
+
 ## Joins
 
 1. What is JOIN
@@ -161,6 +176,39 @@
 #### 2. Why can’t we use alias in WHERE?
 
 Because SQL execution order processes WHERE before SELECT, so aliases defined in SELECT are not yet available.
+
+&nbsp;
+
+&nbsp;
+
+## SQL Synax
+
+### From
+
+#### 1. Is FROM mandatory?
+
+Usually yes, when selecting from tables.
+But in some databases (like PostgreSQL/MySQL), you can do:
+
+```sql
+SELECT NOW();
+```
+
+No FROM needed because you're not retrieving data from a table.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 

@@ -30,11 +30,11 @@ copilot suggestion:
 
 02-05-2026:
     - SQL Basic : SELECT, FROM, DISTINCT, LIMIT
-    - SQL Practice 
-        - 1. Select all records from employees 
-        - 2. Fetch only name & salary
-        - 3. Get distinct department_ids
-        - 4. Fetch top 10 rows
+    ✔ SQL Practice @started(26-05-05 22:14) @done(26-05-05 22:14) @lasted(19s)
+        ✔ 1. Select all records from employees @done(26-05-05 22:14)
+        ✔ 2. Fetch only name & salary @done(26-05-05 22:14)
+        ✔ 3. Get distinct department_ids @done(26-05-05 22:14)
+        ✔ 4. Fetch top 10 rows @done(26-05-05 22:14)
     - LLM Basic : What is LLM, Use cases, Benefits tokens, context
     - LLM Practice : 
         - Use OpenAI API to generate text based on a prompt

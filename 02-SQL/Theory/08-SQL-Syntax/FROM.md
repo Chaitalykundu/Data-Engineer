@@ -8,6 +8,7 @@
 - [With WHERE](#with-where)
 - [With Aggregate Functions](#with-aggregate-functions)
 - [Using multiple tables (JOIN example)](#using-multiple-tables-join-example)
+- [Using FROM with subqueries](#using-from-with-subqueries)
 
 &nbsp;
 
@@ -47,8 +48,8 @@ FROM Employee;
 
 This means:
 
-`SELECT` → what columns you want
-`FROM Employee` → where to get the data from
+- `SELECT` → what columns you want
+- `FROM Employee` → where to get the data from
 
 &nbsp;
 
@@ -102,6 +103,17 @@ Here `FROM Employee` tells SQL the main table, and `JOIN Department` adds anothe
 &nbsp;
 
 &nbsp;
+
+# Using FROM with subqueries
+```sql
+SELECT *
+FROM (
+    SELECT first_name, Monthly_sal
+    FROM Employee
+) AS emp_data;
+```
+
+Here, FROM gets data from a subquery.
 
 &nbsp;
 
