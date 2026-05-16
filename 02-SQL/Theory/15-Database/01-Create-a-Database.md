@@ -13,6 +13,8 @@
   - [Syntax](#syntax-2)
 - [Go to particular database](#go-to-particular-database)
   - [Example](#example-1)
+    - [SQL shell](#sql-shell-1)
+    - [pgadmin](#pgadmin-1)
 
 &nbsp;
 
@@ -102,9 +104,18 @@ SELECT current_database();
 
 # Go to particular database
 
-To go to the database in SQL shell, we use `\c database_name` or `\connect database_name`. c = connect
+To go to the database in SQL shell, we use
+
+- `\c database_name` or
+- `\connect database_name`.
+
+here, c = connect
+
+&nbsp;
 
 ## Example
+
+### SQL shell
 
 ```sql
 \c company
@@ -119,7 +130,11 @@ Here `company` is the database name.
 
 &nbsp;
 
-&nbsp;
+### pgadmin
+
+```sql
+use database_name;
+```
 
 &nbsp;
 

@@ -7,7 +7,7 @@
     - [1. IF EXISTS](#1-if-exists)
     - [2. CASCADE](#2-cascade)
     - [3. RESTRICT (default)](#3-restrict-default)
-- [Warning:](#warning)
+- [Warning](#warning)
 
 &nbsp;
 
