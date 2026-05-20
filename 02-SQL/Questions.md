@@ -12,6 +12,8 @@
   - [DQL](#dql)
     - [Theory](#theory)
     - [SELECT](#select)
+- [SQL Datatypes](#sql-datatypes)
+  - [Set](#set)
 - [SQL Synax](#sql-synax)
   - [From](#from)
   - [Joins](#joins)
@@ -128,6 +130,16 @@
 ### SELECT
 
 1. What is SELECT command
+
+&nbsp;
+
+&nbsp;
+
+# SQL Datatypes
+
+## Set
+
+1. what SET does and why normalized tables are usually better
 
 &nbsp;
 

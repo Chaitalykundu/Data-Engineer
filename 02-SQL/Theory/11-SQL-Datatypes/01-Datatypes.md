@@ -7,8 +7,10 @@
   - [Tip](#tip)
 - [Date/Time Types](#datetime-types)
 - [Boolean Type](#boolean-type)
+- [Binary Data Types](#binary-data-types)
 - [Enumerated Types](#enumerated-types)
 - [Other Common Types](#other-common-types)
+- [Key Points](#key-points)
 
 &nbsp;
 
@@ -18,7 +20,7 @@
 
 # Datatypes
 
-Datatypes are the types of data.
+Datatypes are the types of data that can be stored in a column of a table.
 
 &nbsp;
 
@@ -46,7 +48,7 @@ Datatypes are the types of data.
 
 | Data Type                              | Description                               | Example       |
 | -------------------------------------- | ----------------------------------------- | ------------- |
-| `CHAR(n)` or `CHARACTER(n)`            | Fixed-length string                       | `'A    '`     |
+| `CHAR(n)` or `CHARACTER(n)`            | Fixed- length string                      | `'A    '`     |
 | `VARCHAR(n)` or `CHARACTER VARYING(n)` | variable-length string (max n characters) | `'Hello'`     |
 | `TEXT`                                 | Variable unlimited-length string          | `'Free text'` |
 |                                        |                                           |               |
@@ -85,6 +87,18 @@ Datatypes are the types of data.
 
 &nbsp;
 
+# Binary Data Types
+
+Used to store binary data (files, images).
+
+- BINARY
+- VARBINARY
+- BLOB (Binary Large Object)
+
+&nbsp;
+
+&nbsp;
+
 # Enumerated Types
 
 Define a custom list of valid values:
@@ -117,7 +131,15 @@ CREATE TABLE person (
 | `JSONB`   | Binary JSON (faster, more flexible) |                                          |
 | `BYTEA`   | Binary data                         | `E'\\xDEADBEEF'`                         |
 | `ARRAY`   | Array of any type                   | `{1,2,3}` or `ARRAY[1,2,3]`              |
+| `SET`     | Multiple values from a list         |
 
 &nbsp;
 
 &nbsp;
+
+# Key Points
+
+- Use `INT` for whole numbers, `DECIMAL` for exact precision (like money).
+- Use `VARCHAR` instead of `CHAR` for flexible text storage.
+- Choose `DATE`/`TIMESTAMP` for time-related data.
+- Datatypes vary slightly across databases like MySQL, PostgreSQL, and Oracle Database.
