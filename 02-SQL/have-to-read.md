@@ -7,3 +7,5 @@
 - IN : Using `IN` with a Subquery
 - SELECT with NULL Handling
 - SELECT with Subquery (Intro Level)
+- Constraints - unique
+- SQL keys

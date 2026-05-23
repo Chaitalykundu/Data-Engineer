@@ -251,3 +251,10 @@ SET
 -- Monthly sales analysis
 -- Aggregate functions (SUM, AVG, COUNT)
 -- Ranking top customers by revenue
+
+
+
+
+
+
+

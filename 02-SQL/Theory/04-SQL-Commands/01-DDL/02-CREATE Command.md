@@ -4,21 +4,21 @@
 - [`CREATE` command](#create-command)
   - [Notes](#notes)
 - [Create a Database](#create-a-database)
-  - [Syntax](#syntax)
-  - [Example](#example)
+    - [Syntax](#syntax)
+    - [Example](#example)
 - [Create a Schema](#create-a-schema)
-  - [Syntax](#syntax-1)
-  - [Example](#example-1)
-  - [Create a Table](#create-a-table)
+    - [Syntax](#syntax-1)
+    - [Example](#example-1)
+- [Create a Table](#create-a-table)
     - [Syntax](#syntax-2)
     - [Example](#example-2)
   - [Create Table Using Another Table](#create-table-using-another-table)
     - [Syntax](#syntax-3)
     - [Example](#example-3)
-  - [Create a view](#create-a-view)
+- [Create a view](#create-a-view)
     - [Syntax](#syntax-4)
     - [Example](#example-4)
-  - [Create an Index](#create-an-index)
+- [Create an Index](#create-an-index)
   - [Create a User (depends on DBMS)](#create-a-user-depends-on-dbms)
 - [Database objects](#database-objects)
 
@@ -94,7 +94,7 @@ CREATE SCHEMA hr;
 
 &nbsp;
 
-## Create a Table
+# Create a Table
 
 Defines a new table and its columns
 
@@ -104,8 +104,8 @@ Defines a new table and its columns
 
 ```sql
 CREATE TABLE table_name (
-    column1 datatype,
-    column2 datatype,
+    column1 datatype constraints,
+    column2 datatype constraints,
     column3 datatype,
     .
     .
@@ -115,6 +115,8 @@ CREATE TABLE table_name (
 - The **column** parameters specify the names of the columns of the table.
 
 - The **datatype** parameter specifies the type of data the column can hold (e.g. varchar, integer, date, etc.).
+
+- constraints are optional
 
 &nbsp;
 
@@ -144,6 +146,8 @@ CREATE TABLE Students (
 
 - If you create a new table using an existing table, the new table will be filled with the existing values from the old table.
 
+&nbsp;
+
 ### Syntax
 
 ```sql
@@ -167,7 +171,7 @@ FROM customers;
 
 &nbsp;
 
-## Create a view
+# Create a view
 
 Defines a virtual table based on a query
 
@@ -196,7 +200,7 @@ WHERE salary > 100000;
 
 &nbsp;
 
-## Create an Index
+# Create an Index
 
 ```sql
 CREATE INDEX idx_student_name ON Students (Name);
@@ -222,11 +226,10 @@ CREATE USER john IDENTIFIED BY 'securePass123';
 
 Database objects are
 
+- Schemas
 - Tables
 - Views
 - Indexes
-- Schemas
-- Users
 - Stored procedures (in some DBMSs)
 
 &nbsp;

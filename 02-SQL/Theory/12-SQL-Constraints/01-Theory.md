@@ -26,7 +26,7 @@
 
 # Constraints
 
-SQL constraints are rules applied to table columns to enforce data integrity and prevent invalid data from being inserted or updated.
+SQL constraints are rules applied to table columns to enforce data integrity and accuracy and prevent invalid data from being inserted or updated.
 
 &nbsp;
 
@@ -55,7 +55,7 @@ To prevent these issues, we use constraints.
 
 | Constraint Type | Description                                                                                                 |
 | --------------- | ----------------------------------------------------------------------------------------------------------- |
-| **PRIMARY KEY** | Uniquely identifies each row. Cannot be NULL.                                                               |
+| **PRIMARY KEY** | Uniquely identifies each row. Cannot be NULL. <br> (UNIQUE + NOT NULL)                                      |
 | **FOREIGN KEY** | Ensures referential integrity by enforcing that a value in one table matches a value in another.            |
 | **UNIQUE**      | Ensures all values in a column (or group of columns) are different.                                         |
 | **NOT NULL**    | Ensures a column cannot have NULL values.                                                                   |

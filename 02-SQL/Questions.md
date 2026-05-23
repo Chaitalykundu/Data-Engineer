@@ -15,6 +15,7 @@
 - [SQL Datatypes](#sql-datatypes)
   - [Set](#set)
 - [SQL Synax](#sql-synax)
+  - [Where](#where)
   - [From](#from)
   - [Joins](#joins)
 - [Answer](#answer)
@@ -23,6 +24,8 @@
       - [1. Why avoid double quotes in Snowflake](#1-why-avoid-double-quotes-in-snowflake)
       - [2. Why can’t we use alias in WHERE?](#2-why-cant-we-use-alias-in-where)
   - [SQL Synax](#sql-synax-1)
+    - [Where](#where-1)
+      - [1. Can we use aggregate functions in where](#1-can-we-use-aggregate-functions-in-where)
     - [From](#from-1)
       - [1. Is FROM mandatory?](#1-is-from-mandatory)
 - [Interview Question](#interview-question)
@@ -32,6 +35,7 @@
   - [3. What is a database](#3-what-is-a-database)
   - [4. What is Primary key](#4-what-is-primary-key)
   - [5. What is Unique key](#5-what-is-unique-key)
+  - [6. What are the database objects](#6-what-are-the-database-objects)
 
 &nbsp;
 
@@ -147,6 +151,12 @@
 
 # SQL Synax
 
+## Where
+
+1. Can we use aggregate functions in where
+
+&nbsp;
+
 ## From
 
 1. Is FROM mandatory?
@@ -195,6 +205,18 @@ Because SQL execution order processes WHERE before SELECT, so aliases defined in
 
 ## SQL Synax
 
+### Where
+
+#### 1. Can we use aggregate functions in where
+
+We cannot use aggregate functions (like `SUM()`, `AVG()`) inside `WHERE`.
+
+- ✅ Use `HAVING` instead.
+
+&nbsp;
+
+&nbsp;
+
 ### From
 
 #### 1. Is FROM mandatory?
@@ -235,6 +257,7 @@ No FROM needed because you're not retrieving data from a table.
 3. What is a database
 4. What is Primary key
 5. What is Unique key
+6. What are the database objects
 
 &nbsp;
 
@@ -303,6 +326,21 @@ A unique key is a set of one or more than one fields/columns of a table that uni
 &nbsp;
 
 &nbsp;
+
+## 6. What are the database objects
+
+| Database Object  | Purpose                                |
+| ---------------- | -------------------------------------- |
+| Table            | Stores data in rows and columns        |
+| View             | Virtual table based on query           |
+| Index            | Speeds up data retrieval               |
+| Sequence         | Generates numeric values automatically |
+| Synonym          | Alternative name for an object         |
+| Stored Procedure | Saved SQL program                      |
+| Function         | Returns a value after processing       |
+| Trigger          | Automatically executes on events       |
+| Schema           | Logical container for objects          |
+| Constraint       | Enforces data rules                    |
 
 &nbsp;
 

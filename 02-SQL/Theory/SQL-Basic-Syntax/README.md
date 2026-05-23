@@ -44,4 +44,25 @@
 
 &nbsp;
 
+#
+
+|                    |          |
+| ------------------ | -------- |
+| Check condition    | Where    |
+| Sort the data      | Order by |
+| Use temporary name | as       |
+| Group something    | Group by |
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 &nbsp;
