@@ -9,3 +9,4 @@
 - SELECT with Subquery (Intro Level)
 - Constraints - unique
 - SQL keys
+- OFFSET
