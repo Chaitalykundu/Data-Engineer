@@ -258,6 +258,11 @@ No FROM needed because you're not retrieving data from a table.
 4. What is Primary key
 5. What is Unique key
 6. What are the database objects
+7. Difference between SELECT \* and selecting specific columns?
+8. What does DISTINCT do?
+9. Difference between WHERE and HAVING?
+10. What is alias in SQL?
+11. Why avoid SELECT \* in production?
 
 &nbsp;
 
