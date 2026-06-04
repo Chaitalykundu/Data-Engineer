@@ -18,6 +18,7 @@
   - [Where](#where)
   - [From](#from)
   - [Joins](#joins)
+- [Aggregate Function](#aggregate-function)
 - [Answer](#answer)
   - [SQL](#sql-1)
     - [Single vs double quote](#single-vs-double-quote-1)
@@ -173,6 +174,11 @@
 
 &nbsp;
 
+# Aggregate Function
+
+1. Difference between COUNT(*) and COUNT(column)?
+2. Does AVG() ignore NULL?
+3. Can aggregate functions be used in WHERE?
 &nbsp;
 
 &nbsp;

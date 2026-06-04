@@ -14,6 +14,10 @@
 - [Aggregate Functions](#aggregate-functions)
   - [Practice Questions](#practice-questions-3)
   - [Interview Questions](#interview-questions-3)
+  - [Real-Life Practice Questions](#real-life-practice-questions)
+    - [Beginner](#beginner)
+    - [Intermediate](#intermediate)
+    - [Business Analytics Style](#business-analytics-style)
 - [GROUP BY](#group-by)
   - [Practice Questions](#practice-questions-4)
   - [Interview Questions](#interview-questions-4)
@@ -153,6 +157,38 @@ Even `SELECT` alone teaches:
 
 &nbsp;
 
+## Real-Life Practice Questions
+
+### Beginner
+
+- Count total employees.
+- Find total salary expense.
+- Find average salary.
+- Find maximum salary.
+- Find minimum salary.
+
+&nbsp;
+
+### Intermediate
+
+- Count employees department-wise.
+- Find average salary city-wise.
+- Find highest salary department-wise.
+- Find departments with more than 5 employees.
+
+&nbsp;
+
+### Business Analytics Style
+
+- Monthly payroll amount.
+- Average salary per department.
+- City with highest employee count.
+- Department with highest payroll expense.
+
+&nbsp;
+
+&nbsp;
+
 # GROUP BY
 
 ## Practice Questions
@@ -170,7 +206,7 @@ Even `SELECT` alone teaches:
 &nbsp;
 
 ## Interview Questions
-
+ 
 - Why is GROUP BY used?
 - What happens if non-grouped columns are selected?
 
