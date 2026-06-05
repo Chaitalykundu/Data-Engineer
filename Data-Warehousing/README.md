@@ -1,3 +1,29 @@
+# Overview
+
+- [Overview](#overview)
+- [10-Day Data Warehousing Roadmap (Beginner Level)](#10-day-data-warehousing-roadmap-beginner-level)
+- [Example Mini Project (for hands-on)](#example-mini-project-for-hands-on)
+- [Phasewise](#phasewise)
+  - [Phase 1: Introduction to Data Warehousing](#phase-1-introduction-to-data-warehousing)
+  - [Phase 2: Components of a Data Warehouse](#phase-2-components-of-a-data-warehouse)
+  - [Phase 3: Tools and Technologies](#phase-3-tools-and-technologies)
+  - [Phase 4: Practice and Projects](#phase-4-practice-and-projects)
+- [Revision](#revision)
+    - [Phase 1: Why Data Warehousing Exists (1-2 Days)](#phase-1-why-data-warehousing-exists-1-2-days)
+    - [Phase 2: Data Warehouse Architecture (2-3 Days)](#phase-2-data-warehouse-architecture-2-3-days)
+    - [Phase 3: Data Modeling (4-5 Days)](#phase-3-data-modeling-4-5-days)
+    - [Phase 4: ETL vs ELT (1 Day)](#phase-4-etl-vs-elt-1-day)
+    - [Phase 5: Slowly Changing Dimensions (2-3 Days)](#phase-5-slowly-changing-dimensions-2-3-days)
+    - [Phase 6: Data Warehouse Layers (2 Days)](#phase-6-data-warehouse-layers-2-days)
+    - [Phase 7: Data Marts \& BI (1-2 Days)](#phase-7-data-marts--bi-1-2-days)
+    - [Topics Frequently Asked in Interviews](#topics-frequently-asked-in-interviews)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 # 10-Day Data Warehousing Roadmap (Beginner Level)
 
 | Day | Topic                            | Goal                                           | Concepts / Keywords                         | Project Task                                                                     |
@@ -93,19 +119,92 @@
 
 &nbsp;
 
-&nbsp;
+# Revision
+
+### Phase 1: Why Data Warehousing Exists (1-2 Days)
+
+Understand:
+
+- OLTP vs OLAP
+- Operational systems vs Analytical systems
+- Why reporting databases are separated from - application databases
+- Data silos
+- Business Intelligence
 
 &nbsp;
 
-&nbsp;
+### Phase 2: Data Warehouse Architecture (2-3 Days)
+
+```
+Source Systems
+      ↓
+Data Ingestion
+      ↓
+Data Lake (Optional)
+      ↓
+Data Warehouse
+      ↓
+Data Marts
+      ↓
+BI Tools
+```
 
 &nbsp;
 
-&nbsp;
+### Phase 3: Data Modeling (4-5 Days)
+
+Most important topic.
+
+- Fact Tables
+- Dimension Tables
+- Star Schema
+- Snowflake Schema
 
 &nbsp;
 
+### Phase 4: ETL vs ELT (1 Day)
+
+- ETL
+- ELT
+- Snowflake + DBT = ELT.
+
 &nbsp;
+
+### Phase 5: Slowly Changing Dimensions (2-3 Days)
+
+- SCD Type 1
+- SCD Type 2
+- SCD Type 3
+
+&nbsp;
+
+### Phase 6: Data Warehouse Layers (2 Days)
+
+- Bronze Layer : Raw data
+- Silver Layer : Cleaned data
+- Gold Layer : Business-ready data
+
+&nbsp;
+
+### Phase 7: Data Marts & BI (1-2 Days)
+
+- Enterprise Data Warehouse
+- Data Mart
+
+&nbsp;
+
+### Topics Frequently Asked in Interviews
+
+- What is a Data Warehouse?
+- Difference between OLTP and OLAP?
+- Fact vs Dimension table?
+- Star vs Snowflake schema?
+- ETL vs ELT?
+- What is a surrogate key?
+- What is SCD Type 1 and Type 2?
+- What is a Data Mart?
+- Why Snowflake is suitable for Data Warehousing?
+- Explain a warehouse architecture you worked on.
 
 &nbsp;
 
