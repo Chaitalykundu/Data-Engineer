@@ -9,14 +9,19 @@
   - [Phase 3: Tools and Technologies](#phase-3-tools-and-technologies)
   - [Phase 4: Practice and Projects](#phase-4-practice-and-projects)
 - [Revision](#revision)
-    - [Phase 1: Why Data Warehousing Exists (1-2 Days)](#phase-1-why-data-warehousing-exists-1-2-days)
-    - [Phase 2: Data Warehouse Architecture (2-3 Days)](#phase-2-data-warehouse-architecture-2-3-days)
-    - [Phase 3: Data Modeling (4-5 Days)](#phase-3-data-modeling-4-5-days)
-    - [Phase 4: ETL vs ELT (1 Day)](#phase-4-etl-vs-elt-1-day)
-    - [Phase 5: Slowly Changing Dimensions (2-3 Days)](#phase-5-slowly-changing-dimensions-2-3-days)
-    - [Phase 6: Data Warehouse Layers (2 Days)](#phase-6-data-warehouse-layers-2-days)
-    - [Phase 7: Data Marts \& BI (1-2 Days)](#phase-7-data-marts--bi-1-2-days)
-    - [Topics Frequently Asked in Interviews](#topics-frequently-asked-in-interviews)
+  - [Phase 1: Why Data Warehousing Exists (1-2 Days)](#phase-1-why-data-warehousing-exists-1-2-days)
+  - [Phase 2: Data Warehouse Architecture (2-3 Days)](#phase-2-data-warehouse-architecture-2-3-days)
+  - [Phase 3: Data Modeling (4-5 Days)](#phase-3-data-modeling-4-5-days)
+  - [Phase 4: ETL vs ELT (1 Day)](#phase-4-etl-vs-elt-1-day)
+  - [Phase 5: Slowly Changing Dimensions (2-3 Days)](#phase-5-slowly-changing-dimensions-2-3-days)
+  - [Phase 6: Data Warehouse Layers (2 Days)](#phase-6-data-warehouse-layers-2-days)
+  - [Phase 7: Data Marts \& BI (1-2 Days)](#phase-7-data-marts--bi-1-2-days)
+  - [Topics Frequently Asked in Interviews](#topics-frequently-asked-in-interviews)
+- [Rev 2](#rev-2)
+  - [Week 1: Foundations](#week-1-foundations)
+  - [Week 2: Data Modeling](#week-2-data-modeling)
+  - [Week 3: Modern Data Warehousing](#week-3-modern-data-warehousing)
+  - [Week 4: Analytics Engineering](#week-4-analytics-engineering)
 
 &nbsp;
 
@@ -213,3 +218,49 @@ Most important topic.
 &nbsp;
 
 &nbsp;
+
+# Rev 2
+
+## Week 1: Foundations
+
+- What is Data Warehouse?
+- Why Data Warehouse?
+- OLTP vs OLAP
+- ETL vs ELT
+- Data Warehouse Architecture
+
+&nbsp;
+
+&nbsp;
+
+## Week 2: Data Modeling
+
+- Fact Tables
+- Dimension Tables
+- Star Schema
+- Snowflake Schema
+- Surrogate Keys
+
+&nbsp;
+
+&nbsp;
+
+## Week 3: Modern Data Warehousing
+
+- Snowflake Architecture
+- Stages
+- Warehouses
+- Databases
+- Schemas
+
+&nbsp;
+
+&nbsp;
+
+## Week 4: Analytics Engineering
+
+- dbt Basics
+- Staging Models
+- Intermediate Models
+- Mart Models
+- Testing & Documentation
