@@ -3,10 +3,11 @@
 - [Overview](#overview)
 - [OLTP and OLAP](#oltp-and-olap)
   - [OLTP](#oltp)
+    - [Example: Amazon Website](#example-amazon-website)
+    - [Characteristics of OLTP](#characteristics-of-oltp)
   - [OLAP](#olap)
+    - [Characteristics of OLAP](#characteristics-of-olap)
 - [Database vs Data Warehouse (OLTP vs OLAP)](#database-vs-data-warehouse-oltp-vs-olap)
-- [Characteristics of OLTP](#characteristics-of-oltp)
-- [Characteristics of OLAP](#characteristics-of-olap)
 - [Real-Life Example: Amazon](#real-life-example-amazon)
   - [OLTP System](#oltp-system)
     - [Typical OLTP table](#typical-oltp-table)
@@ -14,10 +15,10 @@
   - [OLAP System](#olap-system)
     - [Example query](#example-query-1)
 - [Why Not Use OLTP for Analytics?](#why-not-use-oltp-for-analytics)
-  - [Problems of Using OLTP for Analytics](#problems-of-using-oltp-for-analytics)
-    - [1. Performance Issues](#1-performance-issues)
-    - [2. Impacts Business Operations](#2-impacts-business-operations)
-    - [3. Limited Historical Data](#3-limited-historical-data)
+    - [Problems of Using OLTP for Analytics](#problems-of-using-oltp-for-analytics)
+      - [1. Performance Issues](#1-performance-issues)
+      - [2. Impacts Business Operations](#2-impacts-business-operations)
+      - [3. Limited Historical Data](#3-limited-historical-data)
 
 &nbsp;
 
@@ -29,45 +30,28 @@
 
 ## OLTP
 
-OLTP systems are designed run business operations or for transactional workloads such as order creation, payments, and inventory updates.
+OLTP = Online Transaction Processing
 
-They prioritize fast inserts, updates, and deletes while maintaining data consistency.
+OLTP systems are designed run day-to-day business operations or for transactional workloads such as order creation, payments, and inventory updates.
 
-&nbsp;
+Think of them as systems where users continuously `insert`, `update`, and `delete` data.
 
-## OLAP
-
-OLAP systems are designed for analytical workloads such as reporting, dashboards, trend analysis, and business intelligence.
-
-They store large amounts of historical data and are optimized for complex queries, aggregations, and high-performance reads.
+They prioritize fast `inserts`, `updates`, and `deletes` while maintaining data consistency.
 
 &nbsp;
 
-In a typical data engineering architecture, data is extracted from OLTP systems and loaded into an OLAP data warehouse like Snowflake, where business users perform analytics without affecting operational systems.
+### Example: Amazon Website
+
+When a customer:
+
+- Creates an account
+- Places an order
+- Makes a payment
+- Cancels an order
 
 &nbsp;
 
-&nbsp;
-
-# Database vs Data Warehouse (OLTP vs OLAP)
-
-| Feature         | OLTP (Online Transaction Processing) | OLAP (Online Analytical Processing) |
-| --------------- | ------------------------------------ | ----------------------------------- |
-| Purpose         | Run day-to-day business operations   | Analyze business data               |
-| Users           | Customers, Employees                 | Analysts, Managers, Executives      |
-| Data            | Current data                         | Historical data                     |
-| Operations      | Insert, Update, Delete               | Read and Analyze                    |
-| Query Type      | Simple queries                       | Complex queries                     |
-| Response Time   | Milliseconds                         | Seconds to minutes                  |
-| Data Volume     | Current operational data             | Large historical data               |
-| Database Design | Normalized                           | Denormalized (Star Schema)          |
-| Example         | Placing an order                     | Analyzing yearly sales trends       |
-
-&nbsp;
-
-&nbsp;
-
-# Characteristics of OLTP
+### Characteristics of OLTP
 
 - Handles thousands of transactions
 - Fast inserts and updates
@@ -79,13 +63,44 @@ In a typical data engineering architecture, data is extracted from OLTP systems 
 
 &nbsp;
 
-# Characteristics of OLAP
+## OLAP
+
+OLAP systems are designed for analytical workloads such as reporting, dashboards, trend analysis, and business intelligence.
+
+They store large amounts of historical data and are optimized for complex queries, aggregations, and high-performance reads.
+
+&nbsp;
+
+### Characteristics of OLAP
 
 - Handles large datasets
 - Complex queries
-- Historical data
-- Aggregations and reporting
-- Optimized for reads
+- Stores Historical data
+- Helps in Aggregations and reporting
+- Optimized for reading large volumes of data
+
+&nbsp;
+
+In a typical data engineering architecture, data is **extracted from OLTP systems** and **loaded into an OLAP** data warehouse like Snowflake, where business users perform analytics without affecting operational systems.
+
+&nbsp;
+
+&nbsp;
+
+# Database vs Data Warehouse (OLTP vs OLAP)
+
+| Feature          | OLTP (Online Transaction Processing) | OLAP (Online Analytical Processing) |
+| ---------------- | ------------------------------------ | ----------------------------------- |
+| Purpose          | Run day-to-day business operations   | Analyze business data               |
+| Users            | Customers, Employees                 | Analysts, Managers, Executives      |
+| Data             | Current data                         | Historical data                     |
+| Operations       | Insert, Update, Delete               | Read and Analyze                    |
+| Query Type       | Simple queries                       | Complex queries                     |
+| Response Time    | Milliseconds                         | Seconds to minutes                  |
+| Data Volume      | Current operational data             | Large historical data               |
+| Database Design  | Normalized                           | Denormalized (Star Schema)          |
+| Example          | Placing an order                     | Analyzing yearly sales trends       |
+| Database Example | MySQL, PostgreSQL                    | Snowflake, Redshift, BigQuery       |
 
 &nbsp;
 
@@ -296,76 +311,6 @@ Customers may experience:
 &nbsp;
 
 #### 3. Limited Historical Data
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
 
 &nbsp;
 

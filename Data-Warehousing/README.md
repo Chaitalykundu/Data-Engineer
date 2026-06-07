@@ -31,9 +31,9 @@
 
 # 10-Day Data Warehousing Roadmap (Beginner Level)
 
-| Day | Topic                            | Goal                                           | Concepts / Keywords                         | Project Task                                                                     |
-| --- | -------------------------------- | ---------------------------------------------- | ------------------------------------------- | -------------------------------------------------------------------------------- |
-| 1️⃣  | What is Data Warehousing?        | Understand the need and purpose of a DW        | OLTP vs OLAP, historical data, analytics    | Choose a domain (Retail, HR, Sales) for your mini DW project                     |
+| Day | Topic                            | Goal                                           | Concepts / Keywords                         | Project Task                                                                     | Status |
+| --- | -------------------------------- | ---------------------------------------------- | ------------------------------------------- | -------------------------------------------------------------------------------- | ------ |
+| 1️⃣  | What is Data Warehousing?        | Understand the need and purpose of a DW        | OLTP vs OLAP, historical data, analytics    | Choose a domain (Retail, HR, Sales) for your mini DW project                     | Done   |
 | 2️⃣  | Data Warehouse Architecture      | Learn DW layers and how data flows             | Staging, Integration, Presentation          | Draw a simple DW architecture diagram for your chosen domain                     |
 | 3️⃣  | ETL vs ELT                       | Understand how data is moved/transformed       | ETL tools, workflows, pipelines             | List the data sources and plan an ETL process                                    |
 | 4️⃣  | Star and Snowflake Schemas       | Learn schema design                            | Fact tables, Dimension tables, schema types | Design a star schema for your project using dbdiagram.io or draw\.io             |

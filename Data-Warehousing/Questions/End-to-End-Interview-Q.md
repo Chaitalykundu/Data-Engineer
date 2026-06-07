@@ -88,6 +88,23 @@ Before this, I worked on front-end development using Angular, which gave me a st
 
 &nbsp;
 
+2. What justified the promotion from Senior Software Engineer to Lead Software Engineer?
+
+Prepare concrete answers around:
+
+- Ownership of Snowflake platform
+- Terraform automation
+- Governance implementation
+- Mentoring engineers
+- Sprint leadership
+- Architecture decisions
+
+because "Lead" is a significant jump and interviewers will probe this.
+
+&nbsp;
+
+&nbsp;
+
 # Current Project
 
 1. Can you explain your current project?

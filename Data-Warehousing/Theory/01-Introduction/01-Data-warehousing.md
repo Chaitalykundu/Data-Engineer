@@ -4,7 +4,7 @@
 - [Summary](#summary)
 - [Data Warehousing](#data-warehousing)
 - [Why Do We Need a Data Warehouse](#why-do-we-need-a-data-warehouse)
-  - [Main Reasons We Need a Data Warehouse](#main-reasons-we-need-a-data-warehouse)
+    - [Main Reasons We Need a Data Warehouse](#main-reasons-we-need-a-data-warehouse)
 - [Top 7 Purposes of a Data Warehouse](#top-7-purposes-of-a-data-warehouse)
 - [Key Characteristics](#key-characteristics)
 - [Example Use Case](#example-use-case)
@@ -27,6 +27,8 @@
 
 - Data Warehouse = The entire house.
 - Data Modeling = The blueprint used to design the house.
+- CRM - Customer Relationship Management
+- ERP - Enterprise Resource Planning
 
 &nbsp;
 
@@ -54,6 +56,10 @@ It is a database which is used and optimized for analytical purpose.
 
 # Why Do We Need a Data Warehouse
 
+We need a Data Warehouse because operational systems (OLTP databases) are designed to run day-to-day business transactions, not complex analytics. Data is usually scattered across multiple systems such as CRM , ERP, websites, and payment applications. A Data Warehouse consolidates(collects and combines) data from these sources into a single, centralized repository for reporting and analytics.
+
+&nbsp;
+
 Imagine an e-commerce company.
 
 Data exists in:
@@ -74,9 +80,9 @@ Business asks:
 Without a DW:
 
 - Data scattered everywhere
-- Slow queries
-- Difficult joins
-- No historical tracking
+- Complex joins across applications are difficult.
+- Historical data may not be available.
+- Querying production systems can affect application performance
 
 &nbsp;
 
@@ -99,38 +105,28 @@ Answer becomes easy.
 ### Main Reasons We Need a Data Warehouse
 
 1. <u>Single Source of Truth</u>
-
-   Instead of multiple systems showing different numbers the Data Warehouse provides one trusted version of data.
+   - Combines data from different systems into a unified model.
+   - Instead of multiple systems showing different numbers the Data Warehouse provides one trusted version of data.
 
 2. <u>**_Historical Data Storage_**</u>
+   - Operational systems usually keep current data.
 
-   Operational systems usually keep current data.
-
-   A Data Warehouse stores years of history.
+   - A Data Warehouse stores years of history.
 
 3. <u>**_Faster Analytics_**</u>
+   - OLTP databases are optimized for transactions: `INSERT`, `UPDATE`, `DELETE`
 
-   OLTP databases are optimized for transactions: `INSERT`, `UPDATE`, `DELETE`
+   - Analytics queries are heavy: `SUM()`, `AVG()`, `COUNT()`, `GROUP BY`, `JOIN`
 
-   Analytics queries are heavy: `SUM()`, `AVG()`, `COUNT()`, `GROUP BY`, `JOIN`
+4. <u>**_Better Business Decisions_**</u>
+   - W.ithout manually collecting data Managers can answer:
+     - Which products generate the most profit?
+     - Which customers buy most frequently?
+     - Which regions are growing fastest?
+     - What is the sales trend over 5 years?
 
-4. <u>**_Data Integration_**</u>
-
-   Combines data from different systems into a unified model.
-
-5. <u>**_Better Business Decisions_**</u>
-
-   Managers can answer:
-   - Which products generate the most profit?
-   - Which customers buy most frequently?
-   - Which regions are growing fastest?
-   - What is the sales trend over 5 years?
-
-   without manually collecting data.
-
-6. <u>**_Supports BI and Reporting Tools_**</u>
-
-   Tools such as `Power BI` , `Tableau` , `Looker` connect to the Data Warehouse for dashboards and reports.
+5. <u>**_Supports BI and Reporting Tools_**</u>
+   - Tools such as `Power BI` , `Tableau` , `Looker` connect to the Data Warehouse for dashboards and reports.
 
 &nbsp;
 
