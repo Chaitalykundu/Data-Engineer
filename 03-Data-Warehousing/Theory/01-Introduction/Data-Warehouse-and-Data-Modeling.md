@@ -105,7 +105,6 @@ DIM_CUSTOMER
 | ----------- | -------- | -------- |
 | 1           | Chaitaly | Siliguri |
 
-
 &nbsp;
 
 DIM_PRODUCT
@@ -113,18 +112,6 @@ DIM_PRODUCT
 | Product ID | Product | Category    |
 | ---------- | ------- | ----------- |
 | 10         | Laptop  | Electronics |
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
 
 &nbsp;
 
