@@ -206,7 +206,7 @@ Even `SELECT` alone teaches:
 &nbsp;
 
 ## Interview Questions
- 
+
 - Why is GROUP BY used?
 - What happens if non-grouped columns are selected?
 

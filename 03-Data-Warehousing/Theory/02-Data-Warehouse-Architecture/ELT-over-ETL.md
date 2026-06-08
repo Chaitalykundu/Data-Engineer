@@ -48,7 +48,7 @@ ETL Tool
 Data Warehouse
 ```
 
-## Steps:
+## Steps
 
 - Extract data
 - Transform data outside the warehouse
@@ -82,7 +82,7 @@ DBT
 (Transform Inside Snowflake)
 ```
 
-## Steps:
+## Steps
 
 - Extract data
 - Load raw data into Snowflake
@@ -96,7 +96,7 @@ DBT
 
 # Advantages of ELT
 
-## 1. Uses Data Warehouse Compute Power:
+## 1. Uses Data Warehouse Compute Power
 
 Instead of using a separate ETL server, you use the warehouse's scalable compute resources.
 
@@ -104,7 +104,7 @@ Benefit: Faster processing of large datasets.
 
 &nbsp;
 
-## 2. Faster Data Availability:
+## 2. Faster Data Availability
 
 Data is loaded into the warehouse immediately after extraction. Even before all transformations are complete, raw data is accessible.
 

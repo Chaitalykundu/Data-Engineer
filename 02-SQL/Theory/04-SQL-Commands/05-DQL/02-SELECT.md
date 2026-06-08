@@ -63,7 +63,7 @@ SELECT * FROM table_name;
 
 &nbsp;
 
-#### Interview Tip:
+#### Interview Tip
 
 - Avoid SELECT \* in production (performance issue)
 - Always specify columns
@@ -116,7 +116,7 @@ FROM employees;
 
 &nbsp;
 
-#### 💡 Shortcut:
+#### 💡 Shortcut
 
 ```sql
 SELECT first_name fname FROM employees;

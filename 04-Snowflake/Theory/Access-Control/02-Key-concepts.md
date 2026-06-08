@@ -94,7 +94,7 @@ An entity to which access can be granted.
 
 &nbsp;
 
-### Common privileges:
+### Common privileges
 
 - USAGE
 - SELECT

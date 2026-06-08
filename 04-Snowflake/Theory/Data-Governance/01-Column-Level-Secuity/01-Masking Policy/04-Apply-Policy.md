@@ -91,7 +91,6 @@ SELECT email FROM customers;
 
 &nbsp;
 
-
 ## ⚠️ Important Notes
 
 ### 1. Data Type Must Match

@@ -47,7 +47,6 @@ DROP MASKING POLICY policy_name;
 
 &nbsp;
 
-
 ## Limitation
 
 1. Before dropping any masking policies, we need to unset them

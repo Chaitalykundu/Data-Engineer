@@ -31,7 +31,7 @@ CREATE TABLE ADDRESS(
 
 ;
 
-#### 👉 Relationship:
+#### 👉 Relationship
 
 ```md
 CUSTOMER.address_id → ADDRESS.address_id

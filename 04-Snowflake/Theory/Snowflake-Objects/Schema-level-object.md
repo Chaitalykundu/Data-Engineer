@@ -3,7 +3,7 @@
 - [Overview](#overview)
 - [Schema level object](#schema-level-object)
 - [Questions](#questions)
-    - [1. Name schema-level objects in Snowflake](#1-name-schema-level-objects-in-snowflake)
+  - [1. Name schema-level objects in Snowflake](#1-name-schema-level-objects-in-snowflake)
 
 &nbsp;
 

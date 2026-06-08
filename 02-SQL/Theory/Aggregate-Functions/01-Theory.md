@@ -14,7 +14,6 @@
 
 Aggregate functions perform calculations on multiple rows and return a single value.
 
-
 &nbsp;
 
 &nbsp;
@@ -32,7 +31,6 @@ They are heavily used in:
 
 &nbsp;
 
-
 # Main Aggregate Functions
 
 | Function  | Purpose             |
@@ -42,7 +40,6 @@ They are heavily used in:
 | `AVG()`   | Finds average       |
 | `MAX()`   | Finds highest value |
 | `MIN()`   | Finds lowest value  |
-
 
 &nbsp;
 

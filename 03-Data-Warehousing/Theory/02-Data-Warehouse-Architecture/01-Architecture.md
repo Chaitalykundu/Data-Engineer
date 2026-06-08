@@ -28,7 +28,6 @@
 
 &nbsp;
 
-
 # Modern Data Warehouse Architecture (ELT + DBT)
 
 In a modern ELT architecture, data is extracted from source systems and loaded directly into the Snowflake Data Warehouse. DBT performs transformations inside Snowflake by creating staging, intermediate, and mart models. The final mart layer contains fact and dimension tables organized in a star schema. BI tools such as Power BI or Tableau connect to these tables for reporting and analytics. Snowflake acts as the centralized Data Warehouse, while DBT handles data transformation and modeling.
@@ -81,9 +80,9 @@ In a modern ELT architecture, data is extracted from source systems and loaded d
 |                                                      |
 |  INTEGRATION LAYER                                   |
 |  --------------------------------------------------  |
-|  int_customer_orders                                |
-|  int_sales_metrics                                  |
-|  int_product_performance                            |
+|  int_customer_orders                                 |
+|  int_sales_metrics                                   |
+|  int_product_performance                             |
 |                                                      |
 |                 DBT Transformations                  |
 |                                                      |
@@ -93,7 +92,7 @@ In a modern ELT architecture, data is extracted from source systems and loaded d
 |  dim_customer                                        |
 |  dim_product                                         |
 |  dim_date                                            |
-|  sales_dashboard_mart                               |
+|  sales_dashboard_mart                                |
 +------------------------------------------------------+
            |
            v
@@ -118,6 +117,7 @@ These are applications where data is generated.
 &nbsp;
 
 Website Orders
+
 | Order_ID | Customer_ID | Amount |
 | -------- | ----------- | ------ |
 | 101 | 1 | 500 |
@@ -190,7 +190,7 @@ Snowflake
 
 &nbsp;
 
-### Example:
+### Example
 
 orders_raw
 
@@ -255,7 +255,7 @@ stg_customers
 
 &nbsp;
 
-#### Purpose:
+#### Purpose
 
 - Rename columns
 - Standardize formats
@@ -281,7 +281,7 @@ on o.customer_id = c.customer_id
 
 &nbsp;
 
-#### Purpose:
+#### Purpose
 
 - Joins
 - Business calculations
@@ -309,6 +309,7 @@ dim_customer
 #### Fact Table
 
 fact_sales
+
 | order_id | customer_id | amount |
 | -------- | ----------- | ------ |
 | 101 | 1 | 500 |

@@ -14,6 +14,6 @@ JOIN - Write a query to get orders with customer names (join orders and customer
 
 GROUP BY - Write a query to count how many orders each customer has placed.
 
-INSERT - Write a query to insert a new user with name 'John' and email 'john@example.com'.
+INSERT - Write a query to insert a new user with name 'John' and email '<john@example.com>'.
 
-UPDATE - Write a query to change a user's email to 'newemail@example.com' where their ID is 5.
+UPDATE - Write a query to change a user's email to '<newemail@example.com>' where their ID is 5.

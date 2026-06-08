@@ -12,7 +12,7 @@
 
 &nbsp;
 
-#PRIMARY KEY
+# PRIMARY KEY
 
 A Primary Key is a constraint used to uniquely identify each row in a table.
 
@@ -72,7 +72,7 @@ Here:
 
 &nbsp;
 
-# Real-life example:
+# Real-life example
 
 Think of:
 

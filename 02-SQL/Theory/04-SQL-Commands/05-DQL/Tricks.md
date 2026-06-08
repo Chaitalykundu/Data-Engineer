@@ -51,7 +51,7 @@ SELECT Name FROM customers;
 
 &nbsp;
 
-## Fix:
+## Fix
 
 ```sql
 SELECT "Name" FROM customers;
@@ -95,7 +95,7 @@ FROM → WHERE → SELECT → ORDER BY
 
 &nbsp;
 
-## Fix:
+## Fix
 
 ```sql
 SELECT *
@@ -132,7 +132,7 @@ SELECT COUNT(*) FROM users;
 
 &nbsp;
 
-## Bug Scenario:
+## Bug Scenario
 
 Dashboard shows wrong numbers
 NULL-heavy columns → misleading metrics
@@ -203,7 +203,7 @@ WHERE NOT EXISTS (
 
 # 5. Implicit Casting Gone Wrong
 
-## Problem:
+## Problem
 
 ```sql
 SELECT '10' + 5;
@@ -223,7 +223,7 @@ SELECT '10' + 5;
 
 &nbsp;
 
-## Fix:
+## Fix
 
 ```sql
 SELECT TO_NUMBER('10') + 5;

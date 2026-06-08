@@ -126,7 +126,7 @@ They are the building blocks of SQL syntax, defining the structure and operation
 | **AS**                        | Create an alias for column or table | `SELECT name AS employee_name FROM employees;`      |
 | **CASE / WHEN / THEN / ELSE** | Conditional logic                   | `CASE WHEN salary>50000 THEN 'High' ELSE 'Low' END` |
 | **EXISTS**                    |                                     |                                                     |
-|                               |                                     |                                                     | 
+|                               |                                     |                                                     |
 
 &nbsp;
 
@@ -199,7 +199,7 @@ Functions like `COUNT()` or `AVG()` are not keywords—they are functions.
 
 &nbsp;
 
-## Example:
+## Example
 
 ```sql
 SELECT COUNT(*)

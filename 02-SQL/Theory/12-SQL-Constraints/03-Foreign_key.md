@@ -25,7 +25,7 @@ It ensures that a value in one table must already exist in another table.
 
 &nbsp;
 
-# Example:
+# Example
 
 Suppose you have two tables:
 
@@ -97,7 +97,7 @@ Foreign key prevents this.
 
 &nbsp;
 
-# Real-life example:
+# Real-life example
 
 Think of:
 

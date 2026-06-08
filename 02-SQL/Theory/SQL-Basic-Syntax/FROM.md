@@ -105,6 +105,7 @@ Here `FROM Employee` tells SQL the main table, and `JOIN Department` adds anothe
 &nbsp;
 
 # Using FROM with subqueries
+
 ```sql
 SELECT *
 FROM (

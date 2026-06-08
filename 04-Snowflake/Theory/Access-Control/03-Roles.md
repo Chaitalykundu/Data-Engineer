@@ -46,7 +46,7 @@ An user can be assigned to multiple roles. This allows users to switch roles.
 User → Role → Privileges → Object
 ```
 
-### Example:
+### Example
 
 ```sql
 GRANT SELECT ON TABLE sales TO ROLE analyst_role;

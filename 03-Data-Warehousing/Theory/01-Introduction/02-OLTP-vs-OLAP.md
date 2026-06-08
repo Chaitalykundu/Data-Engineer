@@ -15,10 +15,10 @@
   - [OLAP System](#olap-system)
     - [Example query](#example-query-1)
 - [Why Not Use OLTP for Analytics?](#why-not-use-oltp-for-analytics)
-    - [Problems of Using OLTP for Analytics](#problems-of-using-oltp-for-analytics)
-      - [1. Performance Issues](#1-performance-issues)
-      - [2. Impacts Business Operations](#2-impacts-business-operations)
-      - [3. Limited Historical Data](#3-limited-historical-data)
+  - [Problems of Using OLTP for Analytics](#problems-of-using-oltp-for-analytics)
+    - [1. Performance Issues](#1-performance-issues)
+    - [2. Impacts Business Operations](#2-impacts-business-operations)
+    - [3. Limited Historical Data](#3-limited-historical-data)
 
 &nbsp;
 

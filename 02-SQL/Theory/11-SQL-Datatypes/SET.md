@@ -23,7 +23,7 @@
 
 &nbsp;
 
-## Think of it like this:
+## Think of it like this
 
 👉 A student can have multiple hobbies:
 
@@ -40,7 +40,7 @@ Instead of creating separate columns for each hobby, `SET` allows storing multip
 
 &nbsp;
 
-# Example:
+# Example
 
 ```sql
 CREATE TABLE Students (
@@ -66,7 +66,7 @@ INSERT INTO Students VALUES
 
 &nbsp;
 
-## Output:
+## Output
 
 | student_id | student_name | hobbies                |
 | ---------- | ------------ | ---------------------- |
@@ -103,10 +103,9 @@ Example real-world use cases:
 
 Because storing multiple values in one column violates 1NF (First Normal Form).
 
-
 &nbsp;
 
-## Better design:
+## Better design
 
 ```sql
 Student_Hobbies

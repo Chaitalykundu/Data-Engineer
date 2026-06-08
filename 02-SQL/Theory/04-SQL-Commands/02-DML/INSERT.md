@@ -18,8 +18,8 @@
 - [Common Mistakes](#common-mistakes)
 - [Best Practices](#best-practices)
 - [Real-World (Snowflake / Data Engineering)](#real-world-snowflake--data-engineering)
-    - [✔ Bulk Load](#-bulk-load)
-    - [✔ Transform + Insert](#-transform--insert)
+  - [✔ Bulk Load](#-bulk-load)
+  - [✔ Transform + Insert](#-transform--insert)
 
 &nbsp;
 

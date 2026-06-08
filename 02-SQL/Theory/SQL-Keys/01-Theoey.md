@@ -10,7 +10,7 @@
 
 &nbsp;
 
-# Keys are used to:
+# Keys are used to
 
 - uniquely identify rows
 - create relationships between tables
@@ -34,7 +34,6 @@ They are one of the most important concepts in databases.
 | Alternate Key | Candidate key not selected as primary key    |
 | Super Key     | Any column(s) uniquely identifying rows      |
 | Surrogate Key | Artificial/generated key                     |
-
 
 &nbsp;
 

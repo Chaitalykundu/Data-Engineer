@@ -68,7 +68,7 @@ Used for Identifiers
 
 &nbsp;
 
-## Purpose:
+## Purpose
 
 - Column names
 - Table names
@@ -79,7 +79,7 @@ Used for Identifiers
 
 &nbsp;
 
-## Example:
+## Example
 
 ```sql
 SELECT "first_name" FROM customers;

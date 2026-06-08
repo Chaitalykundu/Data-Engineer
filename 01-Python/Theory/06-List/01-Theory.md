@@ -111,7 +111,7 @@ print(data[0][1])
 
 &nbsp;
 
-### Output:
+### Output
 
 ```md
 Java

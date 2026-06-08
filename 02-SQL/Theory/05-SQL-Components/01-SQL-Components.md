@@ -336,7 +336,7 @@ Rules applied to table columns.
 
 &nbsp;
 
-## Examples:
+## Examples
 
 - PRIMARY KEY
 - FOREIGN KEY
@@ -368,7 +368,7 @@ Define what kind of data a column can store.
 
 &nbsp;
 
-## Examples:
+## Examples
 
 - INT
 - VARCHAR
@@ -414,7 +414,7 @@ FROM Employee;
 
 Used to **combine data** from multiple tables.
 
-## Examples:
+## Examples
 
 - INNER JOIN
 - LEFT JOIN

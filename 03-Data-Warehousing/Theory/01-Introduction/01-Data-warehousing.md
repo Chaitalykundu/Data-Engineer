@@ -4,7 +4,7 @@
 - [Summary](#summary)
 - [Data Warehousing](#data-warehousing)
 - [Why Do We Need a Data Warehouse](#why-do-we-need-a-data-warehouse)
-    - [Main Reasons We Need a Data Warehouse](#main-reasons-we-need-a-data-warehouse)
+  - [Main Reasons We Need a Data Warehouse](#main-reasons-we-need-a-data-warehouse)
 - [Top 7 Purposes of a Data Warehouse](#top-7-purposes-of-a-data-warehouse)
 - [Key Characteristics](#key-characteristics)
 - [Example Use Case](#example-use-case)
