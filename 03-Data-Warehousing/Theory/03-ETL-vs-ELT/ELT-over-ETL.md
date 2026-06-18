@@ -2,14 +2,13 @@
 
 - [Content](#content)
 - [Why ELT Instead of ETL?](#why-elt-instead-of-etl)
-- [ETL](#etl)
-  - [Steps:](#steps)
-  - [Problem with ETL](#problem-with-etl)
-- [ELT](#elt)
-  - [Steps:](#steps-1)
+- [When to use what?](#when-to-use-what)
+  - [Use ETL when:](#use-etl-when)
+  - [Use ELT when (most modern companies):](#use-elt-when-most-modern-companies)
+- [Difference between ETL and ELT](#difference-between-etl-and-elt)
 - [Advantages of ELT](#advantages-of-elt)
-  - [1. Uses Data Warehouse Compute Power:](#1-uses-data-warehouse-compute-power)
-  - [2. Faster Data Availability:](#2-faster-data-availability)
+  - [1. Uses Data Warehouse Compute Power](#1-uses-data-warehouse-compute-power)
+  - [2. Faster Data Availability](#2-faster-data-availability)
   - [3. Retains Raw Data](#3-retains-raw-data)
   - [4. Better Scalability](#4-better-scalability)
   - [5. Simplifies Pipeline Development](#5-simplifies-pipeline-development)
@@ -33,62 +32,37 @@ ELT is preferred over ETL in modern cloud data architectures because cloud data 
 
 &nbsp;
 
-# ETL
+# When to use what?
 
-```
-Source Systems
-      |
-      |(Extract)
-      |
-ETL Tool
-(Transform Here)
-      |
-      | load
-      |
-Data Warehouse
-```
+### Use ETL when:
 
-## Steps
-
-- Extract data
-- Transform data outside the warehouse
-- Load transformed data
+- You have on-prem systems
+- Strict data privacy rules require pre-cleaning
+- Limited warehouse compute power
 
 &nbsp;
 
-## Problem with ETL
+### Use ELT when (most modern companies):
 
-As data grows:
-
-- ETL servers become bottlenecks.
-- Transformations take longer.
-- Scaling ETL infrastructure is expensive.
-- You lose access to raw data once transformed.
+- Using Snowflake / BigQuery / Redshift
+- Handling large-scale analytics
+- You want flexible analytics models
+- You use dbt-style transformations
 
 &nbsp;
 
 &nbsp;
 
-# ELT
+# Difference between ETL and ELT
 
-```
-Source Systems
-      |
-Load Raw Data
-      |
-Snowflake
-      |
-DBT
-(Transform Inside Snowflake)
-```
-
-## Steps
-
-- Extract data
-- Load raw data into Snowflake
-- Transform inside Snowflake using DBT
-
-&nbsp;
+| Feature                 | ETL                           | ELT                             |
+| ----------------------- | ----------------------------- | ------------------------------- |
+| Full Form               | Extract, Transform, Load      | Extract, Load, Transform        |
+| Transformation Location | Before loading into warehouse | After loading into warehouse    |
+| Data Warehouse          | Receives transformed data     | Receives raw data first         |
+| Scalability             | Limited by ETL tool resources | Uses warehouse compute power    |
+| Typical Usage           | Traditional systems           | Modern cloud data platforms     |
+| Examples                | Informatica, SSIS, Talend     | Snowflake + dbt, BigQuery + dbt |
 
 &nbsp;
 

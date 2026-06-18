@@ -21,9 +21,9 @@
 - [4. Presentation Layer](#4-presentation-layer)
   - [Purpose](#purpose-3)
   - [Fact Tables](#fact-tables)
-    - [Examples:](#examples)
+    - [Examples](#examples)
   - [Dimension Tables](#dimension-tables)
-    - [Examples:](#examples-1)
+    - [Examples](#examples-1)
 
 &nbsp;
 
@@ -35,7 +35,14 @@
 
 A Data Warehouse is typically organized into layers so that data moves from raw source data to business-ready reporting data in a structured way.
 
-A Data Warehouse is commonly divided into four layers: Raw, Staging, Integration, and Presentation. The Raw Layer stores source data without modification. The Staging Layer performs basic cleansing and standardization. The Integration Layer combines data from multiple sources and applies business rules. The Presentation Layer contains fact and dimension tables optimized for reporting and analytics. Data flows sequentially through these layers to ensure quality, consistency, and efficient reporting.
+A Data Warehouse is commonly divided into four layers: **Raw**, **Staging**, **Integration**, and **Presentation**.
+
+- The Raw Layer **stores source data** without modification.
+- The Staging Layer performs basic **cleansing and standardization**.
+- The Integration Layer **combines data** from multiple sources and applies business rules.
+- The Presentation Layer contains **fact and dimension tables** optimized for reporting and analytics.
+
+Data flows sequentially through these layers to ensure quality, consistency, and efficient reporting.
 
 &nbsp;
 
@@ -129,7 +136,7 @@ Source:
 
 | Cust_ID | Cust_Name |
 | ------- | --------- |
-| 1 | john |
+| 1       | john      |
 
 &nbsp;
 
@@ -173,9 +180,9 @@ Perform basic cleaning and standardization.
 |  orders_raw                                          |
 |  customers_raw                                       |
 |  products_raw                                        |
-|                                                      |
-|                 DBT Transformations                  |
-|                                                      |
+|        |                                             |
+|        |  DBT Transformations                        |
+|        |                                             |
 |  STAGING LAYER                                       |
 |  --------------------------------------------------  |
 |  stg_orders                                          |
@@ -247,9 +254,9 @@ Combine data from multiple systems and apply business logic.
 |  stg_orders                                          |
 |  stg_customers                                       |
 |  stg_products                                        |
-|                                                      |
-|                 DBT Transformations                  |
-|                                                      |
+|        |                                             |
+|        |   DBT Transformations                       |
+|        |                                             |
 |  INTEGRATION LAYER                                   |
 |  --------------------------------------------------  |
 |  int_customer_orders                                 |
@@ -285,7 +292,7 @@ Customers:
 
 | Customer_ID | Customer_Name |
 | ----------- | ------------- |
-| 1 | John |
+| 1           | John          |
 
 &nbsp;
 
@@ -293,7 +300,7 @@ Integrated Result:
 
 | Order_ID | Customer_Name |
 | -------- | ------------- |
-| 101 | John |
+| 101      | John          |
 
 &nbsp;
 
@@ -337,9 +344,9 @@ Provide business-ready data for reporting and analytics.
 |  int_customer_orders                                 |
 |  int_sales_metrics                                   |
 |  int_product_performance                             |
-|                                                      |
-|                 DBT Transformations                  |
-|                                                      |
+|         |                                            |
+|         |  DBT Transformations                       |
+|         |                                            |
 |  PRESENTATION / MART LAYER                           |
 |  --------------------------------------------------  |
 |  fact_sales                                          |
@@ -393,7 +400,7 @@ Dim_Product
 
 | Product_ID | Product_Name |
 | ---------- | ------------ |
-| 10 | Laptop |
+| 10         | Laptop       |
 
 &nbsp;
 
