@@ -1,6 +1,6 @@
-# Overview
+# Content
 
-- [Overview](#overview)
+- [Content](#content)
 - [Snowflake Data Warehouse Architecture](#snowflake-data-warehouse-architecture)
 - [Benefits of Multi-Clustered Shared Data Architecture](#benefits-of-multi-clustered-shared-data-architecture)
 - [Snowflake’s architecture as hybrid](#snowflakes-architecture-as-hybrid)

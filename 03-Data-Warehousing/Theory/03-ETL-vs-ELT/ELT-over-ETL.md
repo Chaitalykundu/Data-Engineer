@@ -34,7 +34,7 @@ ELT is preferred over ETL in modern cloud data architectures because cloud data 
 
 # When to use what?
 
-### Use ETL when:
+### Use ETL when
 
 - You have on-prem systems
 - Strict data privacy rules require pre-cleaning
@@ -42,7 +42,7 @@ ELT is preferred over ETL in modern cloud data architectures because cloud data 
 
 &nbsp;
 
-### Use ELT when (most modern companies):
+### Use ELT when (most modern companies)
 
 - Using Snowflake / BigQuery / Redshift
 - Handling large-scale analytics

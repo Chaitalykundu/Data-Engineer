@@ -40,7 +40,7 @@ Python uses the Unicode character set, which includes:
 
 ## 4. White Spaces
 
-- Space (` `)
+- Space (``)
 - Tab (`\t`)
 - Newline (`\n`)
 - Carriage return (`\r`)

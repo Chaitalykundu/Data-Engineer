@@ -43,7 +43,7 @@ Each layer can scale independently.
 
 &nbsp;
 
-<img src=../assets/Snowflake-Architecture.png height="250px">
+<img src="../../assets/Snowflake-Architecture.png">
 
 &nbsp;
 

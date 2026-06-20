@@ -61,7 +61,7 @@ DROP MASKING POLICY policy_name;
 To drop a masking policy, you need:
 
 - Ownership of the policy
-OR
+  OR
 - Appropriate privileges (like OWNERSHIP)
 
 &nbsp;

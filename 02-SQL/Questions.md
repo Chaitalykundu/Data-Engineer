@@ -176,10 +176,10 @@
 
 # Aggregate Function
 
-1. Difference between COUNT(*) and COUNT(column)?
+1. Difference between COUNT(\*) and COUNT(column)?
 2. Does AVG() ignore NULL?
 3. Can aggregate functions be used in WHERE?
-&nbsp;
+   &nbsp;
 
 &nbsp;
 

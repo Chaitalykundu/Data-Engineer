@@ -14,12 +14,16 @@
 
 Snowflake Warehouse is a core component of the Snowflake architecture.
 
+&nbsp;
+
 A Snowflake warehouse is a **virtual compute cluster** that performs data processing tasks such as:
 
 - Running queries
 - Loading/unloading data
 - Transformations
 - DDL/DML operations
+
+&nbsp;
 
 In Snowflake, compute (warehouse) is decoupled from storage. That means you can scale compute independently of your data.
 

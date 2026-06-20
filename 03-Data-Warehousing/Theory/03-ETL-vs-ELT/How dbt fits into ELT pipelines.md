@@ -58,7 +58,7 @@ MART LAYER (Facts / Dimensions)
 BI Tools (Power BI / Tableau)
 ```
 
-### Key idea:
+### Key idea
 
 dbt works entirely inside the warehouse (e.g. Snowflake)
 
@@ -166,7 +166,7 @@ dbt introduces:
 
 # 4. Why dbt is important in modern ELT
 
-## Without dbt:
+## Without dbt
 
 - SQL scattered across scripts
 - No dependency tracking
@@ -175,7 +175,7 @@ dbt introduces:
 
 &nbsp;
 
-## With dbt:
+## With dbt
 
 - Centralized transformation layer
 - Automated DAG execution
@@ -195,7 +195,7 @@ dbt introduces:
 
 - dbt vs Airflow (very common interview question)
 - dbt DAG execution with real Snowflake query flow
-&nbsp;
+  &nbsp;
 
 &nbsp;
 

@@ -4,7 +4,7 @@
 - [Summary](#summary)
 - [Fact Tables](#fact-tables)
 - [Examples of Facts](#examples-of-facts)
-- [Example Fact Table: Sales\_Fact](#example-fact-table-sales_fact)
+- [Example Fact Table: Sales_Fact](#example-fact-table-sales_fact)
 - [Characteristics](#characteristics)
 
 &nbsp;

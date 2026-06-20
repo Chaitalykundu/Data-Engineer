@@ -65,7 +65,6 @@ DIM_DATE
 - Used for filtering and grouping
 - Changes less frequently
 
-
 &nbsp;
 
 &nbsp;
