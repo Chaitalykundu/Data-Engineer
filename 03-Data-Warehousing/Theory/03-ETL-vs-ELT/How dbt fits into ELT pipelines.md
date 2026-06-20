@@ -195,7 +195,8 @@ dbt introduces:
 
 - dbt vs Airflow (very common interview question)
 - dbt DAG execution with real Snowflake query flow
-  &nbsp;
+
+&nbsp;
 
 &nbsp;
 
