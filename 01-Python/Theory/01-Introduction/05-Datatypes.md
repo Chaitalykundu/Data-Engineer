@@ -3,7 +3,7 @@
 - [Overview](#overview)
 - [Datatypes](#datatypes)
 - [Numeric Types](#numeric-types)
-  - [Note](#note)
+    - [Note](#note)
 - [String Type](#string-type)
 - [Boolean Type](#boolean-type)
 - [Sequence Types](#sequence-types)
@@ -25,9 +25,13 @@ Data types are types of data stored in a variable.
 
 There are two types of datatypes -------
 
-**Primitive Data Types**: int, float, bool, str
+- **Primitive Data Types**: int, float, bool, str
 
-**Non-Primitive Data Types**: list, tuple, dict, set
+- **Non-Primitive Data Types**: list, tuple, dict, set
+
+&nbsp;
+
+We use `type()` function to check the daatype.
 
 &nbsp;
 
@@ -73,6 +77,12 @@ There are two types of datatypes -------
    ```py
     z = 2 + 3j
    ```
+
+```py
+print(type(x))  # <class 'int'>
+print(type(y))  # <class 'float'>
+print(type(z))  # <class 'complex'>
+```
 
 &nbsp;
 

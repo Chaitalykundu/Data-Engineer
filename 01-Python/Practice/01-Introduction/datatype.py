@@ -19,3 +19,16 @@ print("type of set:", type(set))
 print("type of set[0]:", type(list(set)[0]))  # Convert set to list to access an element
 print("type of dict:", type(dict))
 print("type of dict['name']:", type(dict["name"]))
+
+
+##### ---------------------------------------------
+
+x = 10
+
+y = 3.14
+
+z = 2 + 3j
+
+print(type(x))
+print(type(y))
+print(type(z))

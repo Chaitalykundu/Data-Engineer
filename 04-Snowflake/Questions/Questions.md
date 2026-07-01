@@ -22,6 +22,15 @@
 
 # Questions
 
+## Micro partitions
+
+1. Why did Snowflake Introduce Micro-Partitions
+2. Is micro-partition always 16MB?
+
+&nbsp;
+
+&nbsp;
+
 ## Tasks
 
 1. What is task in snowflake
@@ -61,6 +70,20 @@
 &nbsp;
 
 # Answer
+
+## Micro partitions
+
+### 1. Why did Snowflake Introduce Micro-Partitions
+
+&nbsp;
+
+### 2. Is micro-partition always 16MB?
+
+No. Snowflake dynamically manages size (typically ~50–500 MB uncompressed).
+
+&nbsp;
+
+&nbsp;
 
 ## Column level security
 
