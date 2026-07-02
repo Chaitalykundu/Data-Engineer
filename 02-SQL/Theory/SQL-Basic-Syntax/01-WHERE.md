@@ -1,19 +1,21 @@
 # Overview
 
 - [Overview](#overview)
+- [Summary](#summary)
 - [Definition](#definition)
 - [Syntax](#syntax)
 - [Examples](#examples)
   - [1. Simple comparison](#1-simple-comparison)
-  - [2. Multiple conditions with **AND** / **OR**](#2-multiple-conditions-with-and--or)
+  - [2. Filter with **Comparison** operators like =, \< , \>, !=, \<=, \>=](#2-filter-with-comparison-operators-like-------)
+  - [3. Multiple conditions with **AND** / **OR**](#3-multiple-conditions-with-and--or)
   - [3. Range check with **BETWEEN**](#3-range-check-with-between)
   - [4. Matching a set with IN](#4-matching-a-set-with-in)
-  - [5. Pattern matching with LIKE](#5-pattern-matching-with-like)
+  - [5. Pattern matching with `LIKE`](#5-pattern-matching-with-like)
   - [6. Checking for NULL](#6-checking-for-null)
   - [7. Negation](#7-negation)
   - [8. With dates](#8-with-dates)
 - [Key Points to Remember](#key-points-to-remember)
-- [operators - used in the WHERE clause](#operators---used-in-the-where-clause)
+- [Operators - used in the WHERE clause](#operators---used-in-the-where-clause)
 - [Execution Order Note](#execution-order-note)
 - [`OR` and `AND` Operator Precedence](#or-and-and-operator-precedence)
 
@@ -23,13 +25,33 @@
 
 &nbsp;
 
+# Summary
+
+- The `WHERE` clause is used to filter rows from a table based on specified conditions.
+
+- Use `WHERE` for filtering rows; use `HAVING` for filtering groups
+
+- ❌ Cannot use aggregate functions (SUM, AVG) in WHERE → use HAVING instead
+  Cannot reference SELECT column aliases in WHERE
+- AND has higher precedence than OR → use parentheses for clarity
+- For NULL checks, use IS NULL, not = NULL
+
+&nbsp;
+
+&nbsp;
+
 # Definition
 
-The `WHERE` clause is used to **filter rows** before they are returned by the query.
+The `WHERE` clause is used to **filter rows** from a table before they are returned by the query.
 
-It comes after `FROM` (and JOINs) but before `GROUP BY`, `HAVING`, and `SELECT` output in SQL’s logical execution order.
+It comes after `FROM` (and `JOIN`s) but before `GROUP BY`, `HAVING`, and `SELECT` output in SQL’s logical execution order.
 
 The `WHERE` clause is not only used in `SELECT` statement, but it is also used in `UPDATE`, `DELETE` statement, etc., which we will learn in subsequent chapters
+
+&nbsp;
+
+- Without WHERE → SQL returns all records.
+- With WHERE → SQL returns only matching records.
 
 &nbsp;
 
@@ -63,7 +85,19 @@ WHERE salary > 50000;
 
 &nbsp;
 
-## 2. Multiple conditions with **AND** / **OR**
+## 2. Filter with **Comparison** operators like =, < , >, !=, <=, >=
+
+```sql
+SELECT *
+FROM employees
+WHERE city='Kolkata' and salary >50000;
+```
+
+&nbsp;
+
+&nbsp;
+
+## 3. Multiple conditions with **AND** / **OR**
 
 ```sql
 SELECT *
@@ -109,7 +143,7 @@ WHERE department IN ('HR', 'Finance', 'IT');
 
 &nbsp;
 
-## 5. Pattern matching with LIKE
+## 5. Pattern matching with `LIKE`
 
 ```sql
 -- Names starting with 'A'
@@ -188,7 +222,7 @@ WHERE hire_date >= '2023-01-01';
 
 &nbsp;
 
-# operators - used in the WHERE clause
+# Operators - used in the WHERE clause
 
 The following operators can be used in the WHERE clause:
 

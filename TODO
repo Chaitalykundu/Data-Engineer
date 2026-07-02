@@ -36,7 +36,7 @@ copilot suggestion:
         ✔ 3. Get distinct department_ids @done(26-05-05 22:14)
         ✔ 4. Fetch top 10 rows @done(26-05-05 22:14)
     - LLM Basic : What is LLM, Use cases, Benefits tokens, context
-    - LLM Practice :
+    - LLM Practice:
         - Use OpenAI API to generate text based on a prompt
         - First prompt response
 
@@ -48,3 +48,4 @@ copilot suggestion:
     - Filter data
     - Sort data
     - Answer basic interview questions
+

@@ -14,8 +14,11 @@
     - [SELECT](#select)
 - [SQL Datatypes](#sql-datatypes)
   - [Set](#set)
-- [SQL Synax](#sql-synax)
+- [SQL Syntax](#sql-syntax)
   - [Where](#where)
+  - [Between](#between)
+  - [IN](#in)
+  - [LIKE](#like)
   - [From](#from)
   - [Joins](#joins)
 - [Aggregate Function](#aggregate-function)
@@ -24,9 +27,17 @@
     - [Single vs double quote](#single-vs-double-quote-1)
       - [1. Why avoid double quotes in Snowflake](#1-why-avoid-double-quotes-in-snowflake)
       - [2. Why can’t we use alias in WHERE?](#2-why-cant-we-use-alias-in-where)
-  - [SQL Synax](#sql-synax-1)
+  - [SQL Syntax](#sql-syntax-1)
     - [Where](#where-1)
       - [1. Can we use aggregate functions in where](#1-can-we-use-aggregate-functions-in-where)
+      - [2. Can we use aliases from `SELECT` in where clause](#2-can-we-use-aliases-from-select-in-where-clause)
+    - [Between](#between-1)
+      - [1. Why do we use `BETWEEN`](#1-why-do-we-use-between)
+    - [IN](#in-1)
+      - [1. Why do we use `IN`](#1-why-do-we-use-in)
+      - [2. `In` is equivalent to which operator](#2-in-is-equivalent-to-which-operator)
+      - [3. What is the difference between IN and OR?](#3-what-is-the-difference-between-in-and-or)
+      - [4. Which performs better for many values: IN or multiple OR?](#4-which-performs-better-for-many-values-in-or-multiple-or)
     - [From](#from-1)
       - [1. Is FROM mandatory?](#1-is-from-mandatory)
 - [Interview Question](#interview-question)
@@ -150,17 +161,44 @@
 
 &nbsp;
 
-# SQL Synax
+# SQL Syntax
 
 ## Where
 
-1. Can we use aggregate functions in where
+1. Why do we use `where`
+2. Can we use aggregate functions inside where clause
+3. Can we use aliases from `SELECT` in where clause
+
+&nbsp;
+
+## Between
+
+1. Why do we use `BETWEEN`
+2. In which datatype `between` works
+
+&nbsp;
+
+## IN
+
+1. Why do we use `IN`
+2. `In` is equivalent to which operator
+3. What is the difference between IN and OR?
+
+&nbsp;
+
+&nbsp;
+
+## LIKE
+
+1. List the users whose name starts with A and having only 7 letters
 
 &nbsp;
 
 ## From
 
 1. Is FROM mandatory?
+
+No. We can use `SELECT` without even `FROM`. Example: `SELECT 1` or `SELECT current_role`
 
 &nbsp;
 
@@ -210,7 +248,7 @@ Because SQL execution order processes WHERE before SELECT, so aliases defined in
 
 &nbsp;
 
-## SQL Synax
+## SQL Syntax
 
 ### Where
 
@@ -219,6 +257,42 @@ Because SQL execution order processes WHERE before SELECT, so aliases defined in
 We cannot use aggregate functions (like `SUM()`, `AVG()`) inside `WHERE`.
 
 - ✅ Use `HAVING` instead.
+
+&nbsp;
+
+&nbsp;
+
+#### 2. Can we use aliases from `SELECT` in where clause
+
+`WHERE` executes before `SELECT`, so you usually can’t use column aliases from `SELECT`.
+
+&nbsp;
+
+&nbsp;
+
+### Between
+
+#### 1. Why do we use `BETWEEN`
+
+&nbsp;
+
+&nbsp;
+
+### IN
+
+#### 1. Why do we use `IN`
+
+#### 2. `In` is equivalent to which operator
+
+#### 3. What is the difference between IN and OR?
+
+#### 4. Which performs better for many values: IN or multiple OR?
+
+IN. Why-
+- More readable
+- Easier to maintain
+- Optimizers often convert IN into efficient internal logic
+- Better when the list becomes large
 
 &nbsp;
 

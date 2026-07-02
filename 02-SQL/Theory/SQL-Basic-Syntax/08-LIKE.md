@@ -22,8 +22,17 @@
 
 # Definition
 
-the `LIKE` operator is used to search for a specified pattern in a text column (string).
+The `LIKE` operator is used to search for a specified pattern in a text column (string).
+
 It’s often used with the `WHERE` clause to perform partial matches (not exact matches).
+
+&nbsp;
+
+Useful for:
+
+- Search
+- Partial text match
+- Data cleaning
 
 &nbsp;
 

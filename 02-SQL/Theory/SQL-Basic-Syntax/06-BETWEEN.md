@@ -22,6 +22,9 @@
 
 The `BETWEEN` operator is used in SQL to **filter results within a specific range** — it works for numbers, dates, and text (alphabetical order).
 
+The order should be ascending. like
+
+
 &nbsp;
 
 &nbsp;
@@ -128,6 +131,7 @@ WHERE (salary BETWEEN 50000 AND 80000)
 # NOTE
 
 `between '2020-01-01' and '2020-02-01'` means from start of january to before 1st day of february
+
 &nbsp;
 
 &nbsp;
