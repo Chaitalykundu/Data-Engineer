@@ -44,3 +44,32 @@ Assume table:
 8. Return employees whose name contains "ra" and salary is not null.
 9. Find employees who belong to specific cities but exclude one city.
 10. Find rows where email is blank vs NULL.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# ORDER BY
+
+## Practice Questions
+
+1. Display all employees sorted by salary in ascending order.
+2. Display all employees sorted by salary in descending order.
+3. Display employees sorted alphabetically by name.
+4. Sort employees by city and then by salary in descending order.
+5. Display the 5 highest-paid employees.
+6. Display the 3 oldest orders by order_date.
+7. Sort products by price (highest to lowest) and product name (A–Z).
+8. Display employees sorted by annual salary (salary \* 12) in descending order.
+9. Display customers sorted by registration date (newest first).
+10. Display employees sorted by department (ascending) and employee name (ascending).
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
