@@ -7,6 +7,7 @@
   - [Example 2 — Count salary entries](#example-2--count-salary-entries)
   - [Example 3 — Count unique departments](#example-3--count-unique-departments)
 - [Real-Life Usage](#real-life-usage)
+- [Interview Questions](#interview-questions)
 
 &nbsp;
 
@@ -16,7 +17,7 @@
 
 # Count
 
-Used to count rows.
+Returns the number of rows.
 
 &nbsp;
 
@@ -31,6 +32,8 @@ SELECT COUNT(*)
 FROM Employees;
 ```
 
+COUNT(\*) returns all rows, including rows containing NULL values.
+
 &nbsp;
 
 &nbsp;
@@ -41,6 +44,8 @@ FROM Employees;
 SELECT COUNT(salary)
 FROM Employees;
 ```
+
+NULL is ignored.
 
 &nbsp;
 
@@ -60,6 +65,8 @@ SELECT COUNT(DISTINCT department)
 FROM Employees;
 ```
 
+Returns unique departments.
+
 &nbsp;
 
 &nbsp;
@@ -72,6 +79,21 @@ Used in:
 - total orders
 - total customers
 - total transactions
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Interview Questions
+
+1. What does `COUNT` do?
+2. What is the difference between COUNT(\*) and COUNT(column)?
+3. What is the difference between COUNT(DISTINCT column) and COUNT(column)?
+4. What is the real life usage of COUNT
 
 &nbsp;
 
