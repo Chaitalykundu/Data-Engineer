@@ -2,6 +2,9 @@
 
 - [Content](#content)
 - [11-07-2026](#11-07-2026)
+- [Information](#information)
+  - [12-07-2026](#12-07-2026)
+  - [12-07-2026](#12-07-2026-1)
 
 &nbsp;
 
@@ -19,3 +22,47 @@ Hands-on practice: Take one pipeline and prepare answers for:
 - How would you prevent duplicate processing?
 - How would you estimate Snowflake cost before scaling the warehouse?
 - Which work may safely be delegated to an AI agent?
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Information
+
+## 12-07-2026
+
+1. Experienced data-engineering interviews are shifting from coding volume to engineering judgment
+2. Snowflake Workload Identity Federation now covers Snowflake workloads accessing external services
+3. Cortex Search now supports resource budgets
+<!-- SYSTEM$ISUE_WORKLOAD_IDENTITY_FEDERATION_TOKEN    -->
+
+&nbsp;
+
+&nbsp;
+
+## 12-07-2026
+
+1. Snowflake now supports cloning dynamic Iceberg tables
+2. GitHub Copilot in VS Code now supports parallel agent sessions and stronger browser-based validation
+
+&nbsp;
