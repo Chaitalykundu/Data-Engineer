@@ -131,8 +131,9 @@ UPDATE - Write a query to change a user's email to '<newemail@example.com>' wher
     FROM employees
     WHERE name LIKE 'A%';
     Difference between % and \_ in LIKE? 3. Filtering and Conditions
-    Difference between:
+    Difference between
     =
+
     <>
     IN
     BETWEEN
@@ -356,7 +357,7 @@ This returns all records.
 
 &nbsp;
 
-### 3. Write a query to retrieve all records from a table.
+### 3. Write a query to retrieve all records from a table
 
 ```sql
 SELECT * FROM table_name;
@@ -366,7 +367,7 @@ SELECT * FROM table_name;
 
 &nbsp;
 
-### 4. Write a query to retrieve only employee names.
+### 4. Write a query to retrieve only employee names
 
 ```sql
 SELECT * FROM employee_name;

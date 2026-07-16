@@ -28,4 +28,5 @@ SELECT employee_name,
        ) AS rank
 FROM employees;
 ```
+
 This assigns Rank 1 to the highest-paid employee in each department.

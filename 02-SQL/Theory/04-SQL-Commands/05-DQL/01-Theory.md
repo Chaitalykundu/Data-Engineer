@@ -82,8 +82,8 @@ What is the SELECT statement in SQL?
 What is the syntax of the SELECT statement?
 How do you select all columns from a table?
 How do you select specific columns?
-What is the difference between SELECT _ and selecting specific columns?
-Why should we avoid using SELECT _ in production?
+What is the difference between SELECT _and selecting specific columns?
+Why should we avoid using SELECT_ in production?
 Can we retrieve the same column multiple times in a SELECT statement?
 Can we rename a column in SELECT?
 What is a column alias?
@@ -129,15 +129,15 @@ Display NULL values as "Not Available".
 
 ## Performance Questions
 
-Why is SELECT _ considered a bad practice?
-How does SELECT _ affect query performance?
-Does SELECT _ use more network bandwidth?
+Why is SELECT _considered a bad practice?
+How does SELECT_ affect query performance?
+Does SELECT _use more network bandwidth?
 Does selecting fewer columns improve performance?
 How does column pruning work?
 How does SELECT affect I/O?
-What happens if new columns are added to a table using SELECT _?
-How does SELECT _ impact views?
-Why do large companies discourage SELECT _?
+What happens if new columns are added to a table using SELECT_?
+How does SELECT _impact views?
+Why do large companies discourage SELECT_?
 Does Snowflake optimize SELECT \_?
 
 &nbsp;
@@ -150,10 +150,10 @@ Does Snowflake scan all columns when using SELECT _?
 How does Snowflake perform column pruning?
 What is micro-partition pruning?
 How does selecting fewer columns reduce cost in Snowflake?
-Why is SELECT _ expensive in Snowflake?
-Does SELECT _ affect warehouse credits?
+Why is SELECT_ expensive in Snowflake?
+Does SELECT _affect warehouse credits?
 How does query profile show scanned columns?
-Can SELECT _ impact result caching?
+Can SELECT_ impact result caching?
 How does Snowflake compress selected columns?
 What happens if a VARIANT column is included in SELECT \_?
 

@@ -18,28 +18,28 @@
 
 # Beginner Level
 
-1.  Display employees as Adult or Minor based on age.
-2.  Categorize salaries as:
+1. Display employees as Adult or Minor based on age.
+2. Categorize salaries as:
 
         High (>80000)
         Medium (50000–80000)
         Low (<50000) 3.
 
-3.  Display Experienced if experience is more than 5 years; otherwise Fresher.
+3. Display Experienced if experience is more than 5 years; otherwise Fresher.
 
-4.  Display Pass if marks are 40 or above; otherwise Fail.
-5.  Convert department codes:
+4. Display Pass if marks are 40 or above; otherwise Fail.
+5. Convert department codes:
 
         IT → Technology
         HR → Human Resource
         FIN → Finance
         Others → Other 6.
 
-6.  Male or Female based on the gender column.
+6. Male or Female based on the gender column.
 
-7.  Display Working if status = 'A'; otherwise Inactive.
-8.  Replace NULL salary with 0 using CASE.
-9.  Replace NULL email with 'Not Available'.
+7. Display Working if status = 'A'; otherwise Inactive.
+8. Replace NULL salary with 0 using CASE.
+9. Replace NULL email with 'Not Available'.
 10. Categorize products as:
 
         Expensive (>10000)
@@ -54,19 +54,19 @@
 
 # Intermediate Level
 
-1.  Calculate bonus:
+1. Calculate bonus:
 
         IT → 20%
         HR → 15%
         Others → 10% 12.
 
-2.  Display tax percentage:
+2. Display tax percentage:
 
         Salary >100000 → 30%
         Salary >70000 → 20%
         Otherwise → 10% 13.
 
-3.  Display order status:
+3. Display order status:
 
         Delivered
         Pending
@@ -75,7 +75,7 @@
 
     using user-friendly labels.
 
-4.  Display customer category:
+4. Display customer category:
 
         Gold
         Silver
@@ -83,7 +83,7 @@
 
     based on purchase amount.
 
-5.  Classify employees into:
+5. Classify employees into:
 
         Junior
         Mid-Level
@@ -91,18 +91,18 @@
 
     based on years of experience.
 
-6.  Display weekday/weekend based on the order date.
+6. Display weekday/weekend based on the order date.
 
-7.  Display salary after adding bonus using CASE.
+7. Display salary after adding bonus using CASE.
 
-8.  Show "Eligible for Promotion" if:
+8. Show "Eligible for Promotion" if:
 
         Experience >5 years
         Salary <80000
 
     Otherwise display "Not Eligible".
 
-9.  Display "Yes" or "No" depending on
+9. Display "Yes" or "No" depending on
     whether an employee has a manager.
 10. Display "Complete" if all mandatory fields are not NULL; otherwise "Incomplete".
 
@@ -114,19 +114,19 @@
 
 # Aggregate + CASE
 
-1.  Count IT employees using CASE.
-2.  Count HR employees.
-3.  Count male and female employees in a single query.
-4.  Calculate the total salary of IT
+1. Count IT employees using CASE.
+2. Count HR employees.
+3. Count male and female employees in a single query.
+4. Calculate the total salary of IT
     employees.
-5.  Calculate the total salary of HR
+5. Calculate the total salary of HR
     employees.
-6.  Find the average salary of Finance
+6. Find the average salary of Finance
     employees.
-7.  Count employees earning more than 70
-8.  Calculate total bonus paid to each
+7. Count employees earning more than 70
+8. Calculate total bonus paid to each
     department.
-9.  Count employees city-wise using CASE.
+9. Count employees city-wise using CASE.
 10. Calculate total sales for each product category.
 
 &nbsp;

@@ -99,5 +99,5 @@ There is no `SUM(*)` function in SQL. It is invalid syntax.
 
 ### 4. Why does `COUNT(*)` work but `SUM(*)` doesn't?
 
-`COUNT(*) `is a special case in SQL. `COUNT(*)` means count every row, regardless of column values.
+`COUNT(*)`is a special case in SQL. `COUNT(*)` means count every row, regardless of column values.
 `SUM()` needs actual numeric values to add together. The `*` symbol doesn't represent a numeric value—it represents "all columns," which cannot be summed.

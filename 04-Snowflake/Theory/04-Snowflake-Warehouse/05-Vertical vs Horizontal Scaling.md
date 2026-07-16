@@ -52,7 +52,7 @@ You make one warehouse more powerful.
 
 &nbsp;
 
-## Best for:
+## Best for
 
 - Slow-running queries
 - Large joins
@@ -64,7 +64,7 @@ You make one warehouse more powerful.
 
 &nbsp;
 
-## Example:
+## Example
 
 Before:
 
@@ -77,7 +77,6 @@ After scaling up:
 
 - Warehouse: Large
 - Query Time: 4 min
-
 
 &nbsp;
 

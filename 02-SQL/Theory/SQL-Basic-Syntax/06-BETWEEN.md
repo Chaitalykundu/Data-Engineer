@@ -24,7 +24,6 @@ The `BETWEEN` operator is used in SQL to **filter results within a specific rang
 
 The order should be ascending. like
 
-
 &nbsp;
 
 &nbsp;

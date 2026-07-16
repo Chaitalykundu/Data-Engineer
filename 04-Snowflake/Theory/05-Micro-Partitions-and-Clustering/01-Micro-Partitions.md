@@ -270,7 +270,7 @@ SELECT SYSTEM$CLUSTERING_INFORMATION(
 
 &nbsp;
 
-## Output:
+## Output
 
 ```
 {

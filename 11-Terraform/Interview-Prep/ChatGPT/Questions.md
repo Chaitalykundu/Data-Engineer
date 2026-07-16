@@ -9,7 +9,7 @@
   - [1. Design a Secure Sales Warehouse](#1-design-a-secure-sales-warehouse)
   - [2. Build a Secure Snowflake Environment with Terraform](#2-build-a-secure-snowflake-environment-with-terraform)
 - [Senior-Level Scenario](#senior-level-scenario)
-- [Scenario 1](#scenario-1)
+  - [Scenario 1](#scenario-1)
   - [Scenario 2](#scenario-2)
 - [Common Interview Mistakes](#common-interview-mistakes)
   - [Mistake 1](#mistake-1)
@@ -24,8 +24,8 @@
 
 # 12-07-2026
 
-1.  Why should Snowflake objects be managed through Terraform instead of manual SQL?
-2.  How does Terraform detect changes?
+1. Why should Snowflake objects be managed through Terraform instead of manual SQL?
+2. How does Terraform detect changes?
 
 &nbsp;
 
@@ -137,7 +137,7 @@ Configure:
 
 # Senior-Level Scenario
 
-# Scenario 1
+## Scenario 1
 
 Your organization has:
 

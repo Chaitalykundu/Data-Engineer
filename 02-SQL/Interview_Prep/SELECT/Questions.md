@@ -73,15 +73,15 @@
 
 ## Performance Questions
 
-1.Why is SELECT _ considered a bad practice?
-2.How does SELECT _ affect query performance?
-2.Does SELECT _ use more network bandwidth?
+1.Why is SELECT _considered a bad practice?
+2.How does SELECT_ affect query performance?
+2.Does SELECT _use more network bandwidth?
 2.Does selecting fewer columns improve performance?
 2.How does column pruning work?
 2.How does SELECT affect I/O?
-2.What happens if new columns are added to a table using SELECT _?
-2.How does SELECT _ impact views?
-2.Why do large companies discourage SELECT _?
+2.What happens if new columns are added to a table using SELECT_?
+2.How does SELECT _impact views?
+2.Why do large companies discourage SELECT_?
 2.Does Snowflake optimize SELECT \_?
 
 &nbsp;

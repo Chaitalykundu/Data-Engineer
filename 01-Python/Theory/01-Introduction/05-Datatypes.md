@@ -3,7 +3,7 @@
 - [Overview](#overview)
 - [Datatypes](#datatypes)
 - [Numeric Types](#numeric-types)
-    - [Note](#note)
+  - [Note](#note)
 - [String Type](#string-type)
 - [Boolean Type](#boolean-type)
 - [Sequence Types](#sequence-types)

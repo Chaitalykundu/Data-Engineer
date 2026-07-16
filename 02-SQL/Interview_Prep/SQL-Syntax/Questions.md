@@ -2,14 +2,14 @@
 
 Assume table:
 
-|employees
-|---------
-|emp_id
-|name
-|city
-|salary
-|joining_date
-|manager_id
+| employees    |
+| ------------ |
+| emp_id       |
+| name         |
+| city         |
+| salary       |
+| joining_date |
+| manager_id   |
 
 ## Beginner level
 

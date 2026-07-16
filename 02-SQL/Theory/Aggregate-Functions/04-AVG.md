@@ -12,13 +12,13 @@
   - [Example 6: `AVG()` with DISTINCT](#example-6-avg-with-distinct)
 - [Real-Life Usage](#real-life-usage)
 - [Interview Questions](#interview-questions)
-    - [Beginner Level](#beginner-level)
-    - [Intermediate Level](#intermediate-level)
-    - [Advanced Level](#advanced-level)
-    - [Scenario-Based Questions](#scenario-based-questions)
+  - [Beginner Level](#beginner-level)
+  - [Intermediate Level](#intermediate-level)
+  - [Advanced Level](#advanced-level)
+  - [Scenario-Based Questions](#scenario-based-questions)
 - [Answer](#answer)
-    - [2. What will be the output](#2-what-will-be-the-output)
-    - [3. What is the difference between AVG(DISTINCT column) and AVG(column)?](#3-what-is-the-difference-between-avgdistinct-column-and-avgcolumn)
+  - [2. What will be the output](#2-what-will-be-the-output)
+  - [3. What is the difference between AVG(DISTINCT column) and AVG(column)?](#3-what-is-the-difference-between-avgdistinct-column-and-avgcolumn)
 
 &nbsp;
 
@@ -147,7 +147,6 @@ Used in:
 
 &nbsp;
 
-
 # Interview Questions
 
 ### Beginner Level
@@ -261,12 +260,13 @@ FROM (
 
 28. Why is AVG(DISTINCT salary) usually slower than AVG(salary)?
 29. What is the output?
+
     | Salary |
     | ------ |
-    | 100 |
-    | 200 |
-    | NULL |
-    | 300 |
+    | 100    |
+    | 200    |
+    | NULL   |
+    | 300    |
 
     ```
     SELECT AVG(salary)
@@ -274,12 +274,13 @@ FROM (
     ```
 
 30. What is the output?
+
     | Salary |
     | ------ |
-    | 100 |
-    | 100 |
-    | 200 |
-    | 300 |
+    | 100    |
+    | 100    |
+    | 200    |
+    | 300    |
 
     ```sql
     SELECT AVG(DISTINCT salary)
@@ -292,15 +293,15 @@ FROM (
 
 ### Scenario-Based Questions
 
-1.  Find employees whose salary is greater than the company average.
-2.  Find departments whose average salary is higher than the overall company average.
-3.  Find the difference between an employee's salary and the department's average salary.
-4.  Display each employee along with the average salary of their department.
-5.  Find the department having the highest average salary.
-6.  Find employees whose salary is below their department's average.
-7.  Calculate the average salary excluding the highest-paid employee.
-8.  Calculate the average salary excluding NULL and zero salaries.
-9.  Find the moving average of salary using a window function.
+1. Find employees whose salary is greater than the company average.
+2. Find departments whose average salary is higher than the overall company average.
+3. Find the difference between an employee's salary and the department's average salary.
+4. Display each employee along with the average salary of their department.
+5. Find the department having the highest average salary.
+6. Find employees whose salary is below their department's average.
+7. Calculate the average salary excluding the highest-paid employee.
+8. Calculate the average salary excluding NULL and zero salaries.
+9. Find the moving average of salary using a window function.
 10. Calculate the average salary for the last 6 months of hiring data.
     Snowflake/SQL Interview Tricky Questions
 11. Is the following query valid?

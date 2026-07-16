@@ -18,8 +18,8 @@
 
 # 12-07-2026
 
-1.  Explain the differences between SCD Type 1 and Type 2.
-2.  When would you choose a Star Schema over a Snowflake Schema?
+1. Explain the differences between SCD Type 1 and Type 2.
+2. When would you choose a Star Schema over a Snowflake Schema?
 
 &nbsp;
 

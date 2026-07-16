@@ -289,6 +289,7 @@ We cannot use aggregate functions (like `SUM()`, `AVG()`) inside `WHERE`.
 #### 4. Which performs better for many values: IN or multiple OR?
 
 IN. Why-
+
 - More readable
 - Easier to maintain
 - Optimizers often convert IN into efficient internal logic

@@ -8,9 +8,11 @@
   - [Build an Idempotent Incremental Pipeline](#build-an-idempotent-incremental-pipeline)
   - [Build an Incremental CDC Pipeline](#build-an-incremental-cdc-pipeline)
     - [Task](#task)
+    - [Build an Incremental Customer Pipeline](#build-an-incremental-customer-pipeline)
 - [Senior-Level Scenario](#senior-level-scenario)
-- [Scenario 1](#scenario-1)
+  - [Scenario 1](#scenario-1)
   - [Scenario 2](#scenario-2)
+  - [Scenario 3](#scenario-3)
 - [Common Interview Mistakes](#common-interview-mistakes)
   - [Mistake 1](#mistake-1)
   - [Mistake 2](#mistake-2)
@@ -24,7 +26,7 @@
 
 # 13-07-2026
 
-1.  &nbsp;
+1. &nbsp;
 
 &nbsp;
 
@@ -130,9 +132,47 @@ ON TABLE orders_raw;
 
 &nbsp;
 
+### Build an Incremental Customer Pipeline
+
+Source
+
+```
+customer_raw
+```
+
+&nbsp;
+
+Columns:
+
+```
+customer_id
+name
+city
+email
+updated_at
+```
+
+&nbsp;
+
+Requirements
+
+- Create a Dynamic Table that maintains the latest customer record by customer_id.
+- Configure an appropriate TARGET_LAG.
+- Write a Python script that:
+  - Reads customer CSV files.
+  - Validates mandatory fields (customer_id, email).
+  - Rejects duplicate customer_id values within a file.
+  - Loads valid rows into customer_raw.
+- Verify that the Dynamic Table refreshes automatically after new data is loaded.
+- Measure refresh latency and verify that repeated runs do not introduce inconsistent results.
+
+&nbsp;
+
+&nbsp;
+
 # Senior-Level Scenario
 
-# Scenario 1
+## Scenario 1
 
 A retail platform receives 15 million orders per day from multiple regions.
 
@@ -186,6 +226,34 @@ A strong interview answer should emphasize reliability, recoverability, and oper
 
 &nbsp;
 
+## Scenario 3
+
+Your company processes 2 TB of customer and order data daily.
+
+Current challenges:
+
+- CSV files arrive continuously throughout the day.
+- Customer dimension updates must appear within 5 minutes.
+- Some files are accidentally delivered twice.
+- API enrichment occasionally times out.
+- Business users expect low-latency reporting without manual refreshes.
+
+&nbsp;
+
+Design an architecture that explains:
+
+- How Python ingests and validates files while preventing duplicate processing.
+- When to use Dynamic Tables versus Streams and Tasks for downstream transformations.
+- How to make the ingestion and transformation pipeline idempotent.
+- How to monitor Dynamic Table refresh health, Python job failures, and data quality.
+- How you would balance warehouse size, TARGET_LAG, and compute cost to meet the 5-minute SLA.
+
+A strong interview answer should demonstrate an understanding of pipeline reliability, Snowflake-native transformation options, operational monitoring, and performance trade-offs rather than focusing on a single technology.
+
+&nbsp;
+
+&nbsp;
+
 &nbsp;
 
 &nbsp;
@@ -207,6 +275,12 @@ Idempotency means repeated executions produce the same correct end state without
 &nbsp;
 
 ### Mistake 2
+
+"Retrying failed ETL jobs is enough to ensure reliability."
+
+Correction
+
+Retries should be combined with idempotent logic, checkpointing, and duplicate prevention to avoid inconsistent data.
 
 &nbsp;
 

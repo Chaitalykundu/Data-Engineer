@@ -90,7 +90,7 @@ FROM employees;
 
 &nbsp;
 
-## Return constant values:
+## Return constant values
 
 ```sql
 SELECT CURRENT_DATE;
@@ -100,7 +100,7 @@ SELECT 100;
 
 &nbsp;
 
-## Remove duplicate rows using DISTINCT:
+## Remove duplicate rows using DISTINCT
 
 ```sql
 SELECT DISTINCT department_id
@@ -109,7 +109,7 @@ FROM employees;
 
 &nbsp;
 
-## Filter rows using WHERE:
+## Filter rows using WHERE
 
 ```sql
 SELECT *
@@ -119,7 +119,7 @@ WHERE salary > 50000;
 
 &nbsp;
 
-## Sort results using ORDER BY:
+## Sort results using ORDER BY
 
 ```sql
 SELECT *
@@ -129,7 +129,7 @@ ORDER BY salary DESC;
 
 &nbsp;
 
-## Limit returned rows:
+## Limit returned rows
 
 ```sql
 SELECT *
@@ -139,7 +139,7 @@ LIMIT 10;
 
 &nbsp;
 
-## Skip rows using OFFSET:
+## Skip rows using OFFSET
 
 ```sql
 SELECT *
@@ -150,7 +150,7 @@ LIMIT 10 OFFSET 20;
 
 &nbsp;
 
-## Retrieve data from multiple tables using JOIN:
+## Retrieve data from multiple tables using JOIN
 
 ```sql
 SELECT e.employee_name, d.department_name
@@ -224,4 +224,3 @@ JOIN departments d
 &nbsp;
 
 &nbsp;
-

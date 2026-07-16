@@ -140,7 +140,7 @@ FROM employees
 ORDER BY 2 DESC;
 ```
 
-1.  Does ORDER BY change the data stored in a table?
+1. Does ORDER BY change the data stored in a table?
 
 &nbsp;
 

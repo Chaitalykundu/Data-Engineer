@@ -16,13 +16,11 @@ Warehouse optimization means tuning your data warehouse to achieve the right bal
 
 Since you’re working with Snowflake, warehouse optimization usually focuses on Virtual Warehouse sizing, scaling, query performance, and credit consumption.
 
-
 &nbsp;
 
 &nbsp;
 
 &nbsp;
-
 
 # 1. Understand the workload first (most important)
 
@@ -36,7 +34,6 @@ Before changing anything, identify:
 | Data Volume   | GB/TB processed?            |
 | Query Pattern | ETL, BI, dashboard, ad hoc? |
 | Peak Hours    | Traffic spikes?             |
-
 
 &nbsp;
 

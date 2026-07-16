@@ -26,7 +26,7 @@
 
 # Random Interview Questions Answer
 
-### 8. Explain dbt run vs dbt build.
+### 8. Explain dbt run vs dbt build
 
 dbt run → Models only
 

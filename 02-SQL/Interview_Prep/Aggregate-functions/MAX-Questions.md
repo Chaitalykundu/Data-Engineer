@@ -80,13 +80,13 @@
 
 # Tricky Questions
 
-1.  What is the output?
+1. What is the output?
 
     ```sql
     SELECT MAX(NULL);
     ```
 
-2.  What is the output?
+2. What is the output?
 
     ```sql
     SELECT MAX(salary)
@@ -96,7 +96,7 @@
 
     Assume there are no employees in the Marketing department.
 
-3.  What is the difference between these two queries?
+3. What is the difference between these two queries?
 
         ```sql
         SELECT MAX(salary)
@@ -112,7 +112,7 @@
 
     Can `MAX()` be used on a VARCHAR column? If yes, what does it return?
 
-4.  Why does MAX() ignore NULL values?
+4. Why does MAX() ignore NULL values?
 
 &nbsp;
 

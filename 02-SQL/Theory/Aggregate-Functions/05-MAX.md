@@ -19,7 +19,7 @@
   - [Intermediate](#intermediate)
 - [Advanced](#advanced)
 - [Answer](#answer)
-    - [1. Does `MAX()` Return the Whole Row](#1-does-max-return-the-whole-row)
+  - [1. Does `MAX()` Return the Whole Row](#1-does-max-return-the-whole-row)
 
 &nbsp;
 
@@ -165,7 +165,6 @@ FROM employee;
 ```
 
 Returns the highest annual salary.
-
 
 &nbsp;
 

@@ -10,21 +10,24 @@
   - [Snowflake Streams \& Tasks](#snowflake-streams--tasks)
 - [15-07-2026](#15-07-2026)
   - [Snowflake Security \& Administration](#snowflake-security--administration)
+- [16-07-2026](#16-07-2026)
+  - [Snowflake Dynamic Tables](#snowflake-dynamic-tables)
 - [Interview Challenge](#interview-challenge)
   - [Challenge 1](#challenge-1)
 - [Common Interview Mistakes](#common-interview-mistakes)
-    - [Mistake 1](#mistake-1)
-    - [Mistake 2](#mistake-2)
-    - [Mistake 3](#mistake-3)
-    - [Mistake 4](#mistake-4)
-    - [Mistake 5](#mistake-5)
-    - [Mistake 6](#mistake-6)
-    - [Mistake 7](#mistake-7)
-    - [Mistake 8](#mistake-8)
-    - [Mistake 9](#mistake-9)
-    - [Mistake 10](#mistake-10)
-    - [Mistake 11](#mistake-11)
+  - [Mistake 1](#mistake-1)
+  - [Mistake 2](#mistake-2)
+  - [Mistake 3](#mistake-3)
+  - [Mistake 4](#mistake-4)
+  - [Mistake 5](#mistake-5)
+  - [Mistake 6](#mistake-6)
+  - [Mistake 7](#mistake-7)
+  - [Mistake 8](#mistake-8)
+  - [Mistake 9](#mistake-9)
+  - [Mistake 10](#mistake-10)
+  - [Mistake 11](#mistake-11)
   - [Mistake 12](#mistake-12)
+  - [Mistake 13](#mistake-13)
 
 &nbsp;
 
@@ -92,6 +95,13 @@
 &nbsp;
 
 &nbsp;
+
+# 16-07-2026
+
+## Snowflake Dynamic Tables
+
+1. What is a Dynamic Table, and how is it different from a Materialized View?
+2. What happens if a Dynamic Table refresh fails?
 
 &nbsp;
 
@@ -270,7 +280,6 @@ Tasks execute on a schedule or dependency chain. They do not monitor table chang
 
 ### Mistake 11
 
-
 "Network policies control object permissions."
 
 Correction
@@ -292,6 +301,14 @@ Authentication verifies identity; authorization determines permitted actions aft
 &nbsp;
 
 &nbsp;
+
+## Mistake 13
+
+"Dynamic Tables replace every use case for Streams and Tasks."
+
+Correction
+
+Dynamic Tables simplify many transformation pipelines, but Streams and Tasks remain valuable for event-driven processing, CDC workflows, and custom orchestration.
 
 &nbsp;
 
