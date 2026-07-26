@@ -6,6 +6,8 @@
   - [12-07-2026](#12-07-2026)
   - [13-07-2026](#13-07-2026)
   - [16-07-2026](#16-07-2026)
+  - [17-07-2026](#17-07-2026)
+  - [18-07-2026](#18-07-2026)
 
 &nbsp;
 
@@ -79,6 +81,21 @@ Hands-on practice: Take one pipeline and prepare answers for:
 &nbsp;
 
 &nbsp;
+
+## 17-07-2026
+
+1. . Snowflake now supports named key pairs with role restrictions and expiration
+2. Dynamic Tables can incrementally refresh queries containing VOLATILE scalar UDFs
+
+&nbsp;
+
+&nbsp;
+
+## 18-07-2026
+
+1. Snowflake is adding Apache Iceberg v3 UNKNOWN type support
+2. Semantic-view materializations can reduce repeated analytical computation
+3. GitHub can now archive pull requests, but archiving is not deletion
 
 &nbsp;
 

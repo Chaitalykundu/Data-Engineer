@@ -8,13 +8,12 @@
 - [Hands-on](#hands-on)
   - [1. Design a Secure Sales Warehouse](#1-design-a-secure-sales-warehouse)
   - [2. Build a Secure Snowflake Environment with Terraform](#2-build-a-secure-snowflake-environment-with-terraform)
-- [Senior-Level Scenario](#senior-level-scenario)
-  - [Scenario 1](#scenario-1)
-  - [Scenario 2](#scenario-2)
 - [Common Interview Mistakes](#common-interview-mistakes)
-  - [Mistake 1](#mistake-1)
-  - [Mistake 2](#mistake-2)
-  - [Mistake 3](#mistake-3)
+    - [Mistake 1](#mistake-1)
+    - [Mistake 2](#mistake-2)
+    - [Mistake 3](#mistake-3)
+    - [Mistake 4](#mistake-4)
+    - [Mistake 5](#mistake-5)
 
 &nbsp;
 
@@ -135,58 +134,6 @@ Configure:
 
 &nbsp;
 
-# Senior-Level Scenario
-
-## Scenario 1
-
-Your organization has:
-
-- 400+ Snowflake users
-- Multiple business units
-- Dev, QA, and Prod environments
-- Terraform-managed infrastructure
-- Hundreds of databases and schemas
-
-&nbsp;
-
-Design an RBAC strategy that addresses:
-
-- Separation of platform, engineering, analyst, and application roles.
-- Use of database roles versus account roles.
-- Future grants for new tables and views.
-- Promotion of Terraform changes across environments with minimal manual intervention.
-- Handling temporary elevated access (break-glass access) while maintaining auditability.
-
-In an interview, focus on least-privilege access, role inheritance, environment isolation, automation, and operational maintainability rather than only listing SQL grant statements.
-
-&nbsp;
-
-&nbsp;
-
-## Scenario 2
-
-Your company is migrating from a manually managed Snowflake environment to a fully automated platform.
-
-Current challenges:
-
-- Developers manually create databases and roles.
-- Password-based service accounts are widely used.
-- RBAC differs between Dev, QA, and Prod.
-- Terraform deployments occasionally overwrite manual changes.
-- Analysts accidentally receive broader privileges than intended.
-
-&nbsp;
-
-Design a solution that explains:
-
-- A modular Terraform repository structure for Snowflake resources.
-- An RBAC strategy using account roles, database roles, and role inheritance.
-- Authentication using Workload Identity Federation for application workloads.
-- A process for detecting and resolving Terraform drift before applying changes.
-- Security controls including network policies, least privilege, resource monitors, and environment isolation.
-
-A strong interview answer should show how Infrastructure as Code, RBAC, authentication, and governance work together to create a secure, repeatable, and auditable Snowflake platform.
-
 &nbsp;
 
 &nbsp;
@@ -229,13 +176,36 @@ Terraform relies on the configured backend. State durability, versioning, and lo
 
 ### Mistake 3
 
-&nbsp;
+"terraform apply should run directly after every commit."
+
+Correction
+
+In production, review the terraform plan output and use approval gates before applying infrastructure changes.
 
 &nbsp;
 
 &nbsp;
 
+### Mistake 4
+
+"A successful terraform plan guarantees a safe deployment."
+
+Correction
+
+terraform plan shows proposed changes. Human review, approval, testing, and state management are still essential before applying changes.
+
 &nbsp;
+
+&nbsp;
+
+### Mistake 5
+
+"Terraform modules are only useful for large projects."
+
+Correction
+
+Even small projects benefit from modules through reuse and consistent resource definitions.
+
 
 &nbsp;
 

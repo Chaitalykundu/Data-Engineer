@@ -5,6 +5,7 @@
   - [Problem](#problem)
   - [Snowflake solution](#snowflake-solution)
 - [Micro Partitions](#micro-partitions)
+- [Key characteristics](#key-characteristics)
   - [Note](#note)
 - [How Micro-Partitioning Works](#how-micro-partitioning-works)
   - [Insert](#insert)
@@ -17,7 +18,7 @@
 - [Metadata Stored for Each Micro-Partition](#metadata-stored-for-each-micro-partition)
 - [Partition Pruning](#partition-pruning)
 - [How to Check Partitions](#how-to-check-partitions)
-  - [Output:](#output)
+  - [Output](#output)
 
 &nbsp;
 
@@ -29,17 +30,20 @@
 
 Traditional databases use:
 
-- Tables
-- Indexes
-- Manual partitioning
+- **Tables** to store data
+- **Indexes** to improve query performance
+- **Manual partitioning** to divide large tables
 
 &nbsp;
 
 ## Problem
 
-- Large scans
-- High maintenance
-- Expensive indexing
+Problems with the traditional approach:
+
+- Large queries may scan huge amounts of data
+- Indexes and partitions require regular maintenance
+- Creating and maintaining indexes increases storage and processing costs
+- Choosing an incorrect partition key can reduce performance
 
 &nbsp;
 
@@ -54,6 +58,8 @@ Traditional databases use:
 # Micro Partitions
 
 When we load or insert data into Snowflake, it automatically breaks data into small blocks of storage. These are called **micro-partitions**.
+
+Snowflake introduced micro-partitions to store and query very large datasets efficiently without requiring users to manage traditional partitions manually.
 
 &nbsp;
 
@@ -74,6 +80,8 @@ Compressed Columnar Data
 ```
 
 &nbsp;
+
+# Key characteristics
 
 Each micro-partition:
 

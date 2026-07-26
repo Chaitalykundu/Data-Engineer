@@ -12,6 +12,10 @@
   - [Snowflake Security \& Administration](#snowflake-security--administration)
 - [16-07-2026](#16-07-2026)
   - [Snowflake Dynamic Tables](#snowflake-dynamic-tables)
+- [17-07-2026](#17-07-2026)
+  - [Snowflake Time Travel, Fail-safe \& Zero-Copy Cloning](#snowflake-time-travel-fail-safe--zero-copy-cloning)
+- [21-07-2026](#21-07-2026)
+  - [Snowflake Storage Integration \& External Stages](#snowflake-storage-integration--external-stages)
 - [Interview Challenge](#interview-challenge)
   - [Challenge 1](#challenge-1)
 - [Common Interview Mistakes](#common-interview-mistakes)
@@ -28,6 +32,13 @@
   - [Mistake 11](#mistake-11)
   - [Mistake 12](#mistake-12)
   - [Mistake 13](#mistake-13)
+  - [Mistake 14](#mistake-14)
+  - [Mistake 15](#mistake-15)
+  - [Mistake 16](#mistake-16)
+  - [Mistake 17](#mistake-17)
+  - [Mistake 18](#mistake-18)
+  - [Mistake 19](#mistake-19)
+  - [Mistake 20](#mistake-20)
 
 &nbsp;
 
@@ -102,6 +113,37 @@
 
 1. What is a Dynamic Table, and how is it different from a Materialized View?
 2. What happens if a Dynamic Table refresh fails?
+
+&nbsp;
+
+&nbsp;
+
+# 17-07-2026
+
+## Snowflake Time Travel, Fail-safe & Zero-Copy Cloning
+
+1.  Explain the difference between Time Travel, Fail-safe, and Zero-Copy Cloning.
+2.  A developer accidentally drops a table. What recovery options are available?
+
+&nbsp;
+
+&nbsp;
+
+# 21-07-2026
+
+## Snowflake Storage Integration & External Stages
+
+1. What is the difference between an Internal Stage, External Stage, and User Stage?
+2. What is a Storage Integration, and why is it preferred?
+3. How would you securely load files from Amazon S3 into Snowflake?
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 
@@ -314,17 +356,83 @@ Dynamic Tables simplify many transformation pipelines, but Streams and Tasks rem
 
 &nbsp;
 
-&nbsp;
+## Mistake 14
+
+"Time Travel is a backup solution."
+
+Correction
+
+Time Travel is designed for recovering historical versions of objects within the configured retention period. It is not a substitute for a backup or disaster recovery strategy.
 
 &nbsp;
 
 &nbsp;
 
+## Mistake 15
+
+"Zero-Copy Clone duplicates all storage."
+
+Correction
+
+A clone initially shares the same underlying storage as the source. Additional storage is consumed only as data diverges due to changes.
+
 &nbsp;
+
+## Mistake 16
+
+"MERGE automatically handles duplicate source records."
+
+Correction
+
+If multiple source rows match the same target row, MERGE can fail or produce unintended results. Deduplicate the source before merging.
 
 &nbsp;
 
 &nbsp;
+
+## Mistake 17
+
+"`SELECT *` is acceptable because Snowflake is columnar."
+
+Correction
+
+Snowflake stores data column-wise, but `SELECT *` still reads every referenced column and can increase I/O, network transfer, and downstream processing.
+
+&nbsp;
+
+&nbsp;
+
+## Mistake 18
+
+"External Stages require storing cloud access keys in SQL."
+
+Correction
+
+Use Storage Integrations with cloud-native identity mechanisms (IAM roles, managed identities, or service accounts) instead of embedding credentials.
+
+&nbsp;
+
+&nbsp;
+
+## Mistake 19
+
+"Future tables are automatically available through a Snowflake share."
+
+Correction
+
+Objects must be granted explicitly to a share. New tables are not exposed automatically unless you implement a process to grant them.
+
+&nbsp;
+
+&nbsp;
+
+## Mistake 20
+
+"Secure Data Sharing copies the provider's data into the consumer account."
+
+Correction
+
+Consumers query the provider's live data. Storage is not duplicated as part of the share.
 
 &nbsp;
 
