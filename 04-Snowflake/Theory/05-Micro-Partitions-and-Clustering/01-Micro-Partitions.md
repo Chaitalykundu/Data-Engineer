@@ -6,19 +6,25 @@
   - [Snowflake solution](#snowflake-solution)
 - [Micro Partitions](#micro-partitions)
 - [Key characteristics](#key-characteristics)
-  - [Note](#note)
 - [How Micro-Partitioning Works](#how-micro-partitioning-works)
-  - [Insert](#insert)
-  - [Snowflake](#snowflake)
-  - [Example](#example)
-    - [Example](#example-1)
-- [Key Properties](#key-properties)
+  - [1. Data is loaded or inserted](#1-data-is-loaded-or-inserted)
+  - [2. Data is automatically divided](#2-data-is-automatically-divided)
+  - [3. Data is stored in columnar format](#3-data-is-stored-in-columnar-format)
+    - [Example](#example)
+  - [4. Metadata is generated](#4-metadata-is-generated)
+  - [5. Query filtering is checked against metadata](#5-query-filtering-is-checked-against-metadata)
+  - [6. Required columns are scanned](#6-required-columns-are-scanned)
+  - [7. Changes create new micro-partitions](#7-changes-create-new-micro-partitions)
+  - [Complete flow](#complete-flow)
 - [Micro-Partition Size](#micro-partition-size)
 - [Benefits](#benefits)
 - [Metadata Stored for Each Micro-Partition](#metadata-stored-for-each-micro-partition)
-- [Partition Pruning](#partition-pruning)
+- [Impact of Micro-Partitions in Snowflake](#impact-of-micro-partitions-in-snowflake)
 - [How to Check Partitions](#how-to-check-partitions)
   - [Output](#output)
+- [Interview Questions](#interview-questions)
+- [Answers](#answers)
+  - [5. Suppose we have the table. Now we need to filter the data BETWEEN '2026-03-01' AND '2026-06-30'. Then what will happen? Can we partition this more](#5-suppose-we-have-the-table-now-we-need-to-filter-the-data-between-2026-03-01-and-2026-06-30-then-what-will-happen-can-we-partition-this-more)
 
 &nbsp;
 
@@ -81,21 +87,44 @@ Compressed Columnar Data
 
 &nbsp;
 
+&nbsp;
+
 # Key characteristics
 
-Each micro-partition:
+1. **Immutable** → Once created, a micro-partition can’t be changed. Updates/deletes create new micro-partitions and mark old ones as invalid.
 
-- can hold ~16 MB of compressed data and 50 MB – 500 MB of uncompressed data.
-- Stores data in a columnar format.
-- Covers a contiguous range of values for the table’s columns.
+2. **Automatic** → Snowflake automatically divides table data into micro-partitions during data loading. No manual partition definition is required. Users don’t create or manage them directly
+
+3. **Small storage units** → Each micro-partition can hold ~16 MB of compressed data and 50 MB – 500 MB of uncompressed data.
+
+4. **Columnar storage** → Data is stored column by column, allowing Snowflake to scan only the columns required by a query.
+
+5. **Compressed storage** → Snowflake automatically compresses the data and chooses suitable compression techniques.
+
+6. **Metadata Stored Separately** → For each micro-partition, Snowflake stores:
+   - Column min/max values
+   - Number of distinct values
+   - Null count
+   - Bloom filters
+
+7. **Supports partition pruning** → Snowflake uses metadata to
+   skip micro-partitions that cannot contain matching rows.
+
+8. **Overlapping value ranges are possible** → The same value
+   or date range can appear in multiple micro-partitions,
+   especially when data is loaded out of order.
+
+9. **Transparent to users** → Users cannot directly create,
+   resize or manage individual micro-partitions.
+
+10. **Supports efficient data management features** →
+    Immutability helps Snowflake provide:
+    - Time Travel
+    - Fail-safe
+    - Zero-copy cloning
+11. **Can be reorganized through clustering** → Users cannot control partition boundaries, but clustering keys can improve how related values are grouped across micro-partitions.
 
 &nbsp;
-
-&nbsp;
-
-## Note
-
-Micro-partitioning is automatically performed on all snowflake tables.
 
 &nbsp;
 
@@ -103,15 +132,24 @@ Micro-partitioning is automatically performed on all snowflake tables.
 
 # How Micro-Partitioning Works
 
-## Insert
+When data is loaded into a Snowflake table, Snowflake automatically performs the following steps:
+
+## 1. Data is loaded or inserted
+
+```sql
+COPY INTO sales
+FROM @sales_stage;
+```
 
 ```sql
 INSERT INTO SALES VALUES (...);
 ```
 
+Snowflake receives the table data from files, applications or other sources or by inserting fresh data
+
 &nbsp;
 
-## Snowflake
+## 2. Data is automatically divided
 
 ```
 TABLE
@@ -125,64 +163,98 @@ Create MP3
 
 Each partition stores metadata.
 
+Users do not need to create or manage these partitions.
+
 &nbsp;
 
-## Example
+## 3. Data is stored in columnar format
 
-MP1:
-
-```
-Order_id:
-MIN=1
-MAX=1000
-```
-
-MP2:
-
-```
-Order_id:
-MIN=1001
-MAX=2000
-```
+Inside each micro-partition, data is stored column by column instead of row by row.
 
 &nbsp;
 
 ### Example
 
-| ID  | NAME | CITY    |
-| --- | ---- | ------- |
-| 1   | A    | Delhi   |
-| 2   | B    | Mumbai  |
-| 3   | C    | Kolkata |
+| Micro-partition | Order ID    | Order date | Region    |
+| --------------- | ----------- | ---------- | --------- |
+| MP1             | 1–1,000     | Jan–Mar    | India, US |
+| MP2             | 1,001–2,000 | Apr–Jun    | India, UK |
+| MP3             | 2,001–3,000 | Jul–Sep    | US, UK    |
+
+This allows Snowflake to read only the columns required by a query.
 
 &nbsp;
 
-Snowflake stores:
+## 4. Metadata is generated
 
-- MP1 → Rows 1–50000
-- MP2 → Rows 50001–100000
-- MP3 → Rows 100001–150000
+Snowflake stores metadata for each micro-partition, including:
 
-Not row-based.
+- Minimum and maximum column values
+- Number of distinct values
+- Number of NULL values
+- Other statistics used for query optimization
+
+The metadata is stored separately, so Snowflake can inspect it without scanning the actual table data.
+
+&nbsp;
+
+## 5. Query filtering is checked against metadata
+
+Consider this query:
+
+```sql
+SELECT order_id, region
+FROM sales
+WHERE order_date BETWEEN '2026-04-01' AND '2026-06-30';
+```
+
+Snowflake checks the date ranges stored in the metadata:
+
+| Micro-partition | Date range | Action |
+| --------------- | ---------- | ------ |
+| MP1             | Jan–Mar    | Skip   |
+| MP2             | Apr–Jun    | Scan   |
+| MP3             | Jul–Sep    | Skip   |
+
+Only MP2 is scanned.
+
+This process is called micro-partition pruning.
+
+&nbsp;
+
+## 6. Required columns are scanned
+
+Within MP2, Snowflake reads only:
+
+- order_id
+- region
+- order_date, which is needed for filtering
+
+Other columns such as `customer_name` or `payment_method` do not need to be read.
+
+&nbsp;
+
+## 7. Changes create new micro-partitions
+
+Micro-partitions are immutable, meaning they cannot be modified in place.
+
+When rows are updated or deleted:
+
+- Snowflake creates new micro-partitions containing the changed data.
+- The old micro-partitions are retained temporarily for Time Travel.
+- Query metadata is updated automatically.
+
+&nbsp;
+
+## Complete flow
+
+```
+Load data → Create micro-partitions → Store columnar data → Generate metadata → Evaluate query filter → Prune irrelevant partitions → Scan required partitions and columns → Return results
+```
 
 &nbsp;
 
 &nbsp;
-
-# Key Properties
-
-1. **Immutable** → Once created, a micro-partition can’t be changed. Updates/deletes create new micro-partitions and mark old ones as invalid.
-
-2. **Automatic** → Users don’t create or manage them directly; Snowflake handles it behind the scenes.
-
-3. **Metadata Stored Separately** → For each micro-partition, Snowflake stores:
-   - Column min/max values
-   - Number of distinct values
-   - Null count
-   - Bloom filters
-
-This metadata allows pruning:
-👉 Instead of scanning entire tables, Snowflake checks which micro-partitions contain relevant values.
 
 &nbsp;
 
@@ -192,8 +264,8 @@ This metadata allows pruning:
 
 Typical:
 
+- ~16 MB of comressed data
 - 50 MB–500 MB uncompressed data
-- ~16 MB of compressed data
 
 &nbsp;
 
@@ -232,35 +304,26 @@ Metadata stored in micro-partitions includes:
 
 &nbsp;
 
-# Partition Pruning
+# Impact of Micro-Partitions in Snowflake
 
-Partition Pruning means Scanning only relevant partitions using metadata.
-
-This is the core optimization.
-
-```sql
-SELECT *
-FROM SALES
-WHERE DATE='2026-06-01';
-```
+Micro-partitions directly affect query performance, cost, storage, and maintenance.
 
 &nbsp;
 
-Snowflake checks metadata:
+| Area                | Impact                                                                                                                            |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Query performance   | Snowflake scans only relevant micro-partitions using pruning, so queries can run faster.                                          |
+| Compute cost        | Less data scanned means the warehouse does less work, which can reduce credit usage.                                              |
+| Storage efficiency  | Columnar storage and automatic compression reduce physical storage usage.                                                         |
+| Maintenance         | No manual partitions or traditional indexes need to be created and maintained.                                                    |
+| Data loading        | Data is automatically organized into micro-partitions during load.                                                                |
+| Updates and deletes | Changes create new micro-partitions rather than modifying old ones in place.                                                      |
+| Time Travel         | Older micro-partition versions can be retained, allowing recovery of previous data.                                               |
+| Zero-copy cloning   | Clones can initially reference the same underlying micro-partitions, so cloning is fast and storage-efficient.                    |
+| Query optimization  | Metadata such as minimum and maximum values helps the optimizer decide what data to scan.                                         |
+| Clustering          | If values are scattered across many micro-partitions, pruning becomes weak; clustering can improve organization for large tables. |
 
-- MP1 → Jan–Mar ❌
-- MP2 → Apr–Jun ✅
-- MP3 → Jul–Sep ❌
-
-Only MP2 scanned.
-
-This is called Partition Pruning
-
-Result:
-
-- Less scan
-- Faster query
-- Lower credits
+&nbsp;
 
 &nbsp;
 
@@ -298,10 +361,59 @@ Lower depth → Better.
 
 &nbsp;
 
+# Interview Questions
+
+1. Why Did Snowflake Introduce Micro-Partitions
+2. What is Micro-Partitions
+3. What are the Key Properties of micro partition
+4. How does Micro-Partitioning Work
+5. Suppose we have the table
+
+   | Micro-partition | Order ID    | Order date | Region    |
+   | --------------- | ----------- | ---------- | --------- |
+   | MP1             | 1–1,000     | Jan–Mar    | India, US |
+   | MP2             | 1,001–2,000 | Apr–Jun    | India, UK |
+   | MP3             | 2,001–3,000 | Jul–Sep    | US, UK    |
+
+   Now we need to filter the data BETWEEN '2026-03-01' AND '2026-06-30'. Then what will happen? Can we partition this more
+
+6. What are the Metadata Stored for Each Micro-Partition
+7. What is Partition Pruning
+
+&nbsp;
+
 &nbsp;
 
 &nbsp;
 
 &nbsp;
+
+&nbsp;
+
+# Answers
+
+## 5. Suppose we have the table. Now we need to filter the data BETWEEN '2026-03-01' AND '2026-06-30'. Then what will happen? Can we partition this more
+
+| Micro-partition | Order ID    | Order date | Region    |
+| --------------- | ----------- | ---------- | --------- |
+| MP1             | 1–1,000     | Jan–Mar    | India, US |
+| MP2             | 1,001–2,000 | Apr–Jun    | India, UK |
+| MP3             | 2,001–3,000 | Jul–Sep    | US, UK    |
+
+Snowflake will scan both MP1 and MP2 because the requested date range overlaps both micro-partitions.
+
+```sql
+SELECT order_id, region
+FROM sales
+WHERE order_date BETWEEN '2026-03-01' AND '2026-06-30';
+```
+
+Snowflake first uses metadata to prune MP3. It then scans MP1 and MP2 and applies the exact date filter:
+
+- From MP1, only rows dated March 1–31 are returned.
+- From MP2, rows dated April 1–June 30 are returned.
+- January and February rows in MP1 are scanned but filtered out.
+
+This illustrates an important point: partition pruning determines which micro-partitions must be scanned; the WHERE condition then determines which rows are returned.
 
 &nbsp;
