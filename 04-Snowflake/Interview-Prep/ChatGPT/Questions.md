@@ -1,7 +1,8 @@
 # Content
 
 - [Content](#content)
-- [11-07-2026](#11-07-2026)
+- [Questions](#questions)
+  - [11-07-2026 ... Snowflake Micro-partitions \& Clustering](#11-07-2026--snowflake-micro-partitions--clustering)
 - [12-07-2026](#12-07-2026)
   - [Snowflake RBAC \& Administration](#snowflake-rbac--administration)
 - [13-07-2026](#13-07-2026)
@@ -46,7 +47,9 @@
 
 &nbsp;
 
-# 11-07-2026
+# Questions
+
+## 11-07-2026 ... Snowflake Micro-partitions & Clustering
 
 1. What exactly is stored inside a Snowflake micro-partition?
 2. When should you enable Automatic Clustering?

@@ -1,19 +1,21 @@
 # Content
 
 - [Content](#content)
-- [12-07-2026](#12-07-2026)
-- [15-07-2026](#15-07-2026)
+- [Questions](#questions)
+  - [12-07-2026](#12-07-2026)
+  - [15-07-2026](#15-07-2026)
+  - [Terraform State \& Snowflake IaC](#terraform-state--snowflake-iac)
 - [Interview Challenge](#interview-challenge)
   - [Challenge](#challenge)
 - [Hands-on](#hands-on)
   - [1. Design a Secure Sales Warehouse](#1-design-a-secure-sales-warehouse)
   - [2. Build a Secure Snowflake Environment with Terraform](#2-build-a-secure-snowflake-environment-with-terraform)
 - [Common Interview Mistakes](#common-interview-mistakes)
-    - [Mistake 1](#mistake-1)
-    - [Mistake 2](#mistake-2)
-    - [Mistake 3](#mistake-3)
-    - [Mistake 4](#mistake-4)
-    - [Mistake 5](#mistake-5)
+  - [Mistake 1](#mistake-1)
+  - [Mistake 2](#mistake-2)
+  - [Mistake 3](#mistake-3)
+  - [Mistake 4](#mistake-4)
+  - [Mistake 5](#mistake-5)
 
 &nbsp;
 
@@ -21,7 +23,9 @@
 
 &nbsp;
 
-# 12-07-2026
+# Questions
+
+## 12-07-2026
 
 1. Why should Snowflake objects be managed through Terraform instead of manual SQL?
 2. How does Terraform detect changes?
@@ -30,12 +34,18 @@
 
 &nbsp;
 
-# 15-07-2026
+## 15-07-2026
 
 1. How would you structure Terraform code for managing multiple Snowflake environments (Dev, QA, Prod)?
 2. Why is storing the Terraform state file locally risky?
 
 &nbsp;
+
+## Terraform State & Snowflake IaC
+
+1.  Why does Terraform need a state file?
+2.  Why should a team avoid storing terraform.tfstate in Git?
+3.  Someone manually creates PROD_WH in Snowflake, but you now want Terraform to manage it. What should you do?
 
 &nbsp;
 
@@ -205,7 +215,6 @@ terraform plan shows proposed changes. Human review, approval, testing, and stat
 Correction
 
 Even small projects benefit from modules through reuse and consistent resource definitions.
-
 
 &nbsp;
 

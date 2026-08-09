@@ -95,7 +95,7 @@ Compressed Columnar Data
 
 2. **Automatic** → Snowflake automatically divides table data into micro-partitions during data loading. No manual partition definition is required. Users don’t create or manage them directly
 
-3. **Small storage units** → Each micro-partition can hold ~16 MB of compressed data and 50 MB – 500 MB of uncompressed data.
+3. **Small storage units** → Each micro-partition can hold **~16 MB of compressed data** and **50 MB – 500 MB of uncompressed data**.
 
 4. **Columnar storage** → Data is stored column by column, allowing Snowflake to scan only the columns required by a query.
 
@@ -258,13 +258,11 @@ Load data → Create micro-partitions → Store columnar data → Generate metad
 
 &nbsp;
 
-&nbsp;
-
 # Micro-Partition Size
 
 Typical:
 
-- ~16 MB of comressed data
+- ~16 MB of compressed data
 - 50 MB–500 MB uncompressed data
 
 &nbsp;
@@ -273,9 +271,16 @@ Typical:
 
 # Benefits
 
-- **Faster Queries** → Only scan relevant partitions.
-- **Reduced Cost** → Less data scanned = fewer credits used.
-- **Columnar Storage** → Better compression & vectorized execution.
+- **Faster Queries** → Snowflake uses metadata to skip irrelevant micro-partitions, so it reads less data.
+- **Columnar Storage** → Snowflake reads only the required columns, which improves performance for wide tables.
+- **Partition pruning** -> If a query filters by order_date, Snowflake scans only partitions that may contain the requested date.
+- **Lower compute cost** - Less data scanned usually means less warehouse processing time and fewer credits used.
+- **No manual partitioning** -> You do not need to define partition keys, create partitions, or maintain them.
+- **No traditional indexes required** -> Snowflake uses micro-partition metadata instead of user-managed indexes for most analytical queries.
+- **Automatic compression** -> Data is compressed automatically, reducing physical storage usage.
+- **Supports large-scale analytics** -> Micro-partitions allow Snowflake to process very large tables efficiently and in parallel.
+- **Supports Time Travel and Zero-Copy Cloning** -> Because micro-partitions are immutable, Snowflake can retain older versions and share existing storage references efficiently.
+- **Works automatically** -> Every standard Snowflake table uses micro-partitions by default—no setup is needed.
 
 &nbsp;
 
@@ -283,7 +288,9 @@ Typical:
 
 # Metadata Stored for Each Micro-Partition
 
-Along with the actual columnar data, Snowflake also stores metadata for every micro-partition. This metadata is key to query optimization and performance improvements.
+Along with the actual columnar data, Snowflake also stores metadata for every micro-partition. Metadata also maintained by the snowflake.
+
+This metadata is key to query optimization and performance improvements.
 
 &nbsp;
 
