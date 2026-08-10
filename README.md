@@ -1,10 +1,90 @@
 # Data Engineer
 
 - [Data Engineer](#data-engineer)
+- [What does a Data Engineer do](#what-does-a-data-engineer-do)
+- [Main responsibilities](#main-responsibilities)
+- [Main Components of Data Engineering](#main-components-of-data-engineering)
 - [Resources](#resources)
 - [Roadmap](#roadmap)
 
 &nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# What does a Data Engineer do
+
+A Data Engineer builds and maintains systems that collect, store, clean, transform, and deliver data so it can be reliably used for reporting, analytics, and machine learning.
+
+&nbsp;
+
+A Data Engineer converts scattered raw data into trustworthy, organized, and accessible data products.
+
+&nbsp;
+
+&nbsp;
+
+Typical data flow:
+
+```
+Source systems
+CSV, APIs, databases
+        ↓
+Data ingestion
+Python, Snowpipe
+        ↓
+Data storage
+Snowflake
+        ↓
+Data transformation
+SQL and dbt
+        ↓
+Analytics layer
+Facts, dimensions and marts
+        ↓
+Reports and dashboards
+```
+
+&nbsp;
+
+&nbsp;
+
+# Main responsibilities
+
+| Responsibility            | What it involves                                                                  |
+| ------------------------- | --------------------------------------------------------------------------------- |
+| Data ingestion            | Collect data from databases, APIs, files, applications, and cloud storage         |
+| Pipeline development      | Build automated ETL/ELT pipelines using Python, SQL, dbt, Airflow, Snowpipe, etc. |
+| Data transformation       | Clean, standardize, join, aggregate, and prepare raw data                         |
+| Data modelling            | Design fact tables, dimension tables, star schemas, and reporting marts           |
+| Data quality              | Check for duplicates, missing values, invalid records, and broken relationships   |
+| Data warehousing          | Organize and manage data in Snowflake, Redshift, BigQuery, or similar systems     |
+| Performance optimization  | Improve query speed, warehouse usage, partition pruning, and clustering           |
+| Security and governance   | Configure roles, access controls, masking policies, and auditing                  |
+| Monitoring                | Detect pipeline failures, delays, and unusual data volumes                        |
+| Infrastructure automation | Provision databases, schemas, warehouses, and permissions using Terraform         |
+| Collaboration             | Work with analysts, data scientists, application engineers, and business teams    |
+
+&nbsp;
+
+&nbsp;
+
+# Main Components of Data Engineering
+
+| Component                    | Purpose                                               | Example technologies                               |
+| ---------------------------- | ----------------------------------------------------- | -------------------------------------------------- |
+| Data Sources                 | Systems from which data originates                    | Databases, APIs, CSV, JSON, applications           |
+| Data Ingestion               | Collects and moves data from sources                  | Python, Snowpipe, Fivetran, Kafka                  |
+| Data Storage                 | Stores raw and processed data                         | Snowflake, Amazon S3, PostgreSQL                   |
+| Data Transformation          | Cleans, joins and converts data into useful formats   | SQL, dbt, Python                                   |
+| Data Modeling                | Organizes data for reporting and analytics            | Fact tables, dimensions, star schema               |
+| Orchestration                | Schedules and coordinates pipeline activities         | Airflow, Snowflake Tasks, AWS Step Functions       |
+| Data Quality                 | Checks data accuracy, completeness and consistency    | dbt tests, SQL validation, Great Expectations      |
+| Infrastructure Management    | Creates and manages cloud and data-platform resources | Terraform                                          |
+| Monitoring                   | Tracks pipeline failures, performance and cost        | Datadog, Snowflake Query History                   |
+| Data Security and Governance | Controls access and protects sensitive information    | Snowflake RBAC, masking policies, network policies |
+
 
 &nbsp;
 

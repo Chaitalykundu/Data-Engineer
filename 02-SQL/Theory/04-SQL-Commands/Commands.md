@@ -14,13 +14,13 @@
 
 # Categories of SQL command
 
-| Category | Full Form                    | Purpose                                                     | Common Commands                                 |
-| -------- | ---------------------------- | ----------------------------------------------------------- | ----------------------------------------------- |
-| **DDL**  | Data Definition Language     | Define and modify **database schema** and **structure**     | `CREATE`, `ALTER`, `DROP`, `TRUNCATE`, `RENAME` |
-| **DML**  | Data Manipulation Language   | Manipulate **data** in existing tables                      | `SELECT`, `INSERT`, `UPDATE`, `DELETE`          |
-| **DQL**  | Data Query Language          | Retrieve data from one or more tables                       | `SELECT`                                        |
-| **DCL**  | Data Control Language        | Control **user permissions** and access to data             | `GRANT`, `REVOKE`                               |
-| **TCL**  | Transaction Control Language | Manage **transactions** to ensure consistency and integrity | `COMMIT`, `ROLLBACK`, `SAVEPOINT`, `BEGIN`      |
+| Category | Full Form                    | Purpose                                                     | Common Commands                                            |
+| -------- | ---------------------------- | ----------------------------------------------------------- | ---------------------------------------------------------- |
+| **DDL**  | Data Definition Language     | Define and modify **database schema** and **structure**     | `CREATE`, `ALTER`, `DROP`, `TRUNCATE`, `RENAME`, `COMMENT` |
+| **DML**  | Data Manipulation Language   | Manipulate **data** in existing tables                      | `SELECT`, `INSERT`, `UPDATE`, `DELETE`                     |
+| **DQL**  | Data Query Language          | Retrieve data from one or more tables                       | `SELECT`                                                   |
+| **DCL**  | Data Control Language        | Control **user permissions** and access to data             | `GRANT`, `REVOKE`                                          |
+| **TCL**  | Transaction Control Language | Manage **transactions** to ensure consistency and integrity | `COMMIT`, `ROLLBACK`, `SAVEPOINT`, `BEGIN`                 |
 
 &nbsp;
 
