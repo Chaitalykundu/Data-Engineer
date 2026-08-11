@@ -20,6 +20,8 @@
 
 - It is used to organize data in the form of a **table , schema, view, reports** etc.
 
+- A database contains schemas, and schemas contain tables and other objects.
+
 &nbsp;
 
 &nbsp;
