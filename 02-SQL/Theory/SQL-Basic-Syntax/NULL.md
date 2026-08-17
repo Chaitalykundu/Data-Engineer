@@ -107,40 +107,22 @@ NULL handling in SQL refers to the way SQL deals with missing or unknown values.
 
 &nbsp;
 
-## 1. Checking for NULL
-You cannot use `=` or `!=` to compare with NULL.
+## Handling NULL with functions
 
-### ❌ Incorrect:
-```sql
-SELECT * FROM employees
-WHERE salary = NULL;
-```
+Use functions to replace **NULL** with another value.
 
-&nbsp;
-
-### ✅ Correct:
-```sql
-SELECT * FROM employees
-WHERE salary IS NULL;
-```
 
 &nbsp;
 
 
 &nbsp;
 
-To find non-NULL values:
 
-```sql
-SELECT * FROM employees
-WHERE salary IS NOT NULL;
-```
 
 &nbsp;
 
 &nbsp;
 
-## 2. Using COALESCE()
 
 &nbsp;
 &nbsp;
