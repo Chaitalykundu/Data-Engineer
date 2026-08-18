@@ -36,6 +36,9 @@ CREATE TABLE Employees (
 
 Here, **ManagerID** can have `NULL` if an employee has no manager.
 
+
+Note: `ManagerID INT NULL` and `ManagerID INT` are same .
+
 &nbsp;
 
 ## Inserting NULL
