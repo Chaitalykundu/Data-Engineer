@@ -259,14 +259,6 @@ Output : Average
 
 &nbsp;
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
 ## NOTE
 
 ```sql
@@ -321,7 +313,46 @@ FROM employees;
 
 &nbsp;
 
+# Common Uses of CASE
+
+## 1. In the SELECT Clause
+
+```sql
+SELECT ProductName,
+       Price,
+       CASE
+           WHEN Price > 1000 THEN 'Expensive'
+           ELSE 'Affordable'
+       END AS Category
+FROM Products;
+```
+
 &nbsp;
+
+## 2. In the ORDER BY Clause
+
+Sort records based on custom conditions.
+
+
+```sql
+SELECT *
+FROM Employees
+ORDER BY
+CASE
+    WHEN Department = 'IT' THEN 1
+    WHEN Department = 'HR' THEN 2
+    ELSE 3
+END;
+```
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 
 # Interview Question
 
