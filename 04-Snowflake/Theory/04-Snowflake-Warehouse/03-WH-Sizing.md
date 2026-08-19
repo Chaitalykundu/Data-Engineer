@@ -5,7 +5,6 @@
 - [Warehouse Sizes](#warehouse-sizes)
 - [Scaling pattern](#scaling-pattern)
   - [Example](#example)
-- [](#)
 
 &nbsp;
 
@@ -83,8 +82,6 @@ But cost also increases.
 &nbsp;
 
 &nbsp;
-
-#
 
 &nbsp;
 
