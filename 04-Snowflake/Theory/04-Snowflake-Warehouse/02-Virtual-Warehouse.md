@@ -114,6 +114,8 @@ flowchart TB
 
 # Why Snowflake Uses Virtual Warehouses
 
+For the following features snowflake uses virtual wh
+
 | Feature                    | Benefit                               |
 | -------------------------- | ------------------------------------- |
 | Separate Compute & Storage | Scale independently                   |
