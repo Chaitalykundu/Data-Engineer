@@ -5,8 +5,8 @@
 - [Creating a table with NULL values](#creating-a-table-with-null-values)
   - [Inserting NULL](#inserting-null)
 - [Checking for NULL](#checking-for-null)
-    - [❌ Incorrect:](#-incorrect)
-    - [✅ Correct:](#-correct)
+  - [❌ Incorrect:](#-incorrect)
+  - [✅ Correct:](#-correct)
 - [NULL in comparisons](#null-in-comparisons)
 - [NULL handling](#null-handling)
   - [Handling NULL with functions](#handling-null-with-functions)
@@ -69,7 +69,7 @@ VALUES (1, 'Alice', 50000, NULL);
 
 You cannot use `=` or `!=` to compare with NULL.
 
-### ❌ Incorrect:
+### ❌ Incorrect
 
 ```sql
 SELECT * FROM employees
@@ -78,7 +78,7 @@ WHERE salary = NULL;
 
 &nbsp;
 
-### ✅ Correct:
+### ✅ Correct
 
 ```sql
 SELECT * FROM employees
@@ -187,7 +187,7 @@ Use functions to replace **NULL** with another value.
 
 # Answer
 
-## 1. Why does Any comparison with NULL result in `UNKNOWN`.
+## 1. Why does Any comparison with NULL result in `UNKNOWN`
 
 Because `NULL` means “the value is unknown/missing”, SQL cannot determine whether a comparison involving it is `TRUE` or `FALSE`.
 
@@ -251,7 +251,6 @@ In short, `NULL` is not a value. It represents the absence of a known value, so 
 
 The key difference is that `=` compares values, while `IS NULL` checks whether a value is missing.
 
-
 > NULL = NULL → UNKNOWN
 
 `=` asks `“Are these two values equal?”`
@@ -281,7 +280,6 @@ Therefore: `NULL = NULL` returns **UNKNOWN**
 > NULL IS NULL → TRUE
 
 IS NULL does not compare two values.
-
 
 `NULL IS NULL` means `“Is NULL actually NULL?”`
 

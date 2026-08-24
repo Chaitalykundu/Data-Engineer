@@ -85,7 +85,6 @@ Reports and dashboards
 | Monitoring                   | Tracks pipeline failures, performance and cost        | Datadog, Snowflake Query History                   |
 | Data Security and Governance | Controls access and protects sensitive information    | Snowflake RBAC, masking policies, network policies |
 
-
 &nbsp;
 
 &nbsp;

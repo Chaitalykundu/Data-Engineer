@@ -110,7 +110,6 @@ For example, if a partition contains January–March data but the query asks for
 
 If the same date range is scattered across many micro-partitions, Snowflake may need to scan many partitions. Appropriate clustering can improve data organization and pruning for large tables.
 
-
 For example, if data is loaded in random order:
 
 | Micro-partition | Date range   |
@@ -119,17 +118,16 @@ For example, if data is loaded in random order:
 | MP2             | Feb–August   |
 | MP3             | Mar–December |
 
-
 A query for May may need to scan all three partitions. This is poor pruning.
 
 &nbsp;
 
 &nbsp;
 
-
 # How to see pruning in Snowflake
 
 After running a query in Snowsight, open Query Profile and look for:
+
 ```
 Partitions total
 Partitions scanned
@@ -138,12 +136,14 @@ Partitions pruned
 
 &nbsp;
 
-## Example:
+## Example
+
 ```
 Partitions total:   500
 Partitions scanned: 20
 Partitions pruned:  480
 ```
+
 This indicates good pruning.
 
 &nbsp;

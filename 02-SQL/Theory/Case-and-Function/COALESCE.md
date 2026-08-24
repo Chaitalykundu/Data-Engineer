@@ -17,7 +17,6 @@ COALESCE(expression1, expression2, ..., expressionN)
 - Returns the first value that is not NULL.
 - If all expressions are NULL, it returns NULL.
 
-
 &nbsp;
 
 &nbsp;
@@ -36,7 +35,6 @@ If `phone_number` is **NULL**, it returns 'No Phone'.
 &nbsp;
 
 &nbsp;
-
 
 ## 2. Choose the first available value
 
@@ -66,6 +64,7 @@ If `discount` is **NULL**, it uses `0`.
 &nbsp;
 
 ## 4. Multiple columns
+
 ```sql
 SELECT COALESCE(city, state, country, 'Unknown') AS location
 FROM addresses;
@@ -83,7 +82,6 @@ FROM addresses;
 | Accepts multiple arguments   | Accepts only two arguments                      |
 | Returns first non-NULL value | Returns replacement if first expression is NULL |
 | Better for portability       | Slightly simpler for two values                 |
-
 
 &nbsp;
 

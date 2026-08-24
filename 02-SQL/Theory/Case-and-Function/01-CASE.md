@@ -333,7 +333,6 @@ FROM Products;
 
 Sort records based on custom conditions.
 
-
 ```sql
 SELECT *
 FROM Employees
@@ -352,7 +351,6 @@ END;
 &nbsp;
 
 &nbsp;
-
 
 # Interview Question
 

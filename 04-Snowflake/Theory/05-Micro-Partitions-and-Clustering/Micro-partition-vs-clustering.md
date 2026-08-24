@@ -14,7 +14,7 @@
 
 &nbsp;
 
-## Example:
+## Example
 
 `SALES` table with columns:
 

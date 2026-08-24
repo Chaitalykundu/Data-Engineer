@@ -19,18 +19,16 @@ CREATE TABLE employees (
 
 &nbsp;
 
-
-
 &nbsp;
 
-## Sample data:
+## Sample data
 
 emp_id | emp_name | department | salary | bonus | commission | manager_id | email           | phone
 -------|----------|------------|--------|-------|------------|------------|-----------------|----------
-1      | Amit     | IT         | 60000  | 5000  | NULL       | 101        | amit@mail.com   | NULL
+1      | Amit     | IT         | 60000  | 5000  | NULL       | 101        | <amit@mail.com>   | NULL
 2      | Priya    | IT         | 75000  | NULL  | 3000       | 101        | NULL            | 9876543210
-3      | Rahul    | HR         | 50000  | NULL  | NULL       | 102        | rahul@mail.com  | NULL
-4      | Neha     | Finance    | 65000  | 7000  | 2000       | NULL       | neha@mail.com   | 9123456789
+3      | Rahul    | HR         | 50000  | NULL  | NULL       | 102        | <rahul@mail.com>  | NULL
+4      | Neha     | Finance    | 65000  | 7000  | 2000       | NULL       | <neha@mail.com>   | 9123456789
 5      | Arjun    | HR         | 55000  | NULL  | 1500       | 102        | NULL            | NULL
 
 &nbsp;
@@ -52,6 +50,7 @@ VALUES
 # Questions
 
 ## Basic
+
 Find all employees whose bonus is NULL.
 Find all employees whose bonus is not NULL.
 Find employees who don't have a manager.
@@ -65,26 +64,30 @@ Display employee name and email. If email is NULL, display 'Email Not Available'
 
 &nbsp;
 
-
-
 &nbsp;
 
- ## Intermediate
+## Intermediate
+
 1. Calculate each employee's total compensation:
+
 ```
 salary + bonus
 ```
+
 If bonus is NULL, treat it as 0.
 
 &nbsp;
 
 2. Calculate:
+
 ```
 salary + bonus + commission
 ```
+
 Treat any NULL bonus or commission as 0.
 
 3. Display the first available contact information using this priority:
+
 ```
 email → phone → 'No Contact Available'
 ```
@@ -159,60 +162,40 @@ Explain how NULL affects NOT IN
 
 &nbsp;
 
+&nbsp;
 
+&nbsp;
 
 &nbsp;
 
 &nbsp;
 
+&nbsp;
 
+&nbsp;
 
 &nbsp;
 
 &nbsp;
 
+&nbsp;
 
+&nbsp;
 
 &nbsp;
 
 &nbsp;
 
+&nbsp;
 
+&nbsp;
 
 &nbsp;
 
 &nbsp;
 
-
-
 &nbsp;
 
 &nbsp;
-
-
-
-&nbsp;
-
-&nbsp;
-
-
-
-&nbsp;
-
-&nbsp;
-
-
-
-&nbsp;
-
-&nbsp;
-
-
-
-&nbsp;
-
-&nbsp;
-
-
 
 &nbsp;

@@ -10,7 +10,7 @@ A micro-partition contains:
   - Min / max value
   - No of distinct values
   - NULL count
-  - 
+  -
 
 &nbsp;
 
@@ -22,7 +22,7 @@ A micro-partition contains:
 
 &nbsp;
 
-## 3. Explain what happens when this query runs.
+## 3. Explain what happens when this query runs
 
 ```sql
 SELECT *

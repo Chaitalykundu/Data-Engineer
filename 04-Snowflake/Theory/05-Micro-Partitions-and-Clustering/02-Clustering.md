@@ -15,7 +15,7 @@
 - [How to choose a clustering key](#how-to-choose-a-clustering-key)
   - [Good examples](#good-examples)
 - [When clustering is useful](#when-clustering-is-useful)
-    - [Example](#example)
+  - [Example](#example)
 - [When not to use clustering](#when-not-to-use-clustering)
 - [How to measure clustering](#how-to-measure-clustering)
 - [Manage a clustering key](#manage-a-clustering-key)
@@ -325,27 +325,27 @@ Do not choose a key only from the clustering-information output. Confirm that re
 
 # Manage a clustering key
 
-## Set a key:
+## Set a key
 
 ```sql
 ALTER TABLE sales
 CLUSTER BY (order_date);
 ```
 
-## View the clustering key:
+## View the clustering key
 
 ```sql
 SHOW TABLES LIKE 'SALES';
 ```
 
-## Remove it:
+## Remove it
 
 ```sql
 ALTER TABLE sales
 DROP CLUSTERING KEY;
 ```
 
-## Suspend or resume automatic clustering:
+## Suspend or resume automatic clustering
 
 ```sql
 ALTER TABLE sales SUSPEND RECLUSTER;

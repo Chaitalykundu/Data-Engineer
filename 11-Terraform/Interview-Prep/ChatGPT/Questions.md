@@ -43,9 +43,9 @@
 
 ## Terraform State & Snowflake IaC
 
-1.  Why does Terraform need a state file?
-2.  Why should a team avoid storing terraform.tfstate in Git?
-3.  Someone manually creates PROD_WH in Snowflake, but you now want Terraform to manage it. What should you do?
+1. Why does Terraform need a state file?
+2. Why should a team avoid storing terraform.tfstate in Git?
+3. Someone manually creates PROD_WH in Snowflake, but you now want Terraform to manage it. What should you do?
 
 &nbsp;
 

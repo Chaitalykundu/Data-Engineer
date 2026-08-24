@@ -322,19 +322,19 @@ Requirements:
 
 Design a solution covering:
 
-1.  Secure Data Sharing
+1. Secure Data Sharing
     - Use shares and Secure Views.
     - Apply Masking Policies and Row Access Policies where appropriate.
     - Grant only the required objects.
-2.  Infrastructure as Code
+2. Infrastructure as Code
     - Build reusable Terraform modules.
     - Separate Dev, QA, and Prod state.
     - Integrate validation and approval into CI/CD.
-3.  Performance
+3. Performance
     - Optimize SQL for partition pruning.
     - Review query profiles regularly.
     - Monitor warehouse utilization and credit consumption.
-4.  Governance
+4. Governance
     - Audit access to shared data.
     - Periodically review grants and role assignments.
     - Track deployment history and infrastructure changes.

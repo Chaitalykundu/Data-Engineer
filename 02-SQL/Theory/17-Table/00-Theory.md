@@ -20,7 +20,7 @@ A table stores data using rows and columns.
 
 &nbsp;
 
-# Example `EMPLOYEES` table:
+# Example `EMPLOYEES` table
 
 | EMPLOYEE_ID | EMPLOYEE_NAME | DEPARTMENT_ID | SALARY |
 | ----------: | ------------- | ------------: | -----: |
@@ -40,7 +40,7 @@ A table stores data using rows and columns.
 
 &nbsp;
 
-# Example `EMPLOYEES` table:
+# Example `EMPLOYEES` table
 
 | EMPLOYEE_ID | EMPLOYEE_NAME | DEPARTMENT_ID | SALARY |
 | ----------: | ------------- | ------------: | -----: |

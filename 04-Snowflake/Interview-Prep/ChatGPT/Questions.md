@@ -125,8 +125,8 @@
 
 ## Snowflake Time Travel, Fail-safe & Zero-Copy Cloning
 
-1.  Explain the difference between Time Travel, Fail-safe, and Zero-Copy Cloning.
-2.  A developer accidentally drops a table. What recovery options are available?
+1. Explain the difference between Time Travel, Fail-safe, and Zero-Copy Cloning.
+2. A developer accidentally drops a table. What recovery options are available?
 
 &nbsp;
 
