@@ -1,4 +1,3 @@
-
 # Meta Data
 
 ## Table
@@ -23,13 +22,13 @@ CREATE TABLE employees (
 
 ## Sample data
 
-emp_id | emp_name | department | salary | bonus | commission | manager_id | email           | phone
--------|----------|------------|--------|-------|------------|------------|-----------------|----------
-1      | Amit     | IT         | 60000  | 5000  | NULL       | 101        | <amit@mail.com>   | NULL
-2      | Priya    | IT         | 75000  | NULL  | 3000       | 101        | NULL            | 9876543210
-3      | Rahul    | HR         | 50000  | NULL  | NULL       | 102        | <rahul@mail.com>  | NULL
-4      | Neha     | Finance    | 65000  | 7000  | 2000       | NULL       | <neha@mail.com>   | 9123456789
-5      | Arjun    | HR         | 55000  | NULL  | 1500       | 102        | NULL            | NULL
+| emp_id | emp_name | department | salary | bonus | commission | manager_id | email            | phone      |
+| ------ | -------- | ---------- | ------ | ----- | ---------- | ---------- | ---------------- | ---------- |
+| 1      | Amit     | IT         | 60000  | 5000  | NULL       | 101        | <amit@mail.com>  | NULL       |
+| 2      | Priya    | IT         | 75000  | NULL  | 3000       | 101        | NULL             | 9876543210 |
+| 3      | Rahul    | HR         | 50000  | NULL  | NULL       | 102        | <rahul@mail.com> | NULL       |
+| 4      | Neha     | Finance    | 65000  | 7000  | 2000       | NULL       | <neha@mail.com>  | 9123456789 |
+| 5      | Arjun    | HR         | 55000  | NULL  | 1500       | 102        | NULL             | NULL       |
 
 &nbsp;
 
@@ -93,9 +92,9 @@ email → phone → 'No Contact Available'
 ```
 
 5. Find employees whose bonus is NULL and salary is greater than 50,000.
-Count how many employees have a NULL bonus.
-Count how many employees have a non-NULL bonus.
-Find the average bonus while treating NULL bonuses as 0.
+   Count how many employees have a NULL bonus.
+   Count how many employees have a non-NULL bonus.
+   Find the average bonus while treating NULL bonuses as 0.
 
 Think carefully about this one:
 

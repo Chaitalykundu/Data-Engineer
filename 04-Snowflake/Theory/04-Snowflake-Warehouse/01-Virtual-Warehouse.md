@@ -2,14 +2,14 @@
 
 - [Content](#content)
 - [Virtual Warehouse](#virtual-warehouse)
-- [Snowflake Architecture](#snowflake-architecture)
 - [Why Snowflake Uses Virtual Warehouses](#why-snowflake-uses-virtual-warehouses)
 - [Example](#example)
 - [Simple memory trick](#simple-memory-trick)
-- [What data processing tasks does a Virtual Warehouse perform?](#what-data-processing-tasks-does-a-virtual-warehouse-perform)
-  - [1. Execute SQL Queries](#1-execute-sql-queries)
+- [What data processing tasks (operations) does a Virtual Warehouse perform?](#what-data-processing-tasks-operations-does-a-virtual-warehouse-perform)
+  - [1. Execute SELECT Queries](#1-execute-select-queries)
     - [Runs](#runs)
     - [Example](#example-1)
+  - [2. Data manipulation](#2-data-manipulation)
   - [3. Loading and unloading data](#3-loading-and-unloading-data)
     - [Example](#example-2)
     - [Warehouse processes](#warehouse-processes)
@@ -20,8 +20,10 @@
     - [Example](#example-4)
   - [7. Support Concurrent Users](#7-support-concurrent-users)
     - [Example](#example-5)
-- [Compute and storage separation](#compute-and-storage-separation)
+- [Operations That Usually Do Not Require a Warehouse](#operations-that-usually-do-not-require-a-warehouse)
 - [How a query uses a warehouse](#how-a-query-uses-a-warehouse)
+- [Compute vs storage](#compute-vs-storage)
+- [Important Points](#important-points)
 - [Important interview question](#important-interview-question)
 
 &nbsp;
@@ -56,57 +58,6 @@ It does NOT store data. (database stores the data)
 It only provides resources (CPU, memory, temporary cache) to process data.
 
 Data stays in centralized storage, while warehouses provide compute power.
-
-&nbsp;
-
-# Snowflake Architecture
-
-&nbsp;
-
-```mermaid
-flowchart TB
-    U["Users and applications<br/>Snowsight • dbt • Python • BI tools"]
-    CS["Cloud Services<br/>Authentication • RBAC • Metadata • Query optimization"]
-    VW1["ETL_WH<br/>Loading and transformation"]
-    VW2["BI_WH<br/>Reports and dashboards"]
-    VW3["DEV_WH<br/>Development"]
-    ST["Central Storage<br/>Encrypted • Compressed • Micro-partitioned"]
-
-    U --> CS
-    CS --> VW1
-    CS --> VW2
-    CS --> VW3
-    VW1 --> ST
-    VW2 --> ST
-    VW3 --> ST
-```
-
-&nbsp;
-
-```
-                +----------------------+
-                |   Cloud Services     |
-                | Metadata, Security   |
-                +----------+-----------+
-                           |
-      ------------------------------------------
-      |                                        |
-      v                                        v
-
-+-------------------+              +-------------------+
-| Virtual Warehouse |              | Virtual Warehouse |
-| (Compute)         |              | (Compute)         |
-| BI Queries        |              | ELT / DBT Jobs    |
-+---------+---------+              +---------+---------+
-          \                                 /
-           \                               /
-            v                             v
-
-      +--------------------------------------+
-      |      Centralized Data Storage        |
-      | Tables, Files, Historical Data       |
-      +--------------------------------------+
-```
 
 &nbsp;
 
@@ -164,9 +115,25 @@ All three warehouses access the same data, but compute independently.
 
 &nbsp;
 
-# What data processing tasks does a Virtual Warehouse perform?
+# What data processing tasks (operations) does a Virtual Warehouse perform?
 
-## 1. Execute SQL Queries
+1. Execute SELECT queries
+2. Data manipulation
+   1. Insert Data
+   2. Update data
+   3. Delete Data
+   4. Merge data
+3. Load data
+4. Perform transformations
+5. Run ETL / ELT Pipelines
+6. Execute Stored Procedures & Tasks
+7. Support Concurrent Users
+
+&nbsp;
+
+&nbsp;
+
+## 1. Execute SELECT Queries
 
 ### Runs
 
@@ -201,6 +168,19 @@ WHERE employee_id = 101;
 
 DELETE FROM employees
 WHERE employee_id = 101;
+
+-- merge data
+MERGE INTO EMPLOYEES AS TARGET
+USING EMPLOYEE_UPDATES AS SOURCE
+ON TARGET.EMPLOYEE_ID = SOURCE.EMPLOYEE_ID
+WHEN MATCHED THEN
+    UPDATE SET TARGET.DEPARTMENT = SOURCE.DEPARTMENT
+WHEN NOT MATCHED THEN
+    INSERT VALUES (
+        SOURCE.EMPLOYEE_ID,
+        SOURCE.EMPLOYEE_NAME,
+        SOURCE.DEPARTMENT
+    );
 ```
 
 &nbsp;
@@ -316,13 +296,20 @@ All processed by warehouse
 
 &nbsp;
 
-&nbsp;
+# Operations That Usually Do Not Require a Warehouse
 
-# Compute and storage separation
+Metadata-only commands generally do not require warehouse compute.
 
-In a traditional database, compute and storage are frequently tied together. Snowflake separates them.
+```sql
+SHOW DATABASES;
+SHOW SCHEMAS;
+SHOW TABLES;
+DESCRIBE TABLE EMPLOYEES;
+CREATE DATABASE EMPLOYEE_DB;
+CREATE SCHEMA EMPLOYEE_DB.RAW;
+```
 
-&nbsp;
+These operations are handled through Snowflake’s cloud-services layer.
 
 &nbsp;
 
@@ -356,6 +343,8 @@ The execution flow is:
 
 # Compute vs storage
 
+In a traditional database, compute and storage are frequently tied together. Snowflake separates them.
+
 Snowflake separates compute from storage.
 
 | Compute—virtual warehouse              | Storage—database layer                             |
@@ -368,14 +357,22 @@ Snowflake separates compute from storage.
 | Maintains a local cache                | Stores compressed and encrypted data               |
 | Multiple warehouses can be created     | Data does not need to be copied for each warehouse |
 
-
 &nbsp;
-
-
 
 &nbsp;
 
 &nbsp;
+
+# Important Points
+
+- A warehouse provides only compute resources.
+- Table data is stored independently of warehouses.
+- One warehouse can access multiple databases.
+- Multiple warehouses can access the same data simultaneously.
+- Warehouses can be resized without moving or redistributing data.
+- Suspending or dropping a warehouse does not delete table data.
+- Compute credits are consumed while a warehouse is running.
+- A query requiring warehouse compute fails if no warehouse is selected or available.
 
 &nbsp;
 

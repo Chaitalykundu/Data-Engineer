@@ -26,17 +26,17 @@ We can install terraform in wo ways
 ## Option 1: Manual Installation (Recommended for beginners)
 
 1. Download Terraform
-    - Go to the official Terraform download page:
-      👉 [https://developer.hashicorp.com/terraform/downloads](https://developer.hashicorp.com/terraform/downloads)
+   - Go to the official Terraform download page:
+     👉 [https://developer.hashicorp.com/terraform/downloads](https://developer.hashicorp.com/terraform/downloads)
 
-    - Choose your OS as Windows (64-bit) and download the .zip file.
+   - Choose your OS as Windows (64-bit) and download the .zip file.
 
 2. Extract the ZIP File
-    - Extract the downloaded ZIP file to a folder of your choice, e.g.:
-      `C:\Terraform`
+   - Extract the downloaded ZIP file to a folder of your choice, e.g.:
+     `C:\Terraform`
 
 3. Add Terraform to System PATH
-    Search for "Environment Variables" in Windows search and open:
+   Search for "Environment Variables" in Windows search and open:
 
         - Go to System Properties > Environment Variables
 
@@ -44,18 +44,18 @@ We can install terraform in wo ways
 
         - Click New and add the path where terraform.exe is located, e.g.:
 
-    `C:\Terraform`
+   `C:\Terraform`
 
 4. Verify the Installation
-    - Open Command Prompt (CMD) or PowerShell.
+   - Open Command Prompt (CMD) or PowerShell.
 
-    - Type:
+   - Type:
 
-      ```sh
-      terraform --version
-      ```
+     ```sh
+     terraform --version
+     ```
 
-    - You should see the installed version printed.
+   - You should see the installed version printed.
 
 &nbsp;
 

@@ -82,19 +82,19 @@
 
 1. What is the output?
 
-    ```sql
-    SELECT MAX(NULL);
-    ```
+   ```sql
+   SELECT MAX(NULL);
+   ```
 
 2. What is the output?
 
-    ```sql
-    SELECT MAX(salary)
-    FROM employees
-    WHERE department = 'Marketing';
-    ```
+   ```sql
+   SELECT MAX(salary)
+   FROM employees
+   WHERE department = 'Marketing';
+   ```
 
-    Assume there are no employees in the Marketing department.
+   Assume there are no employees in the Marketing department.
 
 3. What is the difference between these two queries?
 
@@ -110,7 +110,7 @@
         LIMIT 1; 39.
         ```
 
-    Can `MAX()` be used on a VARCHAR column? If yes, what does it return?
+   Can `MAX()` be used on a VARCHAR column? If yes, what does it return?
 
 4. Why does MAX() ignore NULL values?
 

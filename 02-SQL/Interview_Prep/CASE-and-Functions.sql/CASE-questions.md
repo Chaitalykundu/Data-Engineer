@@ -73,7 +73,7 @@
         Cancelled
         Returned
 
-    using user-friendly labels.
+   using user-friendly labels.
 
 4. Display customer category:
 
@@ -81,7 +81,7 @@
         Silver
         Bronze
 
-    based on purchase amount.
+   based on purchase amount.
 
 5. Classify employees into:
 
@@ -89,7 +89,7 @@
         Mid-Level
         Senior
 
-    based on years of experience.
+   based on years of experience.
 
 6. Display weekday/weekend based on the order date.
 
@@ -100,10 +100,10 @@
         Experience >5 years
         Salary <80000
 
-    Otherwise display "Not Eligible".
+   Otherwise display "Not Eligible".
 
 9. Display "Yes" or "No" depending on
-    whether an employee has a manager.
+   whether an employee has a manager.
 10. Display "Complete" if all mandatory fields are not NULL; otherwise "Incomplete".
 
 &nbsp;
@@ -118,14 +118,14 @@
 2. Count HR employees.
 3. Count male and female employees in a single query.
 4. Calculate the total salary of IT
-    employees.
+   employees.
 5. Calculate the total salary of HR
-    employees.
+   employees.
 6. Find the average salary of Finance
-    employees.
+   employees.
 7. Count employees earning more than 70
 8. Calculate total bonus paid to each
-    department.
+   department.
 9. Count employees city-wise using CASE.
 10. Calculate total sales for each product category.
 

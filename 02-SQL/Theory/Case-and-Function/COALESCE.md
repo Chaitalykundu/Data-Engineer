@@ -1,4 +1,3 @@
-
 # COALESCE
 
 `COALESCE` in SQL is a function that returns the **first non-NULL value** from a list of expressions.

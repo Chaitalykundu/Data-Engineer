@@ -16,7 +16,7 @@
 | No. | Topic                          | What you should understand                                                    | Priority        | Status |
 | --: | ------------------------------ | ----------------------------------------------------------------------------- | --------------- | ------ |
 |   1 | Virtual warehouse fundamentals | What a warehouse is, compute vs storage, supported operations                 | Essential       |
-|   2 | Warehouse lifecycle            | Create, use, suspend, resume, resize, alter and drop                          | Essential       |
+|   2 | Warehouse lifecycle            | Create, use, suspend, resume, resize, alter and drop                          | Essential       | Done   |
 |   3 | Warehouse sizes                | X-Small through larger sizes, resource differences and credit consumption     | Essential       |
 |   4 | Auto-suspend and auto-resume   | How they work and how to configure them for cost control                      | Essential       |
 |   5 | Scaling up                     | Increasing warehouse size to improve complex-query performance                | Essential       |

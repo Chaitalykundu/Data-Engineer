@@ -3,11 +3,12 @@
 - [Overview](#overview)
 - [Role](#role)
 - [How Roles Work (Flow)](#how-roles-work-flow)
-  - [Example:](#example)
+  - [Example](#example)
 - [Types of roles](#types-of-roles)
   - [System defined roles](#system-defined-roles)
   - [🧑‍💻 2. Custom Roles](#-2-custom-roles)
 - [Snowflake Roles \& Their Uses](#snowflake-roles--their-uses)
+- [Account roles vs database roles](#account-roles-vs-database-roles)
 
 &nbsp;
 
@@ -153,3 +154,12 @@ Default role assigned to all users
 &nbsp;
 
 &nbsp;
+
+# Account roles vs database roles
+
+| Feature                       | Account role                       | Database role                         |
+| ----------------------------- | ---------------------------------- | ------------------------------------- |
+| Scope                         | Entire account                     | One database                          |
+| Can be granted to users       | Yes                                | No, not directly                      |
+| Can be activated in a session | Yes                                | No                                    |
+| Main purpose                  | Business and administrative access | Package permissions within a database |
