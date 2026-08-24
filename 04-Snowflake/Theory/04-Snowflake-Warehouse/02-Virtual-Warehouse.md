@@ -114,6 +114,8 @@ flowchart TB
 
 # Why Snowflake Uses Virtual Warehouses
 
+For the following features snowflake uses virtual wh
+
 | Feature                    | Benefit                               |
 | -------------------------- | ------------------------------------- |
 | Separate Compute & Storage | Scale independently                   |
@@ -188,7 +190,7 @@ Returns result
 
 &nbsp;
 
-2. Data manipulation
+## 2. Data manipulation
 
 ```sql
 INSERT INTO employees VALUES (101, 'Rahul', 60000);
@@ -347,6 +349,35 @@ The execution flow is:
 - The warehouse reads the required data from storage or its local cache.
 - Results are returned to the user.
 - Eligible results may be retained in the result cache.
+
+&nbsp;
+
+&nbsp;
+
+# Compute vs storage
+
+Snowflake separates compute from storage.
+
+| Compute—virtual warehouse              | Storage—database layer                             |
+| -------------------------------------- | -------------------------------------------------- |
+| Executes queries                       | Stores table data permanently                      |
+| Provides CPU and memory                | Uses cloud object storage                          |
+| Can be resized                         | Automatically scales with data                     |
+| Can be suspended and resumed           | Remains available when warehouses stop             |
+| Consumes compute credits while running | Incurs separate storage charges                    |
+| Maintains a local cache                | Stores compressed and encrypted data               |
+| Multiple warehouses can be created     | Data does not need to be copied for each warehouse |
+
+
+&nbsp;
+
+
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 
