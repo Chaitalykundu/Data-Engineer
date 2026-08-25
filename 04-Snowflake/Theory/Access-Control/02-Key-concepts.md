@@ -7,7 +7,7 @@
   - [Account Level](#account-level)
   - [Database Level](#database-level)
 - [4. Privileges](#4-privileges)
-  - [Common privileges:](#common-privileges)
+  - [Common privileges](#common-privileges)
 - [Account-Level Objects vs Database-Level vs Schema-Level Objects](#account-level-objects-vs-database-level-vs-schema-level-objects)
 
 &nbsp;
@@ -24,18 +24,6 @@
   ```sql
   CREATE USER user1 PASSWORD='Test@123';
   ```
-
-&nbsp;# Overview
-
-- [Overview](#overview)
-- [1. Users](#1-users)
-- [2. Roles](#2-roles)
-- [3. Objects](#3-objects)
-  - [Account Level](#account-level)
-  - [Database Level](#database-level)
-- [4. Privileges](#4-privileges)
-  - [Common privileges:](#common-privileges)
-- [Account-Level Objects vs Database-Level vs Schema-Level Objects](#account-level-objects-vs-database-level-vs-schema-level-objects)
 
 &nbsp;
 

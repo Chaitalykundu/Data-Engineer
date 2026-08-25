@@ -1,6 +1,6 @@
-# Overview
+# Content
 
-- [Overview](#overview)
+- [Content](#content)
 - [Access control](#access-control)
 - [Authentication vs access control](#authentication-vs-access-control)
 - [Snowflake Access Control Model](#snowflake-access-control-model)
