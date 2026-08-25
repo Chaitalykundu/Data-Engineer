@@ -1,3 +1,18 @@
+# Content
+
+- [Content](#content)
+- [DAC](#dac)
+  - [Definition](#definition)
+- [How DAC works](#how-dac-works)
+  - [Example](#example)
+- [DAC vs RBAC](#dac-vs-rbac)
+- [DAC and managed access schemas](#dac-and-managed-access-schemas)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 # DAC
 
@@ -7,8 +22,6 @@ Under DAC, every Snowflake object has an owner. The owner can decide which roles
 
 &nbsp;
 
-
-
 &nbsp;
 
 ## Definition
@@ -17,27 +30,23 @@ DAC means the owner of an object has control over who can access it and what ope
 
 &nbsp;
 
-
-
-
-
 &nbsp;
+
 # How DAC works
 
 ```md
 Role creates object
-        ↓
+↓
 Role receives OWNERSHIP
-        ↓
+↓
 Owner controls the object
-        ↓
+↓
 Owner grants privileges to other roles
 ```
 
 When a role creates an object, that role normally receives the `OWNERSHIP` privilege.
 
 &nbsp;
-
 
 &nbsp;
 
@@ -53,11 +62,9 @@ CREATE TABLE EMPLOYEE_DB.HR.EMPLOYEES (
 );
 ```
 
-
 Here, `HR_ADMIN` becomes the table owner.
 
 &nbsp;
-
 
 &nbsp;
 
@@ -72,9 +79,7 @@ Here, `HR_ADMIN` becomes the table owner.
 
 &nbsp;
 
-
 &nbsp;
-
 
 Snowflake combines both:
 
@@ -86,13 +91,9 @@ RBAC: Owner grants SELECT to another role
 User receives that role
 ```
 
-
-
 &nbsp;
 
-
 &nbsp;
-
 
 # DAC and managed access schemas
 
@@ -119,17 +120,10 @@ In a managed access schema:
 
 Therefore, managed access schemas intentionally restrict normal DAC behavior.
 
+&nbsp;
 
 &nbsp;
 
-
 &nbsp;
 
-
 &nbsp;
-
-
-&nbsp;
-
-
-
