@@ -44,6 +44,24 @@ flowchart TD
 
 &nbsp;
 
+
+# Why RBAC?
+
+RBAC provides:
+
+- Centralized access management
+- Least-privilege security
+- Easier onboarding/offboarding
+- Separation of duties
+- Scalable permission management
+- Better auditing and governance
+
+
+&nbsp;
+
+&nbsp;
+
+
 # Main RBAC components
 
 | Component        | Purpose                                              | Example                                  |
