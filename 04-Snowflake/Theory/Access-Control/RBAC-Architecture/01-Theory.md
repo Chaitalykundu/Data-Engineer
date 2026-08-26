@@ -170,9 +170,162 @@ User receives that role
 
 &nbsp;
 
+## Warehouse Access
+
+RBAC also controls compute resources.
+
+### Example:
+
+```sql
+GRANT USAGE
+ON WAREHOUSE ANALYST_WH
+TO ROLE DATA_ANALYST;
+```
+
+Without appropriate warehouse privileges, the user may have table access but still be unable to execute queries using that warehouse.
+ 
+&nbsp;
+
+This gives you another troubleshooting chain:
+
+```md
+Can user run query?
+        |
+        +-- Role assigned?
+        |
+        +-- Warehouse USAGE?
+        |
+        +-- Database USAGE?
+        |
+        +-- Schema USAGE?
+        |
+        +-- Table SELECT?
+```
+
 &nbsp;
 
 &nbsp;
+
+# RBAC for Service Accounts
+
+Production systems commonly have service-specific roles.
+
+## Example:
+```md
+]DBT_SERVICE_USER
+        ↓
+DBT_TRANSFORMER_ROLE
+        ↓
+--------------------------
+Warehouse → USAGE
+Database  → USAGE
+Schema    → USAGE
+Tables    → SELECT
+Schema    → CREATE TABLE
+```
+
+&nbsp;
+
+&nbsp;
+
+# Useful RBAC Commands
+###Create role
+
+```sql
+CREATE ROLE DATA_ENGINEER_ROLE;
+```
+
+&nbsp;
+
+### Grant role to user
+
+```sql
+GRANT ROLE DATA_ENGINEER_ROLE
+TO USER USER1;
+```
+
+&nbsp;
+
+### Grant role to another role
+
+The role on the **right side** receives the role on the **left side**.
+
+```sql
+GRANT ROLE DATA_ENGINEER_ROLE
+TO ROLE SYSADMIN;
+```
+
+This means `SYSADMIN` inherits all privileges of `DATA_ENGINEER_ROLE`.
+
+&nbsp;
+
+### Database access
+```sql
+GRANT USAGE
+ON DATABASE ANALYTICS_DB
+TO ROLE DATA_ENGINEER_ROLE;
+```
+
+
+&nbsp;
+
+### Schema access
+```sql
+GRANT USAGE
+ON SCHEMA ANALYTICS_DB.RAW
+TO ROLE DATA_ENGINEER_ROLE;
+```
+
+&nbsp;
+
+### Table access
+```sql
+GRANT SELECT
+ON ALL TABLES IN SCHEMA ANALYTICS_DB.RAW
+TO ROLE DATA_ENGINEER_ROLE;
+```
+
+&nbsp;
+
+
+### Future tables
+```sql
+GRANT SELECT
+ON FUTURE TABLES IN SCHEMA ANALYTICS_DB.RAW
+TO ROLE DATA_ENGINEER_ROLE;
+```
+
+
+&nbsp;
+
+
+### Warehouse
+```sql
+GRANT USAGE
+ON WAREHOUSE ETL_WH
+TO ROLE DATA_ENGINEER_ROLE;
+```
+
+&nbsp;
+
+### Check grants
+```sql
+SHOW GRANTS TO ROLE DATA_ENGINEER_ROLE;
+
+SHOW GRANTS OF ROLE DATA_ENGINEER_ROLE;
+
+SHOW GRANTS TO USER USER1;
+```
+
+&nbsp;
+
+### nRevoke
+
+```sql
+REVOKE SELECT
+ON TABLE ANALYTICS_DB.RAW.EMPLOYEE
+FROM ROLE DATA_ENGINEER_ROLE;
+```
 
 &nbsp;
 
