@@ -126,7 +126,6 @@ USE ROLE DATA_ANALYST_ROLE;
 
 &nbsp;
 
-&nbsp;
 
 But there is an important issue with the example above.
 
@@ -355,9 +354,51 @@ FROM ROLE DATA_ENGINEER_ROLE;
 
 &nbsp;
 
+
+# Interview Questions
+
+1. `GRANT ROLE DATA_ENGINEER_ROLE TO ROLE SYSADMIN;` here who will get more privileges and why?
+
+2. 
+
 &nbsp;
 
 &nbsp;
+
+# Answers
+
+## 1. `GRANT ROLE DATA_ENGINEER_ROLE TO ROLE SYSADMIN;` here who will get more privileges and why?
+
+Suppose before the grant:
+
+```md
+DATA_ENGINEER_ROLE
+├── SELECT on EMPLOYEE
+├── INSERT on EMPLOYEE
+└── USAGE on ETL_WH
+
+SYSADMIN
+└── Its existing privileges
+```
+
+After the grant:
+
+```md
+DATA_ENGINEER_ROLE
+├── SELECT on EMPLOYEE
+├── INSERT on EMPLOYEE
+└── USAGE on ETL_WH
+
+SYSADMIN
+└── Its existing privileges
+├── inherits from DATA_ENGINEER_ROLE
+      ├── SELECT on EMPLOYEE
+      ├── INSERT on EMPLOYEE
+      └── USAGE on ETL_WH
+```
+
+
+`SYSADMIN` gets additional effective access because it can now inherit the privileges of `DATA_ENGINEER_ROLE`
 
 &nbsp;
 
