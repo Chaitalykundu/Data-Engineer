@@ -89,6 +89,14 @@ CREATE USER CHAITALY
 
 &nbsp;
 
+It could be:
+
+- Human user
+- Application/service user
+- dbt service account
+
+&nbsp;
+
 &nbsp;
 
 ## 2. Role
