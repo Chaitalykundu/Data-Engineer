@@ -77,6 +77,19 @@ Direct user grants through UBAC make permissions harder to audit and maintain at
 
 # Core components
 
+| Component             | Meaning                                                        | Example                              |
+| --------------------- | -------------------------------------------------------------- | ------------------------------------ |
+| **Users**             | Human or service identities accessing Snowflake                | `CHAITALY`, `DBT_SERVICE_USER`       |
+| **Roles**             | Containers for privileges                                      | `DATA_ENGINEER_ROLE`                 |
+| **Privileges**        | Permissions to perform actions                                 | `SELECT`, `USAGE`, `CREATE TABLE`    |
+| **Securable Objects** | Snowflake resources on which privileges are granted            | Warehouse, Database, Schema, Table   |
+| **Role Hierarchy**    | Roles granted to other roles for privilege inheritance         | `RAW_READ_ROLE → DATA_ENGINEER_ROLE` |
+| **Ownership**         | Special control over an object                                 | `OWNERSHIP` on a table/schema        |
+| **Grants**            | Relationships connecting roles, privileges, objects, and users | `GRANT SELECT ... TO ROLE`           |
+&nbsp;
+
+&nbsp;
+
 ## 1. User
 
 A user represents a person or service connecting to Snowflake.
@@ -101,6 +114,8 @@ It could be:
 
 ## 2. Role
 
+A role is the central component of RBAC.
+
 A role is a collection of privileges. Roles are assigned to users
 
 ```sql
@@ -109,6 +124,17 @@ CREATE ROLE DATA_ANALYST;
 GRANT ROLE DATA_ANALYST
 TO USER CHAITALY;
 ```
+
+
+&nbsp;
+
+
+### Types of Roles
+
+- System-Defined Roles
+- Custom Roles
+  - Access Roles
+  - Functional Roles
 
 &nbsp;
 
@@ -134,26 +160,7 @@ A privilege allows a specific operation on an object.
 
 &nbsp;
 
-## 4. Securable object
-
-A securable object is anything on which Snowflake can grant privileges, such as:
-
-- Warehouse
-- Database
-- Schema
-- Table
-- View
-- Stage
-- File format
-- Task
-- Pipe
-- Integration
-
-&nbsp;
-
-&nbsp;
-
-# Required privileges for reading a table
+### Required privileges for reading a table
 
 To query a table, having only `SELECT` is not enough. A role normally needs:
 
@@ -197,6 +204,195 @@ User can query the table
 &nbsp;
 
 &nbsp;
+
+## 4. Securable object
+
+A securable object is a **Snowflake object** to which access privileges can be granted.
+
+```
+Account
+  |
+  ├── Warehouse
+  |
+  └── Database
+        |
+        └── Schema
+              |
+              ├── Table
+              ├── View
+              ├── Stage
+              ├── Stream
+              ├── Task
+              └── Function
+              └── File format
+              └── Pipe
+              └── Integration
+```
+
+This matters because having access to a table does not automatically mean you have all the required access to its parent containers.
+
+&nbsp;
+
+&nbsp;
+
+
+
+## 5. Grants
+
+A grant establishes the relationship between privileges, objects, roles, and users.
+
+There are **two** relationships you should distinguish.
+- Object privilege grant
+- Role grant
+
+
+
+&nbsp;
+
+### Object privilege grant
+
+```sql
+GRANT SELECT
+ON TABLE CUSTOMERS
+TO ROLE RAW_READ_ROLE;
+```
+
+&nbsp;
+
+Conceptually:
+
+```md
+Object → Privilege → Role
+```
+
+&nbsp;
+
+&nbsp;
+
+### Role Grant
+
+Role to Role
+```sql
+GRANT ROLE RAW_READ_ROLE
+TO ROLE DATA_ENGINEER_ROLE;
+```
+
+&nbsp;
+
+
+Role to User
+
+```sql
+or:
+
+GRANT ROLE DATA_ENGINEER_ROLE
+TO USER CHAITALY;
+```
+
+
+&nbsp;
+
+Conceptually:
+
+```md
+Role → Role
+# or:
+Role → User
+```
+
+&nbsp;
+
+&nbsp;
+
+
+## Role Hierarchy and Privilege Inheritance
+
+
+Snowflake roles can be granted to other roles.
+
+This creates a role hierarchy.
+
+&nbsp;
+
+### Example
+
+Suppose you create:
+
+```md
+RAW_READ_ROLE
+       ↓
+DATA_ENGINEER_ROLE
+       ↓
+SYSADMIN
+```
+
+&nbsp;
+
+You could configure:
+
+```sql
+GRANT ROLE RAW_READ_ROLE
+TO ROLE DATA_ENGINEER_ROLE;
+
+GRANT ROLE DATA_ENGINEER_ROLE
+TO ROLE SYSADMIN;
+```
+
+&nbsp;
+
+#### Explanation
+
+If `RAW_READ_ROLE` role has **SELECT on RAW tables**, then `DATA_ENGINEER_ROLE` role inherits those privileges.
+
+And `SYSADMIN`, being above it in this custom hierarchy, can inherit them as well.
+
+This is role inheritance.
+
+&nbsp;
+
+&nbsp;
+
+## 7. Ownership
+
+`OWNERSHIP` is one of the most important privileges in Snowflake.
+
+Every securable object has an owning role.
+
+&nbsp;
+
+
+For example:
+
+```sql
+CREATE TABLE CUSTOMER (...);
+```
+
+The role that creates the object generally becomes its owner.
+
+&nbsp;
+
+Conceptually:
+
+```
+DATA_ENGINEER_ROLE
+       |
+    OWNERSHIP
+       |
+       v
+CUSTOMER TABLE
+```
+
+`Ownership` gives strong control over the object, including the **ability to manage grants** on it.
+
+&nbsp;
+
+### Transfer ownership
+
+You can transfer ownership:
+
+```sql
+GRANT OWNERSHIP ON TABLE TABLE_NAME TO ROLE ROLE_NAME
+```
 
 &nbsp;
 
