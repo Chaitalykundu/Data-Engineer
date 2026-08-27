@@ -3,10 +3,19 @@
 | Role Category            | Purpose                                               | Examples                                                           |
 | ------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------ |
 | **System-defined roles** | Built-in Snowflake administrative roles               | `ACCOUNTADMIN`, `SECURITYADMIN`, `USERADMIN`, `SYSADMIN`, `PUBLIC` |
+| **Custom Roles** | Created by organization according to business, application, and access requirements. | `RAW_READ_ROLE`, `DATA_ANALYST_ROLE` |
+
+&nbsp;
+
+&nbsp;
+ 
+# Categories of Custom Role
+
+| Role Category            | Purpose                                               | Examples                                                           |
+| ------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------ |
 | **Access roles**         | Hold privileges on specific Snowflake objects         | `RAW_READ_ROLE`, `SALES_RW_ROLE`, `ETL_WH_USAGE_ROLE`              |
 | **Functional roles**     | Represent a job function and inherit access roles     | `DATA_ENGINEER_ROLE`, `DATA_ANALYST_ROLE`, `DBT_DEVELOPER_ROLE`    |
 | **Service roles**        | Used for applications, pipelines, or service accounts | `DBT_SERVICE_ROLE`, `AIRFLOW_ROLE`, `ETL_SERVICE_ROLE`             |
-
 
 
 &nbsp;
@@ -18,22 +27,23 @@
 For interviews, the most important distinction is **Access Role vs Functional Role**
 
 ```md
-                  ACCOUNTADMIN
-                       |
-                  SECURITYADMIN
-                       |
-                    SYSADMIN
-                       |
-             Functional Roles
-              /             \
- DATA_ENGINEER_ROLE     DATA_ANALYST_ROLE
-       |                       |
-       |                       |
-   Access Roles            Access Roles
-   /        \              /          \
-RAW_RW     ETL_WH       RAW_READ   REPORT_READ
-   |          |             |           |
-Tables    Warehouse       Tables      Tables
+                  SYSTEM-DEFINED ROLES
+                           |
+                       SYSADMIN
+                           |
+                    CUSTOM ROLES
+                           |
+                 Functional Roles
+                  /              \
+       DATA_ENGINEER_ROLE    DATA_ANALYST_ROLE
+              |                    |
+         Access Roles          Access Roles
+          /       \                 |
+   RAW_READ    RAW_WRITE      ANALYTICS_READ
+       |           |                 |
+    SELECT    INSERT/UPDATE        SELECT
+       |           |                 |
+   RAW Tables   RAW Tables     Analytics Tables
 ```
 
 Access Role → Object privileges
@@ -69,11 +79,30 @@ So the effective flow is:
 User → Functional Role → Access Role → Privileges → Snowflake Objects
 ```
 
-&nbsp;
+&nbsp; 
 
 &nbsp;
 
-# system-defined roles
+# System-Defined Roles
+
+System-defined roles are predefined roles provided by Snowflake. They are mainly used for account administration, security, user management, and object management.
+&nbsp;
+
+
+## System-defined role hierarchy
+
+```md
+                ORGADMIN
+                    |
+              ACCOUNTADMIN
+               /         \
+          SYSADMIN     SECURITYADMIN
+                           |
+                       USERADMIN
+```
+
+&nbsp;
+
 
 | System Role     | Main Responsibility                       | Key Point                                         |
 | --------------- | ----------------------------------------- | ------------------------------------------------- |
@@ -88,9 +117,59 @@ User → Functional Role → Access Role → Privileges → Snowflake Objects
 
 &nbsp;
 
-&nbsp;
+# 2. Custom Roles
+
+Custom roles are roles created by your organization according to business, application, and access requirements.
 
 &nbsp;
+
+
+For example:
+
+```sql
+CREATE ROLE DATA_ENGINEER_ROLE;
+CREATE ROLE DATA_ANALYST_ROLE;
+CREATE ROLE RAW_READ_ROLE;
+CREATE ROLE RAW_WRITE_ROLE;
+```
+
+&nbsp;
+
+
+Unlike system roles, these roles are not predefined by Snowflake.
+
+Custom roles are commonly designed as **two** logical categories:
+
+```md
+Custom Roles
+     |
+     +------------------+
+     |                  |
+Access Roles      Functional Roles
+```
+
+##  Access Roles
+
+An access role is a custom role designed around access to specific Snowflake objects.
+
+Think:
+> What objects can this role access?
+
+&nbsp;
+
+
+## Examples:
+
+```md
+RAW_READ_ROLE
+RAW_WRITE_ROLE
+ANALYTICS_READ_ROLE
+ETL_WH_USAGE_ROLE
+```
+
+&nbsp;
+
+
 
 &nbsp;
 
