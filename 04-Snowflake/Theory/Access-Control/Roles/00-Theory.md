@@ -1,3 +1,79 @@
+# Primary Role vs Secondary Roles
+
+## Primary Role
+
+A Snowflake session has one active primary role at a time.
+
+```sql
+USE ROLE DATA_ENGINEER_ROLE;
+```
+
+&nbsp;
+
+
+You can check it with:
+```sql
+SELECT CURRENT_ROLE();
+```
+
+The primary role is especially important because Snowflake uses it for authorization when creating objects.
+
+
+&nbsp;
+
+### Example:
+```md
+User: JOHN
+
+Granted roles:
+├── DATA_ENGINEER_ROLE
+├── ANALYST_ROLE
+└── FINANCE_READ_ROLE
+
+Primary role:
+DATA_ENGINEER_ROLE
+```
+
+&nbsp;
+
+
+&nbsp;
+
+
+
+## Secondary Roles
+
+Secondary roles allow the session to use privileges from additional roles granted to the user.
+
+For example:
+
+```sql
+USE SECONDARY ROLES ALL;
+```
+
+Now John's session can potentially use privileges coming from his other granted roles as well.
+
+You can inspect them using:
+
+```sql
+SELECT CURRENT_SECONDARY_ROLES();
+```
+
+&nbsp;
+
+&nbsp;
+
+```sql
+USE ROLE DATA_ENGINEER_ROLE;
+USE SECONDARY ROLES ALL;
+USE SECONDARY ROLES NONE;
+SELECT CURRENT_ROLE();
+SELECT CURRENT_SECONDARY_ROLES();
+```
+
+&nbsp;
+
+
 # Categories of Main Role
 
 | Role Category            | Purpose                                               | Examples                                                           |
@@ -16,6 +92,8 @@
 | **Access roles**         | Hold privileges on specific Snowflake objects         | `RAW_READ_ROLE`, `SALES_RW_ROLE`, `ETL_WH_USAGE_ROLE`              |
 | **Functional roles**     | Represent a job function and inherit access roles     | `DATA_ENGINEER_ROLE`, `DATA_ANALYST_ROLE`, `DBT_DEVELOPER_ROLE`    |
 | **Service roles**        | Used for applications, pipelines, or service accounts | `DBT_SERVICE_ROLE`, `AIRFLOW_ROLE`, `ETL_SERVICE_ROLE`             |
+
+
 
 
 &nbsp;
@@ -242,6 +320,22 @@ Snowflake Object
 &nbsp;
 
 &nbsp;
+
+# Interview scenario Question
+
+1. A user has `SELECT` through `ANALYST_ROLE`, but `DATA_ENGINEER_ROLE` is currently active. Can the user still use the analyst privilege?
+
+&nbsp;
+
+&nbsp;
+
+
+# Answer
+
+## 1. A user has `SELECT` through `ANALYST_ROLE`, but `DATA_ENGINEER_ROLE` is currently active. Can the user still use the analyst privilege?
+
+
+Potentially yes, if the appropriate secondary role is active and permitted by the account/session configuration.
 
 &nbsp;
 
