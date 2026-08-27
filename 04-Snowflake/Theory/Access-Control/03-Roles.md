@@ -131,6 +131,17 @@ Default role assigned to all users
 
 👉 Created based on business needs
 
+
+&nbsp;
+
+Access Roles
+→ Hold privileges on Snowflake objects.
+
+
+Functional Roles
+→ Represent job functions and inherit access roles.
+
+
 &nbsp;
 
 &nbsp;
@@ -163,3 +174,16 @@ Default role assigned to all users
 | Can be granted to users       | Yes                                | No, not directly                      |
 | Can be activated in a session | Yes                                | No                                    |
 | Main purpose                  | Business and administrative access | Package permissions within a database |
+
+&nbsp;
+
+## Account Role:
+- Can contain privileges across multiple databases/account-level objects
+- and can be activated as a primary or secondary role.
+
+&nbsp;
+
+
+## Database Role:
+- Contains privileges limited to objects within one database.
+- It cannot be activated directly; it must be granted to an account role.
