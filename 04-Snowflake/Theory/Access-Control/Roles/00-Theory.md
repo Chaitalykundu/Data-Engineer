@@ -46,6 +46,8 @@ For interviews, the most important distinction is **Access Role vs Functional Ro
    RAW Tables   RAW Tables     Analytics Tables
 ```
 
+&nbsp;
+
 Access Role → Object privileges
 
 ```sql
@@ -158,7 +160,7 @@ Think:
 &nbsp;
 
 
-## Examples:
+### Examples:
 
 ```md
 RAW_READ_ROLE
@@ -169,7 +171,75 @@ ETL_WH_USAGE_ROLE
 
 &nbsp;
 
+```sql
+CREATE ROLE RAW_READ_ROLE;
 
+GRANT USAGE ON DATABASE EMPLOYEE_DB
+TO ROLE RAW_READ_ROLE;
+
+GRANT USAGE ON SCHEMA EMPLOYEE_DB.RAW
+TO ROLE RAW_READ_ROLE;
+
+GRANT SELECT ON ALL TABLES IN SCHEMA EMPLOYEE_DB.RAW
+TO ROLE RAW_READ_ROLE;
+
+GRANT USAGE ON WAREHOUSE WH_DEVELOPER TO ROLE RAW_READ_ROLE;
+```
+
+&nbsp;
+
+&nbsp;
+
+ ## Functional Roles
+
+Functional roles represent a user's business or technical function.
+
+&nbsp;
+
+### Examples:
+
+```
+DATA_ENGINEER_ROLE
+DATA_ANALYST_ROLE
+DBT_DEVELOPER_ROLE
+DATA_SCIENTIST_ROLE
+```
+
+
+
+&nbsp;
+
+Instead of granting privileges directly to the functional role, you can grant access roles to it:
+
+
+```sql
+GRANT ROLE RAW_READ_ROLE
+TO ROLE DATA_ENGINEER_ROLE;
+
+GRANT ROLE RAW_WRITE_ROLE
+TO ROLE DATA_ENGINEER_ROLE;
+```
+
+&nbsp;
+
+
+And users receive functional roles:
+
+```md
+USER
+ ↓
+Functional Role
+ ↓
+Access Role
+ ↓
+Privilege
+ ↓
+Snowflake Object
+```
+
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 
