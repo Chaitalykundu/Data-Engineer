@@ -10,18 +10,18 @@ USE ROLE DATA_ENGINEER_ROLE;
 
 &nbsp;
 
-
 You can check it with:
+
 ```sql
 SELECT CURRENT_ROLE();
 ```
 
 The primary role is especially important because Snowflake uses it for authorization when creating objects.
 
-
 &nbsp;
 
-### Example:
+### Example
+
 ```md
 User: JOHN
 
@@ -36,10 +36,7 @@ DATA_ENGINEER_ROLE
 
 &nbsp;
 
-
 &nbsp;
-
-
 
 ## Secondary Roles
 
@@ -73,28 +70,24 @@ SELECT CURRENT_SECONDARY_ROLES();
 
 &nbsp;
 
-
 # Categories of Main Role
 
-| Role Category            | Purpose                                               | Examples                                                           |
-| ------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------ |
-| **System-defined roles** | Built-in Snowflake administrative roles               | `ACCOUNTADMIN`, `SECURITYADMIN`, `USERADMIN`, `SYSADMIN`, `PUBLIC` |
-| **Custom Roles** | Created by organization according to business, application, and access requirements. | `RAW_READ_ROLE`, `DATA_ANALYST_ROLE` |
+| Role Category            | Purpose                                                                              | Examples                                                           |
+| ------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| **System-defined roles** | Built-in Snowflake administrative roles                                              | `ACCOUNTADMIN`, `SECURITYADMIN`, `USERADMIN`, `SYSADMIN`, `PUBLIC` |
+| **Custom Roles**         | Created by organization according to business, application, and access requirements. | `RAW_READ_ROLE`, `DATA_ANALYST_ROLE`                               |
 
 &nbsp;
 
 &nbsp;
- 
+
 # Categories of Custom Role
 
-| Role Category            | Purpose                                               | Examples                                                           |
-| ------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------ |
-| **Access roles**         | Hold privileges on specific Snowflake objects         | `RAW_READ_ROLE`, `SALES_RW_ROLE`, `ETL_WH_USAGE_ROLE`              |
-| **Functional roles**     | Represent a job function and inherit access roles     | `DATA_ENGINEER_ROLE`, `DATA_ANALYST_ROLE`, `DBT_DEVELOPER_ROLE`    |
-| **Service roles**        | Used for applications, pipelines, or service accounts | `DBT_SERVICE_ROLE`, `AIRFLOW_ROLE`, `ETL_SERVICE_ROLE`             |
-
-
-
+| Role Category        | Purpose                                               | Examples                                                        |
+| -------------------- | ----------------------------------------------------- | --------------------------------------------------------------- |
+| **Access roles**     | Hold privileges on specific Snowflake objects         | `RAW_READ_ROLE`, `SALES_RW_ROLE`, `ETL_WH_USAGE_ROLE`           |
+| **Functional roles** | Represent a job function and inherit access roles     | `DATA_ENGINEER_ROLE`, `DATA_ANALYST_ROLE`, `DBT_DEVELOPER_ROLE` |
+| **Service roles**    | Used for applications, pipelines, or service accounts | `DBT_SERVICE_ROLE`, `AIRFLOW_ROLE`, `ETL_SERVICE_ROLE`          |
 
 &nbsp;
 
@@ -117,11 +110,12 @@ For interviews, the most important distinction is **Access Role vs Functional Ro
               |                    |
          Access Roles          Access Roles
           /       \                 |
-   RAW_READ    RAW_WRITE      ANALYTICS_READ
-       |           |                 |
-    SELECT    INSERT/UPDATE        SELECT
-       |           |                 |
-   RAW Tables   RAW Tables     Analytics Tables
+
+RAW_READ RAW_WRITE ANALYTICS_READ
+| | |
+SELECT INSERT/UPDATE SELECT
+| | |
+RAW Tables RAW Tables Analytics Tables
 ```
 
 &nbsp;
@@ -159,15 +153,15 @@ So the effective flow is:
 User → Functional Role → Access Role → Privileges → Snowflake Objects
 ```
 
-&nbsp; 
+&nbsp;
 
 &nbsp;
 
 # System-Defined Roles
 
 System-defined roles are predefined roles provided by Snowflake. They are mainly used for account administration, security, user management, and object management.
-&nbsp;
 
+&nbsp;
 
 ## System-defined role hierarchy
 
@@ -182,7 +176,6 @@ System-defined roles are predefined roles provided by Snowflake. They are mainly
 ```
 
 &nbsp;
-
 
 | System Role     | Main Responsibility                       | Key Point                                         |
 | --------------- | ----------------------------------------- | ------------------------------------------------- |
@@ -203,7 +196,6 @@ Custom roles are roles created by your organization according to business, appli
 
 &nbsp;
 
-
 For example:
 
 ```sql
@@ -215,30 +207,29 @@ CREATE ROLE RAW_WRITE_ROLE;
 
 &nbsp;
 
-
 Unlike system roles, these roles are not predefined by Snowflake.
 
 Custom roles are commonly designed as **two** logical categories:
 
 ```md
 Custom Roles
-     |
-     +------------------+
-     |                  |
-Access Roles      Functional Roles
+|
++------------------+
+| |
+Access Roles Functional Roles
 ```
 
-##  Access Roles
+## Access Roles
 
 An access role is a custom role designed around access to specific Snowflake objects.
 
 Think:
+
 > What objects can this role access?
 
 &nbsp;
 
-
-### Examples:
+### Examples
 
 ```md
 RAW_READ_ROLE
@@ -268,13 +259,13 @@ GRANT USAGE ON WAREHOUSE WH_DEVELOPER TO ROLE RAW_READ_ROLE;
 
 &nbsp;
 
- ## Functional Roles
+## Functional Roles
 
 Functional roles represent a user's business or technical function.
 
 &nbsp;
 
-### Examples:
+### Examples
 
 ```
 DATA_ENGINEER_ROLE
@@ -283,12 +274,9 @@ DBT_DEVELOPER_ROLE
 DATA_SCIENTIST_ROLE
 ```
 
-
-
 &nbsp;
 
 Instead of granting privileges directly to the functional role, you can grant access roles to it:
-
 
 ```sql
 GRANT ROLE RAW_READ_ROLE
@@ -300,18 +288,17 @@ TO ROLE DATA_ENGINEER_ROLE;
 
 &nbsp;
 
-
 And users receive functional roles:
 
 ```md
 USER
- ↓
+↓
 Functional Role
- ↓
+↓
 Access Role
- ↓
+↓
 Privilege
- ↓
+↓
 Snowflake Object
 ```
 
@@ -329,11 +316,9 @@ Snowflake Object
 
 &nbsp;
 
-
 # Answer
 
 ## 1. A user has `SELECT` through `ANALYST_ROLE`, but `DATA_ENGINEER_ROLE` is currently active. Can the user still use the analyst privilege?
-
 
 Potentially yes, if the appropriate secondary role is active and permitted by the account/session configuration.
 

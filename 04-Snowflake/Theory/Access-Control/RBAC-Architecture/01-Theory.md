@@ -2,10 +2,28 @@
 
 - [Content](#content)
 - [RBAC](#rbac)
+- [Why RBAC?](#why-rbac)
 - [Main RBAC components](#main-rbac-components)
 - [Access flow](#access-flow)
   - [Example:](#example)
+  - [Warehouse Access](#warehouse-access)
+    - [Example:](#example-1)
+- [RBAC for Service Accounts](#rbac-for-service-accounts)
+  - [Example:](#example-2)
+- [Useful RBAC Commands](#useful-rbac-commands)
+  - [Grant role to user](#grant-role-to-user)
+  - [Grant role to another role](#grant-role-to-another-role)
+  - [Database access](#database-access)
+  - [Schema access](#schema-access)
+  - [Table access](#table-access)
+  - [Future tables](#future-tables)
+  - [Warehouse](#warehouse)
+  - [Check grants](#check-grants)
+  - [nRevoke](#nrevoke)
 - [RBAC Best Practices](#rbac-best-practices)
+- [Interview Questions](#interview-questions)
+- [Answers](#answers)
+  - [1. `GRANT ROLE DATA_ENGINEER_ROLE TO ROLE SYSADMIN;` here who will get more privileges and why?](#1-grant-role-data_engineer_role-to-role-sysadmin-here-who-will-get-more-privileges-and-why)
 
 &nbsp;
 
@@ -44,7 +62,6 @@ flowchart TD
 
 &nbsp;
 
-
 # Why RBAC?
 
 RBAC provides:
@@ -56,11 +73,9 @@ RBAC provides:
 - Scalable permission management
 - Better auditing and governance
 
-
 &nbsp;
 
 &nbsp;
-
 
 # Main RBAC components
 
@@ -85,7 +100,7 @@ USER → ROLE → PRIVILEGE → OBJECT
 
 &nbsp;
 
-## Example:
+## Example
 
 Suppose we have:
 
@@ -125,7 +140,6 @@ USE ROLE DATA_ANALYST_ROLE;
 ```
 
 &nbsp;
-
 
 But there is an important issue with the example above.
 
@@ -173,7 +187,7 @@ User receives that role
 
 RBAC also controls compute resources.
 
-### Example:
+### Example
 
 ```sql
 GRANT USAGE
@@ -182,23 +196,23 @@ TO ROLE DATA_ANALYST;
 ```
 
 Without appropriate warehouse privileges, the user may have table access but still be unable to execute queries using that warehouse.
- 
+
 &nbsp;
 
 This gives you another troubleshooting chain:
 
 ```md
 Can user run query?
-        |
-        +-- Role assigned?
-        |
-        +-- Warehouse USAGE?
-        |
-        +-- Database USAGE?
-        |
-        +-- Schema USAGE?
-        |
-        +-- Table SELECT?
+|
++-- Role assigned?
+|
++-- Warehouse USAGE?
+|
++-- Database USAGE?
+|
++-- Schema USAGE?
+|
++-- Table SELECT?
 ```
 
 &nbsp;
@@ -209,18 +223,21 @@ Can user run query?
 
 Production systems commonly have service-specific roles.
 
-## Example:
+## Example
+
 ```md
 ]DBT_SERVICE_USER
-        ↓
+↓
 DBT_TRANSFORMER_ROLE
-        ↓
---------------------------
+↓
+
+---
+
 Warehouse → USAGE
-Database  → USAGE
-Schema    → USAGE
-Tables    → SELECT
-Schema    → CREATE TABLE
+Database → USAGE
+Schema → USAGE
+Tables → SELECT
+Schema → CREATE TABLE
 ```
 
 &nbsp;
@@ -228,7 +245,8 @@ Schema    → CREATE TABLE
 &nbsp;
 
 # Useful RBAC Commands
-###Create role
+
+### Create role
 
 ```sql
 CREATE ROLE DATA_ENGINEER_ROLE;
@@ -259,16 +277,17 @@ This means `SYSADMIN` inherits all privileges of `DATA_ENGINEER_ROLE`.
 &nbsp;
 
 ### Database access
+
 ```sql
 GRANT USAGE
 ON DATABASE ANALYTICS_DB
 TO ROLE DATA_ENGINEER_ROLE;
 ```
 
-
 &nbsp;
 
 ### Schema access
+
 ```sql
 GRANT USAGE
 ON SCHEMA ANALYTICS_DB.RAW
@@ -278,6 +297,7 @@ TO ROLE DATA_ENGINEER_ROLE;
 &nbsp;
 
 ### Table access
+
 ```sql
 GRANT SELECT
 ON ALL TABLES IN SCHEMA ANALYTICS_DB.RAW
@@ -286,19 +306,18 @@ TO ROLE DATA_ENGINEER_ROLE;
 
 &nbsp;
 
-
 ### Future tables
+
 ```sql
 GRANT SELECT
 ON FUTURE TABLES IN SCHEMA ANALYTICS_DB.RAW
 TO ROLE DATA_ENGINEER_ROLE;
 ```
 
-
 &nbsp;
 
-
 ### Warehouse
+
 ```sql
 GRANT USAGE
 ON WAREHOUSE ETL_WH
@@ -308,6 +327,7 @@ TO ROLE DATA_ENGINEER_ROLE;
 &nbsp;
 
 ### Check grants
+
 ```sql
 SHOW GRANTS TO ROLE DATA_ENGINEER_ROLE;
 
@@ -354,12 +374,11 @@ FROM ROLE DATA_ENGINEER_ROLE;
 
 &nbsp;
 
-
 # Interview Questions
 
 1. `GRANT ROLE DATA_ENGINEER_ROLE TO ROLE SYSADMIN;` here who will get more privileges and why?
 
-2. 
+2.
 
 &nbsp;
 
@@ -392,11 +411,10 @@ DATA_ENGINEER_ROLE
 SYSADMIN
 └── Its existing privileges
 ├── inherits from DATA_ENGINEER_ROLE
-      ├── SELECT on EMPLOYEE
-      ├── INSERT on EMPLOYEE
-      └── USAGE on ETL_WH
+├── SELECT on EMPLOYEE
+├── INSERT on EMPLOYEE
+└── USAGE on ETL_WH
 ```
-
 
 `SYSADMIN` gets additional effective access because it can now inherit the privileges of `DATA_ENGINEER_ROLE`
 

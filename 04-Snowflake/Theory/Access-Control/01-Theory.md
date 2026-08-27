@@ -7,9 +7,18 @@
 - [Core components](#core-components)
   - [1. User](#1-user)
   - [2. Role](#2-role)
+    - [Types of Roles](#types-of-roles)
   - [3. Privilege](#3-privilege)
+    - [Required privileges for reading a table](#required-privileges-for-reading-a-table)
   - [4. Securable object](#4-securable-object)
-- [Required privileges for reading a table](#required-privileges-for-reading-a-table)
+  - [5. Grants](#5-grants)
+    - [Object privilege grant](#object-privilege-grant)
+    - [Role Grant](#role-grant)
+  - [6. Role Hierarchy and Privilege Inheritance](#6-role-hierarchy-and-privilege-inheritance)
+    - [Example](#example)
+      - [Explanation](#explanation)
+  - [7. Ownership](#7-ownership)
+    - [Transfer ownership](#transfer-ownership)
 
 &nbsp;
 
@@ -34,11 +43,10 @@ It answers 3 key questions:
 
 &nbsp;
 
-
 ```md
-WHO        → User / Role
-WHAT       → Privilege
-ON WHAT    → Securable Object
+WHO → User / Role
+WHAT → Privilege
+ON WHAT → Securable Object
 ```
 
 &nbsp;
@@ -74,7 +82,7 @@ Snowflake supports and combines below access control models.
 
 RBAC should remain the standard approach.
 
-Direct user grants through UBAC make permissions harder to audit and maintain at scale. 
+Direct user grants through UBAC make permissions harder to audit and maintain at scale.
 
 Direct privileges granted to a user through UBAC become effective when `USE SECONDARY ROLES ALL` is enabled for the session..
 
@@ -93,6 +101,7 @@ Direct privileges granted to a user through UBAC become effective when `USE SECO
 | **Role Hierarchy**    | Roles granted to other roles for privilege inheritance         | `RAW_READ_ROLE → DATA_ENGINEER_ROLE` |
 | **Ownership**         | Special control over an object                                 | `OWNERSHIP` on a table/schema        |
 | **Grants**            | Relationships connecting roles, privileges, objects, and users | `GRANT SELECT ... TO ROLE`           |
+
 &nbsp;
 
 &nbsp;
@@ -132,9 +141,7 @@ GRANT ROLE DATA_ANALYST
 TO USER CHAITALY;
 ```
 
-
 &nbsp;
-
 
 ### Types of Roles
 
@@ -157,7 +164,6 @@ Roles
 └── Database Roles
 ```
 
-
 &nbsp;
 
 &nbsp;
@@ -178,7 +184,6 @@ A privilege allows a specific operation on an object.
 | `MODIFY`       | Change warehouse properties, including warehouse size |
 | `MONITOR`      | View warehouse queries and usage                      |
 | `OWNERSHIP`    | Full control over an object                           |
-
 
 &nbsp;
 
@@ -260,17 +265,14 @@ This matters because having access to a table does not automatically mean you ha
 
 &nbsp;
 
-
-
 ## 5. Grants
 
 A grant establishes the relationship between privileges, objects, roles, and users.
 
 There are **two** relationships you should distinguish.
+
 - Object privilege grant
 - Role grant
-
-
 
 &nbsp;
 
@@ -297,13 +299,13 @@ Object → Privilege → Role
 ### Role Grant
 
 Role to Role
+
 ```sql
 GRANT ROLE RAW_READ_ROLE
 TO ROLE DATA_ENGINEER_ROLE;
 ```
 
 &nbsp;
-
 
 Role to User
 
@@ -314,14 +316,15 @@ GRANT ROLE DATA_ENGINEER_ROLE
 TO USER CHAITALY;
 ```
 
-
 &nbsp;
 
 Conceptually:
 
 ```md
 Role → Role
+
 # or:
+
 Role → User
 ```
 
@@ -329,9 +332,7 @@ Role → User
 
 &nbsp;
 
-
 ## 6. Role Hierarchy and Privilege Inheritance
-
 
 Snowflake roles can be granted to other roles.
 
@@ -345,9 +346,9 @@ Suppose you create:
 
 ```md
 RAW_READ_ROLE
-       ↓
+↓
 DATA_ENGINEER_ROLE
-       ↓
+↓
 SYSADMIN
 ```
 
@@ -384,7 +385,6 @@ This is role inheritance.
 Every securable object has an owning role.
 
 &nbsp;
-
 
 For example:
 

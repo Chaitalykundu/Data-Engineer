@@ -9,6 +9,8 @@
   - [🧑‍💻 2. Custom Roles](#-2-custom-roles)
 - [Snowflake Roles \& Their Uses](#snowflake-roles--their-uses)
 - [Account roles vs database roles](#account-roles-vs-database-roles)
+  - [Account Role:](#account-role)
+  - [Database Role:](#database-role)
 
 &nbsp;
 
@@ -131,16 +133,13 @@ Default role assigned to all users
 
 👉 Created based on business needs
 
-
 &nbsp;
 
 Access Roles
 → Hold privileges on Snowflake objects.
 
-
 Functional Roles
 → Represent job functions and inherit access roles.
-
 
 &nbsp;
 
@@ -177,13 +176,14 @@ Functional Roles
 
 &nbsp;
 
-## Account Role:
+## Account Role
+
 - Can contain privileges across multiple databases/account-level objects
 - and can be activated as a primary or secondary role.
 
 &nbsp;
 
+## Database Role
 
-## Database Role:
 - Contains privileges limited to objects within one database.
 - It cannot be activated directly; it must be granted to an account role.
