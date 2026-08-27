@@ -34,7 +34,12 @@ It answers 3 key questions:
 
 &nbsp;
 
-It determines who can access database objects and perform operations on specific objects in snowflake.
+
+```md
+WHO        → User / Role
+WHAT       → Privilege
+ON WHAT    → Securable Object
+```
 
 &nbsp;
 
@@ -69,7 +74,9 @@ Snowflake supports and combines below access control models.
 
 RBAC should remain the standard approach.
 
-Direct user grants through UBAC make permissions harder to audit and maintain at scale. Snowflake only considers direct user privileges when all secondary roles are enabled.
+Direct user grants through UBAC make permissions harder to audit and maintain at scale. 
+
+Direct privileges granted to a user through UBAC become effective when `USE SECONDARY ROLES ALL` is enabled for the session..
 
 &nbsp;
 
@@ -131,10 +138,25 @@ TO USER CHAITALY;
 
 ### Types of Roles
 
-- System-Defined Roles
-- Custom Roles
-  - Access Roles
-  - Functional Roles
+```
+Roles
+│
+├── Account Roles
+│   ├── System-defined roles
+│   │   ├── ORGADMIN
+│   │   ├── ACCOUNTADMIN
+│   │   ├── SECURITYADMIN
+│   │   ├── USERADMIN
+│   │   ├── SYSADMIN
+│   │   └── PUBLIC
+│   │
+│   └── Custom Account Roles
+│       ├── Access Roles
+│       └── Functional Roles
+│
+└── Database Roles
+```
+
 
 &nbsp;
 
@@ -144,17 +166,19 @@ TO USER CHAITALY;
 
 A privilege allows a specific operation on an object.
 
-| Privilege      | Purpose                                |
-| -------------- | -------------------------------------- |
-| `USAGE`        | Access a warehouse, database or schema |
-| `SELECT`       | Read table or view data                |
-| `INSERT`       | Insert rows                            |
-| `UPDATE`       | Update rows                            |
-| `DELETE`       | Delete rows                            |
-| `CREATE TABLE` | Create tables in a schema              |
-| `OPERATE`      | Start, stop or resize a warehouse      |
-| `MONITOR`      | View warehouse activity                |
-| `OWNERSHIP`    | Full control over an object            |
+| Privilege      | Purpose                                               |
+| -------------- | ----------------------------------------------------- |
+| `USAGE`        | Use warehouse, database, or schema as applicable      |
+| `SELECT`       | Read table or view data                               |
+| `INSERT`       | Insert rows                                           |
+| `UPDATE`       | Update rows                                           |
+| `DELETE`       | Delete rows                                           |
+| `CREATE TABLE` | Create tables in a schema                             |
+| `OPERATE`      | Start, stop, suspend, or resume a warehouse           |
+| `MODIFY`       | Change warehouse properties, including warehouse size |
+| `MONITOR`      | View warehouse queries and usage                      |
+| `OWNERSHIP`    | Full control over an object                           |
+
 
 &nbsp;
 
@@ -211,22 +235,23 @@ A securable object is a **Snowflake object** to which access privileges can be g
 
 ```
 Account
-  |
-  ├── Warehouse
-  |
-  └── Database
-        |
-        └── Schema
-              |
-              ├── Table
-              ├── View
-              ├── Stage
-              ├── Stream
-              ├── Task
-              └── Function
-              └── File format
-              └── Pipe
-              └── Integration
+│
+├── Warehouse
+├── Integration
+├── Resource Monitor
+│
+└── Database
+      │
+      └── Schema
+            │
+            ├── Table
+            ├── View
+            ├── Stage
+            ├── Stream
+            ├── Task
+            ├── Function
+            ├── File Format
+            └── Pipe
 ```
 
 This matters because having access to a table does not automatically mean you have all the required access to its parent containers.
@@ -305,7 +330,7 @@ Role → User
 &nbsp;
 
 
-## Role Hierarchy and Privilege Inheritance
+## 6. Role Hierarchy and Privilege Inheritance
 
 
 Snowflake roles can be granted to other roles.
