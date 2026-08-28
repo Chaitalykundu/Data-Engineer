@@ -1,16 +1,22 @@
 # Overview
 
 - [Overview](#overview)
-- [1. Users](#1-users)
-- [2. Roles](#2-roles)
-- [3. Objects](#3-objects)
-  - [Account Level](#account-level)
-  - [Database Level](#database-level)
-- [4. Privileges](#4-privileges)
-  - [Common privileges](#common-privileges)
-- [Account-Level Objects vs Database-Level vs Schema-Level Objects](#account-level-objects-vs-database-level-vs-schema-level-objects)
-
-&nbsp;
+- [Core components](#core-components)
+  - [1. User](#1-user)
+  - [2. Role](#2-role)
+    - [Types of Roles](#types-of-roles)
+  - [3. Privilege](#3-privilege)
+    - [Required privileges for reading a table](#required-privileges-for-reading-a-table)
+  - [4. Securable object](#4-securable-object)
+    - [Account-Level Objects vs Database-Level vs Schema-Level Objects](#account-level-objects-vs-database-level-vs-schema-level-objects)
+  - [5. Grants](#5-grants)
+    - [Object privilege grant](#object-privilege-grant)
+    - [Role Grant](#role-grant)
+  - [6. Role Hierarchy and Privilege Inheritance](#6-role-hierarchy-and-privilege-inheritance)
+    - [Example](#example)
+      - [Explanation](#explanation)
+  - [7. Ownership](#7-ownership)
+    - [Transfer ownership](#transfer-ownership)
 
 &nbsp;
 
@@ -71,14 +77,12 @@ TO USER CHAITALY;
 
 Roles can also be assigned to other roles, creating a role hierarchy.
 
-
 ```sql
 CREATE ROLE DATA_ANALYST;
 
 GRANT ROLE DATA_ANALYST
 TO ROLE ROLEDATA_ENGINEER;
 ```
-
 
 &nbsp;
 
@@ -205,8 +209,6 @@ This matters because having access to a table does not automatically mean you ha
 &nbsp;
 
 ### Account-Level Objects vs Database-Level vs Schema-Level Objects
-
-
 
 | Feature       | 🏢 Account-Level         | 📦 Database-Level    | 📁 Schema-Level                                      |
 | ------------- | ------------------------ | -------------------- | ---------------------------------------------------- |

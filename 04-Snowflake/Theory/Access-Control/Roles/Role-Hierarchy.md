@@ -1,9 +1,26 @@
+# Content
+
+- [Content](#content)
+- [Role Hierarchy](#role-hierarchy)
+- [Why Role Hierarchy Is Important](#why-role-hierarchy-is-important)
+- [Role Inheritance](#role-inheritance)
+- [Important Direction of GRANT ROLE](#important-direction-of-grant-role)
+- [Role Hierarchy vs Direct User Grants](#role-hierarchy-vs-direct-user-grants)
+- [Interview-Level Design](#interview-level-design)
+  - [Questions](#questions)
+  - [Answers](#answers)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 # Role Hierarchy
 
 A role hierarchy means one role can be granted to another role.
 
 The higher-level role inherits the privileges of the lower-level role.
-
 
 &nbsp;
 
@@ -11,12 +28,11 @@ Suppose:
 
 ```md
 RAW_READ_ROLE
-      ↓
+↓
 DATA_ENGINEER_ROLE
-      ↓
+↓
 SYSADMIN
 ```
-
 
 You can create this relationship using:
 
@@ -30,18 +46,17 @@ TO ROLE SYSADMIN;
 
 &nbsp;
 
-
 Therefore:
 
 ```md
 RAW_READ_ROLE
-     │
-     │ granted to
-     ▼
+│
+│ granted to
+▼
 DATA_ENGINEER_ROLE
-     │
-     │ granted to
-     ▼
+│
+│ granted to
+▼
 SYSADMIN
 ```
 
@@ -74,10 +89,12 @@ That becomes difficult to maintain.
 Instead:
 
 - Grant the object privileges once:
+
   ```sql
   GRANT SELECT ON ALL TABLES IN SCHEMA RAW
   TO ROLE RAW_READ_ROLE;
   ```
+
 - Then reuse that role:
 
   ```sql
@@ -100,14 +117,13 @@ Suppose:
 
 ```md
 ROLE_A
-  ↓
+↓
 ROLE_B
-  ↓
+↓
 ROLE_C
 ```
 
 &nbsp;
-
 
 If:
 
@@ -121,13 +137,11 @@ Then:
 ```md
 ROLE_B inherits ROLE_A privileges
 
-ROLE_C inherits ROLE_B privileges
-       +
-       ROLE_A privileges
+ROLE_C inherits ROLE_B privileges +
+ROLE_A privileges
 ```
+
 &nbsp;
-
-
 
 &nbsp;
 
@@ -135,14 +149,12 @@ ROLE_C inherits ROLE_B privileges
 
 This frequently causes confusion.
 
-
 ```sql
 GRANT ROLE Access_role
 TO ROLE functional_role;
 ```
 
 &nbsp;
-
 
 ```sql
 GRANT ROLE RAW_READ_ROLE
@@ -176,11 +188,11 @@ Prefer:
 
 ```md
 Object privileges
-       ↓
+↓
 Access Roles
-       ↓
+↓
 Functional Roles
-       ↓
+↓
 Users
 ```
 
@@ -190,11 +202,11 @@ For example:
 
 ```md
 RAW tables
-    ↓ SELECT
+↓ SELECT
 RAW_READ_ROLE
-    ↓
+↓
 DATA_ENGINEER_ROLE
-    ↓
+↓
 CHAITALY
 ```
 
@@ -213,7 +225,6 @@ This gives you centralized privilege management
 ## Questions
 
 1. How would you design RBAC for Data Engineers and Data Analysts?
-
 
 &nbsp;
 

@@ -90,31 +90,25 @@ Direct privileges granted to a user through UBAC become effective when `USE SECO
 
 &nbsp;
 
-
 # Core components
 
-
-| Component             | Meaning                                                        | Example                              |
-| --------------------- | -------------------------------------------------------------- | ------------------------------------ |
-| **Users**             | Human or service identities accessing Snowflake                | `CHAITALY`, `DBT_SERVICE_USER`       |
-| **Roles**             | Containers for privileges                                      | `DATA_ENGINEER_ROLE`                 |
-| **Privileges**        | Permissions to perform actions                                 | `SELECT`, `USAGE`, `CREATE TABLE`    |
-| **Securable Objects** | Snowflake resources on which privileges are granted            | Warehouse, Database, Schema, Table   |
-
+| Component             | Meaning                                             | Example                            |
+| --------------------- | --------------------------------------------------- | ---------------------------------- |
+| **Users**             | Human or service identities accessing Snowflake     | `CHAITALY`, `DBT_SERVICE_USER`     |
+| **Roles**             | Containers for privileges                           | `DATA_ENGINEER_ROLE`               |
+| **Privileges**        | Permissions to perform actions                      | `SELECT`, `USAGE`, `CREATE TABLE`  |
+| **Securable Objects** | Snowflake resources on which privileges are granted | Warehouse, Database, Schema, Table |
 
 &nbsp;
-
 
 &nbsp;
 
 ## Other Components
 
-
-| Component             | Meaning                                                        | Example                              |
-| --------------------- | -------------------------------------------------------------- | ------------------------------------ |
-| **Role Hierarchy**    | Roles granted to other roles for privilege inheritance         | `RAW_READ_ROLE → DATA_ENGINEER_ROLE` |
-| **Ownership**         | Special control over an object                                 | `OWNERSHIP` on a table/schema        |
-| **Grants**            | Relationships connecting roles, privileges, objects, and users | `GRANT SELECT ... TO ROLE`           |
-
+| Component          | Meaning                                                        | Example                              |
+| ------------------ | -------------------------------------------------------------- | ------------------------------------ |
+| **Role Hierarchy** | Roles granted to other roles for privilege inheritance         | `RAW_READ_ROLE → DATA_ENGINEER_ROLE` |
+| **Ownership**      | Special control over an object                                 | `OWNERSHIP` on a table/schema        |
+| **Grants**         | Relationships connecting roles, privileges, objects, and users | `GRANT SELECT ... TO ROLE`           |
 
 &nbsp;

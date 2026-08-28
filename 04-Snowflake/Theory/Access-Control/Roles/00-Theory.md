@@ -1,23 +1,32 @@
 # Content
 
-- [Content](#overview)
+- [Content](#content)
 - [Role](#role)
 - [How Roles Work (Flow)](#how-roles-work-flow)
   - [Example](#example)
 - [Types of roles](#types-of-roles)
-  - [System defined roles](#system-defined-roles)
-  - [🧑‍💻 2. Custom Roles](#-2-custom-roles)
-- [Snowflake Roles \& Their Uses](#snowflake-roles--their-uses)
-- [Account roles vs database roles](#account-roles-vs-database-roles)
-  - [Account Role:](#account-role)
-  - [Database Role:](#database-role)
+- [Categories of Custom Role](#categories-of-custom-role)
+- [Recommended architecture](#recommended-architecture)
+- [System-Defined Roles](#system-defined-roles)
+  - [System-defined role hierarchy](#system-defined-role-hierarchy)
+- [2. Custom Roles](#2-custom-roles)
+  - [Access Roles](#access-roles)
+    - [Examples](#examples)
+  - [Functional Roles](#functional-roles)
+    - [Examples](#examples-1)
+- [Primary Role vs Secondary Roles](#primary-role-vs-secondary-roles)
+  - [Primary Role](#primary-role)
+    - [Example](#example-1)
+  - [Secondary Roles](#secondary-roles)
+- [Interview scenario Question](#interview-scenario-question)
+- [Answer](#answer)
+  - [1. A user has `SELECT` through `ANALYST_ROLE`, but `DATA_ENGINEER_ROLE` is currently active. Can the user still use the analyst privilege?](#1-a-user-has-select-through-analyst_role-but-data_engineer_role-is-currently-active-can-the-user-still-use-the-analyst-privilege)
 
 &nbsp;
 
 &nbsp;
 
 &nbsp;
-
 
 # Role
 
@@ -30,7 +39,6 @@ Instead of giving permissions directly to users:
 - You assign permissions → to roles
 - Then assign roles → to users
 
-
 &nbsp;
 
 The roles are assigned to the users to allow them multiple to perform actions required for business functions.
@@ -40,7 +48,6 @@ An user can be assigned to multiple roles. This allows users to switch roles.
 &nbsp;
 
 &nbsp;
-
 
 # How Roles Work (Flow)
 
@@ -63,7 +70,6 @@ GRANT ROLE analyst_role TO USER user1;
 
 &nbsp;
 
-
 # Types of roles
 
 There are two types of roles.
@@ -71,10 +77,7 @@ There are two types of roles.
 - System defined roles
 - Custom roles
 
-
 &nbsp;
-
-
 
 | Role Category            | Purpose                                                                              | Examples                                                           |
 | ------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
@@ -116,9 +119,9 @@ For interviews, the most important distinction is **Access Role vs Functional Ro
           /       \                 |
 
 RAW_READ RAW_WRITE ANALYTICS_READ
-|            |         |
+| | |
 SELECT INSERT/UPDATE SELECT
-|              |        |
+| | |
 RAW Tables RAW Tables Analytics Tables
 ```
 
@@ -227,7 +230,6 @@ Access Roles Functional Roles
 
 An access role is a custom role designed to access to specific Snowflake objects.
 
-
 Think:
 
 > What objects can this role access?
@@ -311,7 +313,6 @@ Snowflake Object
 
 &nbsp;
 
-
 # Primary Role vs Secondary Roles
 
 ## Primary Role
@@ -383,9 +384,6 @@ SELECT CURRENT_SECONDARY_ROLES();
 ```
 
 &nbsp;
-
-
-
 
 &nbsp;
 

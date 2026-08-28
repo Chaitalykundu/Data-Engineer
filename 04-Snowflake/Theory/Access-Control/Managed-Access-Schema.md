@@ -1,4 +1,24 @@
-#  Managed Access Schema 
+# Content
+
+- [Content](#content)
+- [Managed Access Schema](#managed-access-schema)
+- [Why Managed Access Schema?](#why-managed-access-schema)
+- [Creating a Managed Access Schema](#creating-a-managed-access-schema)
+- [Regular Schema vs Managed Access Schema](#regular-schema-vs-managed-access-schema)
+- [Example](#example)
+- [Who Can Manage Grants?](#who-can-manage-grants)
+- [Managed Access + RBAC](#managed-access--rbac)
+- [Interview Question](#interview-question)
+  - [Questions](#questions)
+  - [Answers](#answers)
+    - [1. What is a Managed Access Schema](#1-what-is-a-managed-access-schema)
+  - [2. Regular Schema vs Managed Access Schema in Snowflake](#2-regular-schema-vs-managed-access-schema-in-snowflake)
+
+&nbsp;
+
+&nbsp;
+
+# Managed Access Schema
 
 A Managed Access Schema is a Snowflake schema where **grant management is centralized**.
 
@@ -10,18 +30,17 @@ This is particularly useful for enterprise RBAC.
 
 &nbsp;
 
-
 # Why Managed Access Schema?
 
 Consider:
 
 ```md
 ANALYTICS_DB
-    │
-    └── REPORTING
-          ├── SALES
-          ├── CUSTOMERS
-          └── ORDERS
+│
+└── REPORTING
+├── SALES
+├── CUSTOMERS
+└── ORDERS
 ```
 
 &nbsp;
@@ -40,11 +59,11 @@ That can create problems:
 
 ```md
 Different object owners
-        ↓
+↓
 Different GRANT decisions
-        ↓
+↓
 Inconsistent permissions
-        ↓
+↓
 Harder auditing/governance
 ```
 
@@ -65,10 +84,7 @@ Managed access changes this model:
 
 &nbsp;
 
-
-
 &nbsp;
-
 
 # Creating a Managed Access Schema
 
@@ -77,9 +93,7 @@ CREATE SCHEMA ANALYTICS_DB.REPORTING
 WITH MANAGED ACCESS;
 ```
 
-
 &nbsp;
-
 
 You can verify schemas using:
 
@@ -93,7 +107,6 @@ The schema metadata indicates whether it is managed access.
 
 &nbsp;
 
-
 # Regular Schema vs Managed Access Schema
 
 | Feature                      | Regular Schema          | Managed Access Schema |
@@ -105,11 +118,9 @@ The schema metadata indicates whether it is managed access.
 | Governance                   | Less centralized        | Stronger              |
 | Enterprise use               | Depends on requirements | Very useful           |
 
-
 &nbsp;
 
 &nbsp;
-
 
 # Example
 
@@ -129,7 +140,6 @@ CREATE TABLE ANALYTICS_DB.REPORTING.SALES (
 );
 ```
 
-
 Even though the role owns the table, because it is inside a managed access schema, it cannot freely grant table access merely because it owns that table.
 
 For example, don't assume this will be allowed:
@@ -148,7 +158,6 @@ The role performing grant management needs the appropriate authority for the man
 
 # Who Can Manage Grants?
 
-
 For interview purposes, remember these key authorities:
 
 ```sql
@@ -162,7 +171,6 @@ Managed Access Schema
 A high-level security administration role such as `SECURITYADMIN` typically has **MANAGE GRANTS**.
 
 This creates centralized security administration.
-
 
 &nbsp;
 
@@ -178,51 +186,41 @@ For example:
 
 &nbsp;
 
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 
 &nbsp;
 
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 
 &nbsp;
 
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 
 &nbsp;
 
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 
 &nbsp;
 
-
 &nbsp;
 
 &nbsp;
-
-
-&nbsp;
-
-&nbsp;
-
-
-&nbsp;
-
-&nbsp;
-
-
-&nbsp;
-
-&nbsp;
-
-
-&nbsp;
-
-&nbsp;
-
 
 &nbsp;
 
@@ -233,11 +231,7 @@ For example:
 1. What is a Managed Access Schema
 2. Regular Schema vs Managed Access Schema in Snowflake
 
-
-
-
 &nbsp;
-
 
 &nbsp;
 
@@ -249,7 +243,6 @@ A managed access schema centralizes privilege management at the schema level. Un
 
 &nbsp;
 
-
 &nbsp;
 
 ## 2. Regular Schema vs Managed Access Schema in Snowflake
@@ -260,4 +253,3 @@ Regular schema → object owners can manage grants on their objects.
 Managed access schema → grant management is centralized at the schema/security-admin level.
 
 &nbsp;
-
