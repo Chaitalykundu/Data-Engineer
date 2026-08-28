@@ -3,7 +3,7 @@
 - [Content](#content)
 - [Role](#role)
 - [How Roles Work (Flow)](#how-roles-work-flow)
-  - [Example](#example)
+    - [Example](#example)
 - [Types of roles](#types-of-roles)
 - [Categories of Custom Role](#categories-of-custom-role)
 - [Recommended architecture](#recommended-architecture)
@@ -18,6 +18,12 @@
   - [Primary Role](#primary-role)
     - [Example](#example-1)
   - [Secondary Roles](#secondary-roles)
+- [Important operational concepts](#important-operational-concepts)
+  - [Database roles](#database-roles)
+  - [Privileges are additive](#privileges-are-additive)
+  - [Future grants](#future-grants)
+  - [Ownership and grant authority](#ownership-and-grant-authority)
+  - [Troubleshooting insufficient privileges](#troubleshooting-insufficient-privileges)
 - [Interview scenario Question](#interview-scenario-question)
 - [Answer](#answer)
   - [1. A user has `SELECT` through `ANALYST_ROLE`, but `DATA_ENGINEER_ROLE` is currently active. Can the user still use the analyst privilege?](#1-a-user-has-select-through-analyst_role-but-data_engineer_role-is-currently-active-can-the-user-still-use-the-analyst-privilege)
@@ -104,7 +110,7 @@ There are two types of roles.
 
 For interviews, the most important distinction is **Access Role vs Functional Role**
 
-```md
+```
                   SYSTEM-DEFINED ROLES
                            |
                        SYSADMIN
@@ -117,12 +123,11 @@ For interviews, the most important distinction is **Access Role vs Functional Ro
               |                    |
          Access Roles          Access Roles
           /       \                 |
-
-RAW_READ RAW_WRITE ANALYTICS_READ
-| | |
-SELECT INSERT/UPDATE SELECT
-| | |
-RAW Tables RAW Tables Analytics Tables
+          RAW_READ RAW_WRITE ANALYTICS_READ
+            |           |        |
+          SELECT INSERT/UPDATE SELECT
+            |           |          |
+          RAW Tables RAW Tables Analytics Tables
 ```
 
 &nbsp;
@@ -195,6 +200,10 @@ System-defined roles are predefined roles provided by Snowflake. They are mainly
 
 &nbsp;
 
+`ORGADMIN` is an organization-level role used for organization and account administration. It is not a normal account-level role in the same hierarchy as `SYSADMIN` and `SECURITYADMIN`. `ACCOUNTADMIN` is the highest built-in account role, but routine work should be delegated to lower-privileged roles.
+
+&nbsp;
+
 &nbsp;
 
 # 2. Custom Roles
@@ -218,13 +227,15 @@ Unlike system roles, these roles are not predefined by Snowflake.
 
 Custom roles are commonly designed as **two** logical categories:
 
-```md
-Custom Roles
-|
-+------------------+
-| |
-Access Roles Functional Roles
 ```
+          Custom Roles
+             |
+    +------------------+
+    |                  |
+Access Roles   Functional Roles
+```
+
+&nbsp;
 
 ## Access Roles
 
@@ -384,6 +395,104 @@ SELECT CURRENT_SECONDARY_ROLES();
 ```
 
 &nbsp;
+
+&nbsp;
+
+# Important operational concepts
+
+These concepts complete the basic RBAC model and are common sources of production access errors.
+
+## Database roles
+
+A database role is scoped to one database. It packages database-specific privileges, but it cannot be granted directly to a user or activated directly in a session. Grant it to an account role first.
+
+```sql
+CREATE DATABASE ROLE EMPLOYEE_DB_READ_ROLE;
+
+GRANT USAGE ON DATABASE EMPLOYEE_DB
+TO DATABASE ROLE EMPLOYEE_DB_READ_ROLE;
+
+GRANT USAGE ON SCHEMA EMPLOYEE_DB.ANALYTICS
+TO DATABASE ROLE EMPLOYEE_DB_READ_ROLE;
+
+GRANT SELECT ON ALL TABLES IN SCHEMA EMPLOYEE_DB.ANALYTICS
+TO DATABASE ROLE EMPLOYEE_DB_READ_ROLE;
+
+GRANT DATABASE ROLE EMPLOYEE_DB_READ_ROLE
+TO ROLE DATA_ANALYST_ROLE;
+```
+
+The account role is then granted to the user. This keeps database-specific access separate from organization-wide job functions.
+
+&nbsp;
+
+## Privileges are additive
+
+Snowflake evaluates privileges available through the active primary role and, when enabled, active secondary roles. Granting a privilege through one role does not remove a privilege received through another role.
+
+```sql
+USE ROLE DATA_ANALYST_ROLE;
+USE SECONDARY ROLES ALL;
+```
+
+Role inheritance is also additive: a parent role receives the privileges of every child role granted to it. Adding one access role can therefore expand access for every user who receives the functional role.
+
+&nbsp;
+
+## Future grants
+
+`ALL TABLES` applies to tables that already exist. `FUTURE TABLES` applies to tables created later. Production designs often need both.
+
+```sql
+GRANT SELECT ON ALL TABLES IN SCHEMA EMPLOYEE_DB.ANALYTICS
+TO ROLE ANALYTICS_READ_ROLE;
+
+GRANT SELECT ON FUTURE TABLES IN SCHEMA EMPLOYEE_DB.ANALYTICS
+TO ROLE ANALYTICS_READ_ROLE;
+```
+
+Future grants are not retroactive, and they do not replace grants on existing objects. Review conflicts when both schema-level and database-level future grants target the same object type.
+
+&nbsp;
+
+## Ownership and grant authority
+
+`OWNERSHIP` is different from ordinary data access. The owner controls the object and can generally manage its grants, while `SELECT` only permits reading data. Transferring ownership changes who controls the object and can remove the previous owner's ownership privileges.
+
+Use managed access schemas when grant decisions must be centralized. In that design, object owners cannot freely grant access merely because they own an object; the schema owner or an appropriately authorized role manages grants.
+
+```sql
+GRANT OWNERSHIP ON TABLE EMPLOYEE_DB.ANALYTICS.EMPLOYEES
+TO ROLE ANALYTICS_OWNER_ROLE
+COPY CURRENT GRANTS;
+```
+
+Treat ownership as a controlled administrative responsibility, not as a shortcut for normal user access.
+
+&nbsp;
+
+## Troubleshooting insufficient privileges
+
+When a query fails, check the complete access path rather than only the table privilege:
+
+```md
+1. Is the required role granted to the user?
+2. Is the role active, or are the needed secondary roles enabled?
+3. Does the role have USAGE on the warehouse?
+4. Does it have USAGE on the database and schema?
+5. Does it have the required object privilege, such as SELECT?
+6. Is the object name and object type correct?
+7. Is access blocked by a policy or by ownership/grant authority?
+```
+
+Useful inspection commands are:
+
+```sql
+SHOW GRANTS TO USER CHAITALYKUNDU;
+SHOW GRANTS TO ROLE DATA_ANALYST_ROLE;
+SHOW GRANTS OF ROLE DATA_ANALYST_ROLE;
+SHOW FUTURE GRANTS IN SCHEMA EMPLOYEE_DB.ANALYTICS;
+```
 
 &nbsp;
 
