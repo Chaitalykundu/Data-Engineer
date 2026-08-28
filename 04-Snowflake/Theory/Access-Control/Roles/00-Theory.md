@@ -35,10 +35,6 @@ Instead of giving permissions directly to users:
 
 The roles are assigned to the users to allow them multiple to perform actions required for business functions.
 
-&nbsp;
-
-&nbsp;
-
 An user can be assigned to multiple roles. This allows users to switch roles.
 
 &nbsp;
@@ -75,85 +71,10 @@ There are two types of roles.
 - System defined roles
 - Custom roles
 
-&nbsp;
 
 &nbsp;
 
 
-
-# Primary Role vs Secondary Roles
-
-## Primary Role
-
-A Snowflake session has one active primary role at a time.
-
-```sql
-USE ROLE DATA_ENGINEER_ROLE;
-```
-
-&nbsp;
-
-You can check it with:
-
-```sql
-SELECT CURRENT_ROLE();
-```
-
-The primary role is especially important because Snowflake uses it for authorization when creating objects.
-
-&nbsp;
-
-### Example
-
-```md
-User: JOHN
-
-Granted roles:
-├── DATA_ENGINEER_ROLE
-├── ANALYST_ROLE
-└── FINANCE_READ_ROLE
-
-Primary role:
-DATA_ENGINEER_ROLE
-```
-
-&nbsp;
-
-&nbsp;
-
-## Secondary Roles
-
-Secondary roles allow the session to use privileges from additional roles granted to the user.
-
-For example:
-
-```sql
-USE SECONDARY ROLES ALL;
-```
-
-Now John's session can potentially use privileges coming from his other granted roles as well.
-
-You can inspect them using:
-
-```sql
-SELECT CURRENT_SECONDARY_ROLES();
-```
-
-&nbsp;
-
-&nbsp;
-
-```sql
-USE ROLE DATA_ENGINEER_ROLE;
-USE SECONDARY ROLES ALL;
-USE SECONDARY ROLES NONE;
-SELECT CURRENT_ROLE();
-SELECT CURRENT_SECONDARY_ROLES();
-```
-
-&nbsp;
-
-# Categories of Main Role
 
 | Role Category            | Purpose                                                                              | Examples                                                           |
 | ------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
@@ -195,9 +116,9 @@ For interviews, the most important distinction is **Access Role vs Functional Ro
           /       \                 |
 
 RAW_READ RAW_WRITE ANALYTICS_READ
-| | |
+|            |         |
 SELECT INSERT/UPDATE SELECT
-| | |
+|              |        |
 RAW Tables RAW Tables Analytics Tables
 ```
 
@@ -388,6 +309,82 @@ Snowflake Object
 &nbsp;
 
 &nbsp;
+
+
+# Primary Role vs Secondary Roles
+
+## Primary Role
+
+A Snowflake session has one active primary role at a time.
+
+```sql
+USE ROLE DATA_ENGINEER_ROLE;
+```
+
+&nbsp;
+
+You can check it with:
+
+```sql
+SELECT CURRENT_ROLE();
+```
+
+The primary role is especially important because Snowflake uses it for authorization when creating objects.
+
+&nbsp;
+
+### Example
+
+```md
+User: JOHN
+
+Granted roles:
+├── DATA_ENGINEER_ROLE
+├── ANALYST_ROLE
+└── FINANCE_READ_ROLE
+
+Primary role:
+DATA_ENGINEER_ROLE
+```
+
+&nbsp;
+
+&nbsp;
+
+## Secondary Roles
+
+Secondary roles allow the session to use privileges from additional roles granted to the user.
+
+For example:
+
+```sql
+USE SECONDARY ROLES ALL;
+```
+
+Now John's session can potentially use privileges coming from his other granted roles as well.
+
+You can inspect them using:
+
+```sql
+SELECT CURRENT_SECONDARY_ROLES();
+```
+
+&nbsp;
+
+&nbsp;
+
+```sql
+USE ROLE DATA_ENGINEER_ROLE;
+USE SECONDARY ROLES ALL;
+USE SECONDARY ROLES NONE;
+SELECT CURRENT_ROLE();
+SELECT CURRENT_SECONDARY_ROLES();
+```
+
+&nbsp;
+
+
+
 
 &nbsp;
 
