@@ -225,7 +225,8 @@ Access Roles Functional Roles
 
 ## Access Roles
 
-An access role is a custom role designed around access to specific Snowflake objects.
+An access role is a custom role designed to access to specific Snowflake objects.
+
 
 Think:
 
