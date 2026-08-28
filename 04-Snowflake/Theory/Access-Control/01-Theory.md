@@ -143,6 +143,19 @@ TO USER CHAITALY;
 
 &nbsp;
 
+Roles can also be assigned to other roles, creating a role hierarchy.
+
+
+```sql
+CREATE ROLE DATA_ANALYST;
+
+GRANT ROLE DATA_ANALYST
+TO ROLE ROLEDATA_ENGINEER;
+```
+
+
+&nbsp;
+
 ### Types of Roles
 
 ```
@@ -169,6 +182,8 @@ Roles
 &nbsp;
 
 ## 3. Privilege
+
+Privilege means permissions granted on objects.
 
 A privilege allows a specific operation on an object.
 
@@ -260,6 +275,24 @@ Account
 ```
 
 This matters because having access to a table does not automatically mean you have all the required access to its parent containers.
+
+&nbsp;
+
+### Account-Level Objects vs Database-Level vs Schema-Level Objects
+
+
+
+| Feature       | 🏢 Account-Level         | 📦 Database-Level    | 📁 Schema-Level                                      |
+| ------------- | ------------------------ | -------------------- | ---------------------------------------------------- |
+| 📌 Scope      | Entire Snowflake account | Inside a database    | Inside a schema                                      |
+| 🎯 Purpose    | Manage platform access   | Organize databases   | Organize objects                                     |
+| 📍 Position   | Top-most                 | Middle               | Lower                                                |
+| 👤 Examples   | Users, Roles, Warehouses | Databases            | Schemas                                              |
+| 📄 Contains   | Everything               | Schemas              | Tables, Views, Streams, Tasks, Stored procedure, UDF |
+| 🔑 Privileges | CREATE USER, CREATE ROLE | USAGE, CREATE SCHEMA | USAGE, CREATE TABLE                                  |
+| 🔄 Dependency | Independent              | Depends on account   | Depends on database                                  |
+| ⚙️ Managed By | ACCOUNTADMIN             | SYSADMIN             | SYSADMIN / custom roles                              |
+|               |                          |                      |                                                      |
 
 &nbsp;
 
