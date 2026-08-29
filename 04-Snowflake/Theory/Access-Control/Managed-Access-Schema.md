@@ -28,6 +28,15 @@ This is particularly useful for enterprise RBAC.
 
 &nbsp;
 
+A managed access schema is a Snowflake schema in which object owners cannot independently grant privileges on the objects they own.
+
+Instead, access to every object inside the schema—tables, views, stages, functions, etc.—is centrally controlled by:
+
+- The schema owner
+- A role with the global MANAGE GRANTS privilege, typically SECURITYADMIN
+
+&nbsp;
+
 &nbsp;
 
 # Why Managed Access Schema?
@@ -181,38 +190,6 @@ This creates centralized security administration.
 Managed access schemas work particularly well with the access-role/functional-role architecture.
 
 For example:
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
 
 &nbsp;
 
