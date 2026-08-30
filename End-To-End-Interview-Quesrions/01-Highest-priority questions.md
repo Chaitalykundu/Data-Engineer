@@ -1,3 +1,19 @@
+# Overview
+
+- [Overview](#overview)
+- [Questions](#questions)
+- [Answers](#answers)
+    - [6. How do micro-partitioning and partition pruning work in Snowflake?](#6-how-do-micro-partitioning-and-partition-pruning-work-in-snowflake)
+    - [7. When would you define a clustering key?](#7-when-would-you-define-a-clustering-key)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Questions
+
 [Accenture Custom Software Engineer
 ](https://www.accenture.com/in-en/careers/jobdetails?id=ATCI-5520199-S2014779_en&title=Custom+Software+Engineer&c=car_glb_curateddailycondialogbox_12220771&n=otc_0621)
 
@@ -21,3 +37,152 @@
 18. How do you create standard operating procedures for recurring failures?
 19. How do you handle schema changes from source systems?
 20. How would you migrate data from PostgreSQL or SQL Server to Snowflake?
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Answers
+
+### 6. How do micro-partitioning and partition pruning work in Snowflake?
+
+When we load or insert data into Snowflake, it automatically breaks data into small blocks of storage. These are called **micro-partitions**.
+
+Each micro-partition:
+
+- Contains ~16 MB of compressed data and 50 MB–500 MB uncompressed data
+- Data is stored in columnar format
+- Maintains metadata such as:
+  - Minimum and maximum value per column
+  - Number of distinct values
+  - NULL count
+  - Other statistics used for optimization
+
+&nbsp;
+
+**Partition pruning**
+
+Partition pruning is the process of skipping micro-partitions that cannot contain data required by a query.
+
+```sql
+SELECT order_id, region
+FROM sales
+WHERE order_date BETWEEN '2026-03-01' AND '2026-04-30';
+```
+
+Snowflake examines the micro-partition metadata:
+
+- MP1: January–February → skipped
+- MP2: March–April → scanned
+- MP3: May–June → skipped
+- MP4: July–August → skipped
+
+Only MP2 needs to be read.
+
+&nbsp;
+
+Snowflake generally performs:
+
+- **Metadata lookup**: Checks the minimum and maximum ORDER_DATE stored for each micro-partition.
+- **Partition pruning**: Eliminates partitions whose ranges cannot include 2026-07-01.
+- **Column pruning**: Reads only ORDER_ID, REGION, and ORDER_DATE, rather than every column.
+- **Filtering**: Applies the exact condition to rows within the remaining partitions.
+- **Result generation**: Returns ORDER_ID and REGION.
+
+&nbsp;
+
+When you run:
+
+```sql
+SELECT *
+FROM sales
+WHERE order_date = '2026-02-15';
+```
+
+Snowflake uses `ORDER_DATE` metadata because that column appears in the filter.
+
+For another query:
+
+```sql
+SELECT *
+FROM sales
+WHERE customer_id = 1001;
+```
+
+Snowflake uses the `CUSTOMER_ID` metadata instead.
+
+Therefore, the column used for pruning is determined by the query filter, not by a predefined micro-partition column.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+### 7. When would you define a clustering key?
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;

@@ -24,7 +24,7 @@
   - [Output](#output)
 - [Interview Questions](#interview-questions)
 - [Answers](#answers)
-  - [5. Suppose we have the table. Now we need to filter the data BETWEEN '2026-03-01' AND '2026-06-30'. Then what will happen? Can we partition this more](#5-suppose-we-have-the-table-now-we-need-to-filter-the-data-between-2026-03-01-and-2026-06-30-then-what-will-happen-can-we-partition-this-more)
+    - [5. Suppose we have the table. Now we need to filter the data BETWEEN '2026-03-01' AND '2026-06-30'. Then what will happen? Can we partition this more](#5-suppose-we-have-the-table-now-we-need-to-filter-the-data-between-2026-03-01-and-2026-06-30-then-what-will-happen-can-we-partition-this-more)
 
 &nbsp;
 
@@ -399,7 +399,7 @@ Lower depth → Better.
 
 # Answers
 
-## 5. Suppose we have the table. Now we need to filter the data BETWEEN '2026-03-01' AND '2026-06-30'. Then what will happen? Can we partition this more
+### 5. Suppose we have the table. Now we need to filter the data BETWEEN '2026-03-01' AND '2026-06-30'. Then what will happen? Can we partition this more
 
 | Micro-partition | Order ID    | Order date | Region    |
 | --------------- | ----------- | ---------- | --------- |
