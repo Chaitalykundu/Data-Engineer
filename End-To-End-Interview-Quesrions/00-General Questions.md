@@ -11,6 +11,9 @@
 
 ## 1. Tell me about yourself
 
+My name is Chaitaly Kundu. I have over 4 years of experience as a Data Engineer, and I have completed my B.Tech in Computer Science Engineering from Siliguri Instititute of technology and. I’m also SnowPro Core certified.
+
+Currently, I’m working as a Data Engineer, primarily focusing on Snowflake, Terraform, SQL, dbt, and Python.
 
 &nbsp;
 
