@@ -31,24 +31,24 @@ Overall, my main strength is automating data infrastructure and making Snowflake
 
 ## 2. Explain your project
 
- The core purpose of the project is to build a centralized, cloud-native data foundation on Snowflake that consolidates data from multiple enterprise sources — including AWS S3, Salesforce, and internal transactional databases — into a single governed and reliable platform.
- 
-In my current project, I work on a cloud-based data engineering platform where we ingest data from multiple source systems, mainly SQL Server and PostgreSQL, and load it into Snowflake for analytics and reporting.
+My current project is a cloud-based data platform built on Snowflake. The main goal of the project is to bring data from different enterprise systems into one centralized and secure platform so that the data can be used for analytics and reporting.
 
-For data ingestion, we use Fivetran as the connector. It extracts data from the source systems and loads it into the raw layer in Snowflake. Once the data is available in Snowflake, we use dbt for ELT transformations, where the raw data is cleaned, standardized, and transformed into business-ready datasets.
+We get data from different sources such as SQL Server, PostgreSQL, Salesforce, and AWS S3. For data ingestion, we mainly use Fivetran. Fivetran extracts data from the source systems and loads it into the raw layer of Snowflake.
 
-On the infrastructure side, we use Terraform extensively to provision and manage our Snowflake and AWS resources through Infrastructure as Code. This is actually one of my primary areas of responsibility.
+After the data is loaded into Snowflake, we use dbt for transformation. We clean and standardize the raw data and then create business-ready datasets for reporting and analytics.
 
-For infrastructure provisioning, we use **Terraform**. Instead of manually creating Snowflake and cloud resources, we manage infrastructure as code. Depending on the requirement, this includes Snowflake databases, schemas, warehouses, roles, grants, and AWS resources such as S3 buckets and IAM configurations. This makes our infrastructure repeatable and consistent across environments.
+My main responsibility is Snowflake infrastructure automation and governance. We use Terraform to create and manage Snowflake resources such as databases, schemas, warehouses, users, roles, and grants. We also use Terraform for some AWS resources such as S3 and IAM.
 
-I mainly work on Snowflake infrastructure automation, user onboarding, access management, and RBAC. Instead of manually creating users and granting permissions, we manage these through Terraform. I work on creating and maintaining users, roles, role hierarchies, warehouses, databases and schemas, and assigning the required privileges based on the user's business requirements.
+I mainly work on user onboarding and access management. When a new user or team needs access to Snowflake, I first understand their requirements and then provide the appropriate role and permissions. We follow RBAC, so we assign permissions to roles instead of directly giving permissions to individual users.
 
-For example, when a new user or team needs access, I first understand what level of access they require. Based on that, we assign the appropriate functional or access roles rather than directly granting privileges to individual users. These changes are implemented through Terraform, reviewed through GitHub, and deployed through our CI/CD process.
+I also created reusable Terraform modules for Snowflake infrastructure. Before automation, the setup process took around 10 hours. After using the reusable modules, it took around 6 hours, which reduced the setup effort by about 40%.
 
-We also use AWS services as part of the infrastructure. S3 is used for storage and data integration use cases, IAM roles are used for secure access between AWS and Snowflake, and SNS is used for event notifications.
+For deployment, we use GitHub and GitHub Actions. We create a pull request, perform code review, and then deploy the changes through our CI/CD pipeline.
 
-For version control and deployment, our code is maintained in GitHub, and GitHub Actions is used for CI/CD automation. Changes go through pull requests and code reviews before being promoted to higher environments.
+On the AWS side, we use S3 for storage, IAM for secure access, and SNS for notifications.
 
-For monitoring, we use Datadog. I have worked on monitoring Snowflake workloads and dynamic table execution, including identifying failures and cases where execution exceeds expected time limits.
+For monitoring, we use Datadog. I mainly monitor Snowflake workloads and dynamic tables and check for failures or cases where execution takes longer than expected.
 
-We follow Agile methodology and use Jira for sprint planning, tracking stories, defects, and project-related documentation.
+We follow Agile methodology and use Jira to manage our stories, tasks, and defects.
+
+Overall, my major focus in the project is Snowflake infrastructure automation, RBAC, user access management, Terraform, and governance.
