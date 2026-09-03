@@ -31,6 +31,8 @@ Overall, my main strength is automating data infrastructure and making Snowflake
 
 ## 2. Explain your project
 
+ The core purpose of the project is to build a centralized, cloud-native data foundation on Snowflake that consolidates data from multiple enterprise sources — including AWS S3, Salesforce, and internal transactional databases — into a single governed and reliable platform.
+ 
 In my current project, I work on a cloud-based data engineering platform where we ingest data from multiple source systems, mainly SQL Server and PostgreSQL, and load it into Snowflake for analytics and reporting.
 
 For data ingestion, we use Fivetran as the connector. It extracts data from the source systems and loads it into the raw layer in Snowflake. Once the data is available in Snowflake, we use dbt for ELT transformations, where the raw data is cleaned, standardized, and transformed into business-ready datasets.
