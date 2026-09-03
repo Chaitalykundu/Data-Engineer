@@ -11,9 +11,12 @@
 
 ## 1. Tell me about yourself
 
-My name is Chaitaly Kundu. I have over 4 years of experience as a Data Engineer, and I have completed my B.Tech in Computer Science Engineering from Siliguri Instititute of technology and. I’m also SnowPro Core certified.
+My name is Chaitaly Kundu.  I have completed my B.Tech in Computer Science Engineering from Siliguri Institute of Technology and I have over 4 years of experience as a Data Engineer at Persistent Systems building scalable ELT pipelines and cloud data platforms, primarily in snowflake.
 
-Currently, I’m working as a Data Engineer, primarily focusing on Snowflake, Terraform, SQL, dbt, and Python.
+I’m a SnowPro Core certified engineer with strong expertise in Terraform, DBT, SQL and Snowflake, covering everything from RBAC architecture to infrastructure automation and CI/CD.
+
+I started as a Data Engineer in 2022, Where I worked on data extraction, Excel data validation and build interactive streamlit apps for business teams. Then got promoted to Senior Data Engineer where I improved pipeline readability , automated snowflake provisioning to cut deployment from hours to minutes. Now as a Lead data Engineer I focused on infrastructure as code- I build reusable terraform modules that cut snowflake setup effort by 40% and I own snowflake governance , including RBCAC and a streamlit-based user governance dashboard. 
+
 
 &nbsp;
 
@@ -34,18 +37,10 @@ I mainly work on Snowflake infrastructure automation, user onboarding, access ma
 
 For example, when a new user or team needs access, I first understand what level of access they require. Based on that, we assign the appropriate functional or access roles rather than directly granting privileges to individual users. These changes are implemented through Terraform, reviewed through GitHub, and deployed through our CI/CD process.
 
-We also use AWS services as part of the infrastructure. S3 is used for storage and data integration use cases, IAM roles are used for secure access between AWS and Snowflake, AWS Glue is used where required for data integration and metadata-related workloads, and SNS is used for event notifications.
+We also use AWS services as part of the infrastructure. S3 is used for storage and data integration use cases, IAM roles are used for secure access between AWS and Snowflake, and SNS is used for event notifications.
 
 For version control and deployment, our code is maintained in GitHub, and GitHub Actions is used for CI/CD automation. Changes go through pull requests and code reviews before being promoted to higher environments.
 
 For monitoring, we use Datadog. I have worked on monitoring Snowflake workloads and dynamic table execution, including identifying failures and cases where execution exceeds expected time limits.
 
 We follow Agile methodology and use Jira for sprint planning, tracking stories, defects, and project-related documentation.
-
-So, overall, the project follows a flow like:
-
-SQL Server / PostgreSQL → Fivetran → Snowflake → dbt → Analytics/Reporting
-
-and Terraform, GitHub Actions, AWS, and Datadog support the infrastructure, security, deployment, and monitoring around that data platform.
-
-My primary contribution is on the Snowflake platform and infrastructure side, especially Terraform automation, user onboarding, RBAC, access provisioning, and maintaining secure and consistent infrastructure across environments.
