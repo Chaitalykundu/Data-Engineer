@@ -5,6 +5,18 @@
 - [Answers](#answers)
   - [1. Tell me about yourself](#1-tell-me-about-yourself)
   - [2. Explain your project](#2-explain-your-project)
+  - [3. Why did you choose Snowflake? Explain its architecture and how it differs from traditional databases.](#3-why-did-you-choose-snowflake-explain-its-architecture-and-how-it-differs-from-traditional-databases)
+  - [How would you troubleshoot a Snowflake query or pipeline that suddenly became slow?](#how-would-you-troubleshoot-a-snowflake-query-or-pipeline-that-suddenly-became-slow)
+  - [Explain Snowflake micro-partitioning and partition pruning. How do you improve query performance?](#explain-snowflake-micro-partitioning-and-partition-pruning-how-do-you-improve-query-performance)
+    - [What is micro-partitioning?](#what-is-micro-partitioning)
+    - [What is partition pruning?](#what-is-partition-pruning)
+    - [How do you improve query performance?](#how-do-you-improve-query-performance)
+  - [Explain Snowflake RBAC. How would you design roles and access for hundreds/thousands of users?](#explain-snowflake-rbac-how-would-you-design-roles-and-access-for-hundredsthousands-of-users)
+    - [How I would design RBAC for hundreds/thousands of users](#how-i-would-design-rbac-for-hundredsthousands-of-users)
+  - [A production pipeline failed at 2 AM. How would you investigate and resolve it?](#a-production-pipeline-failed-at-2-am-how-would-you-investigate-and-resolve-it)
+  - [What is SCD Type 1 and SCD Type 2. How would you implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?](#what-is-scd-type-1-and-scd-type-2-how-would-you-implement-scd-type-1-and-scd-type-2-in-dbtsnowflake)
+  - [How do you optimize Snowflake warehouse usage and control cost?](#how-do-you-optimize-snowflake-warehouse-usage-and-control-cost)
+- [Coding](#coding)
   - [Find the 2nd highest salary](#find-the-2nd-highest-salary)
   - [2. Find the top 3 highest-paid employees in each department](#2-find-the-top-3-highest-paid-employees-in-each-department)
   - [3. Find employees earning more than their department average](#3-find-employees-earning-more-than-their-department-average)
@@ -25,6 +37,7 @@
 
 1. Tell me about yourself
 2. Explain your project
+3. Why did you choose Snowflake? Explain its architecture and how it differs from traditional databases.
 
 &nbsp;
 
@@ -77,6 +90,206 @@ Overall, my major focus in the project is Snowflake infrastructure automation, R
 &nbsp;
 
 &nbsp;
+
+## 3. Why did you choose Snowflake? Explain its architecture and how it differs from traditional databases.
+
+In our project, we were ingesting data from sources such as SQL Server and PostgreSQL and loading it into Snowflake for analytics and reporting.
+
+The biggest advantage is the separation of storage and compute. It allows us to scale compute independently, isolate workloads using separate warehouses, and optimize cost by suspending compute when it is not being used.
+
+Snowflake has a three-layer architecture:
+
+**Database Storage Layer** – The Database Storage Layer is responsible for persistently **storing all data** (structured or semi-structured) in an **optimized, compressed, and columnar format.**
+
+**Compute Layer** –
+The Compute Layer in Snowflake is responsible for **query execution** and is implemented through Virtual Warehouses.
+
+**Cloud Services Layer** – This layer manages activities such as authentication, metadata management, query parsing and optimization, access control, and transaction management.
+
+The key difference from a traditional database is the separation of storage and compute. In a traditional database, compute and storage are generally tightly coupled to the database server. If we need more processing capacity, we may need to scale the entire server, which can be expensive and can affect other workloads.
+
+In Snowflake, storage is centralized and compute is provided through independent virtual warehouses. So, for example, our ETL workload can use one warehouse while BI users use another warehouse, and they don't directly compete for compute resources.
+
+Snowflake also provides features such as automatic scaling, auto-suspend/auto-resume, micro-partitioning, partition pruning, time travel, zero-copy cloning, and built-in security and RBAC, which make it well suited for modern cloud data platforms.
+
+&nbsp;
+
+&nbsp;
+
+## How would you troubleshoot a Snowflake query or pipeline that suddenly became slow?
+
+Interview Answer
+
+If a Snowflake query or pipeline suddenly becomes slow, I would first determine whether the issue is with the query itself, the warehouse, the data, or an upstream dependency. I would compare the current execution with a previously successful execution.
+
+1. First, I check Query History and Query Profile to identify where the time is being spent — compilation, queuing, scanning, joins, aggregation, spilling, or remote/local disk I/O.
+
+2. Second, I check the warehouse. I look at warehouse load, queued queries, warehouse size, auto-suspend/resume behavior, and whether the warehouse is overloaded. If multiple workloads are sharing the warehouse, I check for concurrency-related queuing.
+
+3. Third, I check whether the query plan or data characteristics changed.
+
+4. Fourth, I check Snowflake's micro-partition pruning. If the query is scanning a large percentage of the table instead of pruning unnecessary micro-partitions, I investigate the filter predicates and, for very large frequently queried tables, whether clustering needs improvement.
+
+&nbsp;
+
+&nbsp;
+
+## Explain Snowflake micro-partitioning and partition pruning. How do you improve query performance?
+
+### What is micro-partitioning?
+
+When data is loaded into a Snowflake table, Snowflake automatically divides the table into small, contiguous storage units called micro-partitions.
+
+You don't manually create these partitions like traditional databases.
+
+For each micro-partition, Snowflake maintains metadata such as:
+
+- Minimum and maximum values
+- Number of distinct values
+- NULL information
+- Other statistics used by the optimizer
+
+&nbsp;
+
+### What is partition pruning?
+
+Partition pruning is the process of eliminating micro-partitions that cannot contain the required data before Snowflake scans them.
+
+```sql
+SELECT SUM(amount)
+FROM orders
+WHERE order_date BETWEEN '2026-08-01' AND '2026-08-31';
+```
+
+&nbsp;
+
+### How do you improve query performance?
+
+1. Make filters pruning-friendly
+2. Check Query Profile... I would check:
+   - Partitions scanned
+   - Partitions total
+   - Bytes scanned
+   - Expensive joins
+   - Aggregations
+   - Spilling
+   - Queuing
+
+3. Avoid unnecessary data: - Don't use: `SELECT *`
+4. Optimize joins
+5. Consider clustering for large tables
+
+&nbsp;
+
+&nbsp;
+
+## Explain Snowflake RBAC. How would you design roles and access for hundreds/thousands of users?
+
+Snowflake RBAC, or Role-Based Access Control, is a security model where permissions are assigned to roles, and roles are assigned to users. Users don't normally receive object privileges directly.
+
+The basic hierarchy is:
+
+```
+User → Role → Privileges → Objects
+```
+
+&nbsp;
+
+For example, instead of granting `SELECT` directly to 500 users, I would create an `ANALYST_ROLE`, grant the required privileges to that role, and assign the role to the users.
+
+&nbsp;
+
+### How I would design RBAC for hundreds/thousands of users
+
+I would not create one role per user. That doesn't scale and becomes difficult to audit.
+
+Instead, I would use a role hierarchy based on job function and access level.
+
+```
+                 ACCOUNTADMIN
+                      │
+                SECURITYADMIN
+                      │
+              DATA_PLATFORM_ADMIN
+                      │
+          ┌───────────┴───────────┐
+          │                       │
+      DATA_ENGINEER          DATA_ANALYST
+          │                       │
+    ETL / Transform          Read Reports
+          │
+      DEVELOPER_ROLE
+```
+
+&nbsp;
+
+&nbsp;
+
+## A production pipeline failed at 2 AM. How would you investigate and resolve it?
+
+If a production pipeline fails at 2 AM, my first priority is to understand the impact, identify the exact failure point, and restore the pipeline safely. I would avoid making random changes in production.
+
+1. Check the monitoring/alert
+   - Which pipeline/job failed?
+   - When did it fail?
+   - Which task or DBT model failed?
+   - Is it a code failure, data issue, infrastructure issue, or source-system issue?
+2. Check the pipeline logs
+   - I would inspect the failed task's logs and error message.
+   - I would determine the first failed component, rather than only looking at the final downstream failure.
+3. Check Snowflake: If the failure is in Snowflake, I would check:
+   - Query History
+   - Query error messages
+   - Warehouse availability/load
+   - Permissions/RBAC
+   - Recent schema changes
+   - Data volume or unexpected data
+   - Whether upstream tables were successfully populated
+4. Check upstream dependencies
+5. Fix and recover
+   - Once I identify the root cause, I would apply the smallest safe fix. If the issue is transient—for example, a temporary connection failure—I would retry the failed task
+
+&nbsp;
+
+&nbsp;
+
+## What is SCD Type 1 and SCD Type 2. How would you implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?
+
+"SCD Type 1 overwrites the existing dimension record, so it maintains only the latest value and doesn't preserve history. Type 2 preserves historical changes by creating a new version of the record with effective dates and a current flag.
+
+In DBT and Snowflake, for Type 1, I typically use an incremental model with a unique business key and the merge strategy. When a record already exists, its attributes are updated; otherwise, a new record is inserted.
+
+For Type 2, I first identify changes in tracked attributes using an updated timestamp or hash comparison. If the current record has changed, I expire the existing record by setting the effective-to date and current flag, and then insert a new version with a new effective-from date.
+
+In DBT, I can also use snapshots for SCD Type 2 when I need to track source-record changes. I choose Type 1 when only the current state is required and Type 2 when historical reporting or auditability is required."
+
+&nbsp;
+
+&nbsp;
+
+## How do you optimize Snowflake warehouse usage and control cost?
+
+1. Right-size the warehouse
+2. Use Auto-Suspend and Auto-Resume
+3. Monitor warehouse utilization - I monitor:
+   - Warehouse load
+   - Query execution time
+   - Queued queries
+   - Number of concurrent queries
+   - Credits consumed
+   - Warehouse size
+   - Spillage
+   - Query frequency
+4. Optimize SQL before increasing warehouse size
+5. Use separate warehouses for different workloads
+6. Use multi-cluster warehouses for concurrency
+7. Use appropriate scaling
+
+&nbsp;
+
+&nbsp;
+
+# Coding
 
 ## Find the 2nd highest salary
 
