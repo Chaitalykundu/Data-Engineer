@@ -5,17 +5,17 @@
 - [Answers](#answers)
   - [1. Tell me about yourself](#1-tell-me-about-yourself)
   - [2. Explain your project](#2-explain-your-project)
-  - [3. Why did you choose Snowflake? Explain its architecture and how it differs from traditional databases.](#3-why-did-you-choose-snowflake-explain-its-architecture-and-how-it-differs-from-traditional-databases)
-  - [How would you troubleshoot a Snowflake query or pipeline that suddenly became slow?](#how-would-you-troubleshoot-a-snowflake-query-or-pipeline-that-suddenly-became-slow)
-  - [Explain Snowflake micro-partitioning and partition pruning. How do you improve query performance?](#explain-snowflake-micro-partitioning-and-partition-pruning-how-do-you-improve-query-performance)
+  - [3. Why Snowflake? its architecture. Snowflake vs traditional databases.](#3-why-snowflake-its-architecture-snowflake-vs-traditional-databases)
+  - [4. micro-partitioning and partition pruning.](#4-micro-partitioning-and-partition-pruning)
     - [What is micro-partitioning?](#what-is-micro-partitioning)
     - [What is partition pruning?](#what-is-partition-pruning)
-    - [How do you improve query performance?](#how-do-you-improve-query-performance)
-  - [Explain Snowflake RBAC. How would you design roles and access for hundreds/thousands of users?](#explain-snowflake-rbac-how-would-you-design-roles-and-access-for-hundredsthousands-of-users)
+  - [5. How do you improve query performance?](#5-how-do-you-improve-query-performance)
+  - [6. RBAC. design roles and access for hundreds/thousands of users?](#6-rbac-design-roles-and-access-for-hundredsthousands-of-users)
     - [How I would design RBAC for hundreds/thousands of users](#how-i-would-design-rbac-for-hundredsthousands-of-users)
   - [A production pipeline failed at 2 AM. How would you investigate and resolve it?](#a-production-pipeline-failed-at-2-am-how-would-you-investigate-and-resolve-it)
-  - [What is SCD Type 1 and SCD Type 2. How would you implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?](#what-is-scd-type-1-and-scd-type-2-how-would-you-implement-scd-type-1-and-scd-type-2-in-dbtsnowflake)
+  - [SCD Type 1 and SCD Type 2. implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?](#scd-type-1-and-scd-type-2-implement-scd-type-1-and-scd-type-2-in-dbtsnowflake)
   - [How do you optimize Snowflake warehouse usage and control cost?](#how-do-you-optimize-snowflake-warehouse-usage-and-control-cost)
+  - [How would you troubleshoot a Snowflake query or pipeline that suddenly became slow?](#how-would-you-troubleshoot-a-snowflake-query-or-pipeline-that-suddenly-became-slow)
 - [Coding](#coding)
   - [Find the 2nd highest salary](#find-the-2nd-highest-salary)
   - [2. Find the top 3 highest-paid employees in each department](#2-find-the-top-3-highest-paid-employees-in-each-department)
@@ -38,6 +38,10 @@
 1. Tell me about yourself
 2. Explain your project
 3. Why did you choose Snowflake? Explain its architecture and how it differs from traditional databases.
+4. Explain Snowflake micro-partitioning and partition pruning.
+5. How do you improve query performance?
+6. Explain Snowflake RBAC. How would you design roles and access for hundreds/thousands of users?
+7. What is SCD Type 1 and SCD Type 2. How would you implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?
 
 &nbsp;
 
@@ -91,7 +95,7 @@ Overall, my major focus in the project is Snowflake infrastructure automation, R
 
 &nbsp;
 
-## 3. Why did you choose Snowflake? Explain its architecture and how it differs from traditional databases.
+## 3. Why Snowflake? its architecture. Snowflake vs traditional databases.
 
 In our project, we were ingesting data from sources such as SQL Server and PostgreSQL and loading it into Snowflake for analytics and reporting.
 
@@ -116,25 +120,7 @@ Snowflake also provides features such as automatic scaling, auto-suspend/auto-re
 
 &nbsp;
 
-## How would you troubleshoot a Snowflake query or pipeline that suddenly became slow?
-
-Interview Answer
-
-If a Snowflake query or pipeline suddenly becomes slow, I would first determine whether the issue is with the query itself, the warehouse, the data, or an upstream dependency. I would compare the current execution with a previously successful execution.
-
-1. First, I check Query History and Query Profile to identify where the time is being spent — compilation, queuing, scanning, joins, aggregation, spilling, or remote/local disk I/O.
-
-2. Second, I check the warehouse. I look at warehouse load, queued queries, warehouse size, auto-suspend/resume behavior, and whether the warehouse is overloaded. If multiple workloads are sharing the warehouse, I check for concurrency-related queuing.
-
-3. Third, I check whether the query plan or data characteristics changed.
-
-4. Fourth, I check Snowflake's micro-partition pruning. If the query is scanning a large percentage of the table instead of pruning unnecessary micro-partitions, I investigate the filter predicates and, for very large frequently queried tables, whether clustering needs improvement.
-
-&nbsp;
-
-&nbsp;
-
-## Explain Snowflake micro-partitioning and partition pruning. How do you improve query performance?
+## 4. micro-partitioning and partition pruning.
 
 ### What is micro-partitioning?
 
@@ -163,7 +149,7 @@ WHERE order_date BETWEEN '2026-08-01' AND '2026-08-31';
 
 &nbsp;
 
-### How do you improve query performance?
+## 5. How do you improve query performance?
 
 1. Make filters pruning-friendly
 2. Check Query Profile... I would check:
@@ -183,7 +169,7 @@ WHERE order_date BETWEEN '2026-08-01' AND '2026-08-31';
 
 &nbsp;
 
-## Explain Snowflake RBAC. How would you design roles and access for hundreds/thousands of users?
+## 6. RBAC. design roles and access for hundreds/thousands of users?
 
 Snowflake RBAC, or Role-Based Access Control, is a security model where permissions are assigned to roles, and roles are assigned to users. Users don't normally receive object privileges directly.
 
@@ -253,7 +239,7 @@ If a production pipeline fails at 2 AM, my first priority is to understand the i
 
 &nbsp;
 
-## What is SCD Type 1 and SCD Type 2. How would you implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?
+## SCD Type 1 and SCD Type 2. implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?
 
 "SCD Type 1 overwrites the existing dimension record, so it maintains only the latest value and doesn't preserve history. Type 2 preserves historical changes by creating a new version of the record with effective dates and a current flag.
 
@@ -284,6 +270,24 @@ In DBT, I can also use snapshots for SCD Type 2 when I need to track source-reco
 5. Use separate warehouses for different workloads
 6. Use multi-cluster warehouses for concurrency
 7. Use appropriate scaling
+
+&nbsp;
+
+&nbsp;
+
+## How would you troubleshoot a Snowflake query or pipeline that suddenly became slow?
+
+Interview Answer
+
+If a Snowflake query or pipeline suddenly becomes slow, I would first determine whether the issue is with the query itself, the warehouse, the data, or an upstream dependency. I would compare the current execution with a previously successful execution.
+
+1. First, I check Query History and Query Profile to identify where the time is being spent — compilation, queuing, scanning, joins, aggregation, spilling, or remote/local disk I/O.
+
+2. Second, I check the warehouse. I look at warehouse load, queued queries, warehouse size, auto-suspend/resume behavior, and whether the warehouse is overloaded. If multiple workloads are sharing the warehouse, I check for concurrency-related queuing.
+
+3. Third, I check whether the query plan or data characteristics changed.
+
+4. Fourth, I check Snowflake's micro-partition pruning. If the query is scanning a large percentage of the table instead of pruning unnecessary micro-partitions, I investigate the filter predicates and, for very large frequently queried tables, whether clustering needs improvement.
 
 &nbsp;
 
