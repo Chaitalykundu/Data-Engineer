@@ -1,3 +1,26 @@
+# Content
+
+- [Content](#content)
+- [Questions](#questions)
+- [Answers](#answers)
+  - [1. Tell me about yourself](#1-tell-me-about-yourself)
+  - [2. Explain your project](#2-explain-your-project)
+  - [Find the 2nd highest salary](#find-the-2nd-highest-salary)
+  - [2. Find the top 3 highest-paid employees in each department](#2-find-the-top-3-highest-paid-employees-in-each-department)
+  - [3. Find employees earning more than their department average](#3-find-employees-earning-more-than-their-department-average)
+  - [4. Find duplicate records](#4-find-duplicate-records)
+    - [If the duplicate is based on multiple columns](#if-the-duplicate-is-based-on-multiple-columns)
+  - [5. Find the highest order for each customer](#5-find-the-highest-order-for-each-customer)
+  - [8. Find customers who never placed an order](#8-find-customers-who-never-placed-an-order)
+  - [13. Find monthly active users](#13-find-monthly-active-users)
+  - [Calculate a 7-day rolling average of daily total sales revenue per region.](#calculate-a-7-day-rolling-average-of-daily-total-sales-revenue-per-region)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 # Questions
 
 1. Tell me about yourself
@@ -23,11 +46,9 @@ Currently, as a Lead Data Engineer, I mainly focus on infrastructure automation 
 
 Overall, my main strength is automating data infrastructure and making Snowflake environments easier to manage and maintain.
 
-
 &nbsp;
 
 &nbsp;
-
 
 ## 2. Explain your project
 
@@ -52,3 +73,163 @@ For monitoring, we use Datadog. I mainly monitor Snowflake workloads and dynamic
 We follow Agile methodology and use Jira to manage our stories, tasks, and defects.
 
 Overall, my major focus in the project is Snowflake infrastructure automation, RBAC, user access management, Terraform, and governance.
+
+&nbsp;
+
+&nbsp;
+
+## Find the 2nd highest salary
+
+```sql
+SELECT DISTINCT salary
+FROM employees
+ORDER BY salary DESC
+LIMIT 1 OFFSET 1;
+```
+
+```sql
+SELECT MAX(salary) AS second_highest_salary
+FROM employees
+WHERE salary < (
+    SELECT MAX(salary)
+    FROM employees
+);
+```
+
+```sql
+SELECT salary
+FROM (
+    SELECT salary,
+           DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+    FROM employees
+) t
+WHERE rnk = 2;
+```
+
+&nbsp;
+
+&nbsp;
+
+## 2. Find the top 3 highest-paid employees in each department
+
+```sql
+SELECT *
+FROM (
+    SELECT *,
+           ROW_NUMBER() OVER (
+               PARTITION BY department_id
+               ORDER BY salary DESC
+           ) AS rn
+    FROM employees
+) t
+WHERE rn <= 3;
+```
+
+“I use ROW_NUMBER() to rank employees based on salary within each department. PARTITION BY department_id creates a separate ranking for every department, and then I filter the first 3 employees.”
+
+&nbsp;
+
+&nbsp;
+
+## 3. Find employees earning more than their department average
+
+```sql
+SELECT *
+FROM employees e
+WHERE salary > (
+    SELECT AVG(salary)
+    FROM employees
+    WHERE department_id = e.department_id
+);
+```
+
+&nbsp;
+
+&nbsp;
+
+## 4. Find duplicate records
+
+If we consider `employee_id` as the unique identifier, a basic way is:
+
+```sql
+SELECT employee_id, COUNT(*) AS count
+FROM employees
+GROUP BY employee_id
+HAVING COUNT(*) > 1;
+```
+
+&nbsp;
+
+### If the duplicate is based on multiple columns
+
+For example, same `employee_name`, `department_id`, and `salary`:
+
+```sql
+SELECT employee_name, department_id, salary, COUNT(*) AS count
+FROM employees
+GROUP BY employee_name, department_id, salary
+HAVING COUNT(*) > 1;
+```
+
+&nbsp;
+
+&nbsp;
+
+## 5. Find the highest order for each customer
+
+```sql
+SELECT customer_id,
+       MAX(order_amount) AS highest_order
+FROM orders
+GROUP BY customer_id;
+```
+
+&nbsp;
+
+&nbsp;
+
+## 8. Find customers who never placed an order
+
+```sql
+SELECT *
+FROM customers c
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM orders o
+    WHERE o.customer_id = c.customer_id
+);
+```
+
+&nbsp;
+
+&nbsp;
+
+## 13. Find monthly active users
+
+```sql
+SELECT DATE_TRUNC('month', login_date) AS month,
+       COUNT(DISTINCT user_id) AS active_users
+FROM logins
+GROUP BY 1
+ORDER BY 1;
+```
+
+&nbsp;
+
+&nbsp;
+
+## Calculate a 7-day rolling average of daily total sales revenue per region.
+
+```sql
+SELECT region,
+       sale_date,
+       SUM(revenue) AS daily_revenue,
+       AVG(SUM(revenue)) OVER (
+           PARTITION BY region
+           ORDER BY sale_date
+           ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+       ) AS rolling_7_day_avg
+FROM sales
+GROUP BY region, sale_date
+ORDER BY region, sale_date;
+```
