@@ -34,9 +34,7 @@ Snowflake account > Database > Schema > Table / view
 Snowflake’s unique architecture consists of **three** key layers:
 
 1. **Database Storage layer or Data layer**
-
 2. **Compute layer or Query Processing layer or Virtual Warehouse layer**
-
 3. **Services layer or Cloud Services layer** (Brain of snowflake)
 
 Each layer can scale independently.
@@ -49,9 +47,38 @@ Each layer can scale independently.
 
 &nbsp;
 
+```md
+                 SNOWFLAKE
+                     │
+        ┌────────────┼────────────┐
+        │            │            │
+        ▼            ▼            ▼
+   Cloud Services   Compute     Storage
+        │            │            │
+        │            │            │
+   ┌────┴────┐    Virtual      Micro-
+   │         │    Warehouses   partitions
+   │         │
+Authentication
+Metadata
+Query parsing
+Optimization
+Security
+```
+
+
+&nbsp;
+
+&nbsp;
+
 # Database Storage layer or Data layer
 
 The Database Storage Layer is responsible for persistently **storing all data** (structured or semi-structured) in an **optimized, compressed, and columnar format.**
+
+
+
+- Snowflake stores table data in its cloud storage infrastructure.
+- The data is automatically organized into micro-partitions.
 
 &nbsp;
 
@@ -68,3 +95,13 @@ The Compute Layer in Snowflake is responsible for **query execution** and is imp
 # Services or Cloud Services layer
 
 The Cloud Services Layer in Snowflake **coordinates and manages all user interactions and system operations**.
+
+It handles things such as:
+
+- Authentication
+- Access control
+- Metadata management
+- Query parsing
+- Query optimization
+- Infrastructure coordination
+- Transaction management
