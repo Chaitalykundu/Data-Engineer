@@ -75,11 +75,13 @@ We get data from different sources such as SQL Server, PostgreSQL, Salesforce, a
 
 After the data is loaded into Snowflake, we use dbt for transformation. We clean and standardize the raw data and then create business-ready datasets for reporting and analytics.
 
-My main responsibility is Snowflake infrastructure automation and governance. We use Terraform to create and manage Snowflake resources such as databases, schemas, warehouses, users, roles, and grants. We also use Terraform for some AWS resources such as S3 and IAM.
+My main responsibility is Snowflake infrastructure automation and governance. We use Terraform to create and manage Snowflake resources such as databases, schemas, warehouses, users, roles,and handle user onboarding, role hierarchy, and access grants using RBAC. We also use Terraform for some AWS resources such as S3 and IAM.
 
 I mainly work on user onboarding and access management. When a new user or team needs access to Snowflake, I first understand their requirements and then provide the appropriate role and permissions. We follow RBAC, so we assign permissions to roles instead of directly giving permissions to individual users.
 
 I also created reusable Terraform modules for Snowflake infrastructure. Before automation, the setup process took around 10 hours. After using the reusable modules, it took around 6 hours, which reduced the setup effort by about 40%.
+
+I also work on warehouse management, performance and cost optimization, monitoring, and troubleshooting.
 
 For deployment, we use GitHub and GitHub Actions. We create a pull request, perform code review, and then deploy the changes through our CI/CD pipeline.
 
