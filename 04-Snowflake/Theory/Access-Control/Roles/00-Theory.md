@@ -3,7 +3,7 @@
 - [Content](#content)
 - [Role](#role)
 - [How Roles Work (Flow)](#how-roles-work-flow)
-    - [Example](#example)
+  - [Example](#example)
 - [Types of roles](#types-of-roles)
 - [Categories of Custom Role](#categories-of-custom-role)
 - [Recommended architecture](#recommended-architecture)
@@ -189,14 +189,17 @@ System-defined roles are predefined roles provided by Snowflake. They are mainly
 
 &nbsp;
 
-| System Role     | Main Responsibility                       | Key Point                                         |
-| --------------- | ----------------------------------------- | ------------------------------------------------- |
-| `ORGADMIN`      | Organization-level administration         | Manages multiple Snowflake accounts               |
-| `ACCOUNTADMIN`  | Highest account-level administrative role | Combines powers of `SYSADMIN` and `SECURITYADMIN` |
-| `SECURITYADMIN` | Security and privilege management         | Manages grants and role hierarchy                 |
-| `USERADMIN`     | User and role management                  | Creates users and roles                           |
-| `SYSADMIN`      | Object/infrastructure administration      | Creates warehouses, databases and other objects   |
-| `PUBLIC`        | Automatically available to every user     | Avoid granting sensitive access                   |
+### System-Defined Roles & Their Uses
+
+| Role              | Level        | Main Use            | Key Responsibilities                                        | When to Use                          |
+| ----------------- | ------------ | ------------------- | ----------------------------------------------------------- | ------------------------------------ |
+| **ORGADMIN**      | Organization | Manage entire org   | Create/manage accounts, billing, usage monitoring           | Multi-account setup, billing control |
+| **ACCOUNTADMIN**  | Account      | Full control        | Manage everything (users, roles, DBs, warehouses, policies) | Initial setup, critical admin tasks  |
+| **SYSADMIN**      | Account      | Object management   | Create/manage databases, schemas, tables, warehouses        | Daily data engineering work          |
+| **SECURITYADMIN** | Account      | Security management | Manage users, roles, grants, RBAC                           | Access control & governance          |
+| **USERADMIN**     | Account      | User management     | Create/modify users only                                    | User onboarding/offboarding          |
+| **PUBLIC**        | Account      | Default access      | Basic minimal privileges for all users                      | Shared/common access (limited use)   |
+|                   |              |                     |                                                             |                                      |
 
 &nbsp;
 
@@ -234,6 +237,16 @@ Custom roles are commonly designed as **two** logical categories:
     |                  |
 Access Roles   Functional Roles
 ```
+
+&nbsp;
+
+Access Roles
+→ Hold privileges on Snowflake objects.
+
+Functional Roles
+→ Represent job functions and inherit access roles.
+
+&nbsp;
 
 &nbsp;
 
@@ -398,6 +411,28 @@ SELECT CURRENT_SECONDARY_ROLES();
 
 &nbsp;
 
+# Account roles vs database roles
+
+| Feature                       | Account role                       | Database role                         |
+| ----------------------------- | ---------------------------------- | ------------------------------------- |
+| Scope                         | Entire account                     | One database                          |
+| Can be granted to users       | Yes                                | No, not directly                      |
+| Can be activated in a session | Yes                                | No                                    |
+| Main purpose                  | Business and administrative access | Package permissions within a database |
+
+&nbsp;
+
+## Account Role
+
+- Can contain privileges across multiple databases/account-level objects
+- and can be activated as a primary or secondary role.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 # Important operational concepts
 
 These concepts complete the basic RBAC model and are common sources of production access errors.
@@ -405,6 +440,9 @@ These concepts complete the basic RBAC model and are common sources of productio
 ## Database roles
 
 A database role is scoped to one database. It packages database-specific privileges, but it cannot be granted directly to a user or activated directly in a session. Grant it to an account role first.
+
+- Contains privileges limited to objects within one database.
+- It cannot be activated directly; it must be granted to an account role.
 
 ```sql
 CREATE DATABASE ROLE EMPLOYEE_DB_READ_ROLE;
