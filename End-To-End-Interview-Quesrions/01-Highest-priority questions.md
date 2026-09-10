@@ -264,7 +264,7 @@ Using dbt transformation models:
 
 
 
-### 6. How do micro-partitioning and partition pruning work in Snowflake?
+# 6. How do micro-partitioning and partition pruning work in Snowflake?
 
 When we load or insert data into Snowflake, it automatically breaks data into small blocks of storage. These are called **micro-partitions**.
 
@@ -339,7 +339,7 @@ Therefore, the column used for pruning is determined by the query filter, not by
 
 &nbsp;
 
-### 7. When would you define a clustering key?
+# 7. When would you define a clustering key?
 
 &nbsp;
 
