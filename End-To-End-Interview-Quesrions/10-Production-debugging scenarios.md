@@ -1,3 +1,16 @@
+# Content
+
+- [Content](#content)
+- [Questions](#questions)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Questions
+
 1. A pipeline that normally takes 20 minutes now takes two hours. How would you investigate?
 2. A dbt model produced duplicate customer records after deployment. What would you check?
 3. A Snowflake query is scanning the entire table despite filtering by date. Why?

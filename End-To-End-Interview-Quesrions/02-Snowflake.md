@@ -2,6 +2,7 @@
 
 - [Content](#content)
 - [Questions](#questions)
+  - [Snowflake Administration / Security](#snowflake-administration--security)
 
 &nbsp;
 

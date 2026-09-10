@@ -1,3 +1,16 @@
+# Content
+
+- [Content](#content)
+- [Questions](#questions)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Questions
+
 1. You claim Terraform reduced setup effort by 40%. How did you calculate that figure?
 2. Which Snowflake resources did you provision through Terraform?
 3. How did you structure Terraform modules across dev, test and production?

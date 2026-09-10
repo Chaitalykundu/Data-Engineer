@@ -1,3 +1,16 @@
+# Content
+
+- [Content](#content)
+- [Questions](#questions)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Questions
+
 1. How do you translate an unclear business requirement into a technical design?
 2. How do you estimate a data-engineering story?
 3. How do you conduct a technical design review?

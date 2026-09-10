@@ -47,7 +47,7 @@ Each layer can scale independently.
 
 &nbsp;
 
-```md
+```
                  SNOWFLAKE
                      │
         ┌────────────┼────────────┐
@@ -66,7 +66,6 @@ Optimization
 Security
 ```
 
-
 &nbsp;
 
 &nbsp;
@@ -74,8 +73,6 @@ Security
 # Database Storage layer or Data layer
 
 The Database Storage Layer is responsible for persistently **storing all data** (structured or semi-structured) in an **optimized, compressed, and columnar format.**
-
-
 
 - Snowflake stores table data in its cloud storage infrastructure.
 - The data is automatically organized into micro-partitions.

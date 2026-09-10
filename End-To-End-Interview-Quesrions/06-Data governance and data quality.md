@@ -1,3 +1,16 @@
+# Content
+
+- [Content](#content)
+- [Questions](#questions)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Questions
+
 1. What does it mean to treat data as a governed asset?
 2. What is the difference between data governance and data management?
 3. Who are data owners, stewards, producers and consumers?

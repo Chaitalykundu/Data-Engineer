@@ -1,3 +1,16 @@
+# Content
+
+- [Content](#content)
+- [Questions](#questions)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Questions
+
 1. Explain your branching strategy.
 2. What stages should a data-pipeline CI/CD workflow contain?
 3. Which checks should run on every pull request?

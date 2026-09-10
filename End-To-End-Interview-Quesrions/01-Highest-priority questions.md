@@ -1,12 +1,27 @@
-# Overview
+# Content
 
-- [Overview](#overview)
+- [Content](#content)
 - [Questions](#questions)
 - [Answers](#answers)
-  - [6. How do micro-partitioning and partition pruning work in Snowflake?](#6-how-do-micro-partitioning-and-partition-pruning-work-in-snowflake)
-  - [7. When would you define a clustering key?](#7-when-would-you-define-a-clustering-key)
-
-&nbsp;
+- [1. Explain an end-to-end data pipeline you designed and implemented](#1-explain-an-end-to-end-data-pipeline-you-designed-and-implemented)
+  - [Purpose](#purpose)
+  - [End-to-End Pipeline Architecture](#end-to-end-pipeline-architecture)
+    - [🔄 The Pipeline in 6 Simple Steps](#-the-pipeline-in-6-simple-steps)
+      - [Step 1: Client Sends an E-Invoice](#step-1-client-sends-an-e-invoice)
+      - [Step 2: Files \& Metadata Get Copied to Our Data Platform](#step-2-files--metadata-get-copied-to-our-data-platform)
+      - [✅ Step 3: Merge All Tenant Data into One Table (Staging Layer)](#-step-3-merge-all-tenant-data-into-one-table-staging-layer)
+      - [✅ Step 4: Enrich the Data (Curated Layer)](#-step-4-enrich-the-data-curated-layer)
+      - [✅ Step 5: Deduplicate \& Serve Final Data (Semantic Layer)](#-step-5-deduplicate--serve-final-data-semantic-layer)
+      - [✅ Step 6: Compliance Reporting (VVC Reconciliation)](#-step-6-compliance-reporting-vvc-reconciliation)
+- [6. How do micro-partitioning and partition pruning work in Snowflake?](#6-how-do-micro-partitioning-and-partition-pruning-work-in-snowflake)
+- [7. When would you define a clustering key?](#7-when-would-you-define-a-clustering-key)
+- [follow-up questions for " Explain an end-to-end data pipeline you designed and implemented."](#follow-up-questions-for--explain-an-end-to-end-data-pipeline-you-designed-and-implemented)
+  - [1. "What happens when a new tenant onboards?"](#1-what-happens-when-a-new-tenant-onboards)
+  - [2. "How do you handle schema changes across client databases?"](#2-how-do-you-handle-schema-changes-across-client-databases)
+  - [3. "How do you prevent duplicate invoices in reporting?"](#3-how-do-you-prevent-duplicate-invoices-in-reporting)
+  - [4. "How does the pipeline handle high volume and large XML files (up to 200MB)?"](#4-how-does-the-pipeline-handle-high-volume-and-large-xml-files-up-to-200mb)
+  - [5. "How do you ensure EU data residency and security?"](#5-how-do-you-ensure-eu-data-residency-and-security)
+    &nbsp;
 
 &nbsp;
 
@@ -65,7 +80,7 @@
 
 # Answers
 
-# 1. Explain an end-to-end data pipeline you designed and implemented.
+# 1. Explain an end-to-end data pipeline you designed and implemented
 
 ## Purpose
 
@@ -200,13 +215,11 @@ The Solution — Dynamic Task DAG:
 - The task tree uses Snowflake Streams (CDC) to pick up only new/changed data
 
 - It unions all tenant tables into a single multi-tenant staging table (e.g., STG_DOCUMENT), adding extra columns:
-
   - tenant_id → who this invoice belongs to
 
-  - row_id, created_ts, _merged_process_run_cd → for tracking and auditing
+  - row_id, created_ts, \_merged_process_run_cd → for tracking and auditing
 
 🗂️ After Step 3: One clean, unified table in the STAGING layer with all tenants' data together.
-
 
 &nbsp;
 
@@ -224,7 +237,6 @@ Using dbt transformation models:
 
 🗂️ After Step 4: Enriched, business-ready invoice data in the CURATED layer.
 
-
 &nbsp;
 
 &nbsp;
@@ -235,11 +247,11 @@ Using dbt transformation models:
 
 - The Semantic layer picks only the latest record per (tenant_id, document_id) using:
 
-    ```
-    ROW_NUMBER() OVER (PARTITION BY tenant_id, document_id ORDER BY created_ts DESC)
-    ```
+  ```
+  ROW_NUMBER() OVER (PARTITION BY tenant_id, document_id ORDER BY created_ts DESC)
+  ```
 
-- The final clean view MD_EINVOICE is exposed in `DB_[ENV]_EINVOICE_SEMANTIC`
+- The final clean view MD*EINVOICE is exposed in `DB*[ENV]\_EINVOICE_SEMANTIC`
 
 🗂️ After Step 5: Clean, deduplicated, final invoice data ready for consumers.
 
@@ -260,9 +272,6 @@ Using dbt transformation models:
 &nbsp;
 
 &nbsp;
-
-
-
 
 # 6. How do micro-partitioning and partition pruning work in Snowflake?
 
@@ -347,42 +356,44 @@ Therefore, the column used for pruning is determined by the query filter, not by
 
 &nbsp;
 
+# follow-up questions for " Explain an end-to-end data pipeline you designed and implemented."
 
-#  follow-up questions for " Explain an end-to-end data pipeline you designed and implemented."
 1. "What happens when a new tenant (client) is added to the system?"
 2. "How do you handle schema changes (like adding a new column) across client schemas?"
 3. "How do you prevent duplicate invoices from showing up in downstream reports?"
 4. "How does the pipeline handle high file volumes or large XML payloads (up to 200MB)?"
 5. "What happens if a Fivetran sync or S3 replication fails?"
 
-
 &nbsp;
 
 &nbsp;
 
 ## 1. "What happens when a new tenant onboards?"
+
 "It’s 100% automated. Fivetran auto-detects the new PostgreSQL schema and syncs it into RAW. The S3 path handles the XML files. Then, our dynamic controller task detects the new schema from table metadata and automatically rebuilds the Snowflake Task tree to merge the new tenant into Staging."
 
 &nbsp;
 
 ## 2. "How do you handle schema changes across client databases?"
+
 "Fivetran automatically propagates new source columns into RAW. In Staging, our dynamic stored procedures inspect table metadata dynamically at runtime, appending new columns without breaking downstream dbt models."
 
 &nbsp;
 
 ## 3. "How do you prevent duplicate invoices in reporting?"
+
 "Snowpipe prevents duplicate S3 file loads using 14-day file hash tracking. In the Semantic layer, we use window functions (ROW_NUMBER() PARTITION BY tenant_id, document_id ORDER BY created_ts DESC) so downstream applications like VVC only query the latest version."
 
 &nbsp;
 
 ## 4. "How does the pipeline handle high volume and large XML files (up to 200MB)?"
+
 "Snowpipe handles micro-batching asynchronously straight from S3 into Snowflake VARIANT columns. Transformation models run incrementally with dbt and multi-cluster virtual warehouses to scale compute on demand."
 
 &nbsp;
 
 ## 5. "How do you ensure EU data residency and security?"
+
 "Production is hosted directly in AWS eu-central-1 (Frankfurt) and Snowflake EU accounts to satisfy strict European tax regulations. Communication uses Site-to-Site VPN, key-pair auth, and strict RBAC standards."
-
-
 
 &nbsp;

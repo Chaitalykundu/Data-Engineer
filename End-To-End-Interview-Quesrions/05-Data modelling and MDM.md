@@ -1,3 +1,16 @@
+# Content
+
+- [Content](#content)
+- [Questions](#questions)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Questions
+
 1. Compare star and snowflake schemas.
 2. What are fact and dimension tables?
 3. Explain fact-table grain and why it must be defined first.

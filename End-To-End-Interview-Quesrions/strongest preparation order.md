@@ -1,3 +1,13 @@
+# Content
+
+- [Content](#content)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 Your strongest preparation order should be:
 
 - Snowflake performance and architecture
