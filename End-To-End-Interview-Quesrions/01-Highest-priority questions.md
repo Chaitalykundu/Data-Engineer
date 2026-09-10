@@ -347,4 +347,42 @@ Therefore, the column used for pruning is determined by the query filter, not by
 
 &nbsp;
 
+
+#  follow-up questions for " Explain an end-to-end data pipeline you designed and implemented."
+1. "What happens when a new tenant (client) is added to the system?"
+2. "How do you handle schema changes (like adding a new column) across client schemas?"
+3. "How do you prevent duplicate invoices from showing up in downstream reports?"
+4. "How does the pipeline handle high file volumes or large XML payloads (up to 200MB)?"
+5. "What happens if a Fivetran sync or S3 replication fails?"
+
+
+&nbsp;
+
+&nbsp;
+
+## 1. "What happens when a new tenant onboards?"
+"It’s 100% automated. Fivetran auto-detects the new PostgreSQL schema and syncs it into RAW. The S3 path handles the XML files. Then, our dynamic controller task detects the new schema from table metadata and automatically rebuilds the Snowflake Task tree to merge the new tenant into Staging."
+
+&nbsp;
+
+## 2. "How do you handle schema changes across client databases?"
+"Fivetran automatically propagates new source columns into RAW. In Staging, our dynamic stored procedures inspect table metadata dynamically at runtime, appending new columns without breaking downstream dbt models."
+
+&nbsp;
+
+## 3. "How do you prevent duplicate invoices in reporting?"
+"Snowpipe prevents duplicate S3 file loads using 14-day file hash tracking. In the Semantic layer, we use window functions (ROW_NUMBER() PARTITION BY tenant_id, document_id ORDER BY created_ts DESC) so downstream applications like VVC only query the latest version."
+
+&nbsp;
+
+## 4. "How does the pipeline handle high volume and large XML files (up to 200MB)?"
+"Snowpipe handles micro-batching asynchronously straight from S3 into Snowflake VARIANT columns. Transformation models run incrementally with dbt and multi-cluster virtual warehouses to scale compute on demand."
+
+&nbsp;
+
+## 5. "How do you ensure EU data residency and security?"
+"Production is hosted directly in AWS eu-central-1 (Frankfurt) and Snowflake EU accounts to satisfy strict European tax regulations. Communication uses Site-to-Site VPN, key-pair auth, and strict RBAC standards."
+
+
+
 &nbsp;
