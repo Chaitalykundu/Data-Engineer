@@ -260,6 +260,53 @@ Using dbt transformation models:
 
 &nbsp;
 
+
+# 2. How did you use Snowflake and dbt together in your project?
+
+Snowflake is the **compute and storage layer**; dbt is the **transformation and deployment layer**. The two work together across a layered data architecture: `RAW → STG → CURATED → SEMANTIC`.
+
+&nbsp;
+
+**<u>RAW layer</u>** — data lands in Snowflake via Snowpipe (S3 auto-ingest), Fivetran, or Flink streaming sinks. This is raw, minimally processed data.
+
+**<u>STG/CURATED/SEMANTIC layers</u>** — dbt models define the SQL transformations that move data up the layers, applying type casting, validation, business logic, deduplication, and enrichment.
+
+&nbsp;
+
+**<u>How dbt Connects to Snowflake</u>**
+
+dbt connects via a `profiles.yml` file that specifies the Snowflake account, warehouse, database, schema, and credentials (SSH key pairs or OAuth service users stored in 1Password/Vault). GitHub Actions CI/CD workflows inject these as environment variables (DBT_SNOWFLAKE_ACCOUNT, DBT_SNOWFLAKE_ROLE, etc.) at deploy time.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 ## 6. How do micro-partitioning and partition pruning work in Snowflake?
 
 When we load or insert data into Snowflake, it automatically breaks data into small blocks of storage. These are called **micro-partitions**.
