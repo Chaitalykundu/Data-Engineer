@@ -3,18 +3,9 @@
 - [Content](#content)
 - [Questions](#questions)
 - [Answers](#answers)
-- [1. Explain an end-to-end data pipeline you designed and implemented](#1-explain-an-end-to-end-data-pipeline-you-designed-and-implemented)
-  - [Purpose](#purpose)
-  - [End-to-End Pipeline Architecture](#end-to-end-pipeline-architecture)
-    - [🔄 The Pipeline in 6 Simple Steps](#-the-pipeline-in-6-simple-steps)
-      - [Step 1: Client Sends an E-Invoice](#step-1-client-sends-an-e-invoice)
-      - [Step 2: Files \& Metadata Get Copied to Our Data Platform](#step-2-files--metadata-get-copied-to-our-data-platform)
-      - [✅ Step 3: Merge All Tenant Data into One Table (Staging Layer)](#-step-3-merge-all-tenant-data-into-one-table-staging-layer)
-      - [✅ Step 4: Enrich the Data (Curated Layer)](#-step-4-enrich-the-data-curated-layer)
-      - [✅ Step 5: Deduplicate \& Serve Final Data (Semantic Layer)](#-step-5-deduplicate--serve-final-data-semantic-layer)
-      - [✅ Step 6: Compliance Reporting (VVC Reconciliation)](#-step-6-compliance-reporting-vvc-reconciliation)
-- [6. How do micro-partitioning and partition pruning work in Snowflake?](#6-how-do-micro-partitioning-and-partition-pruning-work-in-snowflake)
-- [7. When would you define a clustering key?](#7-when-would-you-define-a-clustering-key)
+  - [1. Explain an end-to-end data pipeline you designed and implemented](#1-explain-an-end-to-end-data-pipeline-you-designed-and-implemented)
+  - [6. How do micro-partitioning and partition pruning work in Snowflake?](#6-how-do-micro-partitioning-and-partition-pruning-work-in-snowflake)
+  - [7. When would you define a clustering key?](#7-when-would-you-define-a-clustering-key)
 - [follow-up questions for " Explain an end-to-end data pipeline you designed and implemented."](#follow-up-questions-for--explain-an-end-to-end-data-pipeline-you-designed-and-implemented)
   - [1. "What happens when a new tenant onboards?"](#1-what-happens-when-a-new-tenant-onboards)
   - [2. "How do you handle schema changes across client databases?"](#2-how-do-you-handle-schema-changes-across-client-databases)
@@ -80,27 +71,23 @@
 
 # Answers
 
-# 1. Explain an end-to-end data pipeline you designed and implemented
+## 1. Explain an end-to-end data pipeline you designed and implemented
 
-## Purpose
+✅✅✅✅ Purpose
 
-When a client sends or receives an e-invoice, we capture both the invoice file (XML) and its details (metadata) from two different sources, clean them up, combine them, and make them available for compliance reporting.
+I worked on the E-Invoice Data Pipeline. It helps enterprise clients send and receive electronic invoices globally.
 
-The pipeline handles two distinct ingest streams: XML invoice payloads from S3 using S3 Event Notifications and Snowpipe into Snowflake VARIANT columns, and PostgreSQL tenant metadata using Fivetran Teleport Sync over a site-to-site VPN. One key innovation here is our auto-tenant onboarding logic — Fivetran auto-detects new client schemas as they are provisioned, eliminating manual pipeline changes.
-
-To solve the challenge of having thousands of isolated tenant schemas in the RAW layer, we implemented an automated Dynamic Task DAG in Snowflake. A controller procedure checks for schema changes via metadata checkpoints and dynamically constructs a Snowflake Task tree. Using Snowflake Streams for CDC, it converges data from all tenant schemas into a single multi-tenant staging layer with standardized tenant_id and audit attributes.
-
-Finally, using dbt, we transform and model this data through Curated and Semantic layers, delivering a deduplicated MD_EINVOICE semantic data set consumed by our VAT Compliance application."
+The purpose of this pipeline was to collect e-invoice data from thousands of client tenants, consolidate it into Snowflake, transform it through multiple layers, and make it available for VAT Compliance Reconciliation Reporting — where clients verify that every invoice they sent or received matches their filed tax returns.
 
 &nbsp;
 
 &nbsp;
 
-## End-to-End Pipeline Architecture
+✅✅✅✅ End-to-End Pipeline Architecture
 
 The pipeline consists of 2 dual ingestion streams that converge into a 4-layer Medallion architecture (RAW → STG → CURATED → SEMANTIC).
 
-```
+```plain
                       ┌─────────────────────────────────────────┐
                       │  E-Invoice Source (Platform AWS Account) │
                       └────────────────────┬────────────────────┘
@@ -154,9 +141,9 @@ The pipeline consists of 2 dual ingestion streams that converge into a 4-layer M
 
 &nbsp;
 
-### 🔄 The Pipeline in 6 Simple Steps
+🔄 The Pipeline in 6 Simple Steps
 
-#### Step 1: Client Sends an E-Invoice
+✅ Step 1: Client Sends an E-Invoice
 
 A Vertex client (tenant) sends or receives an electronic invoice through the Vertex E-Invoicing Application.
 
@@ -170,7 +157,7 @@ Two things happen at the same time:
 
 &nbsp;
 
-#### Step 2: Files & Metadata Get Copied to Our Data Platform
+✅ Step 2: Files & Metadata Get Copied to Our Data Platform
 
 For the XML file (Path A):
 
@@ -200,7 +187,7 @@ For the metadata (Path B):
 
 &nbsp;
 
-#### ✅ Step 3: Merge All Tenant Data into One Table (Staging Layer)
+✅ Step 3: Merge All Tenant Data into One Table (Staging Layer)
 
 The Problem: Data is spread across hundreds of tenant schemas in RAW. We need it all in one place.
 
@@ -225,7 +212,7 @@ The Solution — Dynamic Task DAG:
 
 &nbsp;
 
-#### ✅ Step 4: Enrich the Data (Curated Layer)
+✅ Step 4: Enrich the Data (Curated Layer)
 
 Using dbt transformation models:
 
@@ -241,13 +228,13 @@ Using dbt transformation models:
 
 &nbsp;
 
-#### ✅ Step 5: Deduplicate & Serve Final Data (Semantic Layer)
+✅ Step 5: Deduplicate & Serve Final Data (Semantic Layer)
 
 - Sometimes the same invoice can appear multiple times (updates, retries)
 
 - The Semantic layer picks only the latest record per (tenant_id, document_id) using:
 
-  ```
+  ```plain
   ROW_NUMBER() OVER (PARTITION BY tenant_id, document_id ORDER BY created_ts DESC)
   ```
 
@@ -259,7 +246,7 @@ Using dbt transformation models:
 
 &nbsp;
 
-#### ✅ Step 6: Compliance Reporting (VVC Reconciliation)
+✅ Step 6: Compliance Reporting (VVC Reconciliation)
 
 - The Vertex VAT Compliance (VVC) application reads the Semantic layer
 
@@ -273,7 +260,7 @@ Using dbt transformation models:
 
 &nbsp;
 
-# 6. How do micro-partitioning and partition pruning work in Snowflake?
+## 6. How do micro-partitioning and partition pruning work in Snowflake?
 
 When we load or insert data into Snowflake, it automatically breaks data into small blocks of storage. These are called **micro-partitions**.
 
@@ -348,7 +335,7 @@ Therefore, the column used for pruning is determined by the query filter, not by
 
 &nbsp;
 
-# 7. When would you define a clustering key?
+## 7. When would you define a clustering key?
 
 &nbsp;
 
