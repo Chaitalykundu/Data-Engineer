@@ -97,7 +97,7 @@ Overall, my major focus in the project is Snowflake infrastructure automation, R
 
 &nbsp;
 
-## 3. Why Snowflake? its architecture. Snowflake vs traditional databases.
+## 3. Why Snowflake? its architecture. Snowflake vs traditional databases
 
 In our project, we were ingesting data from sources such as SQL Server and PostgreSQL and loading it into Snowflake for analytics and reporting.
 
@@ -122,7 +122,7 @@ Snowflake also provides features such as automatic scaling, auto-suspend/auto-re
 
 &nbsp;
 
-## 4. micro-partitioning and partition pruning.
+## 4. micro-partitioning and partition pruning
 
 ### What is micro-partitioning?
 
@@ -437,7 +437,7 @@ ORDER BY 1;
 
 &nbsp;
 
-## Calculate a 7-day rolling average of daily total sales revenue per region.
+## Calculate a 7-day rolling average of daily total sales revenue per region
 
 ```sql
 SELECT region,

@@ -4,6 +4,7 @@
 - [Questions](#questions)
 - [Answers](#answers)
   - [1. Explain an end-to-end data pipeline you designed and implemented](#1-explain-an-end-to-end-data-pipeline-you-designed-and-implemented)
+  - [2. How did you use Snowflake and dbt together in your project?](#2-how-did-you-use-snowflake-and-dbt-together-in-your-project)
   - [6. How do micro-partitioning and partition pruning work in Snowflake?](#6-how-do-micro-partitioning-and-partition-pruning-work-in-snowflake)
   - [7. When would you define a clustering key?](#7-when-would-you-define-a-clustering-key)
 - [follow-up questions for " Explain an end-to-end data pipeline you designed and implemented."](#follow-up-questions-for--explain-an-end-to-end-data-pipeline-you-designed-and-implemented)
@@ -12,7 +13,8 @@
   - [3. "How do you prevent duplicate invoices in reporting?"](#3-how-do-you-prevent-duplicate-invoices-in-reporting)
   - [4. "How does the pipeline handle high volume and large XML files (up to 200MB)?"](#4-how-does-the-pipeline-handle-high-volume-and-large-xml-files-up-to-200mb)
   - [5. "How do you ensure EU data residency and security?"](#5-how-do-you-ensure-eu-data-residency-and-security)
-    &nbsp;
+
+&nbsp;
 
 &nbsp;
 
@@ -260,8 +262,7 @@ Using dbt transformation models:
 
 &nbsp;
 
-
-# 2. How did you use Snowflake and dbt together in your project?
+## 2. How did you use Snowflake and dbt together in your project?
 
 Snowflake is the **compute and storage layer**; dbt is the **transformation and deployment layer**. The two work together across a layered data architecture: `RAW → STG → CURATED → SEMANTIC`.
 

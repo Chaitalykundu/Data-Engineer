@@ -42,16 +42,14 @@
 29. What are DynamoDB partition keys and sort keys?
 30. When would you use DynamoDB?
 
-
 &nbsp;
 
 &nbsp;
 
 &nbsp;
-
 
 # Likely scenario
 
 1. You have 10 TB of data in S3. Would you query it using Athena or load it into Snowflake? Why?
 
-    You should be able to discuss workload, frequency, performance, governance, concurrency and cost, rather than saying one is always better.
+   You should be able to discuss workload, frequency, performance, governance, concurrency and cost, rather than saying one is always better.
