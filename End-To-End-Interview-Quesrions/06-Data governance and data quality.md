@@ -12,7 +12,7 @@
 # Questions
 
 1. What does it mean to treat data as a governed asset?
-2. What is the difference between data governance and data management?
+2. What is the difference between data governance and master data management (MDM)?
 3. Who are data owners, stewards, producers and consumers?
 4. How do you define and enforce data-quality rules?
 5. What dimensions of data quality do you measure?
@@ -31,3 +31,13 @@
 18. What data-quality SLAs would you define?
 19. How do governance controls balance self-service access with security?
 20. How do you prove that a dashboard’s data is trustworthy?
+21. What is a master record?
+22. What is a golden record?
+23. How would you implement MDM for customer data?
+24. How do you handle duplicate customer records?
+25. How do you define data ownership?
+26. What is data lineage?
+27. What is data classification?
+28. What is data stewardship?
+29. How do you enforce data access policies?
+30. How would Snowflake RBAC support data governance?
