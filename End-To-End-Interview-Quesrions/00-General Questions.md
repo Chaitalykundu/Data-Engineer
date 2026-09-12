@@ -3,10 +3,11 @@
 - [Content](#content)
 - [Questions](#questions)
 - [Answers](#answers)
-  - [1. Tell me about yourself](#1-tell-me-about-yourself)
+  - [1. Introduction](#1-introduction)
   - [2. Explain your project](#2-explain-your-project)
-  - [3. Why Snowflake? its architecture. Snowflake vs traditional databases.](#3-why-snowflake-its-architecture-snowflake-vs-traditional-databases)
-  - [4. micro-partitioning and partition pruning.](#4-micro-partitioning-and-partition-pruning)
+- [3. Difficult issue you solved](#3-difficult-issue-you-solved)
+  - [3. Why Snowflake? its architecture. Snowflake vs traditional databases](#3-why-snowflake-its-architecture-snowflake-vs-traditional-databases)
+  - [4. micro-partitioning and partition pruning](#4-micro-partitioning-and-partition-pruning)
     - [What is micro-partitioning?](#what-is-micro-partitioning)
     - [What is partition pruning?](#what-is-partition-pruning)
   - [5. How do you improve query performance?](#5-how-do-you-improve-query-performance)
@@ -25,7 +26,7 @@
   - [5. Find the highest order for each customer](#5-find-the-highest-order-for-each-customer)
   - [8. Find customers who never placed an order](#8-find-customers-who-never-placed-an-order)
   - [13. Find monthly active users](#13-find-monthly-active-users)
-  - [Calculate a 7-day rolling average of daily total sales revenue per region.](#calculate-a-7-day-rolling-average-of-daily-total-sales-revenue-per-region)
+  - [Calculate a 7-day rolling average of daily total sales revenue per region](#calculate-a-7-day-rolling-average-of-daily-total-sales-revenue-per-region)
 
 &nbsp;
 
@@ -37,11 +38,12 @@
 
 1. Tell me about yourself
 2. Explain your project
-3. Why did you choose Snowflake? Explain its architecture and how it differs from traditional databases.
-4. Explain Snowflake micro-partitioning and partition pruning.
-5. How do you improve query performance?
-6. Explain Snowflake RBAC. How would you design roles and access for hundreds/thousands of users?
-7. What is SCD Type 1 and SCD Type 2. How would you implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?
+3. What was the most difficult issue you solved?
+4. Why did you choose Snowflake? Explain its architecture and how it differs from traditional databases.
+5. Explain Snowflake micro-partitioning and partition pruning.
+6. How do you improve query performance?
+7. Explain Snowflake RBAC. How would you design roles and access for hundreds/thousands of users?
+8. What is SCD Type 1 and SCD Type 2. How would you implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?
 
 &nbsp;
 
@@ -49,7 +51,7 @@
 
 # Answers
 
-## 1. Tell me about yourself
+## 1. Introduction
 
 My name is Chaitaly Kundu. I completed my B.Tech in Computer Science Engineering from Siliguri Institute of Technology. I have over 4 years of experience as a Data Engineer at Persistent Systems, mainly working with Snowflake and cloud-based data platforms.
 
@@ -75,7 +77,7 @@ We get data from different sources such as SQL Server, PostgreSQL, Salesforce, a
 
 After the data is loaded into Snowflake, we use dbt for transformation. We clean and standardize the raw data and then create business-ready datasets for reporting and analytics.
 
-My main responsibility is Snowflake infrastructure automation and governance. We use Terraform to create and manage Snowflake resources such as databases, schemas, warehouses, users, roles,and handle user onboarding, role hierarchy, and access grants using RBAC. We also use Terraform for some AWS resources such as S3 and IAM.
+My main responsibility is Snowflake infrastructure automation and governance. We use Terraform to create and manage Snowflake resources such as databases, schemas, warehouses, users, roles,and also I handle user onboarding, role hierarchy, and access grants using RBAC. We also use Terraform for some AWS resources such as S3 and IAM.
 
 I mainly work on user onboarding and access management. When a new user or team needs access to Snowflake, I first understand their requirements and then provide the appropriate role and permissions. We follow RBAC, so we assign permissions to roles instead of directly giving permissions to individual users.
 
@@ -92,6 +94,12 @@ For monitoring, we use Datadog. I mainly monitor Snowflake workloads and dynamic
 We follow Agile methodology and use Jira to manage our stories, tasks, and defects.
 
 Overall, my major focus in the project is Snowflake infrastructure automation, RBAC, user access management, Terraform, and governance.
+
+&nbsp;
+
+&nbsp;
+
+# 3. Difficult issue you solved
 
 &nbsp;
 
