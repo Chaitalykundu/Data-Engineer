@@ -99,7 +99,57 @@ Overall, my major focus in the project is Snowflake infrastructure automation, R
 
 &nbsp;
 
-# 3. Difficult issue you solved
+## 3. Difficult issue you solved
+
+I resolved two major operational pain points in our Snowflake environment by building two self-service Streamlit applications.
+
+Problem 1: Slow, Manual Data Access Process
+
+The Reason: All data asset access was managed by the VDP (Virtual Data Platform) team. Whenever a team needed access to a data asset, the onboarding team had to submit a Jira service request. The VDP team would then review it, provision the foundational infrastructure, and manually grant access to the respective team members.
+
+a simple access request could take days due to ticket queues and manual back-and-forth, every team depended on them for access, slowing down development
+
+he Solution — Data Bridge Ops App: I built a Streamlit-in-Snowflake application where:
+
+Data asset owners can register their assets and define environment-specific roles (reader/writer/admin for DEV, PREPROD, PROD)
+Users can raise access requests themselves — no Jira ticket needed. They select the data asset, environment, target role, and provide a business justification
+Data owners approve or reject directly in the app with comments
+Approved grants have automatic expiration dates, so access doesn't linger forever
+Every request, approval, and rejection is fully auditable in the history tab
+
+The Impact:
+
+Eliminated the Jira bottleneck — access requests that took days now take minutes
+Removed the dependency on the VDP team for routine access grants
+Gave data owners direct control over who accesses their data
+Created a complete audit trail for compliance
+
+Data Asset Registration — owners can register their datasets and define who gets reader, writer, or admin roles across DEV, PREPROD, and PROD environments
+Access Request Workflow — users submit requests, and data owners approve or reject them with comments
+Entitlements View — shows who currently has access to what, with expiration dates
+Audit History — full trail of every request, approval, and rejection
+
+
+Problem 2: Offboarded Users Still Active in Snowflake
+
+The Reason: When employees left the company or moved to different teams, their Snowflake accounts were not being disabled promptly. The offboarding process didn't have a reliable step to deactivate Snowflake users. This meant:
+
+Security risk — former employees still had active credentials that could potentially be used to access sensitive data
+Compliance violation — auditors expect that terminated users are deactivated within a defined SLA, and we had no visibility into this
+No tracking — nobody knew how many stale accounts existed or how long they'd been inactive
+The Solution — Inactive Users Dashboard: I built a second Streamlit app that:
+
+Queries SNOWFLAKE.ACCOUNT_USAGE.USERS to find all enabled users who haven't logged in for a configurable period (default 6 months, adjustable up to 24)
+Shows summary metrics — total inactive users, average days since last login, MFA adoption
+Provides filters by authentication type (password, RSA key, MFA) and user type (human vs. service accounts)
+Includes search to quickly find specific users
+Offers CSV export so the security team can take the list and action it immediately
+The Impact:
+
+Gave the security team instant visibility into stale accounts
+Enabled proactive cleanup instead of waiting for an audit finding
+Reduced the attack surface by identifying accounts that should be disabled
+Provided evidence for compliance audits showing we actively monitor user hygiene
 
 &nbsp;
 
