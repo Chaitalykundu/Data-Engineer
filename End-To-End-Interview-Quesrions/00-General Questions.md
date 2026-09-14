@@ -12,10 +12,10 @@
   - [7. micro-partitioning and partition pruning](#7-micro-partitioning-and-partition-pruning)
     - [What is micro-partitioning?](#what-is-micro-partitioning)
     - [What is partition pruning?](#what-is-partition-pruning)
-  - [5. How do you improve query performance?](#5-how-do-you-improve-query-performance)
+  - [5. Improve query performance?](#5-improve-query-performance)
   - [6. RBAC. design roles and access for hundreds/thousands of users?](#6-rbac-design-roles-and-access-for-hundredsthousands-of-users)
     - [How I would design RBAC for hundreds/thousands of users](#how-i-would-design-rbac-for-hundredsthousands-of-users)
-  - [SCD Type. implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?](#scd-type-implement-scd-type-1-and-scd-type-2-in-dbtsnowflake)
+  - [SCD Type. implement both in DBT/Snowflake? Which one used in your project?](#scd-type-implement-both-in-dbtsnowflake-which-one-used-in-your-project)
   - [Optimize warehouse usage and control cost?](#optimize-warehouse-usage-and-control-cost)
   - [Investigate and resolve a 2 AM failed pipeline.](#investigate-and-resolve-a-2-am-failed-pipeline)
   - [Troubleshoot a sudden slow query or pipeline?](#troubleshoot-a-sudden-slow-query-or-pipeline)
@@ -51,7 +51,7 @@
 7. Explain Snowflake micro-partitioning and partition pruning.
 8. How do you improve query performance?
 9. Explain Snowflake RBAC. How would you design roles and access for hundreds/thousands of users?
-10. What is SCD Type 1 and SCD Type 2. How would you implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?
+10. What is SCD Type 1 and SCD Type 2. How would you implement SCD Type 1 and SCD Type 2 in DBT/Snowflake? Which one have you used in your project?
 11. How do you optimize Snowflake warehouse usage and control cost?
 12. A production pipeline failed at 2 AM. How would you investigate and resolve it?
 13. How would you troubleshoot a Snowflake query or pipeline that suddenly became slow?
@@ -268,7 +268,7 @@ WHERE order_date BETWEEN '2026-08-01' AND '2026-08-31';
 
 &nbsp;
 
-## 5. How do you improve query performance?
+## 5. Improve query performance?
 
 1. Make filters pruning-friendly
 2. Check Query Profile... I would check:
@@ -330,7 +330,7 @@ Instead, I would use a role hierarchy based on job function and access level.
 
 &nbsp;
 
-## SCD Type. implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?
+## SCD Type. implement both in DBT/Snowflake? Which one used in your project?
 
 "SCD Type 1 overwrites the existing dimension record, so it maintains only the latest value and doesn't preserve history. Type 2 preserves historical changes by creating a new version of the record with effective dates and a current flag.
 
@@ -339,6 +339,10 @@ In DBT and Snowflake, for Type 1, I typically use an incremental model with a un
 For Type 2, I first identify changes in tracked attributes using an updated timestamp or hash comparison. If the current record has changed, I expire the existing record by setting the effective-to date and current flag, and then insert a new version with a new effective-from date.
 
 In DBT, I can also use snapshots for SCD Type 2 when I need to track source-record changes. I choose Type 1 when only the current state is required and Type 2 when historical reporting or auditability is required."
+
+&nbsp;
+
+I have primarily worked with SCD Type 1 because our requirement was to maintain the latest employee information rather than historical versions. We used dbt transformations and incremental/merge logic in Snowflake to update existing records and insert new records. I also understand SCD Type 2 and how to implement it using dbt snapshots when historical tracking is required.
 
 &nbsp;
 
