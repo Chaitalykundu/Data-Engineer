@@ -6,17 +6,22 @@
   - [1. Introduction](#1-introduction)
   - [2. Explain your project](#2-explain-your-project)
   - [3. Difficult issue you solved](#3-difficult-issue-you-solved)
-  - [3. Why Snowflake? its architecture. Snowflake vs traditional databases](#3-why-snowflake-its-architecture-snowflake-vs-traditional-databases)
-  - [4. micro-partitioning and partition pruning](#4-micro-partitioning-and-partition-pruning)
+  - [4. Why Snowflake? its architecture. Snowflake vs traditional databases](#4-why-snowflake-its-architecture-snowflake-vs-traditional-databases)
+  - [5. Use Snowflake and dbt together in your project?](#5-use-snowflake-and-dbt-together-in-your-project)
+  - [6. Why dbt instead of writing transformation SQL directly in Snowflake?](#6-why-dbt-instead-of-writing-transformation-sql-directly-in-snowflake)
+  - [7. micro-partitioning and partition pruning](#7-micro-partitioning-and-partition-pruning)
     - [What is micro-partitioning?](#what-is-micro-partitioning)
     - [What is partition pruning?](#what-is-partition-pruning)
   - [5. How do you improve query performance?](#5-how-do-you-improve-query-performance)
   - [6. RBAC. design roles and access for hundreds/thousands of users?](#6-rbac-design-roles-and-access-for-hundredsthousands-of-users)
     - [How I would design RBAC for hundreds/thousands of users](#how-i-would-design-rbac-for-hundredsthousands-of-users)
-  - [A production pipeline failed at 2 AM. How would you investigate and resolve it?](#a-production-pipeline-failed-at-2-am-how-would-you-investigate-and-resolve-it)
-  - [SCD Type 1 and SCD Type 2. implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?](#scd-type-1-and-scd-type-2-implement-scd-type-1-and-scd-type-2-in-dbtsnowflake)
-  - [How do you optimize Snowflake warehouse usage and control cost?](#how-do-you-optimize-snowflake-warehouse-usage-and-control-cost)
-  - [How would you troubleshoot a Snowflake query or pipeline that suddenly became slow?](#how-would-you-troubleshoot-a-snowflake-query-or-pipeline-that-suddenly-became-slow)
+  - [SCD Type. implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?](#scd-type-implement-scd-type-1-and-scd-type-2-in-dbtsnowflake)
+  - [Optimize warehouse usage and control cost?](#optimize-warehouse-usage-and-control-cost)
+  - [Investigate and resolve a 2 AM failed pipeline.](#investigate-and-resolve-a-2-am-failed-pipeline)
+  - [Troubleshoot a sudden slow query or pipeline?](#troubleshoot-a-sudden-slow-query-or-pipeline)
+  - [IAM User and IAM Role?](#iam-user-and-iam-role)
+  - [Give an IAM user access to S3](#give-an-iam-user-access-to-s3)
+  - [Access Keys and when are they used](#access-keys-and-when-are-they-used)
 - [Coding](#coding)
   - [Find the 2nd highest salary](#find-the-2nd-highest-salary)
   - [2. Find the top 3 highest-paid employees in each department](#2-find-the-top-3-highest-paid-employees-in-each-department)
@@ -27,6 +32,7 @@
   - [8. Find customers who never placed an order](#8-find-customers-who-never-placed-an-order)
   - [13. Find monthly active users](#13-find-monthly-active-users)
   - [Calculate a 7-day rolling average of daily total sales revenue per region](#calculate-a-7-day-rolling-average-of-daily-total-sales-revenue-per-region)
+  - [8. You gave a table called users with duplicate records based on email . The table has userid email and created at. Write subquery to keep only latest record for each email and delete the older one](#8-you-gave-a-table-called-users-with-duplicate-records-based-on-email--the-table-has-userid-email-and-created-at-write-subquery-to-keep-only-latest-record-for-each-email-and-delete-the-older-one)
 
 &nbsp;
 
@@ -40,10 +46,18 @@
 2. Explain your project
 3. What was the most difficult issue you solved?
 4. Why did you choose Snowflake? Explain its architecture and how it differs from traditional databases.
-5. Explain Snowflake micro-partitioning and partition pruning.
-6. How do you improve query performance?
-7. Explain Snowflake RBAC. How would you design roles and access for hundreds/thousands of users?
-8. What is SCD Type 1 and SCD Type 2. How would you implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?
+5. How did you use Snowflake and dbt together in your project?
+6. Why did you use dbt instead of writing transformation SQL directly in Snowflake?
+7. Explain Snowflake micro-partitioning and partition pruning.
+8. How do you improve query performance?
+9. Explain Snowflake RBAC. How would you design roles and access for hundreds/thousands of users?
+10. What is SCD Type 1 and SCD Type 2. How would you implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?
+11. How do you optimize Snowflake warehouse usage and control cost?
+12. A production pipeline failed at 2 AM. How would you investigate and resolve it?
+13. How would you troubleshoot a Snowflake query or pipeline that suddenly became slow?
+14. What is the difference between an IAM User and IAM Role?
+15. How do you give an IAM user access to S3
+16. What are Access Keys and when are they used
 
 &nbsp;
 
@@ -105,7 +119,7 @@ I resolved two major operational pain points in our Snowflake environment by bui
 
 **Problem 1: Slow, Manual Data Access Process**
 
-**The Reason**: All data asset access was managed by the VDP (Virtual Data Platform) team. Whenever a team needed access to a data asset, the onboarding team had to submit a Jira service request. The VDP team would then review it, provision the foundational infrastructure, and manually grant access to the respective team members.
+**The Reason**: All data asset access was managed by the Data Platform team. Whenever a team needed access to a data asset, the onboarding team had to submit a Jira service request. The VDP team would then review it, provision the foundational infrastructure, and grant access to the respective team members.
 
 A simple access request could take days due to ticket queues and manual back-and-forth, every team depended on them for access, slowing down development
 
@@ -128,15 +142,14 @@ A simple access request could take days due to ticket queues and manual back-and
 
 **Problem 2: Offboarded Users Still Active in Snowflake**
 
-**The Reason**: When employees left the company or moved to different teams, their Snowflake accounts were not being disabled promptly. The offboarding process didn't have a reliable step to deactivate Snowflake users. This meant:
+**The Reason**: When employees left the company, their Snowflake accounts were not being disabled promptly. We don't have visibility on any offboarding. For this:
 
 - former employees still had active credentials that could potentially be used to access sensitive data
-- auditors expect that terminated users are deactivated within a defined SLA, and we had no visibility into this
 - nobody knew how many stale accounts existed or how long they'd been inactive
 
 **The Solution** — : I built a second Streamlit app named Inactive Users Dashboard that:
 
-- Queries SNOWFLAKE.ACCOUNT_USAGE.USERS to find all enabled users who haven't logged in for a configurable period (default 3 months, adjustable up to 24)
+- Queries SNOWFLAKE.ACCOUNT_USAGE.USERS to find all enabled users who haven't logged in for a certain period (default 3 months, adjustable up to 24)
 - Shows summary metrics — total inactive users, average days since last login, MFA adoption
 - Provides filters by authentication type (password, RSA key, MFA) and user type (human vs. service accounts)
 - Includes search to quickly find specific users
@@ -153,20 +166,22 @@ A simple access request could take days due to ticket queues and manual back-and
 
 &nbsp;
 
-## 3. Why Snowflake? its architecture. Snowflake vs traditional databases
+## 4. Why Snowflake? its architecture. Snowflake vs traditional databases
 
 In our project, we were ingesting data from sources such as SQL Server and PostgreSQL and loading it into Snowflake for analytics and reporting.
 
-The biggest advantage is the separation of storage and compute. It allows us to scale compute independently, isolate workloads using separate warehouses, and optimize cost by suspending compute when it is not being used.
+The biggest advantage of snowflake is the separation of storage and compute. It allows us to scale compute independently, isolate workloads using separate warehouses, and optimize cost by suspending compute when it is not being used.
 
 Snowflake has a three-layer architecture:
 
-**Database Storage Layer** – The Database Storage Layer is responsible for persistently **storing all data** (structured or semi-structured) in an **optimized, compressed, and columnar format.**
+**Database Storage Layer** – The Database Storage Layer is responsible for storing and managing data. Snowflake automatically organizes table data into micro-partitions and maintains metadata that helps with efficient data access.
 
 **Compute Layer** –
-The Compute Layer in Snowflake is responsible for **query execution** and is implemented through Virtual Warehouses.
+The Compute Layer in Snowflake is responsible for **query execution** and is implemented through Virtual Warehouses. Warehouses execute SQL queries, data loading, transformations, and other compute-intensive operations.
 
 **Cloud Services Layer** – This layer manages activities such as authentication, metadata management, query parsing and optimization, access control, and transaction management.
+
+&nbsp;
 
 The key difference from a traditional database is the separation of storage and compute. In a traditional database, compute and storage are generally tightly coupled to the database server. If we need more processing capacity, we may need to scale the entire server, which can be expensive and can affect other workloads.
 
@@ -178,7 +193,53 @@ Snowflake also provides features such as automatic scaling, auto-suspend/auto-re
 
 &nbsp;
 
-## 4. micro-partitioning and partition pruning
+## 5. Use Snowflake and dbt together in your project?
+
+In our project, Snowflake and dbt work together as the data storage, compute, and transformation platform. Snowflake is the **compute and storage layer**; dbt is the **transformation and deployment layer**.
+
+Data from sources such as SQL Server, PostgreSQL, Salesforce, and S3 is ingested into the RAW layer in Snowflake using Fivetran.
+
+We then use dbt to transform the raw data inside Snowflake. Our dbt models handle activities such as data type standardization, filtering, deduplication, joins, validations, and applying business logic.
+
+We organize the transformed data into layers such as RAW, STAGING, and CURATED, where the curated layer contains business-ready datasets used for analytics and reporting.
+
+dbt uses SQL models and ref() to manage dependencies between models. We also use dbt tests for data-quality validation.
+
+Snowflake provides the underlying storage and compute through virtual warehouses, while dbt manages the transformation logic, model dependencies, testing, and deployment workflow.
+
+So, in simple terms, Fivetran loads the data into Snowflake, dbt transforms the data within Snowflake, and the final curated datasets are consumed for analytics and reporting.”
+
+&nbsp;
+
+**<u>How dbt Connects to Snowflake</u>**
+
+dbt connects via a `profiles.yml` file that specifies the Snowflake account, warehouse, database, schema, and credentials (SSH key pairs or OAuth service users stored in 1Password/Vault). GitHub Actions CI/CD workflows inject these as environment variables (DBT_SNOWFLAKE_ACCOUNT, DBT_SNOWFLAKE_ROLE, etc.) at deploy time.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+## 6. Why dbt instead of writing transformation SQL directly in Snowflake?
+
+We could write transformation SQL directly in Snowflake, but we used dbt because it gives us a structured and maintainable way to manage transformation logic.
+
+In our project, we had multiple transformation models, so managing all the SQL independently in Snowflake would become difficult to maintain and deploy.
+
+With dbt, we organize transformations into models, define dependencies using ref(), and dbt automatically builds the models in the correct order.
+
+We also use dbt tests to validate data quality, such as checking for nulls, duplicates, and valid relationships.
+
+Another important advantage is version control and CI/CD. Our dbt SQL code is stored in GitHub, so changes go through pull requests and code reviews before deployment. GitHub Actions can then validate and deploy the changes consistently across environments.
+
+So, Snowflake is still doing the actual computation, but dbt gives us a proper framework for managing, testing, versioning, and deploying our transformation logic.
+s
+&nbsp;
+
+&nbsp;
+
+## 7. micro-partitioning and partition pruning
 
 ### What is micro-partitioning?
 
@@ -269,7 +330,45 @@ Instead, I would use a role hierarchy based on job function and access level.
 
 &nbsp;
 
-## A production pipeline failed at 2 AM. How would you investigate and resolve it?
+## SCD Type. implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?
+
+"SCD Type 1 overwrites the existing dimension record, so it maintains only the latest value and doesn't preserve history. Type 2 preserves historical changes by creating a new version of the record with effective dates and a current flag.
+
+In DBT and Snowflake, for Type 1, I typically use an incremental model with a unique business key and the merge strategy. When a record already exists, its attributes are updated; otherwise, a new record is inserted.
+
+For Type 2, I first identify changes in tracked attributes using an updated timestamp or hash comparison. If the current record has changed, I expire the existing record by setting the effective-to date and current flag, and then insert a new version with a new effective-from date.
+
+In DBT, I can also use snapshots for SCD Type 2 when I need to track source-record changes. I choose Type 1 when only the current state is required and Type 2 when historical reporting or auditability is required."
+
+&nbsp;
+
+&nbsp;
+
+## Optimize warehouse usage and control cost?
+
+I optimize Snowflake warehouse usage mainly by controlling warehouse size, auto-suspend/resume, workload separation, and monitoring. I use the smallest warehouse that meets the performance requirement, enable auto-suspend to avoid paying for idle time, and use auto-resume when needed. I separate ETL, reporting, and ad-hoc workloads into different warehouses so one workload doesn't impact another. For high-concurrency workloads, I can use multi-cluster warehouses. I also monitor query history and warehouse usage to identify expensive or long-running queries and optimize them. Finally, I use resource monitors to set credit limits and alerts to control unexpected costs.
+
+1. Right-size the warehouse
+2. Use Auto-Suspend and Auto-Resume
+3. Monitor warehouse utilization - I monitor:
+   - Warehouse load
+   - Query execution time
+   - Queued queries
+   - Number of concurrent queries
+   - Credits consumed
+   - Warehouse size
+   - Spillage
+   - Query frequency
+4. Optimize SQL before increasing warehouse size
+5. Use separate warehouses for different workloads
+6. Use multi-cluster warehouses for concurrency
+7. Use appropriate scaling
+
+&nbsp;
+
+&nbsp;
+
+## Investigate and resolve a 2 AM failed pipeline.
 
 If a production pipeline fails at 2 AM, my first priority is to understand the impact, identify the exact failure point, and restore the pipeline safely. I would avoid making random changes in production.
 
@@ -297,45 +396,7 @@ If a production pipeline fails at 2 AM, my first priority is to understand the i
 
 &nbsp;
 
-## SCD Type 1 and SCD Type 2. implement SCD Type 1 and SCD Type 2 in DBT/Snowflake?
-
-"SCD Type 1 overwrites the existing dimension record, so it maintains only the latest value and doesn't preserve history. Type 2 preserves historical changes by creating a new version of the record with effective dates and a current flag.
-
-In DBT and Snowflake, for Type 1, I typically use an incremental model with a unique business key and the merge strategy. When a record already exists, its attributes are updated; otherwise, a new record is inserted.
-
-For Type 2, I first identify changes in tracked attributes using an updated timestamp or hash comparison. If the current record has changed, I expire the existing record by setting the effective-to date and current flag, and then insert a new version with a new effective-from date.
-
-In DBT, I can also use snapshots for SCD Type 2 when I need to track source-record changes. I choose Type 1 when only the current state is required and Type 2 when historical reporting or auditability is required."
-
-&nbsp;
-
-&nbsp;
-
-## How do you optimize Snowflake warehouse usage and control cost?
-
-1. Right-size the warehouse
-2. Use Auto-Suspend and Auto-Resume
-3. Monitor warehouse utilization - I monitor:
-   - Warehouse load
-   - Query execution time
-   - Queued queries
-   - Number of concurrent queries
-   - Credits consumed
-   - Warehouse size
-   - Spillage
-   - Query frequency
-4. Optimize SQL before increasing warehouse size
-5. Use separate warehouses for different workloads
-6. Use multi-cluster warehouses for concurrency
-7. Use appropriate scaling
-
-&nbsp;
-
-&nbsp;
-
-## How would you troubleshoot a Snowflake query or pipeline that suddenly became slow?
-
-Interview Answer
+## Troubleshoot a sudden slow query or pipeline?
 
 If a Snowflake query or pipeline suddenly becomes slow, I would first determine whether the issue is with the query itself, the warehouse, the data, or an upstream dependency. I would compare the current execution with a previously successful execution.
 
@@ -346,6 +407,40 @@ If a Snowflake query or pipeline suddenly becomes slow, I would first determine 
 3. Third, I check whether the query plan or data characteristics changed.
 
 4. Fourth, I check Snowflake's micro-partition pruning. If the query is scanning a large percentage of the table instead of pruning unnecessary micro-partitions, I investigate the filter predicates and, for very large frequently queried tables, whether clustering needs improvement.
+
+&nbsp;
+
+&nbsp;
+
+## IAM User and IAM Role?
+
+An IAM User represents a specific person or application identity and can have long-term credentials such as a password or access keys. An IAM Role is an identity with permissions that can be temporarily assumed by users, applications, or AWS services. Roles are preferred for applications because they provide temporary credentials and avoid storing long-term access keys
+
+&nbsp;
+
+&nbsp;
+
+## Give an IAM user access to S3
+
+“To give an IAM user access to S3, I create or use an IAM policy with the required S3 permissions, such as s3:GetObject and s3:ListBucket, and attach that policy to the IAM user or, preferably, to an IAM group containing the user.”
+
+For example, read-only access:
+
+```json
+{
+  "Effect": "Allow",
+  "Action": ["s3:GetObject", "s3:ListBucket"],
+  "Resource": ["arn:aws:s3:::my-bucket", "arn:aws:s3:::my-bucket/*"]
+}
+```
+
+&nbsp;
+
+&nbsp;
+
+## Access Keys and when are they used
+
+Access keys are credentials used to authenticate programmatic access to AWS. They consist of an Access Key ID and a Secret Access Key. They are commonly used by applications, scripts, or CLI tools to interact with AWS services. However, for applications running on AWS, IAM Roles are preferred because they provide temporary credentials and avoid storing long-term access keys
 
 &nbsp;
 
@@ -386,6 +481,21 @@ WHERE rnk = 2;
 &nbsp;
 
 ## 2. Find the top 3 highest-paid employees in each department
+
+recommended
+
+```sql
+SELECT *
+FROM employees
+QUALIFY ROW_NUMBER() OVER (
+    PARTITION BY department_id
+    ORDER BY salary DESC
+) <= 3;
+```
+
+“QUALIFY is a Snowflake clause used to filter rows based on the result of window functions, similar to how WHERE filters regular columns.”
+
+&nbsp;
 
 ```sql
 SELECT *
@@ -507,4 +617,22 @@ SELECT region,
 FROM sales
 GROUP BY region, sale_date
 ORDER BY region, sale_date;
+```
+
+&nbsp;
+
+&nbsp;
+
+## 8. You gave a table called users with duplicate records based on email . The table has userid email and created at. Write subquery to keep only latest record for each email and delete the older one
+
+```sql
+DELETE FROM users
+WHERE userid NOT IN (
+    SELECT userid
+    FROM users
+    QUALIFY ROW_NUMBER() OVER (
+        PARTITION BY email
+        ORDER BY created_at DESC
+    ) = 1
+);
 ```

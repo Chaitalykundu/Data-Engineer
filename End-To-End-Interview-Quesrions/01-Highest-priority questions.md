@@ -5,6 +5,7 @@
 - [Answers](#answers)
   - [1. Explain an end-to-end data pipeline you designed and implemented](#1-explain-an-end-to-end-data-pipeline-you-designed-and-implemented)
   - [2. How did you use Snowflake and dbt together in your project?](#2-how-did-you-use-snowflake-and-dbt-together-in-your-project)
+  - [3. Why dbt instead of writing transformation SQL directly in Snowflake?](#3-why-dbt-instead-of-writing-transformation-sql-directly-in-snowflake)
   - [6. How do micro-partitioning and partition pruning work in Snowflake?](#6-how-do-micro-partitioning-and-partition-pruning-work-in-snowflake)
   - [7. When would you define a clustering key?](#7-when-would-you-define-a-clustering-key)
 - [follow-up questions for " Explain an end-to-end data pipeline you designed and implemented."](#follow-up-questions-for--explain-an-end-to-end-data-pipeline-you-designed-and-implemented)
@@ -26,40 +27,41 @@
 
 1. Explain an end-to-end data pipeline you designed and implemented.
 2. How did you use Snowflake and dbt together in your project?
-3. What is your role and what exactly do you work on?
-4. Why did you choose Snowflake for your data platform?
-5. Explain the architecture of your data platform.
-6. Explain the complete data flow from SQL Server/PostgreSQL to Snowflake.
-7. What is your role in Terraform?
-8. How did you implement Snowflake user onboarding using Terraform?
-9. Explain the staging, intermediate, and mart layers in your dbt project.
-10. How do you troubleshoot a failed data pipeline in production?
-11. How do you optimize a slow-running Snowflake query?
-12. How do micro-partitioning and partition pruning work in Snowflake?
-13. When would you define a clustering key?
-14. How do you implement incremental processing in dbt?
-15. How do you prevent duplicate records during incremental loads?
-16. Explain the CI/CD pipeline used to deploy dbt or Snowflake changes.
-17. How do you manage dev, test, and production environments?
-18. How do you test data transformations before production deployment?
-19. How would you design a self-service data platform?
-20. What is data governance, and how have you implemented it?
-21. What is Master Data Management, and how is it different from data governance?
-22. How do you increase users’ trust in a data platform?
-23. Describe a production issue you diagnosed and permanently fixed.
-24. How do you create standard operating procedures for recurring failures?
-25. How do you handle schema changes from source systems?
-26. How would you migrate data from PostgreSQL or SQL Server to Snowflake?
-27. How did you implement RBAC using Terraform?
-28. How did you automate infrastructure provisioning?
-29. What challenges did you face in your project?
-30. How did you improve pipeline reliability?
-31. How did you reduce infrastructure setup time by 40%?
-32. How do you monitor your pipelines?
-33. How do you monitor Snowflake?
-34. How do you use Datadog in your project?
-35. Tell me about a performance issue you solved.
-36. What was your biggest technical contribution to the project?
+3. Why did you use dbt instead of writing transformation SQL directly in Snowflake?
+4. What is your role and what exactly do you work on?
+5. Why did you choose Snowflake for your data platform?
+6. Explain the architecture of your data platform.
+7. Explain the complete data flow from SQL Server/PostgreSQL to Snowflake.
+8. What is your role in Terraform?
+9. How did you implement Snowflake user onboarding using Terraform?
+10. Explain the staging, intermediate, and mart layers in your dbt project.
+11. How do you troubleshoot a failed data pipeline in production?
+12. How do you optimize a slow-running Snowflake query?
+13. How do micro-partitioning and partition pruning work in Snowflake?
+14. When would you define a clustering key?
+15. How do you implement incremental processing in dbt?
+16. How do you prevent duplicate records during incremental loads?
+17. Explain the CI/CD pipeline used to deploy dbt or Snowflake changes.
+18. How do you manage dev, test, and production environments?
+19. How do you test data transformations before production deployment?
+20. How would you design a self-service data platform?
+21. What is data governance, and how have you implemented it?
+22. What is Master Data Management, and how is it different from data governance?
+23. How do you increase users’ trust in a data platform?
+24. Describe a production issue you diagnosed and permanently fixed.
+25. How do you create standard operating procedures for recurring failures?
+26. How do you handle schema changes from source systems?
+27. How would you migrate data from PostgreSQL or SQL Server to Snowflake?
+28. How did you implement RBAC using Terraform?
+29. How did you automate infrastructure provisioning?
+30. What challenges did you face in your project?
+31. How did you improve pipeline reliability?
+32. How did you reduce infrastructure setup time by 40%?
+33. How do you monitor your pipelines?
+34. How do you monitor Snowflake?
+35. How do you use Datadog in your project?
+36. Tell me about a performance issue you solved.
+37. What was your biggest technical contribution to the project?
 
 &nbsp;
 
@@ -264,13 +266,19 @@ Using dbt transformation models:
 
 ## 2. How did you use Snowflake and dbt together in your project?
 
-Snowflake is the **compute and storage layer**; dbt is the **transformation and deployment layer**. The two work together across a layered data architecture: `RAW → STG → CURATED → SEMANTIC`.
+In our project, Snowflake and dbt work together as the data storage, compute, and transformation platform. Snowflake is the **compute and storage layer**; dbt is the **transformation and deployment layer**.
 
-&nbsp;
+Data from sources such as SQL Server, PostgreSQL, Salesforce, and S3 is ingested into the RAW layer in Snowflake using Fivetran.
 
-**<u>RAW layer</u>** — data lands in Snowflake via Snowpipe (S3 auto-ingest), Fivetran, or Flink streaming sinks. This is raw, minimally processed data.
+We then use dbt to transform the raw data inside Snowflake. Our dbt models handle activities such as data type standardization, filtering, deduplication, joins, validations, and applying business logic.
 
-**<u>STG/CURATED/SEMANTIC layers</u>** — dbt models define the SQL transformations that move data up the layers, applying type casting, validation, business logic, deduplication, and enrichment.
+We organize the transformed data into layers such as RAW, STAGING, and CURATED, where the curated layer contains business-ready datasets used for analytics and reporting.
+
+dbt uses SQL models and ref() to manage dependencies between models. We also use dbt tests for data-quality validation.
+
+Snowflake provides the underlying storage and compute through virtual warehouses, while dbt manages the transformation logic, model dependencies, testing, and deployment workflow.
+
+So, in simple terms, Fivetran loads the data into Snowflake, dbt transforms the data within Snowflake, and the final curated datasets are consumed for analytics and reporting.”
 
 &nbsp;
 
@@ -283,6 +291,20 @@ dbt connects via a `profiles.yml` file that specifies the Snowflake account, war
 &nbsp;
 
 &nbsp;
+
+## 3. Why dbt instead of writing transformation SQL directly in Snowflake?
+
+We could write transformation SQL directly in Snowflake, but we used dbt because it gives us a structured and maintainable way to manage transformation logic.
+
+In our project, we had multiple transformation models, so managing all the SQL independently in Snowflake would become difficult to maintain and deploy.
+
+With dbt, we organize transformations into models, define dependencies using ref(), and dbt automatically builds the models in the correct order.
+
+We also use dbt tests to validate data quality, such as checking for nulls, duplicates, and valid relationships.
+
+Another important advantage is version control and CI/CD. Our dbt SQL code is stored in GitHub, so changes go through pull requests and code reviews before deployment. GitHub Actions can then validate and deploy the changes consistently across environments.
+
+So, Snowflake is still doing the actual computation, but dbt gives us a proper framework for managing, testing, versioning, and deploying our transformation logic.
 
 &nbsp;
 
