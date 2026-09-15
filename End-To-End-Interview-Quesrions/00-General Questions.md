@@ -58,6 +58,7 @@
 14. What is the difference between an IAM User and IAM Role?
 15. How do you give an IAM user access to S3
 16. What are Access Keys and when are they used
+17. Difference between data warehouses and data lake
 
 &nbsp;
 
@@ -445,6 +446,14 @@ For example, read-only access:
 ## Access Keys and when are they used
 
 Access keys are credentials used to authenticate programmatic access to AWS. They consist of an Access Key ID and a Secret Access Key. They are commonly used by applications, scripts, or CLI tools to interact with AWS services. However, for applications running on AWS, IAM Roles are preferred because they provide temporary credentials and avoid storing long-term access keys
+
+&nbsp;
+
+&nbsp;
+
+## data warehouses and data lake
+
+A data warehouse is a structured storage system mainly used for analytics and reporting, while a data lake is designed to store large amounts of raw data in different formats. A warehouse generally stores processed and structured data, whereas a lake can store structured, semi-structured, and unstructured data. 
 
 &nbsp;
 
