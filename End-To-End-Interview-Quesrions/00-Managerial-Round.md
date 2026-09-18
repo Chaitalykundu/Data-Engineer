@@ -6,7 +6,14 @@
   - [1. Introduction](#1-introduction)
   - [2. Explain your project](#2-explain-your-project)
   - [3. Difficult issue you solved](#3-difficult-issue-you-solved)
- 
+  - [4. Why job change?](#4-why-job-change)
+  - [5. Why Accenture?](#5-why-accenture)
+  - [6. Why should we hire you for this role?](#6-why-should-we-hire-you-for-this-role)
+  - [4. Why Snowflake? its architecture. Snowflake vs traditional databases](#4-why-snowflake-its-architecture-snowflake-vs-traditional-databases)
+  - [5. Use Snowflake and dbt together in your project?](#5-use-snowflake-and-dbt-together-in-your-project)
+  - [6. Why dbt instead of writing transformation SQL directly in Snowflake?](#6-why-dbt-instead-of-writing-transformation-sql-directly-in-snowflake)
+  - [Investigate and resolve a 2 AM failed pipeline.](#investigate-and-resolve-a-2-am-failed-pipeline)
+  - [Troubleshoot a sudden slow query or pipeline?](#troubleshoot-a-sudden-slow-query-or-pipeline)
 
 &nbsp;
 
@@ -23,9 +30,8 @@
 5. Why Accenture?
 6. Why should we hire you for this role?
 7. Why did you choose Snowflake? Explain its architecture and how it differs from traditional databases.
-5. How did you use Snowflake and dbt together in your project?
-6. Why did you use dbt instead of writing transformation SQL directly in Snowflake?
-
+8. How did you use Snowflake and dbt together in your project?
+9. Why did you use dbt instead of writing transformation SQL directly in Snowflake?
 
 &nbsp;
 
@@ -134,7 +140,7 @@ A simple access request could take days due to ticket queues and manual back-and
 
 &nbsp;
 
-## 4. Why job change?  
+## 4. Why job change?
 
 I want to take on broader responsibilities and work on more complex data engineering problems. In my current role, I’ve gained strong hands-on experience in Snowflake, Terraform, RBAC, infrastructure automation, dbt, and CI/CD, and I’ve also worked on improving operational processes through automation.
 
@@ -164,7 +170,6 @@ So, for me, Accenture is a good fit because I can contribute my existing experie
 
 &nbsp;
 
-
 ## 6. Why should we hire you for this role?
 
 I believe I’m a good fit for this role because my experience closely matches the technical requirements and the responsibilities I would be expected to handle.
@@ -172,7 +177,6 @@ I believe I’m a good fit for this role because my experience closely matches t
 I have 4+ years of experience in data engineering, with strong hands-on experience in Snowflake, SQL, dbt, Terraform, and cloud-based data platforms. In my current role, I work extensively on Snowflake infrastructure automation, RBAC, user access management, governance, monitoring, and troubleshooting
 
 Another strength is that I take ownership of problems rather than only completing assigned tasks. For example, when I identified manual access-management and user-offboarding challenges, I built self-service applications to address those operational issues.
-
 
 ## 4. Why Snowflake? its architecture. Snowflake vs traditional databases
 
@@ -242,6 +246,50 @@ We also use dbt tests to validate data quality, such as checking for nulls, dupl
 Another important advantage is version control and CI/CD. Our dbt SQL code is stored in GitHub, so changes go through pull requests and code reviews before deployment. GitHub Actions can then validate and deploy the changes consistently across environments.
 
 So, Snowflake is still doing the actual computation, but dbt gives us a proper framework for managing, testing, versioning, and deploying our transformation logic.
+
+&nbsp;
+
+&nbsp;
+
+## Investigate and resolve a 2 AM failed pipeline.
+
+If a production pipeline fails at 2 AM, my first priority is to understand the impact, identify the exact failure point, and restore the pipeline safely. I would avoid making random changes in production.
+
+1. Check the monitoring/alert
+   - Which pipeline/job failed?
+   - When did it fail?
+   - Which task or DBT model failed?
+   - Is it a code failure, data issue, infrastructure issue, or source-system issue?
+2. Check the pipeline logs
+   - I would inspect the failed task's logs and error message.
+   - I would determine the first failed component, rather than only looking at the final downstream failure.
+3. Check Snowflake: If the failure is in Snowflake, I would check:
+   - Query History
+   - Query error messages
+   - Warehouse availability/load
+   - Permissions/RBAC
+   - Recent schema changes
+   - Data volume or unexpected data
+   - Whether upstream tables were successfully populated
+4. Check upstream dependencies
+5. Fix and recover
+   - Once I identify the root cause, I would apply the smallest safe fix. If the issue is transient—for example, a temporary connection failure—I would retry the failed task
+
+&nbsp;
+
+&nbsp;
+
+## Troubleshoot a sudden slow query or pipeline?
+
+If a Snowflake query or pipeline suddenly becomes slow, I would first determine whether the issue is with the query itself, the warehouse, the data, or an upstream dependency. I would compare the current execution with a previously successful execution.
+
+1. First, I check Query History and Query Profile to identify where the time is being spent — compilation, queuing, scanning, joins, aggregation, spilling, or remote/local disk I/O.
+
+2. Second, I check the warehouse. I look at warehouse load, queued queries, warehouse size, auto-suspend/resume behavior, and whether the warehouse is overloaded. If multiple workloads are sharing the warehouse, I check for concurrency-related queuing.
+
+3. Third, I check whether the query plan or data characteristics changed.
+
+4. Fourth, I check Snowflake's micro-partition pruning. If the query is scanning a large percentage of the table instead of pruning unnecessary micro-partitions, I investigate the filter predicates and, for very large frequently queried tables, whether clustering needs improvement.
 
 &nbsp;
 
