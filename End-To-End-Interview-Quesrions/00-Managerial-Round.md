@@ -14,6 +14,9 @@
   - [6. Why dbt instead of writing transformation SQL directly in Snowflake?](#6-why-dbt-instead-of-writing-transformation-sql-directly-in-snowflake)
   - [Investigate and resolve a 2 AM failed pipeline.](#investigate-and-resolve-a-2-am-failed-pipeline)
   - [Troubleshoot a sudden slow query or pipeline?](#troubleshoot-a-sudden-slow-query-or-pipeline)
+  - [Strengths?](#strengths)
+  - [weakness](#weakness)
+- [After 3–5 years](#after-35-years)
 
 &nbsp;
 
@@ -290,6 +293,56 @@ If a Snowflake query or pipeline suddenly becomes slow, I would first determine 
 3. Third, I check whether the query plan or data characteristics changed.
 
 4. Fourth, I check Snowflake's micro-partition pruning. If the query is scanning a large percentage of the table instead of pruning unnecessary micro-partitions, I investigate the filter predicates and, for very large frequently queried tables, whether clustering needs improvement.
+
+&nbsp;
+
+&nbsp;
+
+## Strengths?
+
+“I would say my main strengths are ownership, problem-solving, and continuous learning.
+
+I take ownership of my tasks and try to understand the complete problem rather than focusing only on my assigned part.
+
+I’m also good at troubleshooting. When there is a pipeline or platform issue, I try to identify the root cause instead of just fixing the immediate problem.
+
+Another strength is that I’m comfortable learning new technologies. I have worked with Snowflake, dbt, Terraform, and SQL, and I continuously try to improve my technical skills. I'm also focusing on learning AI related stuffs
+
+Overall, I would say ownership and problem-solving are my strongest qualities.”
+
+&nbsp;
+
+&nbsp;
+
+## weakness
+
+One area I’m working on is that sometimes I spend more time than necessary trying to make sure a solution is completely correct, especially when I’m working on an important task.
+
+I realized that in a project environment, balancing quality with timelines is equally important. So now I prioritize the critical requirements first, set a time limit for investigation, and communicate early if something needs additional time.
+
+This has helped me become more efficient while still maintaining the quality of my work
+
+&nbsp;
+
+&nbsp;
+
+# After 3–5 years
+
+In the next 3–5 years, I see myself growing into a strong Senior or Lead Data Engineer who can take end-to-end ownership of data platforms and larger data engineering initiatives.
+
+I want to deepen my expertise in areas like Snowflake, cloud data platforms, data architecture, data governance, and automation. At the same time, I’m also willing to continuously learn and explore AI and emerging AI technologies that can improve data engineering, automation, and analytics.
+
+I want to take more responsibility in technical design decisions, mentor team members, work closely with stakeholders, and deliver solutions that have measurable business impact.
+
+My goal is to grow not only technically, but also in terms of leadership, ownership, and adapting to new technologies like AI.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 
