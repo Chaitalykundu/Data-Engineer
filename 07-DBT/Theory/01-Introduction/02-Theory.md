@@ -69,15 +69,15 @@ The **extraction** of data from source and **loading** raw data into data wareho
 
 # Features
 
-1. <u>**Maintainability:_**</u> Organize hundreds of SQL transformations into a structured project.
+1. <u>**_Maintainability:_**</u> Organize hundreds of SQL transformations into a structured project.
 
-2. <u>**Reusability:_**</u> Use models as dependencies rather than repeatedly writing SQL.
+2. <u>**_Reusability:_**</u> Use models as dependencies rather than repeatedly writing SQL.
 
-3.  <u>**Testing:_**</u> Automate data-quality checks.
+3.  <u>**_Testing:_**</u> Automate data-quality checks.
 
-4.   <u>**Documentation:_**</u> Document models and columns.
+4.   <u>**_Documentation:_**</u> Document models and columns.
 
-5.    <u>**Lineage:_**</u> Understand upstream/downstream dependencies.
+5.    <u>**_Lineage:_**</u> Understand upstream/downstream dependencies.
 
 6. <u>**_Affordable:_**</u> DBT is more Affordable
 
