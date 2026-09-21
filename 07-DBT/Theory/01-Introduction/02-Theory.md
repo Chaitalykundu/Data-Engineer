@@ -196,4 +196,24 @@ You could have:
 &nbsp;
 
 
-# DAG
+# The concepts of DBT
+
+| Priority | Concept                     | Importance   |
+| -------- | --------------------------- | ------------ |
+| 🔴 1     | What is a model?            | Must know    |
+| 🔴 2     | `ref()`                     | Must know    |
+| 🔴 3     | `source()`                  | Must know    |
+| 🔴 4     | DAG/dependencies            | Must know    |
+| 🔴 5     | Materializations            | Must know    |
+| 🔴 6     | Incremental models          | Must know    |
+| 🔴 7     | Tests                       | Must know    |
+| 🟠 8     | Model configuration         | Important    |
+| 🟠 9     | YAML/properties             | Important    |
+| 🟠 10    | Lineage                     | Important    |
+| 🟠 11    | Model selection             | Important    |
+| 🟠 12    | `is_incremental()` / `this` | Important    |
+| 🟡 13    | Tags                        | Good to know |
+| 🟡 14    | Aliases                     | Good to know |
+| 🟡 15    | Model contracts             | Advanced     |
+| 🟡 16    | Ephemeral models            | Advanced     |
+
