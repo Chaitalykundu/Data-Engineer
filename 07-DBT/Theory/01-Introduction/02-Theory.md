@@ -45,6 +45,8 @@ DBT is the tool for **_transforming data_** within data warehouse.
 
 DBT (data build tool) is an **open-source** tool that helps data teams **transform raw data** into clean, analytics-ready datasets using SQL inside a data warehouse .
 
+It is used to transform, test, document, and manage data inside a data warehouse or data platform.
+
 &nbsp;
 
 It's a command line tool and transformation framework, used by data engineers and analysts to transform data in a data warehouse using SQL and some basic Python (for dbt Python models or scripting).
@@ -67,21 +69,27 @@ The **extraction** of data from source and **loading** raw data into data wareho
 
 # Features
 
-1. <u>**_Affordable:_**</u> DBT is more Affordable
+1. <u>**Maintainability:_**</u> Organize hundreds of SQL transformations into a structured project.
 
-2. <u>**_free open source:_**</u> It offers free open source version
+2. <u>**Reusability:_**</u> Use models as dependencies rather than repeatedly writing SQL.
 
-3. <u>**_No specialized skill required:_**</u> DBT primarily uses SQL, which is a familiar language. So no specialized skill requires.
+3.  <u>**Testing:_**</u> Automate data-quality checks.
 
-4. <u>**_Takes full advantage of modern cloud data platform:_**</u> Modern cloud data platform like Redshift, BigQuery, Snowflake and DataBricks
-   come with significant processing power. With its ETL approach and low local resource requirements DBT take full advantage of these modern cloud
-   data platform
+4.   <u>**Documentation:_**</u> Document models and columns.
 
-5. <u>**_Build-in Features:_**</u> DBT offers several build-in features such as **Version control**, **Automated Testing**, **Document
-   Generating**, and **Data lineage visualization**. These features can ensure that the data transformations are reliable and maintainable over time
-   even if data volumes and complexity grow.
+5.    <u>**Lineage:_**</u> Understand upstream/downstream dependencies.
 
-6. <u>**_Easy Team Collaboration:_**</u> DBT allows large data team to collaborate easily by providing **integrated platform for coding, testing, documentation and development**
+6. <u>**_Affordable:_**</u> DBT is more Affordable
+
+7.  <u>**_free open source:_**</u> It offers free open source version
+
+6. <u>**_No specialized skill required:_**</u> DBT primarily uses SQL, which is a familiar language. So no specialized skill requires.
+
+7. <u>**_Takes full advantage of modern cloud data platform:_**</u> Modern cloud data platform like Redshift, BigQuery, Snowflake and DataBricks come with significant processing power. With its ETL approach and low local resource requirements DBT take full advantage of these modern cloud data platform
+
+8. <u>**_Build-in Features:_**</u> DBT offers several build-in features such as **Version control**, **Automated Testing**, **Document Generating**, and **Data lineage visualization**. These features can ensure that the data transformations are reliable and maintainable over time even if data volumes and complexity grow.
+
+9. <u>**_Easy Team Collaboration:_**</u> DBT allows large data team to collaborate easily by providing **integrated platform for coding, testing, documentation and development**
 
 &nbsp;
 
@@ -152,11 +160,12 @@ In a modern data stack, data generally flows like this:
 
 dbt lets you:
 
-- Write SQL to **transform raw data** into clean, usable datasets.
+- **SQL transformations**: Write SQL to **transform raw data** into clean, usable datasets.
+- **Dependency management** : dbt understands the dependencies. If `{{ ref('stg_customers') }}` is used inside a model, dbt knows that `stg_customers` must be built before the current model.
+- Automatically create **data lineage graph** that shows dependencies between data models.
 - Organize SQL transformations like code (modular, reusable).
 - **Test and document** your data pipelines.
 - Version control your transformations (using Git).
-- Automatically create **data lineage graph** that shows dependencies between data models.
 - Schedule & Automate Jobs, monitor job status
 
 &nbsp;
@@ -185,3 +194,6 @@ You could have:
 &nbsp;
 
 &nbsp;
+
+
+# DAG
