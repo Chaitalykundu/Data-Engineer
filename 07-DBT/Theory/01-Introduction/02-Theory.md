@@ -39,6 +39,22 @@
 
 &nbsp;
 
+# Data Transformation
+
+Data transformation is the process of converting raw data into a clean, standardized, and business-ready format by applying operations such as filtering, joining, aggregating, cleansing, type conversion, and business rules.
+
+dbt is performing transformation by:
+
+- Cleaning data
+- Standardizing values
+- Handling NULLs
+- Filtering invalid records
+- Applying business rules
+
+&nbsp;
+
+&nbsp;
+
 # DBT
 
 DBT is the tool for **_transforming data_** within data warehouse.
