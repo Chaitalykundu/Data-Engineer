@@ -195,6 +195,37 @@ You could have:
 
 &nbsp;
 
+# What problem does dbt solve?
+
+dbt solves the problem of managing SQL-based data transformations at scale.
+
+In a traditional data warehouse environment, we may have many SQL scripts with manually managed dependencies, limited testing, duplicated transformation logic, poor documentation, and difficult deployment processes.
+
+dbt provides a structured framework for managing these transformations as models. It uses ref() and source() to manage dependencies and build a DAG, provides automated data-quality testing and documentation, and integrates with Git and CI/CD for controlled deployment.
+
+In a modern architecture, ingestion tools load data into Snowflake, and dbt manages the transformation layer that converts raw data into reliable, analytics-ready datasets.
+
+&nbsp;
+
+| Problem                       | dbt Solution                                 |
+| ----------------------------- | -------------------------------------------- |
+| Too many SQL scripts          | Structured dbt models                        |
+| Manual dependencies           | `ref()` + DAG                                |
+| Hard-coded table references   | `ref()` / `source()`                         |
+| Unknown execution order       | Dependency graph                             |
+| Poor data quality             | Automated tests                              |
+| Poor documentation            | Model/column documentation                   |
+| Difficult lineage             | DAG / lineage                                |
+| Repeated transformation logic | Reusable models                              |
+| Difficult deployment          | Git + CI/CD                                  |
+| Large data volumes            | Incremental models                           |
+| Difficult model selection     | `--select`, tags, selectors                  |
+| Environment differences       | dbt configurations / target-aware references |
+
+&nbsp;
+
+&nbsp;
+
 
 # The concepts of DBT
 
