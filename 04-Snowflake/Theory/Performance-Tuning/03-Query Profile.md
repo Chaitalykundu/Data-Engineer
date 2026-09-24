@@ -1,3 +1,15 @@
+# Content
+
+- [Content](#content)
+- [Query Profile](#query-profile)
+- [What to Look For in Query Profile](#what-to-look-for-in-query-profile)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 # Query Profile
 
 Query Profile gives you the execution details of a query.

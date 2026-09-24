@@ -3,6 +3,7 @@
 - [Overview](#overview)
 - [Summary](#summary)
 - [Abbreviation](#abbreviation)
+- [Data Transformation](#data-transformation)
 - [DBT](#dbt)
   - [Notes](#notes)
 - [Features](#features)
@@ -11,6 +12,8 @@
 - [What does dbt do / Use of dbt](#what-does-dbt-do--use-of-dbt)
 - [How does dbt work?](#how-does-dbt-work)
 - [Example Workflow](#example-workflow)
+- [What problem does dbt solve?](#what-problem-does-dbt-solve)
+- [The concepts of DBT](#the-concepts-of-dbt)
 
 &nbsp;
 
@@ -89,23 +92,23 @@ The **extraction** of data from source and **loading** raw data into data wareho
 
 2. <u>**_Reusability:_**</u> Use models as dependencies rather than repeatedly writing SQL.
 
-3.  <u>**_Testing:_**</u> Automate data-quality checks.
+3. <u>**_Testing:_**</u> Automate data-quality checks.
 
-4.   <u>**_Documentation:_**</u> Document models and columns.
+4. <u>**_Documentation:_**</u> Document models and columns.
 
-5.    <u>**_Lineage:_**</u> Understand upstream/downstream dependencies.
+5. <u>**_Lineage:_**</u> Understand upstream/downstream dependencies.
 
 6. <u>**_Affordable:_**</u> DBT is more Affordable
 
-7.  <u>**_free open source:_**</u> It offers free open source version
+7. <u>**_free open source:_**</u> It offers free open source version
 
-6. <u>**_No specialized skill required:_**</u> DBT primarily uses SQL, which is a familiar language. So no specialized skill requires.
+8. <u>**_No specialized skill required:_**</u> DBT primarily uses SQL, which is a familiar language. So no specialized skill requires.
 
-7. <u>**_Takes full advantage of modern cloud data platform:_**</u> Modern cloud data platform like Redshift, BigQuery, Snowflake and DataBricks come with significant processing power. With its ETL approach and low local resource requirements DBT take full advantage of these modern cloud data platform
+9. <u>**_Takes full advantage of modern cloud data platform:_**</u> Modern cloud data platform like Redshift, BigQuery, Snowflake and DataBricks come with significant processing power. With its ETL approach and low local resource requirements DBT take full advantage of these modern cloud data platform
 
-8. <u>**_Build-in Features:_**</u> DBT offers several build-in features such as **Version control**, **Automated Testing**, **Document Generating**, and **Data lineage visualization**. These features can ensure that the data transformations are reliable and maintainable over time even if data volumes and complexity grow.
+10. <u>**_Build-in Features:_**</u> DBT offers several build-in features such as **Version control**, **Automated Testing**, **Document Generating**, and **Data lineage visualization**. These features can ensure that the data transformations are reliable and maintainable over time even if data volumes and complexity grow.
 
-9. <u>**_Easy Team Collaboration:_**</u> DBT allows large data team to collaborate easily by providing **integrated platform for coding, testing, documentation and development**
+11. <u>**_Easy Team Collaboration:_**</u> DBT allows large data team to collaborate easily by providing **integrated platform for coding, testing, documentation and development**
 
 &nbsp;
 
@@ -242,7 +245,6 @@ In a modern architecture, ingestion tools load data into Snowflake, and dbt mana
 
 &nbsp;
 
-
 # The concepts of DBT
 
 | Priority | Concept                     | Importance   |
@@ -263,4 +265,3 @@ In a modern architecture, ingestion tools load data into Snowflake, and dbt mana
 | 🟡 14    | Aliases                     | Good to know |
 | 🟡 15    | Model contracts             | Advanced     |
 | 🟡 16    | Ephemeral models            | Advanced     |
-

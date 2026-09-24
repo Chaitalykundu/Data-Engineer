@@ -3,18 +3,17 @@
 - [Overview](#overview)
 - [Introduction](#introduction)
   - [ETL](#etl)
-    - [Used When:](#used-when)
-    - [🛠️ Common ETL Tools:](#️-common-etl-tools)
+    - [Used When](#used-when)
+    - [🛠️ Common ETL Tools](#️-common-etl-tools)
   - [ELT](#elt)
-    - [🛠️ Common ELT Tools:](#️-common-elt-tools)
+    - [🛠️ Common ELT Tools](#️-common-elt-tools)
 - [Difference between ELT and ETL](#difference-between-elt-and-etl)
-- [ETL vs ELT](#etl-vs-elt)
 - [Why Use ETL? (Extract → Transform → Load)](#why-use-etl-extract--transform--load)
-  - [✅ Use ETL when:](#-use-etl-when)
-  - [💡 Example Use Cases:](#-example-use-cases)
+  - [✅ Use ETL when](#-use-etl-when)
+  - [💡 Example Use Cases](#-example-use-cases)
 - [Why Use ELT? (Extract → Load → Transform)](#why-use-elt-extract--load--transform)
-  - [✅ Use ELT when:](#-use-elt-when)
-  - [b💡 Example Use Cases:](#b-example-use-cases)
+  - [✅ Use ELT when](#-use-elt-when)
+  - [b💡 Example Use Cases](#b-example-use-cases)
 - [Final Decision Logic : Choosing ETL or ELT](#final-decision-logic--choosing-etl-or-elt)
 
 &nbsp;
@@ -100,21 +99,21 @@ Fivetran (E+L), dbt (T), Airbyte, Stitch
 
 # Difference between ELT and ETL
 
-| Feature                 | ETL (Extract → Transform → Load)          | ELT (Extract → Load → Transform)        |
-| ----------------------- | ----------------------------------------- | --------------------------------------- |
-| Where transform happens | Outside the warehouse (e.g., Spark, SSIS) | Inside the warehouse (e.g., dbt)        |
-| Order                   | Data is transformed before loading        | Data is loaded first, transformed later |
-| Tools                   | Informatica, Talend, SSIS, Spark          | Fivetran, Airbyte + dbt                 |
-| Performance             | Slower for large data                     | Faster, leverages warehouse compute     |
-| Scalability             | Often limited                             | Cloud-native scalability                |
-| additional hardware      | ELT tools do not require additional hardware                                                               | ETL tools require specific hardware with their own engines to perform transformations |
-| Storage | Mostly Hadoop or NoSQL database to store data. Rarely RDBMS is used                                        | RDBMS is used exclusively to store data                                               |
-| | As all components are in one system, loading is done only once                                             | As ETL uses staging area, extra time is required to load the data                     |
-|Relation between data and transformation time | Time to transform data is independent of the size of data. The system has to wait for large sizes of data.  | As the size of data increases, transformation time also increases                     |
-| cost effectivity| It is cost effective and available to all business using SaaS solution                                     | Not cost effective for small and medium business                                      |
-| |The data transformed is used by data scientists and advanced analysts                                      | The data transformed is used by users reading report and SQL coders                   |
-| |Creates ad hoc views.Low cost for building and maintaining                                                 | Views are created based on multiple scripts.Deleting view means deleting data         |
-|| Best for unstructured and non-relational data. Ideal for data lakes. Suited for very large amounts of data | Best for relational and structured data. Better for small to medium amounts of data   |
+| Feature                                       | ETL (Extract → Transform → Load)                                                                           | ELT (Extract → Load → Transform)                                                      |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Where transform happens                       | Outside the warehouse (e.g., Spark, SSIS)                                                                  | Inside the warehouse (e.g., dbt)                                                      |
+| Order                                         | Data is transformed before loading                                                                         | Data is loaded first, transformed later                                               |
+| Tools                                         | Informatica, Talend, SSIS, Spark                                                                           | Fivetran, Airbyte + dbt                                                               |
+| Performance                                   | Slower for large data                                                                                      | Faster, leverages warehouse compute                                                   |
+| Scalability                                   | Often limited                                                                                              | Cloud-native scalability                                                              |
+| additional hardware                           | ELT tools do not require additional hardware                                                               | ETL tools require specific hardware with their own engines to perform transformations |
+| Storage                                       | Mostly Hadoop or NoSQL database to store data. Rarely RDBMS is used                                        | RDBMS is used exclusively to store data                                               |
+|                                               | As all components are in one system, loading is done only once                                             | As ETL uses staging area, extra time is required to load the data                     |
+| Relation between data and transformation time | Time to transform data is independent of the size of data. The system has to wait for large sizes of data. | As the size of data increases, transformation time also increases                     |
+| cost effectivity                              | It is cost effective and available to all business using SaaS solution                                     | Not cost effective for small and medium business                                      |
+|                                               | The data transformed is used by data scientists and advanced analysts                                      | The data transformed is used by users reading report and SQL coders                   |
+|                                               | Creates ad hoc views.Low cost for building and maintaining                                                 | Views are created based on multiple scripts.Deleting view means deleting data         |
+|                                               | Best for unstructured and non-relational data. Ideal for data lakes. Suited for very large amounts of data | Best for relational and structured data. Better for small to medium amounts of data   |
 
 &nbsp;
 

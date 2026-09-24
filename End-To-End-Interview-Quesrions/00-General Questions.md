@@ -453,7 +453,7 @@ Access keys are credentials used to authenticate programmatic access to AWS. The
 
 ## data warehouses and data lake
 
-A data warehouse is a structured storage system mainly used for analytics and reporting, while a data lake is designed to store large amounts of raw data in different formats. A warehouse generally stores processed and structured data, whereas a lake can store structured, semi-structured, and unstructured data. 
+A data warehouse is a structured storage system mainly used for analytics and reporting, while a data lake is designed to store large amounts of raw data in different formats. A warehouse generally stores processed and structured data, whereas a lake can store structured, semi-structured, and unstructured data.
 
 &nbsp;
 
