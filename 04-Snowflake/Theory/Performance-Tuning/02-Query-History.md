@@ -1,3 +1,10 @@
+
+# Query History
+
+Query History is one of the most important tools for Snowflake performance tuning and troubleshooting. 
+
+It allows you to inspect queries that have executed, understand how they performed, identify expensive or slow queries, and investigate failures.
+
 Snowflake Query History helps you investigate executed queries and their performance characteristics.
 
 &nbsp;
