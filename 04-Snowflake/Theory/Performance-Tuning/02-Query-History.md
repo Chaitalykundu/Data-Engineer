@@ -366,7 +366,7 @@ Root Cause
 
 &nbsp;
 
-# Find queries from a particular warehouse
+## Find queries from a particular warehouse
 
 ```sql
 SELECT
@@ -381,6 +381,103 @@ FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY
 WHERE WAREHOUSE_NAME = 'ANALYTICS_WH'
 ORDER BY START_TIME DESC;
 ```
+
+&nbsp;
+
+&nbsp;
+
+## Find queries from a particular user
+
+```sql
+SELECT
+    QUERY_ID,
+    QUERY_TEXT,
+    WAREHOUSE_NAME,
+    START_TIME,
+    TOTAL_ELAPSED_TIME
+FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY
+WHERE USER_NAME = 'JOHN'
+ORDER BY START_TIME DESC;
+```
+
+Useful for:
+
+- User troubleshooting
+- Application monitoring
+- Identifying expensive workloads
+- Access auditing
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+# Query History and Query Profile
+
+
+## Query History
+
+What happened to the query?
+
+You can identify:
+
+- Query ID
+- User
+- Warehouse
+- Duration
+- Status
+- Bytes scanned
+- SQL
+
+&nbsp;
+
+## Query Profile
+
+Answers:
+
+Why did the query behave that way?
+
+It provides execution-plan information such as:
+
+```
+Table Scan
+    ↓
+Filter
+    ↓
+Join
+    ↓
+Aggregate
+    ↓
+Sort
+    ↓
+Result
+```
+
+&nbsp;
+
+
+So your troubleshooting workflow should generally be:
+
+```sql
+Query History
+      ↓
+Identify problematic query
+      ↓
+Query ID
+      ↓
+Query Profile
+      ↓
+Find expensive execution step
+      ↓
+Optimize
+```
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 
