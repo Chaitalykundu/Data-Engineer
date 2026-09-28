@@ -456,13 +456,258 @@ Total elapsed time       = 180 sec
 Execution time           = 40 sec
 Queued time              = 140 sec
 ```
-3. 
-2. Second, I check the warehouse. I look at warehouse load, queued queries, warehouse size, auto-suspend/resume behavior, and whether the warehouse is overloaded. If multiple workloads are sharing the warehouse, I check for concurrency-related queuing.
+The SQL itself isn't necessarily the main problem.
 
-3. Third, I check whether the query plan or data characteristics changed.
+You should investigate:
 
-4. Fourth, I check Snowflake's micro-partition pruning. If the query is scanning a large percentage of the table instead of pruning unnecessary micro-partitions, I investigate the filter predicates and, for very large frequently queried tables, whether clustering needs improvement.
+- Warehouse concurrency
+- Warehouse overload
+- Warehouse size
+- Multi-cluster configuration
+- Other long-running queries
 
+
+But if:
+
+```
+Total elapsed time = 180 sec
+Execution time     = 175 sec
+Queue time         = 0 sec
+```
+
+then you should investigate the query and execution plan.
+
+3. Open Query Profile
+
+Look for expensive operators such as:
+
+```
+Table Scan
+   ↓
+Join
+   ↓
+Filter
+   ↓
+Aggregate
+   ↓
+Sort
+   ↓
+Window Function
+```
+
+4. Check bytes scanned
+
+This is one of the first things I would check.
+
+Example:
+
+```
+Rows returned = 500
+Bytes scanned = 800 GB
+```
+
+That deserves investigation.
+
+Ask:
+
+- Is the query scanning unnecessary micro-partitions?
+Is the filter selective?
+Are predicates written appropriately?
+Is pruning happening?
+Are we selecting unnecessary columns?
+- Is a join causing a large intermediate dataset?
+
+5. Check micro-partition pruning
+
+For example:
+
+```sql
+SELECT *
+FROM SALES
+WHERE SALE_DATE = '2026-09-25';
+```
+
+
+If SALES contains years of data but Snowflake can eliminate most micro-partitions based on metadata, the query can be much more efficient.
+
+6. Check joins
+
+Joins are a common source of performance problems.
+
+For example:
+
+```sql
+SELECT *
+FROM SALES s
+JOIN CUSTOMER c
+  ON s.CUSTOMER_ID = c.CUSTOMER_ID;
+```
+
+Investigate:
+
+- Is the join condition correct?
+- Are you accidentally creating a many-to-many join?
+- Is one side much larger than expected?
+Are there duplicate keys?
+Are unnecessary columns being carried through the query?
+- Can filtering happen before the join?
+
+A many-to-many join can cause a huge increase in intermediate rows.
+
+7. Check filtering
+
+Look for queries that process a huge amount of data before applying filters.
+
+For example:
+```
+SELECT *
+FROM (
+    SELECT ...
+    FROM SALES
+    JOIN CUSTOMER ...
+)
+WHERE REGION = 'EAST';
+```
+
+Depending on the query structure and optimizer behavior, investigate whether filtering can be expressed more directly and whether it improves pruning/reduces intermediate data.
+
+Also avoid unnecessary:
+
+```sql
+SELECT *
+```
+
+Prefer:
+
+```sql
+SELECT
+    CUSTOMER_ID,
+    SALE_DATE,
+    AMOUNT
+```
+
+when those are the only columns required.
+
+8. Check aggregations and window functions
+
+Look for expensive operations such as:
+
+- GROUP BY
+- ORDER BY
+- DISTINCT
+- ROW_NUMBER()
+- RANK()
+- SUM() OVER()
+
+For example:
+
+```
+ROW_NUMBER() OVER (
+    PARTITION BY CUSTOMER_ID
+    ORDER BY SALE_DATE DESC
+)
+```
+can require significant processing if the input dataset is huge.
+
+Investigate whether you can reduce the dataset before applying the expensive operation.
+
+
+9. Check data volume changes
+
+A query that was fast yesterday may be slow today simply because the underlying data increased significantly.
+
+Compare:
+
+```
+Last week:
+50 GB scanned
+20 seconds
+
+Today:
+500 GB scanned
+150 seconds
+```
+
+Then investigate:
+
+- Data growth
+- New source data
+- Unexpected duplicates
+Changed filters
+Changed query logic
+- Changed table structure
+
+This is why historical Query History comparison is useful.
+
+10. Check warehouse performance
+
+After checking the query itself, investigate the warehouse.
+
+Look at:
+
+- Warehouse size
+- Concurrency
+- Queue time
+Number of running queries
+Warehouse utilization
+Auto-suspend/resume
+- Multi-cluster configuration
+
+
+Example
+
+If you see:
+
+```
+Execution time = 10 sec
+Queue time     = 120 sec
+```
+
+don't rewrite the SQL first.
+
+The problem is likely workload/concurrency related.
+
+11. Check warehouse sizing
+
+If the query actually requires substantial compute:
+
+```
+Execution = 300 sec
+Queue     = 0 sec
+```
+
+then warehouse sizing may be relevant.
+
+You can test:
+
+```
+SMALL
+  ↓
+MEDIUM
+  ↓
+LARGE
+```
+
+and compare:
+
+- Execution time
+- Credits consumed
+- Cost
+- Overall workload impact
+
+Don't assume larger = better.
+
+The goal is:
+
+Find an appropriate performance/cost balance.
+
+12. Check caching
+
+Snowflake has different forms of caching, and you should understand whether the query benefited from previous execution.
+
+For example, if a query runs very quickly on the second execution, caching may be contributing to the difference.
+
+When benchmarking a query, be careful to compare like with like rather than concluding that a query rewrite improved performance simply because the second execution benefited from caching.
 &nbsp;
 
 &nbsp;
