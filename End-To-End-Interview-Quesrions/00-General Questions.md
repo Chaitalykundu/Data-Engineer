@@ -405,8 +405,58 @@ If a production pipeline fails at 2 AM, my first priority is to understand the i
 
 If a Snowflake query or pipeline suddenly becomes slow, I would first determine whether the issue is with the query itself, the warehouse, the data, or an upstream dependency. I would compare the current execution with a previously successful execution.
 
-1. First, I check Query History and Query Profile to identify where the time is being spent — compilation, queuing, scanning, joins, aggregation, spilling, or remote/local disk I/O.
+Think of it as:
 
+```
+Query History → Query Profile → Identify bottleneck → Check data/query design → Check warehouse → Optimize → Re-test
+```
+
+&nbsp;
+
+1. Start with Query History
+
+  First identify the problematic query and collect:
+
+  - QUERY_ID
+  - QUERY_TEXT
+  - WAREHOUSE_NAME
+  - TOTAL_ELAPSED_TIME
+  - EXECUTION_TIME
+  - COMPILATION_TIME
+  - Queued time
+  - BYTES_SCANNED
+  - ROWS_PRODUCED
+  - Query status
+
+    ```sql
+    SELECT
+    QUERY_ID,
+    QUERY_TEXT,
+    WAREHOUSE_NAME,
+    TOTAL_ELAPSED_TIME / 1000 AS ELAPSED_SECONDS,
+    EXECUTION_TIME / 1000 AS EXECUTION_SECONDS,
+    COMPILATION_TIME / 1000 AS COMPILATION_SECONDS,
+    BYTES_SCANNED,
+    ROWS_PRODUCED,
+    EXECUTION_STATUS
+    FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY
+    WHERE START_TIME >= DATEADD('hour', -24, CURRENT_TIMESTAMP())
+    LIMIT 20;
+    ORDER BY TOTAL_ELAPSED_TIME DESC
+    ```
+
+    
+
+2. Separate execution time from waiting time
+This is very important.
+
+Suppose:
+```
+Total elapsed time       = 180 sec
+Execution time           = 40 sec
+Queued time              = 140 sec
+```
+3. 
 2. Second, I check the warehouse. I look at warehouse load, queued queries, warehouse size, auto-suspend/resume behavior, and whether the warehouse is overloaded. If multiple workloads are sharing the warehouse, I check for concurrency-related queuing.
 
 3. Third, I check whether the query plan or data characteristics changed.
