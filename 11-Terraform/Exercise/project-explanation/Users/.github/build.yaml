@@ -1,0 +1,57 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+      - development
+      - 'releases/**'
+jobs:
+  sonarqube:
+    #  GitHub Action can only access AWS SQ server using self-hosted GitHub Runner defined below
+    runs-on: [self-hosted, Standard]
+    # The Container defined below will run job in it's own Docker container and is the recommended approach
+    container:
+      image: docker.binrepo.vtxdev.net/sys-actions-mvn:latest
+      credentials:
+        username: ${{ secrets.AF_DOCKER_USER }}
+        password: ${{ secrets.AF_DOCKER_PASS }}
+    steps:
+      - name: Checkout Repo Source for SQ Scanning
+        uses: actions/checkout@v6
+        # Sonar scanner needs full clone instead of shallow to properly link issues to the history
+        with:
+          fetch-depth: 0
+      #VDP Security Champion Scan CHANGES
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@5250426b253f06f
+          # Build sample Maven project
+          #     - name: Build Maven
+        #     run: mvn -f sample-sonarqube-project-src/pom.xml install
+      - name: Build Maven
+        run: mvn install
+
+      # SonarQube Scanner Github Action
+      - name: SonarQube Scanner
+        uses: sonarsource/sonarqube-scan-action@299e4b793aaa83bf2aba7c9c14bedbb485688ec4
+        with:
+          # Project Directory to start scan, optional if root directory is not desired
+          #VDP Security Champion Scan CHANGES
+          #projectBaseDir: sample-sonarqube-project-src
+          # Args can be configured through Args section below or sonar-project.properties in your projectBaseDir
+          # -Dsonar.projectKey - ID for the SQ Project (required)
+          # -Dsonar.projectName - Name for the SQ Project, typically the same as ID (optional)
+          args: >
+            -Dsonar.projectKey=${{env.SQ_PROJECT_NAME}}
+            -Dsonar.projectName=${{env.SQ_PROJECT_NAME}}
+        env:
+          # SONAR_TOKEN, SONAR_HOST_URL - ORG defined secrets
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          # SQ_PROJECT_NAME Name of the Project sent over to SQ as projectKey and projectName
+          #VDP Security Champion Scan CHANGES
+          SQ_PROJECT_NAME: ${{ github.event.repository.name }}
