@@ -31,6 +31,247 @@
 
 &nbsp;
 
+# DBT Roadmap — Beginner → Advanced
+
+## LEVEL 1 — dbt Fundamentals
+### 1. What is dbt?
+
+Understand:
+
+- What dbt does
+- What dbt does not do
+- Why dbt is used in ELT
+- dbt vs ETL
+- dbt vs SQL scripts
+- dbt vs Airflow
+- dbt vs Spark
+- dbt Core vs dbt platform concepts
+
+&nbsp;
+
+&nbsp;
+
+### 2. dbt architecture
+
+Understand
+
+```
+Source Systems
+      ↓
+Ingestion
+      ↓
+Snowflake RAW
+      ↓
+      dbt
+      ↓
+STAGING
+      ↓
+INTERMEDIATE
+      ↓
+MART
+      ↓
+BI / Analytics
+```
+
+The critical concept:
+
+> dbt is primarily the transformation layer, not the ingestion layer.
+
+For your Snowflake stack, this distinction is important.
+
+&nbsp;
+
+&nbsp;
+
+## LEVEL 2 — dbt Project Structure
+
+Learn the standard project structure.
+
+```
+my_dbt_project/
+│
+├── models/
+│   ├── staging/
+│   ├── intermediate/
+│   └── marts/
+│
+├── tests/
+├── macros/
+├── snapshots/
+├── seeds/
+├── analyses/
+│
+├── dbt_project.yml
+├── packages.yml
+└── README.md
+````
+
+&nbsp;
+
+&nbsp;
+
+Understand the purpose of every directory.
+
+Must know
+- dbt_project.yml
+- profiles.yml
+- models
+- seeds
+- snapshots
+- tests
+- macros
+- analyses
+- packages
+
+
+&nbsp;
+
+&nbsp;
+
+## LEVEL 3 — Models
+
+This is the core of dbt.
+
+Understand:
+
+A dbt model is generally a SQL SELECT statement that dbt turns into a database object.
+
+Example:
+
+```sql
+SELECT
+    customer_id,
+    customer_name,
+    email,
+    created_at
+FROM {{ source('crm', 'customers') }}
+```
+
+Learn:
+
+- Model creation
+- Model naming
+- Model dependencies
+- `ref()`
+- `source()`
+
+Critical concept: `ref()`
+
+```sql
+SELECT *
+FROM {{ ref('stg_customers') }}
+```
+
+Understand why this is better than:
+
+```sql
+SELECT *
+FROM analytics.stg_customers
+```
+
+Because `ref()` gives dbt:
+
+- Dependency management
+- DAG generation
+- Environment-aware references
+- Lineage
+- Correct execution order
+
+
+&nbsp;
+
+&nbsp;
+
+## LEVEL 4 — Sources
+
+Learn:
+
+```
+sources:
+  - name: crm
+    database: RAW
+    schema: CRM
+    tables:
+      - name: customers
+      - name: orders
+```
+
+
+Then:
+
+```
+SELECT *
+FROM {{ source('crm', 'customers') }}
+```
+
+Understand:
+
+- Source declaration
+- Source freshness
+- Source tests
+- Source documentation
+- Source lineage
+- Interview question
+
+Why shouldn't you directly reference raw tables inside dbt models?
+
+You should be able to explain the architectural reasoning, not just say "because dbt recommends sources."
+
+&nbsp;
+
+&nbsp;
+
+## LEVEL 5 — Materializations
+
+This is very important for interviews.
+
+Learn deeply:
+
+- view
+- table
+- incremental
+- ephemeral
+
+### View
+
+```
+dbt
+ ↓
+SQL
+ ↓
+Database View
+```
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
 # Tools You’ll Use Along side dbt
 
 | Tool                        | Purpose                              |
