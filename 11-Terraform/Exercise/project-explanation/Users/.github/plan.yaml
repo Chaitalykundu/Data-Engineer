@@ -1,0 +1,142 @@
+name: Plan Snowflake Users
+
+on:
+  workflow_call:
+    inputs:
+      targetEnvironment:
+        type: string
+        description: Deploy to
+        required: true
+      logDebug:
+        type: string
+        description: TF_LOG debug level
+        required: true
+
+  workflow_dispatch:
+    inputs:
+      targetEnvironment:
+        type: choice
+        description: Plan to
+        options: 
+        - datafabric-preprod
+        - datafabric-prod
+        - taxcontent-preprod
+        - taxcontent-prod
+        - vertexorg-prod
+        required: true
+        default: 'datafabric-preprod'
+      logDebug:
+        type: choice
+        description: TF_LOG debug level
+        options:
+        - TRACE
+        - 'OFF'
+        required: true
+        default: 'OFF'
+
+jobs:
+  Plan:
+    name: Plan Terraform
+    runs-on: [self-hosted, Standard]
+    container:
+      image: docker.binrepo.vtxdev.net/cloud-base-images/ubuntu-base-image:latest
+      credentials:
+        username: ${{ secrets.AF_DOCKER_USER }}
+        password: ${{ secrets.AF_DOCKER_PASS }}
+    environment: ${{ inputs.targetEnvironment }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Set 1Password Host and Token
+      run: |
+        case "${{ inputs.targetEnvironment }}" in
+          "datafabric-preprod" | "taxcontent-preprod" | "vertexorg-prod")
+            echo "OP_CONNECT_TOKEN=${{ secrets.OP_DP_NONPROD_TOKEN }}" >> $GITHUB_ENV
+          ;;
+          "datafabric-prod" | "taxcontent-prod" )
+            echo "OP_CONNECT_TOKEN=${{ secrets.OP_DP_PROD_TOKEN }}" >> $GITHUB_ENV
+          ;;
+          *)
+            echo "Missed something"
+          ;;
+        esac
+
+    - name: Load secret from 1Password
+      id: op-load-secret
+      uses: 1password/load-secrets-action@v4
+      with:
+        mask-secrets: false
+        export-env: false
+      env:
+        OP_CONNECT_HOST: ${{ secrets.VDF_OP_CONNECT_SERVER_HOST }}
+        OP_CONNECT_TOKEN: ${{ env.OP_CONNECT_TOKEN }}
+
+    - name: Set terraform environment variables
+      run: |
+        # ALL ENVS
+        echo "TF_LOG=${{ inputs.logDebug }}" >> $GITHUB_ENV
+        echo "BACKEND_ENCRYPT=true" >> $GITHUB_ENV
+        echo "BACKEND_EXTERNAL_ID=${{ secrets.ORG_RUNNER_AWS_EXTERNALID }}" >> $GITHUB_ENV
+        echo "TF_VAR_aws_external_id=${{ secrets.ORG_RUNNER_AWS_EXTERNALID }}" >> $GITHUB_ENV
+        echo "ENVIRONMENT=${{ inputs.targetEnvironment }}" >> $GITHUB_ENV
+        echo "SNOWFLAKE_PRIVATE_KEY<<EOF" >> $GITHUB_ENV
+        echo "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" >> $GITHUB_ENV
+        echo "EOF" >> $GITHUB_ENV
+        echo "TF_VAR_OP_CONNECT_HOST=${{ secrets.VDF_OP_CONNECT_SERVER_HOST }}" >> $GITHUB_ENV
+        echo "TF_VAR_OP_CONNECT_TOKEN=${{ env.OP_CONNECT_TOKEN }}" >> $GITHUB_ENV
+
+        # PER ENV
+        case "${{ inputs.targetEnvironment }}" in
+          "datafabric-preprod")
+            echo "TF_VAR_aws_role_arn=arn:aws:iam::597123819409:role/vtx-GitHubActions" >> $GITHUB_ENV
+          ;;
+          "taxcontent-preprod")
+            echo "TF_VAR_aws_role_arn=arn:aws:iam::597123819409:role/vtx-GitHubActions" >> $GITHUB_ENV
+          ;;
+          "datafabric-prod")
+            echo "TF_VAR_aws_role_arn=arn:aws:iam::409148389496:role/vtx-GitHubActions" >> $GITHUB_ENV
+          ;;
+          "taxcontent-prod")
+            echo "TF_VAR_aws_role_arn=arn:aws:iam::409148389496:role/vtx-GitHubActions" >> $GITHUB_ENV
+          ;;
+          "vertexorg-prod")
+            echo "TF_VAR_aws_role_arn=arn:aws:iam::597123819409:role/vtx-GitHubActions" >> $GITHUB_ENV
+          ;;
+          *)
+            echo "Missed something"
+          ;;
+        esac
+
+    - name: install terraform
+      uses: hashicorp/setup-terraform@5bf3c6d9deaf4193ca7ab23f2ac83bb6c85
+      with:
+        terraform_version: 1.2.4
+        terraform_wrapper: false
+
+    - name: Debug info
+      if: github.event.inputs.logDebug == 'TRACE'
+      run: |
+        env
+        git config --list
+        pwd
+        ls -la
+
+    - name: Initialize Terraform
+      run: |
+        terraform init -backend-config="external_id=$BACKEND_EXTERNAL_ID" \
+          -backend-config="backend-$ENVIRONMENT.tfvars"
+
+    - name: Format terraform
+      run: terraform fmt -check
+
+    - name: Validate terraform
+      run: terraform validate
+
+    - name: Plan terraform
+      run: |
+        terraform plan --var-file=$ENVIRONMENT.tfvars -out=./output.tfplan
