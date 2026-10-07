@@ -2,7 +2,7 @@
 
 - [Overview](#overview)
 - [dbt Project File Structure (Typical Layout)](#dbt-project-file-structure-typical-layout)
-- [Key Files Explained:](#key-files-explained)
+- [Key Files Explained](#key-files-explained)
 - [🧠 Bonus: Model Organization Strategy](#-bonus-model-organization-strategy)
 
 &nbsp;
@@ -19,12 +19,17 @@ my_dbt_project/
 ├── dbt_project.yml         👈 Project settings (name, paths, configs)
 ├── packages.yml            📦 For installing dbt packages (optional)
 ├── profiles.yml            🔐 (Not here by default — lives in ~/.dbt/)
+├── README.md
 │
 ├── models/                 🏗️ Main folder for your SQL models
 │   ├── staging/            🔹 Staging models (raw → clean)
-│   ├── marts/              🔸 Business logic (clean → final reports)
+│   │   ├── source.yml
+│   │   ├── stg_customers.sql
+│   │   ├── stg_orders.sql
+│   │   └── staging.yml
+│   │
 │   ├── intermediate/       🔸 Optional: reusable logic between stage & mart
-│   └── my_model.sql        🧪 A simple SQL model
+│   └── marts/              🔸 Business logic (clean → final reports)
 │
 ├── seeds/                  🌱 CSV files that can be loaded as tables
 │   └── sample_data.csv
@@ -36,10 +41,14 @@ my_dbt_project/
 │   └── custom_macros.sql
 │
 ├── tests/                  ✅ Custom data tests (optional, can be inline too)
-│   └── assert_high_value_orders.sql
+│   └── custom_test.sql
 │
-└── analyses/               📊 Ad hoc queries for analysis (not models)
-    └── churn_exploration.sql
+├── analyses/               📊 Ad hoc queries for analysis (not models)
+│   └── customer_analysis.sql
+└── target/
+    ├── compiled/
+    ├── run/
+    └── manifest.json
 ```
 
 &nbsp;

@@ -5,6 +5,7 @@
 - [Run dbt project](#run-dbt-project)
 - [Seed](#seed)
   - [Seed for specific environment](#seed-for-specific-environment)
+  - [Delete any file / folder from local](#delete-any-file--folder-from-local)
 
 &nbsp;
 
@@ -45,6 +46,12 @@ dbt seed --target dev
 &nbsp;
 
 &nbsp;
+
+## Delete any file / folder from local
+
+```bash
+dbt clean
+```
 
 &nbsp;
 

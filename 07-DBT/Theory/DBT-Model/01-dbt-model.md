@@ -4,7 +4,7 @@
 - [Summary](#summary)
 - [DBT Model](#dbt-model)
 - [Basic Example](#basic-example)
-  - [Explanation](#explanation)
+    - [Explanation](#explanation)
 - [Run dbt model](#run-dbt-model)
   - [Explanation](#explanation-1)
 - [dbt handles](#dbt-handles)
@@ -39,6 +39,8 @@
 # DBT Model
 
 A dbt model is one of the core building blocks of dbt.
+
+A dbt model is simply a SQL file that contains the transformation logic for your data.
 
 It’s basically a **SQL SELECT** query saved in a `.sql` file, and dbt uses it to create **views or tables** in data warehouse.
 
