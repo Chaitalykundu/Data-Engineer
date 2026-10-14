@@ -254,7 +254,7 @@ So, Snowflake is still doing the actual computation, but dbt gives us a proper f
 
 &nbsp;
 
-## Investigate and resolve a 2 AM failed pipeline.
+## Investigate and resolve a 2 AM failed pipeline
 
 If a production pipeline fails at 2 AM, my first priority is to understand the impact, identify the exact failure point, and restore the pipeline safely. I would avoid making random changes in production.
 

@@ -123,7 +123,6 @@ Suppose your S3 bucket contains customers.txt, transactions.json, employee_photo
 | Videos    | ❌ No                           | Video processing first           |
 | PDFs      | ❌ Not directly                 | Extract text/metadata first      |
 
-
 In Short **_dbt is primarily a SQL-based transformation framework, so it doesn't directly process binary data such as images or videos. I would use an ingestion or processing layer such as Python, Spark, or specialized ML/media-processing tools to extract the required metadata or features and load those results into Snowflake. dbt can then perform SQL-based transformations, modeling, testing, and documentation on that structured data._**
 
 &nbsp;

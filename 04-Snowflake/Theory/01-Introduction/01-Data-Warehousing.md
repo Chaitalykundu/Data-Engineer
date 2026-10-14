@@ -2,11 +2,11 @@
 
 - [Overview](#overview)
 - [Data Warehousing](#data-warehousing)
-- [Data Warehousing](#data-warehousing-1)
-  - [Example:](#example)
+- [Data Warehouse](#data-warehouse)
+  - [Example](#example)
 - [Key Characteristics of Data Warehouse](#key-characteristics-of-data-warehouse)
   - [1. Subject-Oriented](#1-subject-oriented)
-    - [Examples:](#examples)
+    - [Examples](#examples)
   - [Integrated](#integrated)
   - [3. Time-Variant](#3-time-variant)
   - [4. Non-Volatile](#4-non-volatile)
@@ -32,9 +32,11 @@ Data Warehousing is the process of **collecting**, **storing**, and **managing**
 
 &nbsp;
 
-# Data Warehousing
+# Data Warehouse
 
 A Data Warehouse is a centralized system where data from multiple systems (databases, applications, files, APIs) is integrated and stored for reporting, analytics, and business intelligence.
+
+&nbsp;
 
 &nbsp;
 

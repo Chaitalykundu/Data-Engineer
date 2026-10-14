@@ -34,6 +34,7 @@
 # DBT Roadmap — Beginner → Advanced
 
 ## LEVEL 1 — dbt Fundamentals
+
 ### 1. What is dbt?
 
 Understand:
@@ -113,6 +114,7 @@ my_dbt_project/
 Understand the purpose of every directory.
 
 Must know
+
 - dbt_project.yml
 - profiles.yml
 - models
@@ -122,7 +124,6 @@ Must know
 - macros
 - analyses
 - packages
-
 
 &nbsp;
 
@@ -177,7 +178,6 @@ Because `ref()` gives dbt:
 - Lineage
 - Correct execution order
 
-
 &nbsp;
 
 &nbsp;
@@ -195,7 +195,6 @@ sources:
       - name: customers
       - name: orders
 ```
-
 
 Then:
 
@@ -248,7 +247,11 @@ Database View
 
 &nbsp;
 
+&nbsp;
 
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 
@@ -256,21 +259,11 @@ Database View
 
 &nbsp;
 
-
-
 &nbsp;
 
 &nbsp;
 
 &nbsp;
-
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
 
 # Tools You’ll Use Along side dbt
 

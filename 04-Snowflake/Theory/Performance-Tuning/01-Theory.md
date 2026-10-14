@@ -18,7 +18,7 @@ Given a slow Snowflake query, identify why it is slow, use Query Profile/Query H
 
 &nbsp;
 
-# We'll cover this in 5 stages:
+# We'll cover this in 5 stages
 
 1. Query History
 2. Query Profile

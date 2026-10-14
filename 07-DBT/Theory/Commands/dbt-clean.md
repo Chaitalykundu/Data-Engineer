@@ -21,7 +21,6 @@ In dbt, `dbt clean` is used to delete generated/temporary files and directories 
 
 This command removes the directories configured in `clean-targets` inside `dbt_project.yml` file.
 
-
 &nbsp;
 
 &nbsp;
@@ -121,7 +120,6 @@ Deletes generated files from your local machine
 | Affects Git?       | ✅ Yes                      | Indirectly                         |
 | Affects Snowflake? | ❌ No                       | ❌ No                               |
 | Common targets     | `target/`, `dbt_packages/` | `target/`, `dbt_packages/`         |
-
 
 &nbsp;
 

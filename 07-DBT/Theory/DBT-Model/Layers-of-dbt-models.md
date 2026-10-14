@@ -3,15 +3,15 @@
 - [Content](#content)
 - [Layers of dbt](#layers-of-dbt)
 - [1. Source / RAW](#1-source--raw)
-    - [Example:](#example)
+  - [Example:](#example)
 - [2. Staging layer](#2-staging-layer)
-    - [Example:](#example-1)
+  - [Example:](#example-1)
 - [3. Intermediate layer](#3-intermediate-layer)
-    - [Example:](#example-2)
+  - [Example:](#example-2)
 - [4. Marts / Curated layer](#4-marts--curated-layer)
-    - [Examples:](#examples)
+  - [Examples:](#examples)
 - [5. Semantic layer](#5-semantic-layer)
-    - [Examples:](#examples-1)
+  - [Examples:](#examples-1)
 - [Easy way to remember](#easy-way-to-remember)
 
 &nbsp;
@@ -60,7 +60,7 @@ BI / Analytics
 
 Technically, RAW is usually not a dbt transformation layer. It is the data loaded by tools such as Fivetran, Snowpipe, etc.
 
-### Example:
+### Example
 
 ```
 RAW.CUSTOMERS
@@ -86,7 +86,7 @@ Typical work:
 
 &nbsp;
 
-### Example:
+### Example
 
 ```sql
 SELECT
@@ -120,7 +120,7 @@ Typical work:
 
 &nbsp;
 
-### Example:
+### Example
 
 ```sql
 SELECT
@@ -156,7 +156,7 @@ Data Marts
 
 &nbsp;
 
-### Examples:
+### Examples
 
 ```
 dim_customer
@@ -184,7 +184,8 @@ Prepared data → Business-ready tables
 
 This is about business meaning and metrics, rather than simply another cleaning layer.
 
-### Examples:
+### Examples
+
 ```
 Revenue
 Net Revenue
@@ -218,7 +219,6 @@ The goal is to ensure that different analysts/tools use the same definition of a
 | **Intermediate**  | How do we combine/process it?               |
 | **Marts/Curated** | What data does the business need?           |
 | **Semantic**      | What do these metrics mean to the business? |
-
 
 &nbsp;
 

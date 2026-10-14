@@ -415,7 +415,6 @@ Useful for:
 
 # Query History and Query Profile
 
-
 ## Query History
 
 What happened to the query?
@@ -455,7 +454,6 @@ Result
 ```
 
 &nbsp;
-
 
 So your troubleshooting workflow should generally be:
 

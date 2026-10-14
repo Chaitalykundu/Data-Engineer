@@ -1,4 +1,4 @@
-# Micro-partition hands-on questions
+.# Micro-partition hands-on questions
 
 1. Check the table details using:
 

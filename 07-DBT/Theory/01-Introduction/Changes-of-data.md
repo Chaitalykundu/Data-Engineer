@@ -4,7 +4,7 @@
 - [Typical flow](#typical-flow)
 - [1. Data changes During extraction](#1-data-changes-during-extraction)
 - [2. During loading](#2-during-loading)
-    - [Example](#example)
+  - [Example](#example)
 - [3. After loading — this is where dbt comes in](#3-after-loading--this-is-where-dbt-comes-in)
   - [Step 1: RAW → STAGING](#step-1-raw--staging)
     - [Example](#example-1)
@@ -138,6 +138,7 @@ Make the raw data clean and standardized enough to work with.
 Suppose Fivetran has loaded this into SNOWFLAKE => `RAW.CUSTOMERS`
 
 Raw table
+
 | customer_id | name | city | status | amount |
 | ----------- | ----- | ------- | -------- | -----: |
 | 101 | john | kolkata | active | 5000 |

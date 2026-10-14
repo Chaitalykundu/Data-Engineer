@@ -17,11 +17,15 @@
     - [How I would design RBAC for hundreds/thousands of users](#how-i-would-design-rbac-for-hundredsthousands-of-users)
   - [SCD Type. implement both in DBT/Snowflake? Which one used in your project?](#scd-type-implement-both-in-dbtsnowflake-which-one-used-in-your-project)
   - [Optimize warehouse usage and control cost?](#optimize-warehouse-usage-and-control-cost)
-  - [Investigate and resolve a 2 AM failed pipeline.](#investigate-and-resolve-a-2-am-failed-pipeline)
+  - [Investigate and resolve a 2 AM failed pipeline](#investigate-and-resolve-a-2-am-failed-pipeline)
   - [Troubleshoot a sudden slow query or pipeline?](#troubleshoot-a-sudden-slow-query-or-pipeline)
+  - [handle NULL and duplicate values](#handle-null-and-duplicate-values)
+    - [How I handle NULL values](#how-i-handle-null-values)
+    - [How I handle duplicate values](#how-i-handle-duplicate-values)
   - [IAM User and IAM Role?](#iam-user-and-iam-role)
   - [Give an IAM user access to S3](#give-an-iam-user-access-to-s3)
   - [Access Keys and when are they used](#access-keys-and-when-are-they-used)
+  - [data warehouses and data lake](#data-warehouses-and-data-lake)
 - [Coding](#coding)
   - [Find the 2nd highest salary](#find-the-2nd-highest-salary)
   - [2. Find the top 3 highest-paid employees in each department](#2-find-the-top-3-highest-paid-employees-in-each-department)
@@ -59,6 +63,7 @@
 15. How do you give an IAM user access to S3
 16. What are Access Keys and when are they used
 17. Difference between data warehouses and data lake
+18. How would you handle NULL and duplicate values in your data pipeline
 
 &nbsp;
 
@@ -373,7 +378,7 @@ I optimize Snowflake warehouse usage mainly by controlling warehouse size, auto-
 
 &nbsp;
 
-## Investigate and resolve a 2 AM failed pipeline.
+## Investigate and resolve a 2 AM failed pipeline
 
 If a production pipeline fails at 2 AM, my first priority is to understand the impact, identify the exact failure point, and restore the pipeline safely. I would avoid making random changes in production.
 
@@ -415,47 +420,47 @@ Query History → Query Profile → Identify bottleneck → Check data/query des
 
 1. Start with Query History
 
-  First identify the problematic query and collect:
+First identify the problematic query and collect:
 
-  - QUERY_ID
-  - QUERY_TEXT
-  - WAREHOUSE_NAME
-  - TOTAL_ELAPSED_TIME
-  - EXECUTION_TIME
-  - COMPILATION_TIME
-  - Queued time
-  - BYTES_SCANNED
-  - ROWS_PRODUCED
-  - Query status
+- QUERY_ID
+- QUERY_TEXT
+- WAREHOUSE_NAME
+- TOTAL_ELAPSED_TIME
+- EXECUTION_TIME
+- COMPILATION_TIME
+- Queued time
+- BYTES_SCANNED
+- ROWS_PRODUCED
+- Query status
 
-    ```sql
-    SELECT
-    QUERY_ID,
-    QUERY_TEXT,
-    WAREHOUSE_NAME,
-    TOTAL_ELAPSED_TIME / 1000 AS ELAPSED_SECONDS,
-    EXECUTION_TIME / 1000 AS EXECUTION_SECONDS,
-    COMPILATION_TIME / 1000 AS COMPILATION_SECONDS,
-    BYTES_SCANNED,
-    ROWS_PRODUCED,
-    EXECUTION_STATUS
-    FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY
-    WHERE START_TIME >= DATEADD('hour', -24, CURRENT_TIMESTAMP())
-    LIMIT 20;
-    ORDER BY TOTAL_ELAPSED_TIME DESC
-    ```
-
-    
+  ```sql
+  SELECT
+  QUERY_ID,
+  QUERY_TEXT,
+  WAREHOUSE_NAME,
+  TOTAL_ELAPSED_TIME / 1000 AS ELAPSED_SECONDS,
+  EXECUTION_TIME / 1000 AS EXECUTION_SECONDS,
+  COMPILATION_TIME / 1000 AS COMPILATION_SECONDS,
+  BYTES_SCANNED,
+  ROWS_PRODUCED,
+  EXECUTION_STATUS
+  FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY
+  WHERE START_TIME >= DATEADD('hour', -24, CURRENT_TIMESTAMP())
+  LIMIT 20;
+  ORDER BY TOTAL_ELAPSED_TIME DESC
+  ```
 
 2. Separate execution time from waiting time
-This is very important.
+   This is very important.
 
 Suppose:
+
 ```
 Total elapsed time       = 180 sec
 Execution time           = 40 sec
 Queued time              = 140 sec
 ```
+
 The SQL itself isn't necessarily the main problem.
 
 You should investigate:
@@ -465,7 +470,6 @@ You should investigate:
 - Warehouse size
 - Multi-cluster configuration
 - Other long-running queries
-
 
 But if:
 
@@ -511,10 +515,10 @@ That deserves investigation.
 Ask:
 
 - Is the query scanning unnecessary micro-partitions?
-Is the filter selective?
-Are predicates written appropriately?
-Is pruning happening?
-Are we selecting unnecessary columns?
+  Is the filter selective?
+  Are predicates written appropriately?
+  Is pruning happening?
+  Are we selecting unnecessary columns?
 - Is a join causing a large intermediate dataset?
 
 5. Check micro-partition pruning
@@ -526,7 +530,6 @@ SELECT *
 FROM SALES
 WHERE SALE_DATE = '2026-09-25';
 ```
-
 
 If SALES contains years of data but Snowflake can eliminate most micro-partitions based on metadata, the query can be much more efficient.
 
@@ -548,8 +551,8 @@ Investigate:
 - Is the join condition correct?
 - Are you accidentally creating a many-to-many join?
 - Is one side much larger than expected?
-Are there duplicate keys?
-Are unnecessary columns being carried through the query?
+  Are there duplicate keys?
+  Are unnecessary columns being carried through the query?
 - Can filtering happen before the join?
 
 A many-to-many join can cause a huge increase in intermediate rows.
@@ -559,6 +562,7 @@ A many-to-many join can cause a huge increase in intermediate rows.
 Look for queries that process a huge amount of data before applying filters.
 
 For example:
+
 ```
 SELECT *
 FROM (
@@ -607,10 +611,10 @@ ROW_NUMBER() OVER (
     ORDER BY SALE_DATE DESC
 )
 ```
+
 can require significant processing if the input dataset is huge.
 
 Investigate whether you can reduce the dataset before applying the expensive operation.
-
 
 9. Check data volume changes
 
@@ -633,8 +637,8 @@ Then investigate:
 - Data growth
 - New source data
 - Unexpected duplicates
-Changed filters
-Changed query logic
+  Changed filters
+  Changed query logic
 - Changed table structure
 
 This is why historical Query History comparison is useful.
@@ -648,11 +652,10 @@ Look at:
 - Warehouse size
 - Concurrency
 - Queue time
-Number of running queries
-Warehouse utilization
-Auto-suspend/resume
+  Number of running queries
+  Warehouse utilization
+  Auto-suspend/resume
 - Multi-cluster configuration
-
 
 Example
 
@@ -708,6 +711,26 @@ Snowflake has different forms of caching, and you should understand whether the 
 For example, if a query runs very quickly on the second execution, caching may be contributing to the difference.
 
 When benchmarking a query, be careful to compare like with like rather than concluding that a query rewrite improved performance simply because the second execution benefited from caching.
+
+&nbsp;
+
+&nbsp;
+
+## handle NULL and duplicate values
+
+I would identify which test failed. For example, if I have configured not_null and unique tests on the employee_id column in my schema.yml file, dbt will fail the respective tests if the column contains NULL values or duplicate employee IDs.
+I would check the dbt test output to identify the failing model and test, and then query the data in Snowflake to understand the issue.
+
+### How I handle NULL values
+
+Second, I would investigate the NULL values. I would check whether the column is mandatory or optional. If employee_id is mandatory, I would quarantine the records containing NULL values and log the reason. If the column is optional, I would review whether the not_null test is actually required by the business rules. I would not replace NULL values with arbitrary defaults just to make the test pass.
+
+&nbsp;
+
+### How I handle duplicate values
+
+Third, I would investigate the duplicate values. I would identify the business key and check why multiple records exist. If the duplicates are caused by repeated ingestion or multiple versions of the same employee record, I would use ROW_NUMBER() to retain the latest valid record based on the update timestamp. If they represent legitimate historical records, I would adjust the uniqueness rule to reflect the correct business key instead of deleting valid data.
+
 &nbsp;
 
 &nbsp;
