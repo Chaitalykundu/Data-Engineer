@@ -1,0 +1,4 @@
+Today's goal: 
+    - Understand how PySpark works, set up your local environment, create a SparkSession, and load your first datasets into Spark DataFrames.
+    - What is Apache Spark
+    - What is PySpark?

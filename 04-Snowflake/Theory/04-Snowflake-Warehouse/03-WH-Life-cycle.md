@@ -18,15 +18,15 @@
 
 # Virtual Warehouse Lifecycle in Snowflake
 
-| Lifecycle stage | Purpose                                                  | Example command                          |
-| --------------- | -------------------------------------------------------- | ---------------------------------------- |
-| Create          | Creates a virtual warehouse                              | `CREATE WAREHOUSE`                       |
-| Use             | Selects the warehouse for the current session            | `USE WAREHOUSE`                          |
-| Suspend         | Stops compute resources and credit consumption           | `ALTER WAREHOUSE ... SUSPEND`            |
-| Resume          | Restarts a suspended warehouse                           | `ALTER WAREHOUSE ... RESUME`             |
-| Resize          | Changes warehouse size and computing power               | `ALTER WAREHOUSE ... SET WAREHOUSE_SIZE` |
-| Alter           | Modifies properties such as auto-suspend and auto-resume | `ALTER WAREHOUSE ... SET`                |
-| Drop            | Permanently removes the warehouse object                 | `DROP WAREHOUSE`                         |
+| Lifecycle stage | Purpose                                                  | Example command                              |
+| --------------- | -------------------------------------------------------- | -------------------------------------------- |
+| Create          | Creates a virtual warehouse                              | `CREATE WAREHOUSE WH_NAME`                   |
+| Use             | Selects the warehouse for the current session            | `USE WAREHOUSE WH_NAME`                      |
+| Suspend         | Stops compute resources and credit consumption           | `ALTER WAREHOUSE WH_NAME SUSPEND`            |
+| Resume          | Restarts a suspended warehouse                           | `ALTER WAREHOUSE WH_NAME RESUME`             |
+| Resize          | Changes warehouse size and computing power               | `ALTER WAREHOUSE WH_NAME SET WAREHOUSE_SIZE` |
+| Alter           | Modifies properties such as auto-suspend and auto-resume | `ALTER WAREHOUSE WH_NAME SET`                |
+| Drop            | Permanently removes the warehouse object                 | `DROP WAREHOUSE WH_NAME`                     |
 
 &nbsp;
 
