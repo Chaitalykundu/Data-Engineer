@@ -6,6 +6,7 @@
 - [3. What is the difference between ETL and ELT?](#3-what-is-the-difference-between-etl-and-elt)
 - [4. Why is ELT commonly used with Snowflake?](#4-why-is-elt-commonly-used-with-snowflake)
 - [5. Why do Data Engineers use Git?](#5-why-do-data-engineers-use-git)
+- [Project](#project)
 
 &nbsp;
 
@@ -95,3 +96,17 @@ Git tracks code changes, supports collaboration, allows previous versions to be 
 &nbsp;
 
 &nbsp;
+
+is running dbt directly inside Snowflake worth it, or should you stick with a self-managed dbt Core setup?
+
+How can we use a **dbt CASE macro** to categorize customer CIBIL scores and simplify business logic?
+
+If Snowflake already provides Streams and Tasks, why do we need dbt?
+
+&nbsp;
+
+&nbsp;
+
+# Project
+
+https://lnkd.in/p/d_P6W55g
