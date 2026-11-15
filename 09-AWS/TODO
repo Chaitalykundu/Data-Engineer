@@ -1,0 +1,9 @@
+14-11-2026:    
+    - IAM Users vs IAM Roles. @started(26-11-14 13:48)
+    - IAM Groups and Policies.
+    - Identity-based vs Resource-based policies.
+    - Trust policies.
+    - AWS managed vs Customer managed policies.
+    - Least privilege principle.
+    - Hands-on: Create an IAM role for Lambda to read an S3 object.
+    - Troubleshoot AccessDenied errors.
