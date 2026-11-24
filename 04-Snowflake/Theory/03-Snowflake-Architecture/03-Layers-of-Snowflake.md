@@ -41,8 +41,7 @@ Each layer can scale independently.
 
 &nbsp;
 
-<img src="../../assets/Snowflake-Architecture.png">
-
+<img src="../assets/snowflake-architecture/layers-of-snowflake.png">
 &nbsp;
 
 &nbsp;
@@ -56,14 +55,12 @@ Each layer can scale independently.
    Cloud Services   Compute     Storage
         │            │            │
         │            │            │
-   ┌────┴────┐    Virtual      Micro-
-   │         │    Warehouses   partitions
-   │         │
-Authentication
-Metadata
-Query parsing
-Optimization
-Security
+ Authentication   Virtual      Micro-
+ Authentication   Warehouses   partitions
+ Metadata
+ Query parsing
+ Optimization
+ Security
 ```
 
 &nbsp;
